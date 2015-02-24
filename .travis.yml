@@ -1,0 +1,21 @@
+---
+language: node_js
+
+sudo: false
+
+cache:
+  directories:
+    - node_modules
+
+install:
+  - npm install -g bower
+  - npm install
+  - bower install
+
+script:
+  - ember server &
+  - sleep 5
+  - npm test
+
+notifications:
+  flowdock: 7810528ead9733543fd77e874400b1c1
