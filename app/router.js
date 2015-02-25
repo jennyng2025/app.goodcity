@@ -1,23 +1,12 @@
 import Ember from 'ember';
 import config from './config/environment';
+import GoodcityRouter from 'ember-goodcity/router/router';
 
-var Router = Ember.Router.extend({
+var Router = GoodcityRouter.extend({
   location: config.locationType
 });
 
 Router.map(function() {
-  this.resource('i18n', { path: '/i18n' });
-  this.resource('logout', { path: '/logout' });
-
-  this.route('register');
-  this.route('login');
-  this.route('resend');
-  this.route('authenticate');
-  this.route('territories');
-  this.route('districts');
-
-  this.resource('tour');
-
   this.resource('offers', function () {
     this.route('index', { path: '/'});
     this.route('new', { path: '/new'});
