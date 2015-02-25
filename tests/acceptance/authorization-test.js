@@ -46,23 +46,3 @@ test("On register page redirect to home-page if already logged-in", function() {
     equal(currentURL(), '/offers');
   });
 });
-
-test("On restricted page redirect to offers page if not staff", function() {
-  App = startApp();
-
-  visit('/inbox');
-
-  andThen(function() {
-    equal(currentURL(), '/offers');
-  });
-});
-
-test("On restricted page doesn't redirect if staff", function() {
-  App = startApp({}, 1);
-
-  visit('/inbox');
-
-  andThen(function() {
-    equal(currentURL(), '/inbox');
-  });
-});

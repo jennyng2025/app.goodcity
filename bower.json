@@ -34,7 +34,6 @@
     "qunit": "~1.16.0"
   },
   "resolutions": {
-    "jquery-placeholder": "~2.1.0",
-    "ember-data": "1.0.0-beta.15"
+    "jquery-placeholder": "~2.1.0"
   }
 }

@@ -6,7 +6,7 @@ var App, testHelper,
 
 module('Offer Index View', {
   setup: function() {
-    App = startApp({}, 1);
+    App = startApp({});
     testHelper = TestHelper.setup(App);
   },
   teardown: function() {
@@ -16,11 +16,11 @@ module('Offer Index View', {
 });
 
 test('Offers list & link to add items', function() {
-  expect(2);
-
   visit('/offers');
 
   andThen(function() {
+    equal(currentURL(), "/offers");
+
     // display offers that have at least 1 items
     equal(find('.list-items li').length, 3);
 
@@ -35,6 +35,7 @@ test("Offers Details", function() {
   visit('/offers');
 
   andThen(function() {
+
     equal(find('.list-items li').length, 3);
     var offer_detail = find('.list-items li').first().text();
     var offer_detail_text = $.trim(offer_detail.replace(/\s+/g, " "));
