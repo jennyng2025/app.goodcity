@@ -9,8 +9,6 @@
 @import "custom_checkbox";
 @import "date_time_picker";
 @import "select2";
-@import "book_van";
-@import "confirm_van";
 @import "porterage_charges";
 @import "validations";
 @import "placeholder";
@@ -20,7 +18,6 @@
 /* template specific */
 @import "templates/loading";
 @import "templates/notifications";
-@import "templates/review_offer";
 @import "templates/index";
 @import "templates/tour";
 @import "templates/message_template";
@@ -38,6 +35,5 @@
 @import "templates/offer/collection_charges";
 @import "templates/delivery/contact_details";
 @import "templates/delivery/drop_off";
-@import "templates/review_offer/logistics";
-@import "templates/review_item/reject";
-@import "templates/review_item";
+@import "templates/delivery/book_van";
+@import "templates/delivery/confirm_van";
