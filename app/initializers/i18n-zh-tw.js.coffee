@@ -247,17 +247,6 @@ I18nTranslationsZhTw =
         "register" : "Register"
         "login" : "Login"
 
-      "inbox":
-        "title" : "New Offers"
-        "new_items" : "New Items"
-        "unread_messages" : "Unread Messages: {{unreadMessagesCount}}"
-        "in_review" : "In Review"
-        "my_list" : "My List"
-        "my_offers" : "My Offers"
-        "reviewed_offers": "Reviewed Offers"
-        "scheduled_offers": "Scheduled Offers"
-        "closed_offers": "Closed Offers"
-
       "messages":
         "unread" : "Unread ({{unreadCount}})"
         "owner" : "You"
@@ -265,54 +254,6 @@ I18nTranslationsZhTw =
       "notifications":
         "text" : "{{text}}"
         "view": "View"
-
-      "review_item":
-        "accept" : "Accept"
-        "accept_item" : "Accept Item"
-        "reject" : "Reject"
-        "reject_item" : "reject Item"
-        "not_now" : "Not Now"
-        "donor_message" : "Donor"
-        "supervisor_message" : "Supervisors"
-        "view_lable_guide": "View labeling guide"
-        "condition": "Condition"
-        "add_component": "Add component"
-
-      "reject":
-        "select_type": "Please choose Item Type first!"
-        "option_error": "Please choose a reason."
-        "reject_item": "Reject Item"
-        "quality" : "Quality"
-        "size": "Size"
-        "supply": "Supply/Demand"
-        "message_placeholder" : "Message to donor about the rejection of this item"
-        "reject_message" : "Unfortunately we cannot receive this item. "
-        "quality_message" : "Some categories of items are very difficult for us to distribute unless they are in excellent condition."
-        "size_message" : "Very few of our clients are able to accommodate large items in their homes."
-        "supply_message" : "Unfortunately we cannot receive this item because we have a large quantity already in stock."
-
-      "review_offer":
-        "review_started_by" : "Started by {{lastName}} {{firstName}}"
-        "no_items": "No items needed"
-        "close_offer": "Close Offer"
-        "items_reviewed": "All items reviewed"
-        "set_logistics": "Set logistics"
-        "to_complete": "to complete"
-        "plan_transport": "User to plan transport."
-        "reviewed": "Reviewed"
-        "start_review": "Start Review"
-        "goods_received_by" : "Goods received by {{lastName}} {{firstName}}"
-        "offer_closed_by": "Offer closed by {{lastName}} {{firstName}}"
-
-      "logistics":
-        "no_items": "No items to transport."
-        "offer_closed": "This offer is closed now."
-        "close_offer": "Close Offer"
-        "message_donor": "Message Donor"
-        "finish_review_request": "Please finish reviewing items first!"
-        "accepted_items": "Accepted Items"
-        "gogovan_requirement": "Gogovan Reqirement"
-        "crossroads_requirement": "Crossroads Requirement"
 
       # Components
       "upload-images":
