@@ -9,3 +9,5 @@ test:
     - ./node_modules/ember-cli/bin/ember server:
         background: true
     - sleep 5
+  override:
+    - ember test
