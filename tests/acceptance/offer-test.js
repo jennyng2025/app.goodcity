@@ -40,7 +40,7 @@ test("Display offer details", function() {
     equal(find('.item-content li img').length, 2);
 
     // favourite image for 'item2': default image
-    equal(find('img[src="/assets/images/default_item.jpg"]').length, 1);
+    equal(find('img[src="assets/images/default_item.jpg"]').length, 1);
 
     // favourite image for 'item': image2
     equal(find("img[src='" + image.get("thumbImageUrl") + "']").length, 1);
