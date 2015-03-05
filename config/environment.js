@@ -65,8 +65,8 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     // RESTAdapter Settings
-    ENV.APP.API_HOST_URL = 'http://api.goodcity.hk';
-    ENV.APP.SOCKETIO_WEBSERVICE_URL = 'http://socket.goodcity.hk:81/goodcity';
+    ENV.APP.API_HOST_URL = 'https://api.goodcity.hk';
+    ENV.APP.SOCKETIO_WEBSERVICE_URL = 'https://socket.goodcity.hk:81/goodcity';
     //Airbrake Js keys
     ENV.APP.AIRBRAKE_HOST = "https://errbit.crossroads.org.hk";
     ENV.APP.AIRBRAKE_PROJECT_ID = 0;
