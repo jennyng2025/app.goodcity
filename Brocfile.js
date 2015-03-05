@@ -8,6 +8,11 @@ var app = new EmberApp({
   vendorFiles: { 'handlebars.js': null },
   fingerprint: {
     enabled: !!process.env.EMBER_CLI_CORDOVA && process.env.EMBER_ENV === 'production'
+  },
+  gzip: {
+    keepUncompressed: true,
+    extensions: ['js', 'css', 'map', 'ttf', 'ott', 'eot', 'svg'],
+    enabled: ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1
   }
 });
 
