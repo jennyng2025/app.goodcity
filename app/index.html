@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/goodcity.css">
 
+    {{content-for 'head-footer'}}
+
     <!-- "Add to homescreen" icon for android devices -->
     <link rel="manifest" href="assets/manifest.json">
 
@@ -25,7 +27,10 @@
   </head>
   <body>
     {{content-for 'body'}}
+
     <script src="assets/vendor.js"></script>
     <script src="assets/goodcity.js"></script>
+
+    {{content-for 'body-footer'}}
   </body>
 </html>

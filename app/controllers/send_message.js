@@ -1,7 +1,7 @@
 import Ember from 'ember';
-import SendMessage from 'ember-goodcity/controllers/send_message';
+import sendMsg from 'ember-goodcity/controllers/send_message';
 
-var sendMessage = SendMessage.extend({
+var sendMessage = sendMsg.extend({
   needs: ["offer"],
 
   actions: {

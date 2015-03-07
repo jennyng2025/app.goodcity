@@ -10,9 +10,7 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
-        I18N_TRANSLATE_HELPER_SPAN: false //switch to future version default to suppress warning
-      },
-      I18N_COMPILE_WITHOUT_HANDLEBARS: true //switch to future version default to suppress warning
+      }
     },
 
     APP: {

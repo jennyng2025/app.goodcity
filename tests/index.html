@@ -6,11 +6,16 @@
     <title>Goodcity Tests</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     {{content-for 'head'}}
     {{content-for 'test-head'}}
+
     <link rel="stylesheet" href="assets/vendor.css">
     <link rel="stylesheet" href="assets/goodcity.css">
     <link rel="stylesheet" href="assets/test-support.css">
+
+    {{content-for 'head-footer'}}
+    {{content-for 'test-head-footer'}}
     <style>
       #ember-testing-container {
         position: absolute;
@@ -29,6 +34,7 @@
     </style>
   </head>
   <body>
+
     <div id="qunit"></div>
     <div id="qunit-fixture"></div>
     {{content-for 'body'}}
@@ -39,5 +45,8 @@
     <script src="assets/goodcity.js"></script>
     <script src="testem.js"></script>
     <script src="assets/test-loader.js"></script>
+
+    {{content-for 'body-footer'}}
+    {{content-for 'test-body-footer'}}
   </body>
 </html>
