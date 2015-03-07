@@ -4,8 +4,10 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
 var app = new EmberApp({
   vendorFiles: { 'handlebars.js': null },
+  minifyCSS: { enabled: ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1 },
+  minifyJS:  { enabled: ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1 },
   fingerprint: {
-    enabled: (process.env.EMBER_CLI_CORDOVA == '0') && ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1
+    enabled: (process.env.EMBER_CLI_CORDOVA == 0) && ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1
   },
   gzip: {
     keepUncompressed: true,
