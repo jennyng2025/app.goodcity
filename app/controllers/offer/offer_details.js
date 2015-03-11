@@ -5,7 +5,6 @@ var offerDetails = Ember.ObjectController.extend({
 
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
-  staffMessagesPage: Ember.computed.alias('session.currentUser.isStaff'),
   joyrideSeen:  Ember.computed.localStorage(),
 
   firstEverItem: function(){
