@@ -22,6 +22,7 @@ module.exports = function(environment) {
       HK_COUNTRY_CODE: '+852',
       // RESTAdapter Settings
       NAMESPACE: 'api/v1',
+      CONTACT_EMAIL: 'info@goodcity.hk',
 
       PRELOAD_TYPES: ["territory"],
       PRELOAD_AUTHORIZED_TYPES: ["offer","item_type","donor_condition","rejection_reason","permission", "timeslot", "gogovan_transport", "crossroads_transport"]

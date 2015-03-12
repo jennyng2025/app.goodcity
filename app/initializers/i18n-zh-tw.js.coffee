@@ -74,6 +74,32 @@ I18nTranslationsZhTw =
           "free" : "免費"
           "booking_button" : "詳情及預訂"
 
+      "collection_charges":
+          "info": '''
+            Crossroads' collection service is staffed partially by volunteers and partially by a social enterprise partner who is helping people get back into the workforce.
+
+            We seek corporate sponsors to cover labour and vehicles (purchase / depreciation, insurance etc.) We ask donors to contribute the variable costs (fuel, parking, tolls, maintenance etc.) Our variable costs average $600 per collection day so, depending on how much of the truck your donation fills up, we ask for a contribution of between $75 and $600.
+
+            If you have ways to handle the vehicle hire and labour yourself we are always very grateful and it could save you time. Our collection service is very popular so donors typically have to wait weeks for a booking. Sorry!
+
+            If you or your company are interested in being a vehicle sponsor we'd love to hear from you! We could provide faster service and help more people if we had the sponsorship to expand our collection service. We'd love to display your corporate logo on our truck to show Hong Kong how you are making a difference. Please email {{email}}
+            '''
+
+      "gogovan_charges":
+        "info": '''
+          We partner with GoGoVan so you can hire a van or truck from within GoodCity!
+
+          Quotes are live, based on your location and the type of vehicle your donation requires. Our reviewers have already indicated if you will need a van or a truck so your quotes will be based on that.
+
+          GoGoVan quotes do not include labour, tunnel tolls or other charges. You need to agree these with the driver before you finalise your booking.
+
+          Labour charges:<br/>In our experience, labour will typically cost about $100 per worker, per hour. You will often need two labourers to safely move large items.
+
+          Independent drivers use GoGoVan to get transport bookings, they are not employed by GoGoVan. Different drivers will have different skills and expectations when asked to provide "removal services". They won't ordinarily come prepared to disassemble items for you or put loose items into boxes. You can do all this in advance to keep things fast and simple or you can chat to the driver about your needs in detail so he can quote for the work.
+
+          Also, please be up-front and clear about any challenges associated with your location (such as stairs, parking, footpaths or other obstacles) so the driver can charge for labour accordingly. If you're in a tricky location, please note that some drivers may not be able to take the job.
+          '''
+
       "gogovan":
         "porterage":
           "title" : "Porterage Charges"
