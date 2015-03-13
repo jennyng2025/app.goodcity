@@ -1,4 +1,4 @@
-import transportDetails from 'ember-goodcity/controllers/offer/transport_details';
+import transportDetails from 'shared.goodcity/controllers/offer/transport_details';
 
 var transportDetail = transportDetails.extend({
   needs: ['offers/index'],

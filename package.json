@@ -15,7 +15,7 @@
     "deploy-live": "site=app.goodcity.hk ports=22,62423 environment=production ./deploy"
   },
   "repository": {
-    "url": "https://github.com/crossroads/goodcity.donor.git",
+    "url": "https://github.com/crossroads/app.goodcity.git",
     "private": true
   },
   "engines": {
@@ -44,7 +44,6 @@
     "ember-cli-html5-validation": "git://github.com/swatijadhav/ember-cli-html5-validation.git",
     "ember-cli-htmlbars": "^0.7.4",
     "ember-cli-ic-ajax": "^0.1.1",
-    "ember-goodcity": "git://github.com/crossroads/ember-goodcity.git",
     "body-parser": "^1.12.0",
     "ember-select-2": "^1.2.0",
     "broccoli-sass": "^0.4.0",
@@ -53,6 +52,7 @@
     "glob": "^5.0.1"
   },
   "dependencies": {
+    "shared.goodcity": "git://github.com/crossroads/shared.goodcity.git",
     "slick-carousel": "^1.4.1"
   }
 }
