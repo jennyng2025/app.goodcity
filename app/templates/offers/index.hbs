@@ -19,7 +19,7 @@
           <a href="#" {{action 'newOffer'}} class="button expand">{{t "offers.index.new_donation"}}</a>
 
           <ul class="list list-items">
-            {{#each offer in offersWithItems}}
+            {{#each offer in arrangedContent}}
               <li>
                 {{#if offer.isDraft }}
                   {{#link-to 'offer.offer_details' offer}}

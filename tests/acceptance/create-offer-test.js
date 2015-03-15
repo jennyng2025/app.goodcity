@@ -43,7 +43,7 @@ test("should redirect to previous empty offer", function() {
     click("a:contains('Make a New Donation')");
 
     andThen(function(){
-      equal(currentURL(), '/offers/2');
+      equal(currentURL(), '/offers/3');
 
       //test: item count zero
       equal($.trim(find('.tab-bar-section .title').text()), "Offer items (0)");

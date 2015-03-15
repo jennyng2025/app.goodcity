@@ -1,9 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
+
+  sortProperties: ["latestUpdatedTime:desc"],
+  arrangedContent: Ember.computed.sort("offersWithItems", "sortProperties"),
+
   offersWithItems: function(){
-    return this.rejectBy('itemCount', 0);
-  }.property('@each.itemCount'),
+    return this.get('model').rejectBy('itemCount', 0);
+  }.property('model.@each.itemCount'),
 
   actions: {
     newOffer: function(allOffers){
