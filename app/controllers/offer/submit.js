@@ -10,12 +10,9 @@ export default Ember.ObjectController.extend({
         saleable: saleable
       });
 
-      var route = this;
-
-      offer.save().then(function() {
-        loadingView.destroy();
-        route.transitionToRoute('offer.offer_details');
-      });
+      offer.save()
+        .then(() => this.transitionToRoute('offer.offer_details'))
+        .finally(() => loadingView.destroy());
     }
   }
 });

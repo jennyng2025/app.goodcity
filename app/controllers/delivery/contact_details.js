@@ -20,6 +20,9 @@ export default addressDetails.extend({
       var offer = delivery.get('offer');
       var schedule = delivery.get('schedule');
 
+      var loadingView = this.container.lookup('view:loading').append();
+      var handleError = error => { loadingView.destroy(); throw error; };
+
       // Save the new model
       var route = this;
       contact.save().then(function(contact) {
@@ -35,12 +38,13 @@ export default addressDetails.extend({
 
           delivery.save().then(function() {
             offer.set('state', 'scheduled');
+            loadingView.destroy();
             route.transitionToRoute('delivery.thank_offer').then(function(newRoute) {
               newRoute.controller.set('contact', contact);
             });
-          });
-        });
-      });
+          }, handleError);
+        }, handleError);
+      }, handleError);
     }
   }
 });

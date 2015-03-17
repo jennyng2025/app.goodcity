@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import '../../computed/local-storage';
 
-var offerDetails = Ember.ObjectController.extend({
+export default Ember.ObjectController.extend({
 
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
@@ -49,12 +49,10 @@ var offerDetails = Ember.ObjectController.extend({
           item.unloadRecord();
         });
 
-        var route = this;
-        offer.destroyRecord().then(function(){
-          loadingView.destroy();
-          route.transitionToRoute('offers.index');
-        });
-      }
+        offer.destroyRecord()
+          .then(() => this.transitionToRoute('offers.index'))
+          .finally(() => loadingView.destroy());
+        }
     },
 
     addMoreItem: function() {
@@ -66,5 +64,3 @@ var offerDetails = Ember.ObjectController.extend({
     },
   }
 });
-
-export default offerDetails;

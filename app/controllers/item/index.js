@@ -12,13 +12,13 @@ export default Ember.ObjectController.extend({
         offer.get('items').removeObject(item);
 
         item.destroyRecord().then(function(){
-          loadingView.destroy();
           if(offer.get('itemCount') === 0) {
             controller.transitionToRoute("offer");
           } else {
             controller.transitionToRoute("offer.offer_details");
           }
-        });
+        })
+        .finally(() => loadingView.destroy());
       }
     }
   }
