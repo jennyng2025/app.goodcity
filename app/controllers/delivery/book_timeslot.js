@@ -24,7 +24,7 @@ export default Ember.ArrayController.extend({
             offer: offerId
         });
         delivery.save()
-          .then(() => this.transitionToRoute('delivery.contact_details'))
+          .then(() => _this.transitionToRoute('delivery.contact_details'))
           .finally(() => loadingView.destroy());
       }, handleError);
     }
