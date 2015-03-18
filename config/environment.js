@@ -20,6 +20,7 @@ module.exports = function(environment) {
 
     APP: {
       // Cloudinary Keys
+      NAME: 'donor',
       CLOUD_NAME: 'ddoadcjjl',
       CLOUD_API_KEY: 926849638736153,
       CLOUD_URL: 'https://api.cloudinary.com/v1_1/ddoadcjjl/auto/upload',
@@ -30,7 +31,9 @@ module.exports = function(environment) {
       CONTACT_EMAIL: 'info@goodcity.hk',
 
       PRELOAD_TYPES: ["territory"],
-      PRELOAD_AUTHORIZED_TYPES: ["offer","item_type","donor_condition","rejection_reason","permission", "timeslot", "gogovan_transport", "crossroads_transport"]
+      PRELOAD_AUTHORIZED_TYPES: ["offer","item_type","donor_condition","rejection_reason","permission", "timeslot", "gogovan_transport", "crossroads_transport"],
+      SHA: process.env.APP_SHA || "00000000",
+      VERSION: "1.0.0"
     },
 
     cordova: {
