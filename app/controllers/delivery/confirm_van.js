@@ -39,6 +39,7 @@ export default Ember.ObjectController.extend({
       var offer = delivery.get('offer');
 
       orderDetails.setProperties({ name: name, mobile: mobile, offerId: offer.get('id') });
+      var handleError = error => { loadingView.destroy(); throw error; };
 
       // save schedule
       schedule.save().then(function(schedule) {
@@ -58,15 +59,14 @@ export default Ember.ObjectController.extend({
               // save delivery
               delivery.save().then(function() {
                 offer.set('state', 'scheduled');
-                controller.transitionToRoute('offer.transport_details', offer);
                 controller.set("inProgress", false);
-              });
-            }).finally(function() {
-              loadingView.destroy();
-            });
-          });
-        });
-      });
+                loadingView.destroy();
+                controller.transitionToRoute('offer.transport_details', offer);
+              }, handleError);
+            }, handleError);
+          }, handleError);
+        }, handleError);
+      }, handleError);
     }
   }
 });

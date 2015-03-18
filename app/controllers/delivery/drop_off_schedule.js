@@ -40,9 +40,10 @@ export default Ember.ObjectController.extend({
       var scheduleProperties = { slot: selectedSlot, scheduledAt: date, slotName: slotName};
 
       var bookedSchedule = _this.store.createRecord('schedule', scheduleProperties);
-      var deliveryId = _this.get('controllers.delivery').get('id');
-      var offerId = _this.get('controllers.offer').get('id');
+      var deliveryId = _this.get('controllers.delivery.id');
+      var offerId = _this.get('controllers.offer.id');
       var offer = _this.store.getById('offer', offerId);
+      var handleError = error => { loadingView.destroy(); throw error; };
 
       bookedSchedule.save().then(function(schedule) {
         var delivery = _this.store.push('delivery', {
@@ -54,8 +55,8 @@ export default Ember.ObjectController.extend({
           offer.set('state', 'scheduled');
           loadingView.destroy();
           _this.transitionToRoute('offer.transport_details', offer);
-        });
-      });
+        }, handleError);
+      }, handleError);
     }
   }
 });

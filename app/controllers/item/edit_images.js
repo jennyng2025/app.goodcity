@@ -75,7 +75,11 @@ export default Ember.ObjectController.extend({
 
     setFavourite: function() {
       this.get("images").setEach("favourite", false);
-      this.get("previewImage").set("favourite", true).save();
+      this.get("previewImage").set("favourite", true).save()
+        .catch(error => {
+          this.get("images").forEach(img => img.rollback());
+          throw error;
+        });
     },
 
     deleteImage: function() {

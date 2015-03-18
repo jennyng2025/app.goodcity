@@ -52,7 +52,7 @@ test("Confirm and Submit Offer", function(){
   click("a[href='/offers/"+ offer.id +"/confirm']");
 
   andThen(function() {
-    equal(/Confirm/i.test($('body h1').text()), true);
+    equal($('h1.title').text().toLowerCase(), "confirm");
     equal(currentURL(), "/offers/" + offer.id + "/confirm");
 
     // confirm offer page has submit link
@@ -61,7 +61,7 @@ test("Confirm and Submit Offer", function(){
     click("a[href='/offers/" + offer.id + "/submit']");
 
     andThen(function() {
-      equal(/Sale of goods/i.test($('body h1').text()), true);
+      equal($('h1.title').text().toLowerCase(), "sale of goods");
       equal(currentURL(), "/offers/" + offer.id + "/submit");
 
 

@@ -14,16 +14,19 @@ export default Ember.ArrayController.extend({
       var deliveryId = _this.get('controllers.delivery').get('id');
       var offerId = _this.get('controllers.offer').get('id');
 
+      var loadingView = this.container.lookup('view:loading').append();
+      var handleError = error => { loadingView.destroy(); throw error; };
+
       bookedSchedule.save().then(function(schedule) {
         var delivery = _this.store.push('delivery', {
             id: deliveryId,
             schedule: schedule,
             offer: offerId
         });
-        delivery.save().then(function(){
-          _this.transitionToRoute('delivery.contact_details');
-        });
-      });
+        delivery.save()
+          .then(() => this.transitionToRoute('delivery.contact_details'))
+          .finally(() => loadingView.destroy());
+      }, handleError);
     }
   }
 });

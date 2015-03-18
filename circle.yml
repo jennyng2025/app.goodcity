@@ -5,10 +5,12 @@ machine:
     version: 0.12
 
 dependencies:
+  pre:
+    - node circle-branch.js app.goodcity
   post:
-    - "./node_modules/ember-cli/node_modules/bower/bin/bower install"
+    - ./node_modules/ember-cli/node_modules/bower/bin/bower install
   cache_directories:
-    - "bower_components"    # relative to the build directory
+    - bower_components    # relative to the build directory
 
 test:
   pre:
