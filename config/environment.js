@@ -20,7 +20,7 @@ module.exports = function(environment) {
 
     APP: {
       // Cloudinary Keys
-      NAME: 'donor',
+      NAME: 'app.goodcity',
       CLOUD_NAME: 'ddoadcjjl',
       CLOUD_API_KEY: 926849638736153,
       CLOUD_URL: 'https://api.cloudinary.com/v1_1/ddoadcjjl/auto/upload',
