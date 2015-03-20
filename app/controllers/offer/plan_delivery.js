@@ -1,5 +1,6 @@
 import Ember from 'ember';
-import AjaxPromise from './../../utils/ajax-promise';
+import AjaxPromise from '../../utils/ajax-promise';
+import logger from '../../utils/logger';
 
 export default Ember.ObjectController.extend({
   needs: ["offer"],
@@ -21,15 +22,13 @@ export default Ember.ObjectController.extend({
 
       new AjaxPromise("/gogovan_orders/calculate_price", "POST", this.session.get('authToken'), params)
         .then(data => this.set("gogovanPrice", data.base))
-        .catch(error => {
-          if (error.status !== 0) {
-            throw error;
-          }
-        });
+        .catch(logger.error);
 
       return "";
     }
   }.property('offerId'),
+
+  gogovanPriceCalculated: Ember.computed.notEmpty("gogovanPrice"),
 
   actions: {
     startDelivery: function(delivery_type) {
