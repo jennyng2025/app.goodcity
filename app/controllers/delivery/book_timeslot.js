@@ -2,6 +2,9 @@ import Ember from 'ember';
 
 export default Ember.ArrayController.extend({
   needs: ["delivery", "offer"],
+
+  availableSlots: Ember.computed.filterBy('model', 'deliveries.length', 0),
+
   isSelected: 1,
   actions: {
     assignSchedule: function() {

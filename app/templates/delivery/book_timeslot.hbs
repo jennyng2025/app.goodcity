@@ -15,7 +15,7 @@
       <div class='schedule-info'>Pick preferred date/time. First available times listed below.</div>
 
       <ul>
-        {{#each item in model}}
+        {{#each item in availableSlots}}
           <li>
             {{view 'radio-button' name="timeslot" selection=this.controller.isSelected value=item.id id=item.id}}
             <label {{bind-attr for=id}}>
