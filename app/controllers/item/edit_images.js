@@ -135,17 +135,26 @@ export default Ember.ObjectController.extend({
 
     uploadSuccess: function(e, data) {
       var identifier = data.result.version + "/" + data.result.public_id + "." + data.result.format;
-      var _this = this;
       if (this.get("noImage")) {
         var offer = this.get("controllers.offer.model");
         var defaultDonorCondition = this.store.all("donorCondition").sortBy("id").get("firstObject");
         var item = this.store.createRecord("item", {offer:offer,donorCondition:defaultDonorCondition,state:"draft"});
-        item.save().then(function() {
-          _this.store.createRecord('image', {cloudinaryId: identifier, item: item, favourite: true})
-            .save().then(function() { _this.transitionToRoute("item.edit_images", item.get("id")); });
-        });
+        item.save()
+          .then(() => {
+            this.store.createRecord('image', {cloudinaryId: identifier, item: item, favourite: true}).save()
+              .then(() => this.transitionToRoute("item.edit_images", item.get("id")));
+          })
+          .catch(error => {
+            item.unloadRecord();
+            throw error;
+          });
       } else {
-        _this.store.createRecord('image', {cloudinaryId: identifier, item: _this.get("model")}).save();
+        var img = this.store.createRecord('image', {cloudinaryId: identifier, item: this.get("model")});
+        img.save()
+          .catch(error => {
+            img.unloadRecord();
+            throw error;
+          });
       }
     }
   }

@@ -18,12 +18,8 @@ export default Ember.ObjectController.extend({
     if (arguments.length > 1) {
       return value;
     } else {
-      var _this = this;
       new AjaxPromise("/available_dates", "GET", this.get('session.authToken'), {schedule_days: 10})
-      .then(function(data) {
-        _this.set("available_dates", data);
-        value = data;
-      });
+        .then(data => this.set("available_dates", data));
       return value;
     }
   }.property('available_dates.[]'),
@@ -32,31 +28,36 @@ export default Ember.ObjectController.extend({
     bookSchedule: function() {
       var loadingView = this.container.lookup('view:loading').append();
 
-      var _this = this;
-      var selectedSlot = _this.get('selectedId');
-      var date = _this.get('selectedDate');
-      var slotName = _this.get('slots').filterBy('id', selectedSlot.get('id')).get('firstObject.name');
+      var selectedSlot = this.get('selectedId');
+      var date = this.get('selectedDate');
+      var slotName = this.get('slots').filterBy('id', selectedSlot.get('id')).get('firstObject.name');
 
       var scheduleProperties = { slot: selectedSlot, scheduledAt: date, slotName: slotName};
 
-      var bookedSchedule = _this.store.createRecord('schedule', scheduleProperties);
-      var deliveryId = _this.get('controllers.delivery.id');
-      var offerId = _this.get('controllers.offer.id');
-      var offer = _this.store.getById('offer', offerId);
-      var handleError = error => { loadingView.destroy(); throw error; };
+      var bookedSchedule = this.store.createRecord('schedule', scheduleProperties);
+      var deliveryId = this.get('controllers.delivery.id');
+      var offerId = this.get('controllers.offer.id');
+      var offer = this.store.getById('offer', offerId);
 
-      bookedSchedule.save().then(function(schedule) {
-        var delivery = _this.store.push('delivery', {
-            id: deliveryId,
-            schedule: schedule,
-            offer: offerId
-        });
-        delivery.save().then(function(){
-          offer.set('state', 'scheduled');
+      bookedSchedule.save()
+        .then(schedule => {
+          var delivery = this.store.push('delivery', {
+              id: deliveryId,
+              schedule: schedule,
+              offer: offerId
+          });
+          delivery.save()
+            .then(() => {
+              offer.set('state', 'scheduled');
+              this.transitionToRoute('offer.transport_details', offer);
+            })
+            .finally(() => loadingView.destroy());
+        })
+        .catch(error => {
           loadingView.destroy();
-          _this.transitionToRoute('offer.transport_details', offer);
-        }, handleError);
-      }, handleError);
+          bookedSchedule.unloadRecord();
+          throw error;
+        });
     }
   }
 });
