@@ -32,10 +32,10 @@
 <div class="btm">
   <div class="row">
     <div class="small-6 columns">
-      <button {{ action 'assignSchedule'}} class='button expand'>Book Time</button>
+      {{#view "online-button" action="assignSchedule" classNames="button expand"}}{{t "crossroads_truck.book_time"}}{{/view}}
     </div>
     <div class="small-6 columns">
-      <a href="#" {{ action ''}} class="button secondary expand">Show More</a>
+      {{#view "online-button" action="" classNames="button secondary expand"}}{{t "crossroads_truck.show_more"}}{{/view}}
     </div>
   </div>
 </div>

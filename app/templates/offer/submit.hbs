@@ -23,10 +23,10 @@
 <div class="btm">
   <div class="row">
     <div class="small-6 columns">
-      <button {{action 'submitOffer' true }} class="button expand">{{t "yes"}}</button>
+      {{#view "online-button" action="submitOffer" actionArgs=true classNames="button expand"}}{{t "yes"}}{{/view}}
     </div>
     <div class="small-6 columns">
-      <button {{action 'submitOffer' false }} class="button expand secondary">{{t "no"}}</button>
+      {{#view "online-button" action="submitOffer" actionArgs=false classNames="button expand secondary"}}{{t "no"}}{{/view}}
     </div>
   </div>
 </div>

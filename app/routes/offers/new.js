@@ -4,9 +4,11 @@ export default AuthorizeRoute.extend({
   model: function() {
     var offer = this.store.createRecord('offer');
 
-    var route = this;
-    offer.save().then(function(){
-      route.transitionTo('offer', offer.id);
-    });
+    offer.save()
+      .then(() => this.transitionTo('offer', offer.id))
+      .catch(error => {
+        this.transitionTo('offers');
+        throw error;
+      });
   }
 });
