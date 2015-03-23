@@ -100,6 +100,11 @@ I18nTranslationsZhTw =
         "open_new_tab": "will open in new tab"
         "message_map_link": "We will also message you a link to our map location so you have it handy when you need it!"
         "arrive_on_time": "Please arrive during our operating hours to ensure we can successfully receive your kind donation."
+        "book_schedule": "Book Schedule"
+
+      "crossroads_truck":
+        "book_time": "Book Time"
+        "show_more": "Show More"
 
       "offers":
         "index":
