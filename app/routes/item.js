@@ -5,7 +5,7 @@ export default AuthorizeRoute.extend({
     if (params.item_id === "new") {
       return null;
     }
-
-    return this.store.getById("item", params.item_id);
+    var item = this.store.getById("item", params.item_id);
+    return (item ? item : this.send("error"));
   }
 });
