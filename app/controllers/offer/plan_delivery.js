@@ -38,20 +38,24 @@ export default Ember.ObjectController.extend({
         deliveryType: delivery_type
       });
 
-      var route = this;
-      delivery.save().then(function(delivery) {
-        switch(delivery_type) {
-          case 'Alternate':
-            route.transitionToRoute('delivery.book_timeslot', delivery);
-            break;
-          case 'Gogovan':
-            route.transitionToRoute('delivery.book_van', delivery);
-            break;
-          case 'Drop Off':
-            route.transitionToRoute('delivery.drop_off_schedule', delivery);
-            break;
-        }
-      });
+      delivery.save()
+        .then(delivery => {
+          switch(delivery_type) {
+            case 'Alternate':
+              this.transitionToRoute('delivery.book_timeslot', delivery);
+              break;
+            case 'Gogovan':
+              this.transitionToRoute('delivery.book_van', delivery);
+              break;
+            case 'Drop Off':
+              this.transitionToRoute('delivery.drop_off_schedule', delivery);
+              break;
+          }
+        })
+        .catch(error => {
+          delivery.unloadRecord();
+          throw error;
+        });
     }
   }
 });
