@@ -8,6 +8,9 @@ module('Create New Offer', {
   setup: function() {
     App = startApp();
     testHelper = TestHelper.setup(App);
+
+    // prevent request to express server which returns 4 offers
+    testHelper.handleFindAll("offer", 0);
   },
   teardown: function() {
     Em.run(function() { testHelper.teardown(); });
@@ -18,11 +21,14 @@ module('Create New Offer', {
 test("should create new offer", function() {
   expect(3);
 
+  FactoryGuy.make("offer_with_items", {id:1}); // check offer with items is not returned
+  testHelper.handleCreate("offer").andReturn({id:5});
+
   visit("/offers/new");
 
   andThen(function() {
     // test: created new offer and redirected to its show page.
-    equal(currentURL(), '/offers/3');
+    equal(currentURL(), '/offers/5');
 
     //test: item count zero
     equal($.trim(find('.tab-bar-section .title').text()), "Offer items (0)");
@@ -35,6 +41,9 @@ test("should create new offer", function() {
 test("should redirect to previous empty offer", function() {
   expect(4);
 
+  FactoryGuy.make("offer_with_items", {id:1}); // check offer with items is not returned
+  testHelper.make("offer",{"id":5});
+
   visit("/offers");
 
   andThen(function() {
@@ -43,7 +52,7 @@ test("should redirect to previous empty offer", function() {
     click("a:contains('Make a New Donation')");
 
     andThen(function(){
-      equal(currentURL(), '/offers/3');
+      equal(currentURL(), '/offers/5');
 
       //test: item count zero
       equal($.trim(find('.tab-bar-section .title').text()), "Offer items (0)");
