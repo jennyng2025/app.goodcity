@@ -40,6 +40,7 @@ app.import("bower_components/pickadate/lib/themes/classic.time.css");
 // tabs js if included throws error on keypress when tab has focus
 app.import('bower_components/foundation/js/foundation/foundation.js');
 app.import('bower_components/foundation/js/foundation/foundation.offcanvas.js');
+app.import('bower_components/foundation/js/foundation/foundation.reveal.js');
 app.import('bower_components/foundation/js/foundation/foundation.joyride.js');
 app.import('bower_components/foundation/js/foundation/foundation.topbar.js');
 
