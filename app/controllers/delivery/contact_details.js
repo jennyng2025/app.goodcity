@@ -39,12 +39,16 @@ export default addressDetails.extend({
           delivery.save().then(function() {
             offer.set('state', 'scheduled');
             loadingView.destroy();
-            route.transitionToRoute('delivery.thank_offer').then(function(newRoute) {
-              newRoute.controller.set('contact', contact);
-            });
+            route.transitionToRoute('delivery.thank_offer')
+              .then(newRoute => newRoute.controller.set('contact', contact));
           }, handleError);
         }, handleError);
-      }, handleError);
+      })
+      .catch(error => {
+        contact.unloadRecord();
+        loadingView.destroy();
+        throw error;
+      });
     }
   }
 });

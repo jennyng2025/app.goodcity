@@ -29,7 +29,6 @@ export default Ember.ObjectController.extend({
       var name = Ember.$("#userName").val();
       var mobile = config.APP.HK_COUNTRY_CODE + Ember.$("#mobile").val();
       var contactProperties = { name: name, mobile: mobile };
-      var contact = controller.store.createRecord('contact', contactProperties);
 
       // schedule details
       var scheduleProperties = { scheduledAt: orderDetails.get('pickupTime'), slotName: orderDetails.get('slot') };
@@ -46,6 +45,7 @@ export default Ember.ObjectController.extend({
         delivery.set('schedule', schedule);
 
         // save contact
+        var contact = controller.store.createRecord('contact', contactProperties);
         contact.save().then(function(contact) {
           addressProperties.addressable = contact;
           var address = controller.store.createRecord('address', addressProperties);
@@ -66,7 +66,12 @@ export default Ember.ObjectController.extend({
             }, handleError);
           }, handleError);
         }, handleError);
-      }, handleError);
+      })
+      .catch(error => {
+        loadingView.destroy();
+        schedule.unloadRecord();
+        throw error;
+      });
     }
   }
 });

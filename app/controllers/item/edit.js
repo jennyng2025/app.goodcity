@@ -10,18 +10,23 @@ export default Ember.ObjectController.extend({
 
   actions: {
      submitItem: function() {
-      var _this = this;
       if (this.get("state") === "draft") {
         this.set("state_event", "submit");
       }
+
       var loadingView = this.container.lookup('view:loading').append();
       this.setProperties(this.get("formData"));
-      this.get("model").save().then(function() {
-        _this.set("state_event", null);
-        _this.transitionToRoute('offer.offer_details');
-      }).finally(function() {
-        loadingView.destroy();
-      });
+
+      this.get("model").save()
+        .then(() => {
+          this.set("state_event", null);
+          this.transitionToRoute('offer.offer_details');
+        })
+        .catch(error => {
+          this.get("model").rollback();
+          throw error;
+        })
+        .finally(() => loadingView.destroy());
     }
   }
 });

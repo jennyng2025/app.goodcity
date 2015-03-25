@@ -6,6 +6,7 @@ var app = new EmberApp({
   vendorFiles: { 'handlebars.js': null },
   sourcemaps: ['js', 'css'],
   fingerprint: {
+    extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map', 'eot', 'woff', 'woff2', 'ttf', 'ott', 'svg'],
     enabled: (process.env.EMBER_CLI_CORDOVA === '0') && ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1
   },
   gzip: {
@@ -39,6 +40,7 @@ app.import("bower_components/pickadate/lib/themes/classic.time.css");
 // tabs js if included throws error on keypress when tab has focus
 app.import('bower_components/foundation/js/foundation/foundation.js');
 app.import('bower_components/foundation/js/foundation/foundation.offcanvas.js');
+app.import('bower_components/foundation/js/foundation/foundation.reveal.js');
 app.import('bower_components/foundation/js/foundation/foundation.joyride.js');
 app.import('bower_components/foundation/js/foundation/foundation.topbar.js');
 
