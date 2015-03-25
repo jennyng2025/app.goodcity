@@ -52,7 +52,7 @@
                 <div class="row">
                   <div class="small-12 columns">
                     {{#if model.isReviewed}}
-                      {{t 'offer.transport_details.accepted_items'}}
+                      {{t 'delivery_details.accepted_items'}}
                     {{else}}
                       {{t 'offer.transport_details.accepted_items_count' acceptedCount=model.approvedItems.length}}
                     {{/if}}
@@ -71,7 +71,7 @@
             <hr>
             <div class="row">
               <div class="small-6 columns">
-                {{t 'offer.transport_details.district'}}
+                {{t 'delivery_details.district'}}
               </div>
               <div class="small-6 columns right strong">
                 {{district}}
@@ -81,7 +81,7 @@
             <hr>
             <div class="row">
               <div class="small-6 columns">
-                {{t 'offer.transport_details.charity_sale'}}
+                {{t 'delivery_details.charity_sale'}}
               </div>
               <div class="small-6 columns right strong">
                 {{model.isCharitableSale}}

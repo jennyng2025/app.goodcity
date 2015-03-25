@@ -159,10 +159,6 @@ I18nTranslationsEn =
         "transport_details" :
           "heading": "Transport Details"
           "no_items": "There are no items to transport<br> from this offer."
-          "accepted_items": "Accepted items to be transported"
-          "time": "Booking Time"
-          "modify": "Modify"
-          "cancel_booking": "Cancel Booking"
           "arrange_transport": "Arrange Transport"
           "wait_for_transport": "Transport arrangements can be made<br> once the review is complete."
           "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
