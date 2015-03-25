@@ -6,6 +6,8 @@ var Router = GoodcityRouter.extend({
 });
 
 Router.map(function() {
+  this.resource('tour');
+  this.route('register');
   this.resource('offers', function () {
     this.route('index', { path: '/'});
     this.route('new', { path: '/new'});
