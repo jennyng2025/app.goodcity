@@ -178,6 +178,11 @@ I18nTranslationsEn =
           "all_done_next": "When all done adding items, proceed to the next step"
           "first_item": "Select an item to view or modify it."
 
+        "cancel":
+          "title": "Cancel Offer"
+          "confirm_ggv_cancel": "Once GoGoVan confirms the order is cancelled you will be able to proceed to cancel your offer."
+          "cancel_offer": "Cancel Offer"
+
       "items":
         "edit_images":
           "add_photo" : "Add photo"
