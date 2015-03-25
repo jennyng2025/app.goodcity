@@ -8,6 +8,27 @@ I18nTranslationsZhTw =
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
     Ember.I18n.translation_store['zh-tw'] = Ember.$.extend SharedTranslationsZhTw,
+      "tour":
+        "step1.title" : "1. Photograph & describe"
+        "quality_items" : "quality items."
+        "we_receive" : "What we receive."
+        "step2.title" : "2. Submit for live review"
+        "chat_questions" : "We'll chat if we have questions"
+        "step3.title" : "3. Arrange transport"
+        "accepted_items" : "for accepted items."
+        "quick_easy" : "Quick & easy"
+        "step4.title" : "4. People are helped"
+        "make_goodcity" : "How you're making a Good City."
+        "faq" : "Frequently Asked Questions"
+
+      "register":
+        "hk_only" : "Mobile phone # (Hong Kong only)"
+        "given_name" : "Given name"
+        "family_name" : "Family name"
+        "districts" : "Districts"
+        "register" : "Register"
+        "login" : "Login"
+
       "plan_delivery":
         "title" : "計劃交付"
         "fastest" :
