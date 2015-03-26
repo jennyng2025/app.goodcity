@@ -7,6 +7,8 @@ export default Ember.ObjectController.extend({
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   joyrideSeen:  Ember.computed.localStorage(),
 
+  hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
+
   firstEverItem: function(){
     var currentDateTime = new Date();
     var itemCreated = new Date(this.get("createdAt").getTime() + 120000);
@@ -42,17 +44,21 @@ export default Ember.ObjectController.extend({
     },
 
     cancelOffer: function(offer){
-      if(confirm("Are you sure? This cannot be undone.")) {
-        var loadingView = this.container.lookup('view:loading').append();
-        var items = offer.get('items').toArray();
-        items.forEach(function(item) {
-          item.unloadRecord();
-        });
+      if(this.get('hasActiveGGVOrder')) {
+        this.transitionToRoute('offer.cancel', offer);
+      } else {
+        if(confirm("Are you sure? This cannot be undone.")) {
+          var loadingView = this.container.lookup('view:loading').append();
+          var items = offer.get('items').toArray();
+          items.forEach(function(item) {
+            item.unloadRecord();
+          });
 
-        offer.destroyRecord()
-          .then(() => this.transitionToRoute('offers.index'))
-          .finally(() => loadingView.destroy());
-        }
+          offer.destroyRecord()
+            .then(() => this.transitionToRoute('offers.index'))
+            .finally(() => loadingView.destroy());
+          }
+      }
     },
 
     addMoreItem: function() {

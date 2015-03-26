@@ -19,6 +19,7 @@ Router.map(function() {
       this.route('plan_delivery');
       this.route('collection_charges');
       this.route('gogovan_charges');
+      this.route('cancel');
 
       this.route('messages');
 
@@ -36,6 +37,8 @@ Router.map(function() {
         this.route('porterage_charges');
 
         this.route('drop_off_schedule');
+
+        this.route('cancel_booking');
       });
 
       this.resource('item', {path: '/items/:item_id'}, function() {

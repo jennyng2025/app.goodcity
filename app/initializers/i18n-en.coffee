@@ -180,15 +180,6 @@ I18nTranslationsEn =
         "transport_details" :
           "heading": "Transport Details"
           "no_items": "There are no items to transport<br> from this offer."
-          "accepted_items": "Accepted items to be transported"
-          "time": "Booking Time"
-          "name": "Contact Name"
-          "phone": "Contact Phone"
-          "address": "Address"
-          "district": "District"
-          "charity_sale": "Charity sale ok?"
-          "modify": "Modify"
-          "cancel_booking": "Cancel Booking"
           "arrange_transport": "Arrange Transport"
           "wait_for_transport": "Transport arrangements can be made<br> once the review is complete."
           "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
@@ -198,6 +189,11 @@ I18nTranslationsEn =
           "delete": "Tap <i class='fa fa-trash'></i> to cancel your offer"
           "all_done_next": "When all done adding items, proceed to the next step"
           "first_item": "Select an item to view or modify it."
+
+        "cancel":
+          "title": "Cancel Offer"
+          "confirm_ggv_cancel": "Once GoGoVan confirms the order is cancelled you will be able to proceed to cancel your offer."
+          "cancel_offer": "Cancel Offer"
 
       "items":
         "edit_images":
