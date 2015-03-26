@@ -10,7 +10,9 @@ export default Ember.ObjectController.extend({
 
   actions: {
     cancelOffer: function() {
-      this.get('controllers.offers/offer_details').send('cancelOffer', this.get('model'));
+      if(this.get('canCancel')){
+        this.get('controllers.offer/offer_details').send('cancelOffer', this.get('model'));
+      }
     }
   }
 });
