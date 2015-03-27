@@ -133,8 +133,20 @@ I18nTranslationsZhTw =
           "my_offers" : "我的供應信息"
           "total_items" : "總筆數: {{itemCount}}"
           "see_more" : "查看更多..."
-          "complete_offer" : "Complete this Offer"
           "unread_messages" : "Unread messages: {{unreadMessagesCount}}"
+          "complete_offer" : "Complete this Offer"
+          "in_review" : "In review"
+          "awaiting_review" : "Awaiting review"
+          "arrange_transport" : "Please arrange transport"
+          "closed" : "Closed"
+          "received" : "Received"
+          "van_booked" : "Van booked"
+          "drop_off" : "You will deliver to Crossroads"
+          "alternate" : "Crossroads collection booked"
+          "awaiting_driver" : "Awaiting driver details."
+          "driver_name" : "Driver name"
+          "phone" : "Phone"
+          "vehicle" : "Vehicle"
 
       "offer":
         "details" : "优惠详情"
@@ -219,6 +231,11 @@ I18nTranslationsZhTw =
         "in_review_status": "This item is being reviewed."
         "accepted_status": "This item has been accepted."
         "rejected_status": "This item has been rejected."
+
+        "messages":
+          "info_text1": "If we have questions when reviewing this item we will chat with you here."
+          "info_text2": "If you want to add a comment to this item for our reviewers, type it below."
+
 
       # Components
       "upload-images":

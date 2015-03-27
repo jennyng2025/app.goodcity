@@ -135,8 +135,21 @@ I18nTranslationsEn =
           "my_offers" : "My offers"
           "total_items" : "Total items: {{itemCount}}"
           "see_more" : "See more..."
-          "complete_offer" : "Complete this Offer"
           "unread_messages" : "Unread messages: {{unreadMessagesCount}}"
+          "complete_offer" : "Complete this Offer"
+          "in_review" : "In review"
+          "awaiting_review" : "Awaiting review"
+          "arrange_transport" : "Please arrange transport"
+          "closed" : "Closed"
+          "received" : "Received"
+          "van_booked" : "Van booked"
+          "drop_off" : "You will deliver to Crossroads"
+          "alternate" : "Crossroads collection booked"
+          "awaiting_driver" : "Awaiting driver details."
+          "driver_name" : "Driver name"
+          "phone" : "Phone"
+          "vehicle" : "Vehicle"
+
 
       "offer":
         "disable": "Disable"
