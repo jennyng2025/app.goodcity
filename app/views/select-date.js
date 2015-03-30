@@ -23,33 +23,33 @@ export default Ember.TextField.extend({
           _this.set("selection", date);
           Ember.$('#selectedTime').val('');
 
-          var selectedDate = date;
-          var currentDate = new Date();
-          // var currentYear = currentDate.getFullYear().toString();
-          // selectedDate = new Date(selectedDate + " " + currentYear);
-          currentDate.setHours(0,0,0,0);
-          selectedDate.setHours(0,0,0,0);
+          if(date) {
+            var selectedDate = date;
+            var currentDate = new Date();
+            currentDate.setHours(0,0,0,0);
+            selectedDate.setHours(0,0,0,0);
 
-          if(selectedDate.getTime() === currentDate.getTime()) {
-            var currentTime = new Date();
-            var hours = currentTime.getHours();
-            var minutes = currentTime.getMinutes();
-            minutes = minutes > 30 ? 30 : 0;
-            var total_mins = hours*60 + minutes;
-            total_mins = total_mins > 960 ? 960 : total_mins;
+            if(selectedDate.getTime() === currentDate.getTime()) {
+              var currentTime = new Date();
+              var hours = currentTime.getHours();
+              var minutes = currentTime.getMinutes();
+              minutes = minutes > 30 ? 30 : 0;
+              var total_mins = hours*60 + minutes;
+              total_mins = total_mins > 960 ? 960 : total_mins;
 
-            // disabled all previous options
-            Ember.$("#selectedTime option[value="+total_mins+"]").prevAll().each(function() {
-                Ember.$( this ).prop('disabled', true);
+              // disabled all previous options
+              Ember.$("#selectedTime option[value="+total_mins+"]").prevAll().each(function() {
+                  Ember.$( this ).prop('disabled', true);
 
-              });
-            // disable current option
-            Ember.$("#selectedTime option[value="+total_mins+"]").prop('disabled', true);
+                });
+              // disable current option
+              Ember.$("#selectedTime option[value="+total_mins+"]").prop('disabled', true);
 
-          } else {
-            Ember.$("#selectedTime option").each(function() {
-                Ember.$( this ).removeAttr( "disabled" );
-              });
+            } else {
+              Ember.$("#selectedTime option").each(function() {
+                  Ember.$( this ).removeAttr( "disabled" );
+                });
+            }
           }
         },
         onStart: function(){
