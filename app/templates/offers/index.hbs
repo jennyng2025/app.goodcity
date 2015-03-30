@@ -8,7 +8,7 @@
       </section>
 
       <section class="middle tab-bar-section">
-        <h1 class="title">Donations</h1>
+        <h1 class="title">{{t "offers.index.donations"}}</h1>
       </section>
     </nav>
 
@@ -21,85 +21,40 @@
           <ul class="list list-items">
             {{#each offer in arrangedContent}}
               <li>
-                {{#if offer.isDraft }}
-                  {{#link-to 'offer.offer_details' offer}}
-                    <span class="list-image">
-                      <img {{bind-attr src="offer.displayImageUrl"}} class="thumb" />
-                    </span>
-                    <span class="info">
-                      <h3>{{t "offers.index.complete_offer"}}</h3>
-                      {{partial 'unread_message_bubble'}}
-                    </span>
-                  {{/link-to}}
-                {{else}}
-                  {{#link-to 'offer.offer_details' offer}}
-                    <span class="list-image">
-                      <img {{bind-attr src="offer.displayImageUrl"}} class="thumb" />
-                    </span>
-                    <span class="info">
-                      <h3>{{offer.status}} ({{offer.itemCount}} items)</h3>
+                {{#link-to 'offer.offer_details' offer}}
+                  <span class="list-image">
+                    <img {{bind-attr src="offer.displayImageUrl"}} class="thumb" />
+                  </span>
+                  <span class="info">
+                    <h3>{{offer.status_text}}</h3>
+                    {{#unless offer.isDraft}}
                       {{#if offer.isScheduled }}
-                        {{display-date offer.delivery.schedule.scheduledAt}}
-                        <br/>{{offer.delivery.schedule.slotName}}<br/>
+                        {{#if offer.delivery.isGogovan}}
+                          {{display-date offer.delivery.schedule.scheduledAt}}
+                          <br/>
+                          {{#if offer.delivery.gogovanOrder.isPending}}
+                            {{t "offers.index.awaiting_driver"}}<br/>
+                          {{else}}
+                            {{t "offers.index.driver_name"}}: {{offer.delivery.gogovanOrder.driverName}},
+                            {{t "offers.index.phone"}}: {{offer.delivery.gogovanOrder.driverMobile}},
+                            {{t "offers.index.vehicle"}}: {{offer.delivery.gogovanOrder.driverLicense}}
+                          {{/if}}
+                        {{else}}
+                          {{display-date offer.delivery.schedule.scheduledAt}}
+                          <br/>{{offer.delivery.schedule.slotName}}<br/>
+                        {{/if}}
                       {{else}}
-                        Approved Items: {{offer.approvedItems.length}}<br/>
-                        Rejected Items: {{offer.rejectedItems.length}}<br/>
+                        {{t "offers.index.approved"}}: {{offer.approvedItems.length}}<br/>
+                        {{t "offers.index.rejected"}}: {{offer.rejectedItems.length}}<br/>
                       {{/if}}
-                      {{partial 'unread_message_bubble'}}
-                    </span>
-                  {{/link-to}}
-                {{/if}}
-
+                    {{/unless}}
+                    {{partial 'unread_message_bubble'}}
+                  </span>
+                {{/link-to}}
               </li>
             {{/each}}
           </ul>
-
           <hr>
-
-          <h2>Be a Hong-Kong Hero</h2>
-
-          <ul class="list">
-            <li>
-              <a href="#">
-                <span class="list-image">
-                  <img src="assets/images/thumb.jpg" alt="">
-                </span>
-                <span class="info">
-                  One of your Facebook friends has something to give to GoodCity.HK. Help them find out how!
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="list-image">
-                  <img src="assets/images/thumb.jpg" alt="">
-                </span>
-                <span class="info">
-                  Donate a “top five” item &amp; get 20% off a replacement from Fortress.
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="list-image">
-                  <img src="assets/images/thumb.jpg" alt="">
-                </span>
-                <span class="info">
-                  Donate a “top five” item &amp; get 20% off a replacement from Fortress.
-                </span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="list-image">
-                  <img src="assets/images/thumb.jpg" alt="">
-                </span>
-                <span class="info">
-                  Donate a “top five” item &amp; get 20% off a replacement from Fortress.
-                </span>
-              </a>
-            </li>
-          </ul>
         </div>
       </div>
     </section>
