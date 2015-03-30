@@ -9,3 +9,9 @@
     margin-top: -2.2rem;
   }
 }
+
+.list-items .offer_description {
+  @media #{$small-only} {
+    font-size: 0.7rem;
+  }
+}

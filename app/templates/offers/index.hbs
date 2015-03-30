@@ -27,6 +27,7 @@
                   </span>
                   <span class="info">
                     <h3>{{offer.status_text}}</h3>
+                    <div class='offer_description'>
                     {{#unless offer.isDraft}}
                       {{#if offer.isScheduled }}
                         {{#if offer.delivery.isGogovan}}
@@ -48,6 +49,7 @@
                         {{t "offers.index.rejected"}}: {{offer.rejectedItems.length}}<br/>
                       {{/if}}
                     {{/unless}}
+                    </div>
                     {{partial 'unread_message_bubble'}}
                   </span>
                 {{/link-to}}
