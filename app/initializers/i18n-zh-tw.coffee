@@ -147,6 +147,9 @@ I18nTranslationsZhTw =
           "driver_name" : "Driver name"
           "phone" : "Phone"
           "vehicle" : "Vehicle"
+          "approved" :"Approved Items"
+          "rejected" :"Rejected Items"
+          "donations": "Donations"
 
       "offer":
         "details" : "优惠详情"

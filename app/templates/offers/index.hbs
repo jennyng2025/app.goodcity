@@ -8,7 +8,7 @@
       </section>
 
       <section class="middle tab-bar-section">
-        <h1 class="title">Donations</h1>
+        <h1 class="title">{{t "offers.index.donations"}}</h1>
       </section>
     </nav>
 
@@ -31,18 +31,21 @@
                       {{#if offer.isScheduled }}
                         {{#if offer.delivery.isGogovan}}
                           {{display-date offer.delivery.schedule.scheduledAt}}
+                          <br/>
                           {{#if offer.delivery.gogovanOrder.isPending}}
                             {{t "offers.index.awaiting_driver"}}<br/>
                           {{else}}
-                            {{t "offers.index.driver_name"}}: {{offer.delivery.gogovanOrder.driverName}}, {{t "offers.index.phone"}}: {{delivery.gogovanOrder.driverMobile}}, {{t "offers.index.vehicle"}}: {{delivery.gogovanOrder.driverLicense}}
+                            {{t "offers.index.driver_name"}}: {{offer.delivery.gogovanOrder.driverName}},
+                            {{t "offers.index.phone"}}: {{offer.delivery.gogovanOrder.driverMobile}},
+                            {{t "offers.index.vehicle"}}: {{offer.delivery.gogovanOrder.driverLicense}}
                           {{/if}}
                         {{else}}
                           {{display-date offer.delivery.schedule.scheduledAt}}
                           <br/>{{offer.delivery.schedule.slotName}}<br/>
                         {{/if}}
                       {{else}}
-                        Approved Items: {{offer.approvedItems.length}}<br/>
-                        Rejected Items: {{offer.rejectedItems.length}}<br/>
+                        {{t "offers.index.approved"}}: {{offer.approvedItems.length}}<br/>
+                        {{t "offers.index.rejected"}}: {{offer.rejectedItems.length}}<br/>
                       {{/if}}
                     {{/unless}}
                     {{partial 'unread_message_bubble'}}

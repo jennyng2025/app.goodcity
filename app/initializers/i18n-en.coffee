@@ -149,7 +149,9 @@ I18nTranslationsEn =
           "driver_name" : "Driver name"
           "phone" : "Phone"
           "vehicle" : "Vehicle"
-
+          "approved" :"Approved Items"
+          "rejected" :"Rejected Items"
+          "donations": "Donations"
 
       "offer":
         "disable": "Disable"
