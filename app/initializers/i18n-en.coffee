@@ -210,16 +210,6 @@ I18nTranslationsEn =
           "cancel_offer": "Cancel Offer"
 
       "items":
-        "edit_images":
-          "add_photo" : "Add photo"
-          "delete_confirm" : "Are you sure you want to delete this image?"
-          "cant_delete_last_image" : "You must have at least one image"
-          "donating_what" : "What are you donating?"
-          "take_photos" : "Take some photos"
-          "fullscreen_tooltip" : "toggle fullscreen"
-          "favourite_tooltip" : "set as cover image"
-          "delete_tooltip" : "delete image"
-
         "add_item":
           "condition": "Condition?"
           "edit_image" : "Edit photos"
