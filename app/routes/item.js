@@ -6,6 +6,6 @@ export default AuthorizeRoute.extend({
       return null;
     }
     var item = this.store.getById("item", params.item_id);
-    return (item ? item : this.resourceNotFound("item"));
+    return item || this.store.find('item', params.item_id);
   }
 });
