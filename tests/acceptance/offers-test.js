@@ -3,7 +3,8 @@ import startApp from '../helpers/start-app';
 
 var App, testHelper, offer, offer1, offer2, item, item1, item2, item3, offerUrl,
   offer1Url, offer2Url, offer3, offer4, item3, item4, offer3Url, offer4Url, del,
-  del1, del2, offer5, item5, offer5Url,
+  del1, del2, offer5, item5, offer5Url, del3, offer6, item6, offer6Url,
+  ggvOrder, ggvOrder1,
   TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 
 module('Offer Index View', {
@@ -28,9 +29,15 @@ module('Offer Index View', {
     offer4 = FactoryGuy.make("offer", {state:"scheduled", delivery: del1});
     item4 = FactoryGuy.make("item", {state:"accepted", offer: offer4});
 
-    del2 = FactoryGuy.make("delivery", {deliveryType:"Gogovan"});
+    ggvOrder = FactoryGuy.make("gogovan_order");
+    del2 = FactoryGuy.make("delivery", {deliveryType:"Gogovan", gogovanOrder: ggvOrder});
     offer5 = FactoryGuy.make("offer", {state:"scheduled", delivery: del2});
     item5 = FactoryGuy.make("item", {state:"accepted", offer: offer5});
+
+    ggvOrder1 = FactoryGuy.make("gogovan_active_order");
+    del3 = FactoryGuy.make("delivery", {deliveryType:"Gogovan", gogovanOrder: ggvOrder1});
+    offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: del3});
+    item6 = FactoryGuy.make("item", {state:"accepted", offer: offer6});
 
   },
   teardown: function() {
@@ -40,7 +47,6 @@ module('Offer Index View', {
 });
 
 test('Offers list & link to add items', function() {
-  // offer3.set("delivery.deliveryType", "Drop Off")
   visit('/offers');
 
   andThen(function() {
@@ -63,8 +69,8 @@ test('Offers list & link to add items', function() {
     offer5Url = "/offers/"+offer5.id+"/offer_details";
     equal(Ember.$("a[href='"+offer5Url+"'] h3").text().indexOf("Van booked") > -1, true);
 
-    // display offers that have at least 1 items
-    // equal(find('.list-items li').length, 3);
+    offer6Url = "/offers/"+offer6.id+"/offer_details";
+    equal(Ember.$("a[href='"+offer6Url+"'] h3").text().indexOf("Van confirmed") > -1, true);
 
     // test: link to complete offers
     equal(find("a:contains('Complete this Offer')").length > 0, true);
