@@ -17,22 +17,20 @@ module('Display not found error', {
 });
 
 test("Display error popup for invalid offer", function() {
-  offer_error = "The offer you were looking for could not be found.";
   visit("/offers/invalid/offer_details");
 
   andThen(function(){
-    equal($("#errorMessage").text() === offer_error, true);
-    $('#errorModal').foundation('reveal', 'close');
+    equal(Ember.$("#errorMessage").text() === Ember.I18n.t("404_error"), true);
+    Ember.$('#errorModal').foundation('reveal', 'close');
   });
 });
 
 test("Display error popup for invalid item", function() {
-  item_error = "The item you were looking for could not be found.";
   visit("/offers/" + offer.id + "/items/invalid/messages");
 
   andThen(function(){
-    equal($("#errorMessage").text() === item_error, true);
-    $('#errorModal').foundation('reveal', 'close');
+    equal(Ember.$("#errorMessage").text() === Ember.I18n.t("404_error"), true);
+    Ember.$('#errorModal').foundation('reveal', 'close');
   });
 });
 
@@ -41,7 +39,6 @@ test("Display not-found page for invalid url", function() {
   visit("/invalid_url");
   andThen(function(){
     equal(currentURL(), "/invalid_url");
-    equal($(".xy-center").text().indexOf(not_found_message) > 0, true);
+    equal(Ember.$(".xy-center").text().indexOf(not_found_message) > 0, true);
   });
 });
-
