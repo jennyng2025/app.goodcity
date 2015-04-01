@@ -143,6 +143,7 @@ I18nTranslationsEn =
           "closed" : "Closed"
           "received" : "Received"
           "van_booked" : "Van booked"
+          "van_confirmed": "Van confirmed"
           "drop_off" : "You will deliver to Crossroads"
           "alternate" : "Crossroads collection booked"
           "awaiting_driver" : "Awaiting driver details."
