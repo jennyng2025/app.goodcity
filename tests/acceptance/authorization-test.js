@@ -16,7 +16,7 @@ test("Rediect to login if not logged-in", function() {
   App = startApp();
   expect(1);
 
-  lookup('session:current').set('authToken', null);
+  lookup('service:session').set('authToken', null);
 
   visit("/offers");
 
