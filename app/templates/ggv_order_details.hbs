@@ -1,0 +1,86 @@
+
+<nav class="tab-bar ggv_order">
+  <section class="middle tab-bar-section">
+    <h1 class="title">{{t "ggv_order.goodcity_job_summary"}}</h1>
+  </section>
+</nav>
+
+<section class="main-section ggv_order_details">
+  <div class="offer-status">
+    <span>
+      <i class="fa fa-exclamation-triangle"></i>
+    </span>
+    <span>
+      {{t "ggv_order.message"}}
+    </span>
+  </div>
+
+  <div class="row delivery-from">
+    <div class="small-12 columns address">
+      <h3>{{t "ggv_order.delivery_from"}} {{delivery.contact.name}}c</h3>
+      {{delivery.contact.address.fullAddress}} - {{delivery.contact.mobile}}
+    </div>
+    <hr>
+  </div>
+
+  <div class="row delivery-to">
+    <div class="small-11 columns address">
+      <h3>{{t "ggv_order.delivery_to"}}</h3>
+      {{t 'ggv_order.crossroads_address'}}
+    </div>
+    <div class="small-1 columns">
+      <a href={{gmapUrl}} target="_blank">
+        <i class="fa fa-map-marker fa-3x"></i>
+        {{ t "ggv_order.map"}}
+      </a>
+    </div>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="small-12 columns">
+      <ul class="list list-items">
+        {{#each model.items as |item|}}
+          <li>
+            <span class="list-image">
+              <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
+            </span>
+            <span class="info">
+              {{#if item.packages}}
+                <div class="row item-name">
+                  <div class="small-9 columns">
+                    <h3 class="ellipsis one-line-ellipsis item-name">{{{item.donorDescription}}}</h3>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="small-1 columns">
+                    {{#if item.lastMessage}}
+                      <span class="no-avatar">{{item.lastMessage.sender.nameInitial}}</span>
+                    {{/if}}
+                  </div>
+                  <div class="small-10 columns">
+                    <div class='ellipsis two-line-ellipsis message-text'>
+                      {{item.lastMessage.body}}
+                    </div>
+                  </div>
+                  <div class="small-1 columns right">
+                    {{#if item.unreadMessagesCount}}
+                      <span class='unread_length'>{{item.unreadMessagesCount}}</span>
+                      {{/if}}
+                  </div>
+                </div>
+              {{else}}
+                <div class="row item-name">
+                  <div class="small-12 columns">
+                    <h3 class="ellipsis three-line-ellipsis item-name">{{{item.donorDescription}}}</h3>
+                  </div>
+                </div>
+              {{/if}}
+            </span>
+          </li>
+        {{/each}}
+      </ul>
+      <hr>
+    </div>
+  </div>
+</section>

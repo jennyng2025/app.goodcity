@@ -1,0 +1,43 @@
+.tab-bar.ggv_order {
+  margin: 0;
+}
+
+.ggv_order_details {
+  .offer-status {
+    background-color: $coral-red;
+    font-size: 0.9rem;
+    color: $white;
+    @media #{$small-only} {
+      padding: 0 0.2rem 0.5rem 0.3rem;
+      line-height: 1rem;
+    }
+    .fa-exclamation-triangle{
+      @media #{$small-only} {
+        font-size: 1.5rem;
+        top: 0.8rem ;
+        position: relative;
+      }
+    }
+  }
+
+  .list-items li span {
+    display: table-cell;
+  }
+
+  .delivery-to, .delivery-from {
+    margin-bottom: 1rem;
+    .address {
+      color: $white;
+      margin-bottom: 1rem;
+    }
+    hr {
+      margin-bottom: 0;
+      @media #{$small-only} {
+        width: 110%;
+      }
+    }
+    i {
+      color: $coral-red;
+    }
+  }
+}
