@@ -12,7 +12,7 @@ module('Display Transport Details', {
     App = startApp();
     testHelper = TestHelper.setup(App);
     syncDataStub(testHelper);
-    lookup('session:current').set('isAdmin', false);
+    lookup('service:session').set('isAdmin', false);
 
     offer1 = FactoryGuy.make("offer", {state:"submitted"});
     item1  = FactoryGuy.make("item", {state:"submitted", offer: offer1});
