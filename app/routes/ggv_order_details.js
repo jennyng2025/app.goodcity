@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       .then(function(data) {
         _this.store.pushPayload(data);
         return _this.store.getById('offer', data.offer.id);
-      })
+      });
   },
 
   afterModel: function(offer, transition) {
