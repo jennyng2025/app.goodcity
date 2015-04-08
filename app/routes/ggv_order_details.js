@@ -1,13 +1,13 @@
 import Ember from 'ember';
 import AjaxPromise from '../utils/ajax-promise';
 
-// params.ggv_id will have format "22-David-8-1011369"
-// "offerId-DonorName-GogovanOrderId-GogovanBookingId"
+// params.ggv_id will have format "22-$$-David-$$-8-$$-Roy51-$$-90"
+// "offerId-$$-DonorName-$$-GogovanOrderId-$$-DonorLastName-$$-DeliveryId"
 
 export default Ember.Route.extend({
   model: function(params) {
     var _this = this;
-    var offerId = params.ggv_id.split('-')[0];
+    var offerId = params.ggv_id.split('?')[0];
 
     return new AjaxPromise("/offers/ggv_order_offer", "GET", null, {id: offerId})
       .then(function(data) {
@@ -18,10 +18,10 @@ export default Ember.Route.extend({
 
   afterModel: function(offer, transition) {
     this.set('offer', offer);
-    this.set('ggvID', transition.params.ggv_order_details.ggv_id.split('-'));
+    this.set('ggvID', transition.params.ggv_order_details.ggv_id.split('-$$-'));
     var validOffer = offer.get("isScheduled");
 
-    if (!(validOffer && this.validDonorName() && this.validGgvOrderId() && this.validBookingId())) {
+    if (!(validOffer && this.validDonorFName() && this.validGgvOrderId() && this.validDonorLName() && this.validDeliveryId())) {
       throw { status: 404 };
     }
   },
@@ -34,7 +34,7 @@ export default Ember.Route.extend({
     return (arguments.length > 1) ? value : "";
   }.property('model'),
 
-  validDonorName: function() {
+  validDonorFName: function() {
     return this.get("offer.createdBy.firstName") === this.get('ggvID')[1];
   },
 
@@ -42,7 +42,11 @@ export default Ember.Route.extend({
     return this.get("offer.delivery.gogovanOrder.id") === this.get('ggvID')[2];
   },
 
-  validBookingId: function() {
-    return this.get("offer.delivery.gogovanOrder.bookingId") === parseInt(this.get('ggvID')[3]);
+  validDonorLName: function() {
+    return this.get("offer.createdBy.lastName") === this.get('ggvID')[3];
+  },
+
+  validDeliveryId: function() {
+    return this.get("offer.delivery.id") === this.get('ggvID')[4];
   },
 });
