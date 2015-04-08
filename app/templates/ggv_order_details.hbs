@@ -1,4 +1,3 @@
-
 <nav class="tab-bar ggv_order">
   <section class="middle tab-bar-section">
     <h1 class="title">{{t "ggv_order.goodcity_job_summary"}}</h1>
@@ -17,8 +16,8 @@
 
   <div class="row delivery-from">
     <div class="small-12 columns address">
-      <h3>{{t "ggv_order.delivery_from"}} {{delivery.contact.name}}c</h3>
-      {{delivery.contact.address.fullAddress}} - {{delivery.contact.mobile}}
+      <h3>{{t "ggv_order.delivery_from"}}: {{userName}} </h3>
+      {{districtName}} - {{userMobile}}
     </div>
     <hr>
   </div>
@@ -51,24 +50,6 @@
                     <h3 class="ellipsis one-line-ellipsis item-name">{{{item.donorDescription}}}</h3>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="small-1 columns">
-                    {{#if item.lastMessage}}
-                      <span class="no-avatar">{{item.lastMessage.sender.nameInitial}}</span>
-                    {{/if}}
-                  </div>
-                  <div class="small-10 columns">
-                    <div class='ellipsis two-line-ellipsis message-text'>
-                      {{item.lastMessage.body}}
-                    </div>
-                  </div>
-                  <div class="small-1 columns right">
-                    {{#if item.unreadMessagesCount}}
-                      <span class='unread_length'>{{item.unreadMessagesCount}}</span>
-                      {{/if}}
-                  </div>
-                </div>
               {{else}}
                 <div class="row item-name">
                   <div class="small-12 columns">
@@ -80,7 +61,7 @@
           </li>
         {{/each}}
       </ul>
-      <hr>
+      <hr class="end_of_ul">
     </div>
   </div>
 </section>
