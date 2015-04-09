@@ -8,7 +8,7 @@
     font-size: 0.9rem;
     color: $white;
     @media #{$small-only} {
-      padding: 0 0.2rem 0.5rem 0.3rem;
+      padding: 0 2rem 0.5rem 0.3rem;
       line-height: 1rem;
     }
     .fa-exclamation-triangle{
@@ -22,6 +22,14 @@
 
   .list-items li span {
     display: table-cell;
+  }
+
+  .end_of_ul{
+    margin-left: -1.25rem;
+    margin-right: 0.62rem;
+    @media #{$small-only} {
+      margin-right: -1rem;
+    }
   }
 
   .delivery-to, .delivery-from {
