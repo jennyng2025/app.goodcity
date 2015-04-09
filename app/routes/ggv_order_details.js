@@ -21,7 +21,7 @@ export default Ember.Route.extend({
     this.set('ggvID', transition.params.ggv_order_details.ggv_id.split('-$$-'));
     var validOffer = offer.get("isScheduled");
 
-    if (!(validOffer && this.validDonorFName() && this.validGgvOrderId() && this.validDonorLName() && this.validDeliveryId())) {
+    if (!(validOffer && this.validDonorFName() && this.validDonorLName() && this.validDeliveryId())) {
       throw { status: 404 };
     }
   },
@@ -38,15 +38,11 @@ export default Ember.Route.extend({
     return this.get("offer.createdBy.firstName") === this.get('ggvID')[1];
   },
 
-  validGgvOrderId: function() {
-    return this.get("offer.delivery.gogovanOrder.id") === this.get('ggvID')[2];
-  },
-
   validDonorLName: function() {
-    return this.get("offer.createdBy.lastName") === this.get('ggvID')[3];
+    return this.get("offer.createdBy.lastName") === this.get('ggvID')[2];
   },
 
   validDeliveryId: function() {
-    return this.get("offer.delivery.id") === this.get('ggvID')[4];
+    return this.get("offer.delivery.id") === this.get('ggvID')[3];
   },
 });
