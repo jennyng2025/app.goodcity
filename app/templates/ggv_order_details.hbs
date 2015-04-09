@@ -5,13 +5,13 @@
 </nav>
 
 <section class="main-section ggv_order_details">
-  <div class="offer-status">
-    <span>
+  <div class="offer-status row">
+    <div class="small-2 medium-3 large-3 columns warning-icon">
       <i class="fa fa-exclamation-triangle"></i>
-    </span>
-    <span>
-      {{t "ggv_order.message"}}
-    </span>
+    </div>
+    <div class="small-10 medium-9 large-9 columns msg">
+      <div>{{t "ggv_order.message"}}</div>
+    </div>
   </div>
 
   <div class="row delivery-from">
@@ -23,11 +23,11 @@
   </div>
 
   <div class="row delivery-to">
-    <div class="small-11 columns address">
+    <div class="small-10 large-11 columns address">
       <h3>{{t "ggv_order.delivery_to"}}</h3>
       {{t 'ggv_order.crossroads_address'}}
     </div>
-    <div class="small-1 columns">
+    <div class="small-2 large-1 columns">
       <a href={{gmapUrl}} target="_blank">
         <i class="fa fa-map-marker fa-3x"></i>
         {{ t "ggv_order.map"}}
@@ -44,19 +44,12 @@
               <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
             </span>
             <span class="info">
-              {{#if item.packages}}
-                <div class="row item-name">
-                  <div class="small-9 columns">
-                    <h3 class="ellipsis one-line-ellipsis item-name">{{{item.donorDescription}}}</h3>
-                  </div>
+              <div class="row">
+                <div class="small-12 columns">
+                  <h3 class="ellipsis one-line-ellipsis">{{{item.itemType.name}}}</h3>
+                  <div class="ellipsis two-line-ellipsis">{{item.donorDescription}}</div>
                 </div>
-              {{else}}
-                <div class="row item-name">
-                  <div class="small-12 columns">
-                    <h3 class="ellipsis three-line-ellipsis item-name">{{{item.donorDescription}}}</h3>
-                  </div>
-                </div>
-              {{/if}}
+              </div>
             </span>
           </li>
         {{/each}}

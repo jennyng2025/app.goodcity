@@ -5,18 +5,32 @@
 .ggv_order_details {
   .offer-status {
     background-color: $coral-red;
-    font-size: 0.9rem;
     color: $white;
     @media #{$small-only} {
-      padding: 0 2rem 0.5rem 0.3rem;
+      padding: 0.5rem 0 0.5rem 0.3rem;
       line-height: 1rem;
     }
-    .fa-exclamation-triangle{
-      @media #{$small-only} {
-        font-size: 1.5rem;
-        top: 0.8rem ;
-        position: relative;
+    @media #{$medium-only} {
+      padding: 0.5rem 0 0.5rem 0.3rem;
+      line-height: 1rem;
+    }
+    .warning-icon {
+      text-align: right;
+      .fa-exclamation-triangle{
+        @media #{$small-only} {
+          font-size: 1.5rem;
+          top: 0.3rem ;
+          position: relative;
+        }
+
+        @media #{$medium-only} {
+          font-size: 1rem;
+          position: relative;
+        }
       }
+    }
+    .msg {
+      text-align: left;
     }
   }
 
