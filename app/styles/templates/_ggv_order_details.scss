@@ -9,6 +9,7 @@
     @media #{$small-only} {
       padding: 0.5rem 0 0.5rem 0.3rem;
       line-height: 1rem;
+      width: 104%;
     }
     @media #{$medium-only} {
       padding: 0.5rem 0 0.5rem 0.3rem;
@@ -18,7 +19,7 @@
       text-align: right;
       .fa-exclamation-triangle{
         @media #{$small-only} {
-          font-size: 1.5rem;
+          font-size: 1rem;
           top: 0.3rem ;
           position: relative;
         }

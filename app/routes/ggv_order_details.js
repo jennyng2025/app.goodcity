@@ -7,7 +7,7 @@ import AjaxPromise from '../utils/ajax-promise';
 export default Ember.Route.extend({
   model: function(params) {
     var _this = this;
-    var offerId = params.ggv_id.split('?')[0];
+    var offerId = params.ggv_id.split('-$$-')[0];
 
     return new AjaxPromise("/offers/ggv_order_offer", "GET", null, {id: offerId})
       .then(function(data) {
