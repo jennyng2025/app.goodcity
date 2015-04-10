@@ -8,6 +8,8 @@ var Router = GoodcityRouter.extend({
 Router.map(function() {
   this.resource('tour');
   this.route('register');
+  this.route('ggv_order_details', { path: '/ggv_order/:ggv_id' });
+
   this.resource('offers', function () {
     this.route('index', { path: '/'});
     this.route('new', { path: '/new'});

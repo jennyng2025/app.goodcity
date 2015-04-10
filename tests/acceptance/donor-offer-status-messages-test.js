@@ -66,14 +66,14 @@ test("Display offer status for offer under review", function() {
   });
 });
 
-//display image with message
-test("Display offer status with image", function() {
-  visit('/offers/' + offer8.id + "/offer_details");
-  andThen(function() {
-    var image_tag = $('.status-message img.no-avatar');
-    equal(image_tag.length, 1);
-  });
-});
+// display image with message
+// test("Display offer status with image", function() {
+//   visit('/offers/' + offer8.id + "/offer_details");
+//   andThen(function() {
+//     var image_tag = $('.status-message img.no-avatar');
+//     equal(image_tag.length, 1);
+//   });
+// });
 
 test("Display offer status for reviewed offer", function() {
   visit('/offers/' + offer3.id + "/offer_details");
