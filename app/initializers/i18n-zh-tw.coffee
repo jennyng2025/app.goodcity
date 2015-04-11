@@ -136,6 +136,7 @@ I18nTranslationsZhTw =
         "in_review_status": "This item is being reviewed."
         "accepted_status": "This item has been accepted."
         "rejected_status": "This item has been rejected."
+        "cancel_last_item_confirm": "Cancelling the last item will cancel the offer, do you wish to proceed?"
 
         "messages":
           "info_text1": "If we have questions when reviewing this item we will chat with you here."

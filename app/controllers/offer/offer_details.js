@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import '../../computed/local-storage';
+import recordsUtil from '../../utils/records';
 
 export default Ember.ObjectController.extend({
 
@@ -43,21 +44,17 @@ export default Ember.ObjectController.extend({
       this.transitionToRoute('item.edit_images', draftItemId);
     },
 
-    cancelOffer: function(offer){
+    cancelOffer: function(offer, alreadyConfirmed){
       if(this.get('hasActiveGGVOrder')) {
         this.transitionToRoute('offer.cancel', offer);
-      } else {
-        if(confirm("Are you sure? This cannot be undone.")) {
-          var loadingView = this.container.lookup('view:loading').append();
-          var items = offer.get('items').toArray();
-          items.forEach(function(item) {
-            item.unloadRecord();
-          });
+      } else if (alreadyConfirmed || confirm(Ember.I18n.t("delete_confirm"))) {
+        var loadingView = this.container.lookup('view:loading').append();
 
-          offer.destroyRecord()
-            .then(() => this.transitionToRoute('offers.index'))
-            .finally(() => loadingView.destroy());
-          }
+        offer.deleteRecord();
+        offer.save()
+          .then(() => { recordsUtil.unloadRecordTree(offer); this.transitionToRoute('offers.index'); })
+          .catch(error => { offer.rollback(); throw error; })
+          .finally(() => loadingView.destroy());
       }
     },
 

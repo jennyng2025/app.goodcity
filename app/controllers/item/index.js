@@ -1,14 +1,23 @@
 import Ember from "ember";
 
 export default Ember.ObjectController.extend({
+  offerDetailsController: Ember.inject.controller("offer/offer_details"),
 
   actions: {
     removeItem: function(item) {
       var controller = this;
+      var offer = item.get('offer');
 
-      if(confirm("Are you sure? This cannot be undone.")) {
+      if (offer.get("state") !== "draft" && offer.get("items.length") <= 1) {
+        if (confirm(Ember.I18n.t("item.cancel_last_item_confirm"))) {
+          this.get("offerDetailsController").send("cancelOffer", offer, true);
+        }
+        return;
+      }
+
+      if (confirm(Ember.I18n.t("delete_confirm"))) {
         var loadingView = controller.container.lookup('view:loading').append();
-        var offer = item.get('offer');
+
         offer.get('items').removeObject(item);
 
         item.destroyRecord().then(function(){

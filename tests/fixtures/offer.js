@@ -22,8 +22,14 @@ FactoryGuy.define('offer', {
     createdAt: new Date(2015, 0, 20, 13,10),
     updatedAt: new Date(2015, 0, 20, 13,11)
   },
+
   offer_with_items: {
     items: function(){ return FactoryGuy.buildList('item', 2); }
+  },
+
+  traits: {
+    with_gogovan_transport: { gogovanTransport: () => FactoryGuy.build('gogovan_transport') },
+    with_items: { items: () => FactoryGuy.buildList('item', 2) }
   }
 });
 
