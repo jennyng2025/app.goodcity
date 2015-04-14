@@ -41,7 +41,7 @@
         {{#each model.items as |item|}}
           <li>
             <span class="list-image">
-              <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
+              <img src={{item.displayImageUrl}} class="thumb" />
             </span>
             <span class="info">
               <div class="row">

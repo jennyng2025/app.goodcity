@@ -1,4 +1,4 @@
-<nav {{bind-attr class=":tab-bar :offer_details_title model.isDraft::non-draft"}}>
+<nav class="tab-bar offer_details_title {{unless model.isDraft 'non-draft'}}">
   <section class="left-small">
     {{#link-to 'offers.index' classNames="back"}}{{t "back"}}{{/link-to}}
   </section>
@@ -30,15 +30,12 @@
           {{#if model.isScheduled}}
             {{partial 'offer/delivery_details'}}
           {{else}}
-
             {{#if model.isReviewed}}
-
               <div class="row">
                 <div class="small-8 small-offset-2 columns">
                   {{#link-to 'offer.plan_delivery' model class="button expand arrange_transport"}}{{t 'offer.transport_details.arrange_transport'}}{{/link-to}}
                 </div>
               </div>
-
             {{else}}
               <div class='wait_transport'>
                 {{t 'offer.transport_details.wait_for_transport'}}
@@ -60,8 +57,8 @@
                 </div>
                 <div class="row">
                   <div class="small-12 columns items_list">
-                     {{#each item in model.approvedItems}}
-                       <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
+                     {{#each model.approvedItems as |item|}}
+                       <img src={{item.displayImageUrl}} class="thumb" />
                      {{/each}}
                   </div>
                 </div>

@@ -1,6 +1,6 @@
-{{#if showOfferIcons}}
+{{#if model.showOfferIcons}}
   <section id="camera_delete_bar" class="right-small">
-    <a id="camera_icon" {{action "addMoreItem"}} title="Camera" {{bind-attr class=":fontawe-icons preventNewItem:disabled"}} >
+    <a id="camera_icon" {{action "addMoreItem"}} title="Camera" class="fontawe-icons {{if model.preventNewItem 'disabled'}}" >
       <i class="fa fa-camera"></i>
     </a>
     <a title="Delete" {{action "cancelOffer" model}} class="fontawe-icons">
