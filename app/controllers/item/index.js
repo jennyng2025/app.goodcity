@@ -1,7 +1,6 @@
 import Ember from "ember";
 
-export default Ember.ObjectController.extend({
-  offerDetailsController: Ember.inject.controller("offer/offer_details"),
+export default Ember.Controller.extend({
 
   actions: {
     removeItem: function(item) {
