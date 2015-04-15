@@ -7,7 +7,7 @@ I18nTranslationsEn =
 
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
-    Ember.I18n.translation_store.en = Ember.$.extend SharedTranslationsEn,
+    Ember.I18n.translation_store.en = Ember.$.extend true, SharedTranslationsEn,
       "ggv_order":
         "message" : "Our Staff will confirm each item listed below when you arrive."
         "delivery_from" : "Delivery from"
@@ -16,6 +16,10 @@ I18nTranslationsEn =
         Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
         "map" : "map"
         "goodcity_job_summary" : "Goodcity Job Summary"
+
+      "application":
+        "app_menu" : "App Menu"
+        "my_offers" : "My Offers"
 
       "tour":
         "step1.title" : "1. Photograph & describe"
