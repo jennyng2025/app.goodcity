@@ -9,34 +9,36 @@ var App, testHelper, offer, offer1, offer2, item, item1, item2, item3, offerUrl,
 
 module('Offer Index View', {
   setup: function() {
-    App = startApp({});
+    // offers must be created by the logged in user in order to be shown in the index
+    var currentUserId = "1";
+    App = startApp({}, currentUserId);
     testHelper = TestHelper.setup(App);
 
-    offer = FactoryGuy.make("offer", {state:"under_review"});
+    offer = FactoryGuy.make("offer", {state:"under_review", createdBy:currentUserId});
     item = FactoryGuy.make("item", {state:"accepted", offer: offer});
 
-    offer1 = FactoryGuy.make("offer", {state:"reviewed"});
+    offer1 = FactoryGuy.make("offer", {state:"reviewed", createdBy:currentUserId});
     item1 = FactoryGuy.make("item", {state:"accepted", offer: offer1});
 
-    offer2 = FactoryGuy.make("offer", {state:"closed"});
+    offer2 = FactoryGuy.make("offer", {state:"closed", createdBy:currentUserId});
     item2 = FactoryGuy.make("item", {state:"accepted", offer: offer2});
 
     del = FactoryGuy.make("delivery", {deliveryType:"Drop Off"});
-    offer3 = FactoryGuy.make("offer", {state:"scheduled", delivery: del});
+    offer3 = FactoryGuy.make("offer", {state:"scheduled", delivery: del, createdBy:currentUserId});
     item3 = FactoryGuy.make("item", {state:"accepted", offer: offer3});
 
     del1 = FactoryGuy.make("delivery", {deliveryType:"Alternate"});
-    offer4 = FactoryGuy.make("offer", {state:"scheduled", delivery: del1});
+    offer4 = FactoryGuy.make("offer", {state:"scheduled", delivery: del1, createdBy:currentUserId});
     item4 = FactoryGuy.make("item", {state:"accepted", offer: offer4});
 
     ggvOrder = FactoryGuy.make("gogovan_order");
     del2 = FactoryGuy.make("delivery", {deliveryType:"Gogovan", gogovanOrder: ggvOrder});
-    offer5 = FactoryGuy.make("offer", {state:"scheduled", delivery: del2});
+    offer5 = FactoryGuy.make("offer", {state:"scheduled", delivery: del2, createdBy:currentUserId});
     item5 = FactoryGuy.make("item", {state:"accepted", offer: offer5});
 
     ggvOrder1 = FactoryGuy.make("gogovan_active_order");
     del3 = FactoryGuy.make("delivery", {deliveryType:"Gogovan", gogovanOrder: ggvOrder1});
-    offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: del3});
+    offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: del3, createdBy:currentUserId});
     item6 = FactoryGuy.make("item", {state:"accepted", offer: offer6});
 
   },
@@ -73,6 +75,6 @@ test('Offers list & link to add items', function() {
     equal(Ember.$("a[href='"+offer6Url+"'] h3").text().indexOf("Van confirmed") > -1, true);
 
     // test: link to complete offers
-    equal(find("a:contains('Complete this Offer')").length > 0, true);
+    equal(find("a:contains('Make a New Donation')").length > 0, true);
   });
 });
