@@ -1,6 +1,5 @@
-<div {{bind-attr class=":offer-status model.isSubmitted model.isUnderReview  model.isReviewed model.isScheduled model.isClosed"}}>
+<div class="offer-status {{model.statusBarClass}}">
   <div class='status-message'>
-
     {{#if model.isSubmitted}}
       {{t 'offer.offer_details.submitted_status'}}
 
