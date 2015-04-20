@@ -19,7 +19,7 @@ I18nTranslationsZhTw =
 
       "application":
         "app_menu" : "App Menu"
-        "my_offers" : "所有優惠"
+        "my_offers" : "My Offers"
 
       "tour":
         "step1.title" : "1. Photograph & describe"
@@ -44,10 +44,10 @@ I18nTranslationsZhTw =
 
       "offers":
         "index":
-          "new_donation" : "做一個新的捐贈"
-          "my_offers" : "我的供應信息"
-          "total_items" : "總筆數: {{itemCount}}"
-          "see_more" : "查看更多..."
+          "new_donation" : "Make a New Donation"
+          "my_offers" : "My offers"
+          "total_items" : "Total items: {{itemCount}}"
+          "see_more" : "See more..."
           "unread_messages" : "Unread messages: {{unreadMessagesCount}}"
           "complete_offer" : "Complete this Offer"
           "in_review" : "In review"
@@ -68,26 +68,28 @@ I18nTranslationsZhTw =
           "donations": "Donations"
 
       "offer":
-        "details" : "优惠详情"
-        "no_items" : "您不必在此優惠的任何物品呢。請添加您的第一個項目!"
+        "disable": "Disable"
+        "details" : "Offer details"
+        "no_items" : "You don't have any items in this offer yet. Please add your first item!",
         "confirm":
-          "heading" : "確認"
-          "notice": "因為需要更改每日和<br>存儲是有限我們 赔礼 这<br>我們有時不能接受<br>有些項目."
-          "review": "專家志願者將開始回顧的你的品目隨即."
-          "thank": "謝謝!"
+          "heading" : "Confirm"
+          "notice": "Because needs change daily and <br> storage is limited we apologise that <br> we sometimes cannot accept <br> some items."
+          "review": "Expert volunteers will start reviewing <br> your items immediately."
+          "thank": "Thank You!"
           "next" : "OK! Next"
         "submit":
-          "heading": "出售的商品"
-          "message": "有時候，對於捐贈項目的最佳途，以幫助窮人是一個慈善機構把它賣掉。是出售物品的好嗎"
+          "heading": "Sale of goods"
+          "message": "Occasionally, the best way <br> for a donated item to help the poor <br> is for a charity to sell it. Is sale <br> of item(s) okay?"
+
         "index":
-          "item_count" : "獻 品目 ({{itemCount}})"
-          "add_item" : "加項"
-          "add_items" : "加品目以獻"
-          "confirm" : "全部完成, 下一頁"
-          "review" : "複查狀態"
-          "cancel" : "取消獻"
-          "description" : "說明"
-          "condition" : "條件"
+          "item_count" : "Offer items ({{itemCount}})"
+          "add_item" : "Add item"
+          "add_items" : "Add items to offer"
+          "confirm" : "All Done, Next"
+          "review" : "Review Status"
+          "cancel" : "Cancel Offer"
+          "description" : "Description"
+          "condition" : "Condition"
 
         "offer_details" :
           "heading" : "Offer Details"
@@ -113,10 +115,10 @@ I18nTranslationsZhTw =
           "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
 
         "display_joyride" :
-          "camera": ""
-          "delete": ""
-          "all_done_next": ""
-          "first_item": ""
+          "camera": "Tap <i class='fa fa-camera'></i> to add more items"
+          "delete": "Tap <i class='fa fa-trash'></i> to cancel your offer"
+          "all_done_next": "When all done adding items, proceed to the next step"
+          "first_item": "Select an item to view or modify it."
 
         "cancel":
           "title": "Cancel Offer"
@@ -125,15 +127,15 @@ I18nTranslationsZhTw =
 
       "items":
         "add_item":
-          "condition": "條件?"
-          "edit_image" : "編輯形像"
+          "condition": "Condition?"
+          "edit_image" : "Edit photos"
           "save" : "Save Details"
           "description_placeholder" : "What is it? How many items? What's the size?"
 
       "item":
-        "item_details" : "項詳情:"
-        "donor_description": "說明: {{donorDescription}}"
-        "condition": "條件: {{condition}}"
+        "item_details" : "Item details"
+        "donor_description": "Description: {{donorDescription}}"
+        "condition": "Condition: {{condition}}"
         "cancel" : "Cancel Item"
         "edit" : "Edit Item"
         "submitted_status": "This item is awaiting review."
@@ -146,7 +148,6 @@ I18nTranslationsZhTw =
           "info_text1": "If we have questions when reviewing this item we will chat with you here."
           "info_text2": "If you want to add a comment to this item for our reviewers, type it below."
 
-
       # Components
       "upload-images":
         "angles" : "Got all the angles of this item?"
@@ -156,10 +157,10 @@ I18nTranslationsZhTw =
         "upload_error" : "There is an error with your image upload. Please try again after some time."
 
       # The following are for the I18n example template and can be removed soon.
-      'i18nexample.items.heading': '項'
-      'i18nexample.item.title.one': '一個項目'
-      'i18nexample.item.title.other': '{{count}} 項'
-      'i18nexample.item.new.title': '新項目'
-      'i18nexample.i18n.pluralisation': '的複數'
+      "i18nexample.items.heading": "Items"
+      "i18nexample.item.title.one": "One item"
+      "i18nexample.item.title.other": "{{count}} items"
+      "i18nexample.item.new.title": "New item"
+      "i18nexample.i18n.pluralisation": "Pluralisation"
 
 `export default I18nTranslationsZhTw`
