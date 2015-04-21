@@ -15,7 +15,7 @@ I18nTranslationsZhTw =
         "crossroads_address" : "2 Castle Peak Road, Tuen Mun - 2272 9345
         Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
         "map" : "map"
-        "goodcity_job_summary" : "Goodcity Job Summary"
+        "goodcity_job_summary" : "GoodCity Job Summary"
 
       "application":
         "app_menu" : "App Menu"
