@@ -64,8 +64,12 @@
         width: 110%;
       }
     }
-    i {
+    i.fa-map-marker {
       color: $coral-red;
     }
+  }
+
+  .delivery-from a {
+    border-bottom: #fff 1px solid;
   }
 }
