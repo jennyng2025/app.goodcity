@@ -2,8 +2,8 @@ import Ember from 'ember';
 import '../../computed/local-storage';
 import recordsUtil from '../../utils/records';
 
-export default Ember.ObjectController.extend({
-
+export default Ember.Controller.extend({
+  items: Ember.computed.alias('model.items'),
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   joyrideSeen:  Ember.computed.localStorage(),
@@ -12,10 +12,10 @@ export default Ember.ObjectController.extend({
 
   firstEverItem: function(){
     var currentDateTime = new Date();
-    var itemCreated = new Date(this.get("createdAt").getTime() + 120000);
+    var itemCreated = new Date(this.get("model.createdAt").getTime() + 120000);
 
-    if((this.get("offersCount") === 1 ) &&
-       (this.get("itemCount") === 1) &&
+    if((this.get("model.offersCount") === 1 ) &&
+       (this.get("model.itemCount") === 1) &&
        (this.get("joyrideSeen") !== true) &&
        (currentDateTime <= itemCreated)) {
       return true;
@@ -30,13 +30,13 @@ export default Ember.ObjectController.extend({
     var elements = this.get('items').rejectBy('state', 'draft').rejectBy('isDeleted', true).toArray();
 
     // add offer to array for general messages display
-    elements.push(this);
+    elements.push(this.get("model"));
     return elements;
   }.property('items.@each.state'),
 
   displayHomeLink: function(){
     return this.store.all('offer').rejectBy('state', 'draft').get('length') > 0;
-  }.property('state'),
+  }.property('model.state'),
 
   actions: {
     addItem: function() {
@@ -59,11 +59,11 @@ export default Ember.ObjectController.extend({
     },
 
     addMoreItem: function() {
-      if(!this.get("preventNewItem")){ this.send("addItem"); }
+      if(!this.get("model.preventNewItem")){ this.send("addItem"); }
     },
 
     handleBrokenImage: function() {
-      this.get("reviewedBy").set("hasImage", null);
+      this.get("model.reviewedBy").set("hasImage", null);
     },
   }
 });

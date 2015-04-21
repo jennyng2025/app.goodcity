@@ -1,7 +1,11 @@
 <span class="item-image">
-  <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
-  {{#if item.isAccepted}}<div class='accept_badge'>{{t 'offer.offer_details.accepted'}}</div>{{/if}}
-  {{#if item.isRejected}}<div class='reject_badge'>{{t 'offer.offer_details.not_needed'}}</div>{{/if}}
+  <img src={{item.displayImageUrl}} class="thumb" />
+  {{#if item.isAccepted}}
+    <div class='accept_badge'>{{t 'offer.offer_details.accepted'}}</div>
+  {{/if}}
+  {{#if item.isRejected}}
+    <div class='reject_badge'>{{t 'offer.offer_details.not_needed'}}</div>
+  {{/if}}
 </span>
 
 <span class="info">
@@ -29,7 +33,7 @@
       <div class="small-1 columns right">
         {{#if item.unreadMessagesCount}}
           <span class='unread_length'>{{item.unreadMessagesCount}}</span>
-          {{/if}}
+        {{/if}}
       </div>
     </div>
   {{else}}

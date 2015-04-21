@@ -1,6 +1,6 @@
 import Ember from "ember";
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   offerDetailsController: Ember.inject.controller("offer/offer_details"),
 
   actions: {

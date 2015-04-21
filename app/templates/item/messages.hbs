@@ -16,12 +16,12 @@
 
       <div class="row">
         <div class="small-3 large-2 columns fav-item-image" id="lightGallery">
-          <div {{bind-attr data-src=item.displayImage.imageUrl}} >
-            <img {{bind-attr src=item.displayImageUrl}} class="thumb" style="width:100px;" />
+          <div data-src={{item.displayImage.imageUrl}} >
+            <img  src={{item.displayImageUrl}} class="thumb" style="width:100px;" />
           </div>
           {{#each image in item.nonFavouriteImages}}
-            <div class="hidden" {{bind-attr data-src=image.imageUrl}} >
-              <img {{bind-attr src=image.imageUrl}} />
+            <div class="hidden" data-src={{image.imageUrl}} >
+              <img src={{image.imageUrl}} />
             </div >
           {{/each}}
         </div>

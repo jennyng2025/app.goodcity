@@ -4,7 +4,7 @@ import syncDataStub from '../helpers/empty-sync-data-stub';
 
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 var App, testHelper, offer, offer2, offer3, reviewer, item1, item2, item3,
-  message1, message2;
+  message1, message2, msg1_time;
 
 module('Display Offer Details', {
   setup: function() {
@@ -14,7 +14,8 @@ module('Display Offer Details', {
 
     reviewer = FactoryGuy.make("user");
     offer = FactoryGuy.make("offer", {state:"under_review", reviewedBy: reviewer});
-    message1 = FactoryGuy.make("message", {sender: reviewer, offer: offer, item: null});
+    msg1_time = new Date().setHours(0,0,0);
+    message1 = FactoryGuy.make("message", {sender: reviewer, offer: offer, item: null, createdAt: msg1_time});
     item1 = FactoryGuy.make("item", {state:"accepted", offer: offer});
     item2 = FactoryGuy.make("item", {state:"rejected", offer: offer});
     item3 = FactoryGuy.make("item", {state:"submitted", offer: offer});
