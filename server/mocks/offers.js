@@ -63,7 +63,7 @@ module.exports = function(app) {
       { "id": 3, "name": "Heavily Used" }
     ],
     "user":
-      { "id": "1", "first_name": "Kendrick", "last_name": "Kiehn", "permission_id": null },
+      { "id": "1", "first_name": "Kendrick", "last_name": "Kiehn", "permission_id": null, "mobile": "+85251111111" },
 
     "delivery": [
       { "id" : "1", "deliveryType" : "Gogovan", "offer_id" : "11"}

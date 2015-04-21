@@ -16,8 +16,8 @@
 
   <div class="row delivery-from">
     <div class="small-12 columns address">
-      <h3>{{t "ggv_order.delivery_from"}}: {{userName}} </h3>
-      {{districtName}} - {{userMobile}}
+      <h3>{{t "ggv_order.delivery_from"}}: {{districtName}}</h3>
+       {{userName}} - &nbsp;<a href="tel:{{userMobile}}"><i class="fa fa-phone"></i> {{userMobile}}</a>
     </div>
     <hr>
   </div>
@@ -40,8 +40,16 @@
       <ul class="list list-items">
         {{#each model.items as |item|}}
           <li>
-            <span class="list-image">
-              <img src={{item.displayImageUrl}} class="thumb" />
+            <span class="list-image" id="lightGallery">
+              {{item.displayImageUrl}}
+              <div data-src={{item.displayImage.imageUrl}} >
+                <img {{bind-attr src="item.displayImageUrl"}} class="thumb" />
+              </div>
+              {{#each item.nonFavouriteImages as |image|}}
+                <div class="hidden" data-src={{image.imageUrl}} >
+                  <img src={{image.imageUrl}} />
+                </div >
+              {{/each}}
             </span>
             <span class="info">
               <div class="row">
