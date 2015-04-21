@@ -41,6 +41,8 @@ I18nTranslationsZhTw =
         "districts" : "Districts"
         "register" : "Register"
         "login" : "Login"
+        "fill_all_fields": "Please fill in all the fields."
+        "use_of_personal_info": "How we use your personal information"
 
       "offers":
         "index":
@@ -68,6 +70,7 @@ I18nTranslationsZhTw =
           "donations": "Donations"
 
       "offer":
+        "messages": "Messages"
         "disable": "Disable"
         "details" : "Offer details"
         "no_items" : "You don't have any items in this offer yet. Please add your first item!",
