@@ -7,6 +7,7 @@ export default Ember.Controller.extend({
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   joyrideSeen:  Ember.computed.localStorage(),
+  confirm: Ember.inject.service(),
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
@@ -39,6 +40,15 @@ export default Ember.Controller.extend({
   }.property('model.state'),
 
   actions: {
+    deleteOffer: function(offer) {
+      var loadingView = this.container.lookup('view:loading').append();
+      offer.deleteRecord();
+      offer.save()
+        .then(() => { recordsUtil.unloadRecordTree(offer); this.transitionToRoute('offers.index'); })
+        .catch(error => { offer.rollback(); throw error; })
+        .finally(() => loadingView.destroy());
+    },
+
     addItem: function() {
       var draftItemId = this.get("items").filterBy("state", "draft").get("firstObject.id") || "new";
       this.transitionToRoute('item.edit_images', draftItemId);
@@ -47,14 +57,12 @@ export default Ember.Controller.extend({
     cancelOffer: function(offer, alreadyConfirmed){
       if(this.get('hasActiveGGVOrder')) {
         this.transitionToRoute('offer.cancel', offer);
-      } else if (alreadyConfirmed || confirm(Ember.I18n.t("delete_confirm"))) {
-        var loadingView = this.container.lookup('view:loading').append();
-
-        offer.deleteRecord();
-        offer.save()
-          .then(() => { recordsUtil.unloadRecordTree(offer); this.transitionToRoute('offers.index'); })
-          .catch(error => { offer.rollback(); throw error; })
-          .finally(() => loadingView.destroy());
+      } else if(alreadyConfirmed) {
+        this.send("deleteOffer", offer);
+      } else{
+        this.get("confirm").show(Ember.I18n.t("delete_confirm"), () => {
+          this.send("deleteOffer", offer);
+        });
       }
     },
 

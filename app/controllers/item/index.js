@@ -2,6 +2,7 @@ import Ember from "ember";
 
 export default Ember.Controller.extend({
   offerDetailsController: Ember.inject.controller("offer/offer_details"),
+  confirm: Ember.inject.service(),
 
   actions: {
     removeItem: function(item) {
@@ -9,13 +10,13 @@ export default Ember.Controller.extend({
       var offer = item.get('offer');
 
       if (offer.get("state") !== "draft" && offer.get("items.length") <= 1) {
-        if (confirm(Ember.I18n.t("item.cancel_last_item_confirm"))) {
+        this.get("confirm").show(Ember.I18n.t("item.cancel_last_item_confirm"), () => {
           this.get("offerDetailsController").send("cancelOffer", offer, true);
-        }
+        });
         return;
       }
 
-      if (confirm(Ember.I18n.t("delete_confirm"))) {
+      this.get("confirm").show(Ember.I18n.t("delete_confirm"), () => {
         var loadingView = controller.container.lookup('view:loading').append();
 
         offer.get('items').removeObject(item);
@@ -28,7 +29,7 @@ export default Ember.Controller.extend({
           }
         })
         .finally(() => loadingView.destroy());
-      }
+      });
     }
   }
 });

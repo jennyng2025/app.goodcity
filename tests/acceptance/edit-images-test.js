@@ -133,8 +133,11 @@ test("Set another image as favourite if favourite image deleted", function() {
   click("#main-image-controls .fa-trash");
 
   andThen(function() {
-    equal(find("#photo-list img").length, 1);
+    Ember.$("#confirmModal .ok").click();
+  });
 
+  andThen(function() {
+    equal(find("#photo-list img").length, 1);
     equal(find("#photo-list .fa-star:not(.hidden)").prev().attr("src"), img2.get("thumbImageUrl"));
   });
 });
