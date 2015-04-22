@@ -14,8 +14,8 @@ export default Ember.Controller.extend({
         this.set("model.state_event", "submit");
       }
 
-      var loadingView = this.container.lookup('view:loading').append();
       this.get("model").setProperties(this.get("formData"));
+      var loadingView = this.container.lookup('view:loading').append();
 
       this.get("model").save()
         .then(() => {
