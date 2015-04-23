@@ -11,21 +11,6 @@ export default Ember.Controller.extend({
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
-  firstEverItem: function(){
-    var currentDateTime = new Date();
-    var itemCreated = new Date(this.get("model.createdAt").getTime() + 120000);
-
-    if((this.get("model.offersCount") === 1 ) &&
-       (this.get("model.itemCount") === 1) &&
-       (this.get("joyrideSeen") !== true) &&
-       (currentDateTime <= itemCreated)) {
-      return true;
-    }
-    else {
-      return false;
-    }
-   }.property("offers.count", "items.count", "joyrideSeen"),
-
   offerAndItems: function() {
     // avoid deleted-items which are not persisted yet.
     var elements = this.get('items').rejectBy('state', 'draft').rejectBy('isDeleted', true).toArray();
@@ -33,11 +18,15 @@ export default Ember.Controller.extend({
     // add offer to array for general messages display
     elements.push(this.get("model"));
     return elements;
-  }.property('items.@each.state'),
+  }.property('model', 'items.@each.state'),
+
+  offers: function() {
+    return this.store.all("offer");
+  }.property(),
 
   displayHomeLink: function(){
-    return this.store.all('offer').rejectBy('state', 'draft').get('length') > 0;
-  }.property('model.state'),
+    return this.get("offers").rejectBy('state', 'draft').get('length') > 0;
+  }.property('offers.@each.state'),
 
   actions: {
     deleteOffer: function(offer) {
