@@ -6,7 +6,6 @@ export default Ember.Controller.extend({
   items: Ember.computed.alias('model.items'),
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
-  joyrideSeen:  Ember.computed.localStorage(),
   confirm: Ember.inject.service(),
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
