@@ -19,11 +19,11 @@
           {{#link-to "offers.new" class="button expand"}}{{t "offers.index.new_donation"}}{{/link-to}}
 
           <ul class="list list-items">
-            {{#each offer in arrangedContent}}
+            {{#each arrangedContent as |offer|}}
               <li>
                 {{#link-to 'offer.offer_details' offer}}
                   <span class="list-image">
-                    <img {{bind-attr src="offer.displayImageUrl"}} class="thumb" />
+                    <img src={{offer.displayImageUrl}} class="thumb" />
                   </span>
                   <span class="info">
                     <h3>{{offer.status_text}}</h3>

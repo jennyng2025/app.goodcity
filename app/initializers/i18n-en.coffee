@@ -11,11 +11,12 @@ I18nTranslationsEn =
       "ggv_order":
         "message" : "Our Staff will confirm each item listed below when you arrive."
         "delivery_from" : "Delivery from"
-        "delivery_to" : "Delivery to: Crossroads Foundation"
-        "crossroads_address" : "2 Castle Peak Road, Tuen Mun - 2272 9345
-        Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
+        "delivery_to" : "Delivery to: Tuen Mun"
+        "crossroads_foundation" : "Crossroads Foundation"
+        "crossroads_address1" : "2 Castle Peak Road, Tuen Mun"
+        "crossroads_address2" : "Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
         "map" : "map"
-        "goodcity_job_summary" : "Goodcity Job Summary"
+        "goodcity_job_summary" : "GoodCity Job Summary"
 
       "application":
         "app_menu" : "App Menu"
@@ -41,6 +42,8 @@ I18nTranslationsEn =
         "districts" : "Districts"
         "register" : "Register"
         "login" : "Login"
+        "fill_all_fields": "Please fill in all the fields."
+        "use_of_personal_info": "How we use your personal information"
 
       "offers":
         "index":
@@ -68,6 +71,7 @@ I18nTranslationsEn =
           "donations": "Donations"
 
       "offer":
+        "messages": "Messages"
         "disable": "Disable"
         "details" : "Offer details"
         "no_items" : "You don't have any items in this offer yet. Please add your first item!",
