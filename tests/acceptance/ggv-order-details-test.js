@@ -25,6 +25,6 @@ test("Display address information", function() {
     equal(Ember.$(".delivery-from").length, 1);
     equal(Ember.$(".list-items li").length, 2);
     equal(Ember.$(".list-items li").text().indexOf("example") > 0, true);
-    equal(Ember.$(".delivery-to").text().trim().indexOf(Ember.I18n.t("ggv_order.crossroads_address")) > 0, true);
+    equal(Ember.$(".delivery-to").text().trim().indexOf(Ember.I18n.t("ggv_order.crossroads_address1")) > 0, true);
   });
 });
