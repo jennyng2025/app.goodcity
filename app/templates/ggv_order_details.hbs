@@ -17,7 +17,7 @@
   <div class="row delivery-from">
     <div class="small-12 columns address">
       <h3>{{t "ggv_order.delivery_from"}}: {{districtName}}</h3>
-       {{userName}} - &nbsp;<a href="tel:{{userMobile}}"><i class="fa fa-phone"></i> {{userMobile}}</a>
+       {{userName}} - &nbsp;<a href="tel:{{userMobile}}" class="tel_link"><i class="fa fa-phone"></i> {{userMobile}}</a>
     </div>
     <hr>
   </div>
@@ -25,7 +25,11 @@
   <div class="row delivery-to">
     <div class="small-10 medium-11 columns address">
       <h3>{{t "ggv_order.delivery_to"}}</h3>
-      {{t 'ggv_order.crossroads_address'}}
+      {{t "ggv_order.crossroads_foundation"}} - &nbsp;<a href="tel:{{22729345}}" class="tel_link"><i class="fa fa-phone"></i> 2272 9345</a>
+      <br/>
+      {{t "ggv_order.crossroads_address1"}}
+      <br/>
+      {{t "ggv_order.crossroads_address2"}}
     </div>
     <div class="small-2 medium-1 columns map_link">
       <a href={{gmapUrl}} target="_blank">
