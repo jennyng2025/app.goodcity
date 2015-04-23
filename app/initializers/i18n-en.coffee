@@ -11,9 +11,10 @@ I18nTranslationsEn =
       "ggv_order":
         "message" : "Our Staff will confirm each item listed below when you arrive."
         "delivery_from" : "Delivery from"
-        "delivery_to" : "Delivery to: Crossroads Foundation"
-        "crossroads_address" : "2 Castle Peak Road, Tuen Mun - 2272 9345
-        Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
+        "delivery_to" : "Delivery to: Tuen Mun"
+        "crossroads_foundation" : "Crossroads Foundation"
+        "crossroads_address1" : "2 Castle Peak Road, Tuen Mun"
+        "crossroads_address2" : "Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
         "map" : "map"
         "goodcity_job_summary" : "GoodCity Job Summary"
 

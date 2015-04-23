@@ -11,9 +11,10 @@ I18nTranslationsZhTw =
       "ggv_order":
         "message" : "您到達時，我們的職員會核對並確認下列資料"
         "delivery_from" : "寄出地點"
-        "delivery_to" : "運送至：十字路會"
-        "crossroads_address" : "屯門青山公路2號 - 2272 9345
-        黃金海岸一期對面，十字路會40號大樓"
+        "delivery_to" : "Delivery to: Tuen Mun"
+        "crossroads_foundation" : "Crossroads Foundation"
+        "crossroads_address1" : "2 Castle Peak Road, Tuen Mun"
+        "crossroads_address2" : "Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
         "map" : "地圖"
         "goodcity_job_summary" : "GoodCity Job Summary"
 
