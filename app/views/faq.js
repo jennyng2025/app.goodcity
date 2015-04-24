@@ -7,12 +7,17 @@ export default Ember.View.reopen({
 
     Ember.$().ready(function(){
 
-      Ember.$('.faq_list ul').on('click', 'li a', function(event){
-        var anchor = $(this);
+      backToTopLink();
+
+      Ember.$('.faq_list ul').on('click', 'li a', function(){
+        var anchor = Ember.$(this);
         var scrollOffset = Ember.$(anchor.attr('href').split('faq')[1]).offset().top;
-        Ember.$('html, body').stop().animate({
+
+        Ember.$('html, body').animate({
           scrollTop: scrollOffset - 70
-        });
+        }, 'fast');
+
+        return false;
       });
 
       var questionId = document.location.href.split('#')[1];
@@ -22,6 +27,25 @@ export default Ember.View.reopen({
         }, 'fast');
       }
     });
+
+    // Back-to-top Link
+    function backToTopLink(){
+      var offset = 300;
+      var duration = 300;
+
+      Ember.$(window).scroll(function() {
+        if (Ember.$(this).scrollTop() > offset) {
+          Ember.$('.back-to-top').fadeIn(duration);
+        } else {
+          Ember.$('.back-to-top').fadeOut(duration);
+        }
+      });
+
+      Ember.$('.back-to-top').click(function() {
+        Ember.$('html, body').animate({scrollTop: 0}, duration);
+        return false;
+      });
+    }
 
   },
 
