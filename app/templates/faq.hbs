@@ -1,12 +1,14 @@
-<nav class="tab-bar">
-  <section class="left-small">
-    {{#link-to 'tour' classNames='back'}}{{t "back"}}{{/link-to}}
-  </section>
+<div class="contain-to-grid fixed sticky faq_nav_bar">
+  <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+    <section class="left-small">
+      {{#link-to 'tour' classNames='back'}}{{t "back"}}{{/link-to}}
+    </section>
 
-  <section class="middle tab-bar-section">
-    <h1 class="title">Frequently Asked Questions</h1>
-  </section>
-</nav>
+    <section class="middle tab-bar-section">
+      <h1 class="title">Frequently Asked Questions</h1>
+    </section>
+  </nav>
+</div>
 
 <section class="main-section faq_list">
   <div class="row">
@@ -14,13 +16,15 @@
 
       <p>GoodCity.HK is the world's most efficient city-wide service for charitable goods donations.</p>
 
-      <li><a href="faq#question1">What kinds of items can be donated?</a></li>
-      <li><a href="faq#question2">How do reviewers decide what to accept?</a></li>
-      <li><a href="faq#question3">What transport options are available?</a></li>
-      <li><a href="faq#question4">How are requests for goods made?</a></li>
-      <li><a href="faq#question5">Who is helped by these goods?</a></li>
-      <li><a href="faq#question6">Can I donate goods from outside Hong Kong?</a></li>
-      <li><a href="faq#question7">Why Hong Kong?</a></li>
+      <ul>
+        <li><a href="faq#question1">What kinds of items can be donated?</a></li>
+        <li><a href="faq#question2">How do reviewers decide what to accept?</a></li>
+        <li><a href="faq#question3">What transport options are available?</a></li>
+        <li><a href="faq#question4">How are requests for goods made?</a></li>
+        <li><a href="faq#question5">Who is helped by these goods?</a></li>
+        <li><a href="faq#question6">Can I donate goods from outside Hong Kong?</a></li>
+        <li><a href="faq#question7">Why Hong Kong?</a></li>
+      </ul>
       <br>
 
       <p id="question1"><b>What kinds of items can be donated?</b></p>

@@ -1,4 +1,6 @@
 .faq_list {
+  margin-top: 3rem;
+
   p, li {
     @media #{$small-only} {
       font-size: 0.8rem;
@@ -11,6 +13,28 @@
   p b {
     color: $white;
   }
+}
 
+.faq_nav_bar {
+  margin-bottom: 1rem;
+  background: $dark-blue;
 
+  .top-bar {
+    background: $dark-blue;
+    border-bottom: 1px solid $medium-blue;
+    max-width: 100%;
+    margin: auto;
+  }
+
+  section {
+    position: initial;
+  }
+
+  section.middle {
+    margin-top: 0.7rem;
+    position: fixed;
+    @media #{$small-only} {
+      margin-top: 1rem;
+    }
+  }
 }
