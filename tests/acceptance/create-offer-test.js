@@ -1,12 +1,13 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 
-var App, testHelper,
+var App, testHelper, currentUserId,
   TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 
 module('Create New Offer', {
   setup: function() {
-    App = startApp();
+    currentUserId = "1";
+    App = startApp({}, currentUserId);
     testHelper = TestHelper.setup(App);
 
     // prevent request to express server which returns 4 offers
@@ -41,8 +42,8 @@ test("should create new offer", function() {
 test("should redirect to previous empty offer", function() {
   expect(4);
 
-  FactoryGuy.make("offer_with_items", {id:1}); // check offer with items is not returned
-  testHelper.make("offer",{"id":5});
+  FactoryGuy.make("offer_with_items", {id:1, createdBy:currentUserId}); // check offer with items is not returned
+  testHelper.make("offer",{"id":5, createdBy:currentUserId});
 
   visit("/offers");
 

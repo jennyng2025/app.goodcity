@@ -8,6 +8,7 @@ module('Display not found error', {
   setup: function() {
     App = startApp();
     testHelper = TestHelper.setup(App);
+    Ember.run.later = (context, func) => true;
     offer = FactoryGuy.make("offer");
   },
   teardown: function() {
@@ -17,6 +18,7 @@ module('Display not found error', {
 });
 
 test("Display error popup for invalid offer", function() {
+  $('.reveal-modal').remove();
   visit("/offers/invalid/offer_details");
 
   andThen(function(){
@@ -26,6 +28,7 @@ test("Display error popup for invalid offer", function() {
 });
 
 test("Display error popup for invalid item", function() {
+  $('.reveal-modal').remove();
   visit("/offers/" + offer.id + "/items/invalid/messages");
   $.mockjax({url:"/api/v1/items/*",status:404});
 
@@ -36,6 +39,7 @@ test("Display error popup for invalid item", function() {
 });
 
 test("Display not-found page for invalid url", function() {
+  $('.reveal-modal').remove();
   visit("/invalid_url");
   andThen(function(){
     equal(currentURL(), "/invalid_url");

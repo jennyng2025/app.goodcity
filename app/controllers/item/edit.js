@@ -1,25 +1,25 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   formData: function() {
     return {
-      donorConditionId: this.get("donorConditionId"),
-      donorDescription: this.get("donorDescription")
+      donorConditionId: this.get("model.donorConditionId"),
+      donorDescription: this.get("model.donorDescription")
     };
   }.property("model"),
 
   actions: {
-     submitItem: function() {
-      if (this.get("state") === "draft") {
-        this.set("state_event", "submit");
+    submitItem: function() {
+      if (this.get("model.state") === "draft") {
+        this.set("model.state_event", "submit");
       }
 
+      this.get("model").setProperties(this.get("formData"));
       var loadingView = this.container.lookup('view:loading').append();
-      this.setProperties(this.get("formData"));
 
       this.get("model").save()
         .then(() => {
-          this.set("state_event", null);
+          this.set("model.state_event", null);
           this.transitionToRoute('offer.offer_details');
         })
         .catch(error => {

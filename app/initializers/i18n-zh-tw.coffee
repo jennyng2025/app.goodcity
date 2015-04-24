@@ -9,50 +9,53 @@ I18nTranslationsZhTw =
 
     Ember.I18n.translation_store['zh-tw'] = Ember.$.extend true, SharedTranslationsZhTw,
       "ggv_order":
-        "message" : "Our Staff will confirm each item listed below when you arrive."
-        "delivery_from" : "Delivery from"
-        "delivery_to" : "Delivery to: Crossroads Foundation"
-        "crossroads_address" : "2 Castle Peak Road, Tuen Mun - 2272 9345
-        Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
-        "map" : "map"
-        "goodcity_job_summary" : "Goodcity Job Summary"
+        "message" : "您到達時，我們的職員會核對並確認下列資料"
+        "delivery_from" : "寄出地點"
+        "delivery_to" : "Delivery to: Tuen Mun"
+        "crossroads_foundation" : "Crossroads Foundation"
+        "crossroads_address1" : "2 Castle Peak Road, Tuen Mun"
+        "crossroads_address2" : "Opposite Gold Coast Phase 1 Apartments Unload at Building 40"
+        "map" : "地圖"
+        "goodcity_job_summary" : "GoodCity Job Summary"
 
       "application":
-        "app_menu" : "App Menu"
-        "my_offers" : "所有優惠"
+        "app_menu" : "目錄"
+        "my_offers" : "我的捐獻"
 
       "tour":
-        "step1.title" : "1. Photograph & describe"
-        "quality_items" : "quality items."
-        "we_receive" : "What we receive."
-        "step2.title" : "2. Submit for live review"
-        "chat_questions" : "We'll chat if we have questions"
-        "step3.title" : "3. Arrange transport"
-        "accepted_items" : "for accepted items."
-        "quick_easy" : "Quick & easy"
-        "step4.title" : "4. People are helped"
+        "step1.title" : "1. 上傳圖片及說明"
+        "quality_items" : "優質物資"
+        "we_receive" : "我們收到的物資"
+        "step2.title" : "2. 提交審查"
+        "chat_questions" : "我們有任何疑問的話，會給您發送信息"
+        "step3.title" : "3. 安排運輸"
+        "accepted_items" : "已接受的物資"
+        "quick_easy" : "簡易又快捷"
+        "step4.title" : "4. 幫助到有需要的人"
         "make_goodcity" : "How you're making a Good City."
-        "faq" : "Frequently Asked Questions"
+        "faq" : "常見問題"
 
       "register":
-        "hk_only" : "Mobile phone # (Hong Kong only)"
-        "given_name" : "Given name"
-        "family_name" : "Family name"
-        "districts" : "Districts"
-        "register" : "Register"
-        "login" : "Login"
+        "hk_only" : "電話號碼 # （只限香港）"
+        "given_name" : "名字"
+        "family_name" : "姓氏"
+        "districts" : "地區"
+        "register" : "登記"
+        "login" : "登入"
+        "fill_all_fields": "Please fill in all the fields."
+        "use_of_personal_info": "How we use your personal information"
 
       "offers":
         "index":
-          "new_donation" : "做一個新的捐贈"
-          "my_offers" : "我的供應信息"
-          "total_items" : "總筆數: {{itemCount}}"
-          "see_more" : "查看更多..."
-          "unread_messages" : "Unread messages: {{unreadMessagesCount}}"
-          "complete_offer" : "Complete this Offer"
-          "in_review" : "In review"
-          "awaiting_review" : "Awaiting review"
-          "arrange_transport" : "Please arrange transport"
+          "new_donation" : "新的捐獻"
+          "my_offers" : "我的捐獻"
+          "total_items" : "物品總數： {{itemCount}}"
+          "see_more" : "更多..."
+          "unread_messages" : "未讀信息： {{unreadMessagesCount}}"
+          "complete_offer" : "完成此項捐獻"
+          "in_review" : "正在審查"
+          "awaiting_review" : "等候審查"
+          "arrange_transport" : "請安排運輸"
           "closed" : "Closed"
           "received" : "Received"
           "van_booked" : "Van booked"
@@ -68,26 +71,29 @@ I18nTranslationsZhTw =
           "donations": "Donations"
 
       "offer":
-        "details" : "优惠详情"
-        "no_items" : "您不必在此優惠的任何物品呢。請添加您的第一個項目!"
+        "messages": "Messages"
+        "disable": "Disable"
+        "details" : "Offer details"
+        "no_items" : "You don't have any items in this offer yet. Please add your first item!",
         "confirm":
           "heading" : "確認"
-          "notice": "因為需要更改每日和<br>存儲是有限我們 赔礼 这<br>我們有時不能接受<br>有些項目."
-          "review": "專家志願者將開始回顧的你的品目隨即."
-          "thank": "謝謝!"
+          "notice": "Because needs change daily and <br> storage is limited we apologise that <br> we sometimes cannot accept <br> some items."
+          "review": "Expert volunteers will start reviewing <br> your items immediately."
+          "thank": "Thank You!"
           "next" : "OK! Next"
         "submit":
-          "heading": "出售的商品"
-          "message": "有時候，對於捐贈項目的最佳途，以幫助窮人是一個慈善機構把它賣掉。是出售物品的好嗎"
+          "heading": "Sale of goods"
+          "message": "Occasionally, the best way <br> for a donated item to help the poor <br> is for a charity to sell it. Is sale <br> of item(s) okay?"
+
         "index":
-          "item_count" : "獻 品目 ({{itemCount}})"
-          "add_item" : "加項"
-          "add_items" : "加品目以獻"
-          "confirm" : "全部完成, 下一頁"
-          "review" : "複查狀態"
-          "cancel" : "取消獻"
+          "item_count" : "捐出物品 ({{itemCount}}) 件"
+          "add_item" : "加入物品"
+          "add_items" : "捐出另一件物品"
+          "confirm" : "已經完成，下一步"
+          "review" : "審查狀況"
+          "cancel" : "取消捐獻"
           "description" : "說明"
-          "condition" : "條件"
+          "condition" : "物資狀況"
 
         "offer_details" :
           "heading" : "Offer Details"
@@ -113,10 +119,10 @@ I18nTranslationsZhTw =
           "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
 
         "display_joyride" :
-          "camera": ""
-          "delete": ""
-          "all_done_next": ""
-          "first_item": ""
+          "camera": "Tap <i class='fa fa-camera'></i> to add more items"
+          "delete": "Tap <i class='fa fa-trash'></i> to cancel your offer"
+          "all_done_next": "When all done adding items, proceed to the next step"
+          "first_item": "Select an item to view or modify it."
 
         "cancel":
           "title": "Cancel Offer"
@@ -125,15 +131,15 @@ I18nTranslationsZhTw =
 
       "items":
         "add_item":
-          "condition": "條件?"
-          "edit_image" : "編輯形像"
-          "save" : "Save Details"
-          "description_placeholder" : "What is it? How many items? What's the size?"
+          "condition": "物資狀態如何？"
+          "edit_image" : "修改圖片"
+          "save" : "儲存資料"
+          "description_placeholder" : "請在此填上物資的資料、數量、大小"
 
       "item":
-        "item_details" : "項詳情:"
-        "donor_description": "說明: {{donorDescription}}"
-        "condition": "條件: {{condition}}"
+        "item_details" : "Item details"
+        "donor_description": "Description: {{donorDescription}}"
+        "condition": "Condition: {{condition}}"
         "cancel" : "Cancel Item"
         "edit" : "Edit Item"
         "submitted_status": "This item is awaiting review."
@@ -146,7 +152,6 @@ I18nTranslationsZhTw =
           "info_text1": "If we have questions when reviewing this item we will chat with you here."
           "info_text2": "If you want to add a comment to this item for our reviewers, type it below."
 
-
       # Components
       "upload-images":
         "angles" : "Got all the angles of this item?"
@@ -156,10 +161,10 @@ I18nTranslationsZhTw =
         "upload_error" : "There is an error with your image upload. Please try again after some time."
 
       # The following are for the I18n example template and can be removed soon.
-      'i18nexample.items.heading': '項'
-      'i18nexample.item.title.one': '一個項目'
-      'i18nexample.item.title.other': '{{count}} 項'
-      'i18nexample.item.new.title': '新項目'
-      'i18nexample.i18n.pluralisation': '的複數'
+      "i18nexample.items.heading": "Items"
+      "i18nexample.item.title.one": "One item"
+      "i18nexample.item.title.other": "{{count}} items"
+      "i18nexample.item.new.title": "New item"
+      "i18nexample.i18n.pluralisation": "Pluralisation"
 
 `export default I18nTranslationsZhTw`

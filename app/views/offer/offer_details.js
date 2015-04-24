@@ -2,23 +2,24 @@ import Ember from 'ember';
 import '../../computed/local-storage';
 
 export default Ember.View.extend({
-  didInsertElement: function() {
-    var _this = this;
+  store: Ember.inject.service(),
 
-    Ember.$(document).foundation({
-      joyride : {
-        modal: true,
-        nub_position: 'top',
-        tip_animation_fade_speed: 1300,
-        tip_animation: 'fade',
-        tip_location_patterns: {
-          top: ['bottom'],
-        },
-        post_ride_callback: function(){
-          _this.get("controller").set("joyrideSeen", true); }
-      }
-    }).foundation('joyride', 'start');
+  didInsertElement: function() {
+    var offerCount = this.get("store").all("offer").get("length");
+    var itemCount = this.get("store").all("item").get("length");
+    var recentlyCreated = new Date() - this.get("controller.model.createdAt") <= 12 * 60 * 60 * 1000; // 12 hrs
+    var firstEverItem = offerCount === 1 && itemCount === 1 && recentlyCreated;
+
+    if (firstEverItem) {
+      Ember.$(document).foundation({
+        joyride: {
+          modal: true,
+          nub_position: 'top',
+          tip_animation: 'pop',
+          tip_location: 'bottom',
+          cookie_monster: true
+        }
+      }).foundation('joyride', 'start');
+    }
   },
 });
-
-

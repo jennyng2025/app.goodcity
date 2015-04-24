@@ -1,4 +1,4 @@
-<nav {{bind-attr class=":tab-bar :offer_details_title model.isDraft::non-draft"}}>
+<nav class="tab-bar offer_details_title {{unless model.isDraft 'non-draft'}}">
   <section class="left-small">
     {{#if displayHomeLink}}
       {{#link-to 'offers.index' classNames="back"}}{{t "back"}}{{/link-to}}
@@ -19,6 +19,19 @@
   </div>
 </section>
 
-{{#if firstEverItem }}
-  {{partial "offer/display_joyride"}}
-{{/if}}
+<ol class="joyride-list" data-joyride>
+  <li data-id="camera_delete_bar" data-text="{{t 'next'}}" data-options="tip_location: left; prev_button: false; nub_position: right;" class="overridejoy-start">
+    <p>
+      {{t "offer.display_joyride.camera"}}
+    </p>
+    <p>
+      {{t "offer.display_joyride.delete"}}
+    </p>
+  </li>
+  <li data-id="all_done" data-button="{{t 'next'}}" data-prev-text="{{t 'prev'}}" class="overridejoy-next">
+    <p>{{t "offer.display_joyride.all_done_next"}}</p>
+  </li>
+  <li data-id="joyride-end" data-button="{{t 'end'}}" data-prev-text="{{t 'prev'}}">
+    <p>{{t "offer.display_joyride.first_item"}}</p>
+  </li>
+</ol>
