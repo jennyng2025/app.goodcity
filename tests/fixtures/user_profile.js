@@ -11,7 +11,7 @@ FactoryGuy.define('user_profile', {
     },
     collectionHKMobile: function(){
       var phone_number = Math.floor(Math.random()*8999922+67110000);
-      return phone_number;
+      return phone_number.toString();
     }
   },
   default: {

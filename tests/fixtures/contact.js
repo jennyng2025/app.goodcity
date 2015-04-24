@@ -4,7 +4,7 @@ FactoryGuy.define('contact',{
       return 'Daniel' + num;
     },
     collectionMobile: function(){
-      return Math.floor(Math.random()*8999922+671100001);
+      return Math.floor(Math.random()*8999922+671100001).toString();
     },
   },
   default: {
