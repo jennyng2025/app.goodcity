@@ -21,22 +21,38 @@
           <li>
             <span><i class="fa fa-camera"></i></span>
             <div class='strong'>{{t "tour.step1.title"}}</div>
-            <div class='info'>{{t "tour.quality_items"}} {{#link-to ''class='info_link'}}{{t "tour.we_receive"}}{{/link-to}} </div>
+            <div class='info'>{{t "tour.quality_items"}}
+              <a href="/faq#question1" class='info_link'>
+                {{t "tour.we_receive"}}
+              </a>
+            </div>
           </li>
           <li>
             <span><i class="fa fa-comments-o"></i></span>
             <div class='strong'>{{t "tour.step2.title"}}</div>
-            <div class='info'>{{t "tour.chat_questions"}}</div>
+            <div class='info'>{{t "tour.chat"}}
+              <a href="/faq#question2" class='info_link'>
+                {{t "tour.questions"}}
+              </a>
+            </div>
           </li>
           <li>
             <span><i class="fa fa-truck"></i></span>
             <div class='strong'>{{t "tour.step3.title"}}</div>
-            <div class='info'>{{t "tour.accepted_items"}} {{#link-to ''class='info_link'}}{{t "tour.quick_easy"}}{{/link-to}}.</div>
+            <div class='info'>{{t "tour.accepted_items"}}
+              <a href="/faq#question3" class='info_link'>
+                {{t "tour.quick_easy"}}
+              </a>.
+            </div>
           </li>
           <li>
             <span><i class="fa fa-users"></i></span>
             <div class='strong'>{{t "tour.step4.title"}}</div>
-            <div class='info'>{{#link-to ''class='info_link'}}{{t "tour.make_goodcity"}}{{/link-to}}</div>
+            <div class='info'>
+              <a href="/faq#question5" class='info_link'>
+                {{t "tour.make_goodcity"}}
+              </a>
+            </div>
           </li>
         </ul>
 
@@ -45,7 +61,7 @@
             {{#link-to 'register' classNames="button expand"}}
               {{t "index.start"}}
             {{/link-to}}
-            {{#link-to ''class='info_link'}}{{t "tour.faq"}}{{/link-to}}
+            {{#link-to 'faq'class='info_link'}}{{t "tour.faq"}}{{/link-to}}
           </div>
         </div>
 
