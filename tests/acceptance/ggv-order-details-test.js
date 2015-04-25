@@ -19,7 +19,7 @@ module('Driver: GGV Order details', {
 });
 
 test("Display address information", function() {
-  visit('/ggv_order/111255');
+  visit('/ggv_orders/111255');
 
   andThen(function() {
     equal(Ember.$(".delivery-from").length, 1);
