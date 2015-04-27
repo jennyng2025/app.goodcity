@@ -48,6 +48,9 @@
           {{/if}}
         </b>
       {{/with}}
+    {{else if model.isReceived}}
+      {{t "offer.offer_details.offer_received"}} {{display-timeago model.receivedAt}}.
+
     {{/if}}
   </div>
 </div>
