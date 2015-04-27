@@ -5,7 +5,7 @@ import syncDataStub from '../helpers/empty-sync-data-stub';
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 var App, testHelper, offer1, offer2, reviewer, reviewer1, reviewerName,
   offer7, offer3, offer4, delivery1, delivery2, offer5, delivery3, offer6,
-  offer8, reviewer1Name, ggv_order3, delivery3, offer9;
+  offer8, reviewer1Name, ggv_order3, delivery3, offer9, offer10;
 
 module('Donor: Display Offer Status', {
   setup: function() {
@@ -35,6 +35,8 @@ module('Donor: Display Offer Status', {
     ggv_order3 = FactoryGuy.make("gogovan_active_order");
     delivery3 = FactoryGuy.make("delivery", { deliveryType: "Gogovan", gogovanOrder: ggv_order3 });
     offer9 = FactoryGuy.make("offer_with_items", {state:"scheduled", delivery: delivery3});
+
+    offer10 = FactoryGuy.make("offer_with_items", {state:"received"});
   },
 
   teardown: function() {
@@ -126,5 +128,14 @@ test("Display offer status for closed offer", function() {
   andThen(function() {
     equal(currentURL(), "/offers/" + offer7.id + "/offer_details");
     equal($.trim(find('.status-message').text()), "Offer closed. No items needed, Sorry.");
+  });
+});
+
+test("Display offer status for received offer", function() {
+  visit('/offers/' + offer10.id + "/offer_details");
+
+  andThen(function() {
+    equal(currentURL(), "/offers/" + offer10.id + "/offer_details");
+    equal($(".status-message").text().trim().indexOf("Offer received") >= 0, true);
   });
 });

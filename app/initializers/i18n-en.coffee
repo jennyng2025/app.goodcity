@@ -111,6 +111,7 @@ I18nTranslationsEn =
           "accepted": "Accepted"
           "not_needed": "Not needed"
           "closed_offer_message": "Offer closed. No items needed, Sorry."
+          "offer_received": "Offer received"
 
         "transport_details" :
           "heading": "Transport Details"
@@ -118,6 +119,8 @@ I18nTranslationsEn =
           "arrange_transport": "Arrange Transport"
           "wait_for_transport": "Transport arrangements can be made<br> once the review is complete."
           "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
+          "goods_received" : "Goods received on"
+          "thank": "Thank You!"
 
         "display_joyride" :
           "camera": "Tap <i class='fa fa-camera'></i> to add more items"

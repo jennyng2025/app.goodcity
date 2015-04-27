@@ -5,7 +5,7 @@ import syncDataStub from '../helpers/empty-sync-data-stub';
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 var App, testHelper, offer1, item1, offer2, item2, offer3, item3, offer4,
   item4, delivery1, ggv_order1, offer5, item5, delivery2, ggv_order2,
-  offer6, item6;
+  offer6, item6, offer7;
 
 module('Display Transport Details', {
   setup: function() {
@@ -32,6 +32,8 @@ module('Display Transport Details', {
     delivery2 = FactoryGuy.make("delivery", { deliveryType: "Gogovan", gogovanOrder: ggv_order2 });
     offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery2});
     item6  = FactoryGuy.make("item", {state:"accepted", offer: offer6});
+
+    offer7 = FactoryGuy.make("offer_with_items", {state:"received"});
   },
 
   teardown: function() {
@@ -143,4 +145,13 @@ test("cancel booking of scheduled offer with pending GGV order state", function(
     });
   });
 
+});
+
+test("for received offer", function() {
+  visit('/offers/' + offer7.id + "/transport_details");
+  andThen(function() {
+    equal(currentURL(), "/offers/" + offer7.id + "/transport_details");
+    equal($('.wait_transport').text().trim().indexOf("Goods received on") >= 0, true);
+    equal($('.transport-buttons a').length, 0);
+  });
 });
