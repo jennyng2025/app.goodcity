@@ -22,36 +22,36 @@
             <span><i class="fa fa-camera"></i></span>
             <div class='strong'>{{t "tour.step1.title"}}</div>
             <div class='info'>{{t "tour.quality_items"}}
-              <a href="/faq#question1" class='info_link'>
+              {{#link-to 'faq' (query-params questionAnchor="question1") classNames="info_link"}}
                 {{t "tour.we_receive"}}
-              </a>
+              {{/link-to}}
             </div>
           </li>
           <li>
             <span><i class="fa fa-comments-o"></i></span>
             <div class='strong'>{{t "tour.step2.title"}}</div>
             <div class='info'>{{t "tour.chat"}}
-              <a href="/faq#question2" class='info_link'>
+              {{#link-to 'faq' (query-params questionAnchor="question2") classNames="info_link"}}
                 {{t "tour.questions"}}
-              </a>
+              {{/link-to}}.
             </div>
           </li>
           <li>
             <span><i class="fa fa-truck"></i></span>
             <div class='strong'>{{t "tour.step3.title"}}</div>
             <div class='info'>{{t "tour.accepted_items"}}
-              <a href="/faq#question3" class='info_link'>
+              {{#link-to 'faq' (query-params questionAnchor="question3") classNames="info_link"}}
                 {{t "tour.quick_easy"}}
-              </a>.
+              {{/link-to}}.
             </div>
           </li>
           <li>
             <span><i class="fa fa-users"></i></span>
             <div class='strong'>{{t "tour.step4.title"}}</div>
             <div class='info'>
-              <a href="/faq#question5" class='info_link'>
+              {{#link-to 'faq' (query-params questionAnchor="question5") classNames="info_link"}}
                 {{t "tour.make_goodcity"}}
-              </a>
+              {{/link-to}}
             </div>
           </li>
         </ul>
