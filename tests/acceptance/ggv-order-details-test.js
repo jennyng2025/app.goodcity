@@ -35,5 +35,6 @@ test("Display address information in Chinese", function() {
   andThen(function() {
     equal(Ember.$(".list-items li").text().indexOf("example") > 0, true);
     equal(Ember.$(".offer-status .msg").text().trim().indexOf("您到達時，我們的職員會核對並確認下列資料")  >= 0, true);
+    window.localStorage.setItem("language", '"en"');
   });
 });
