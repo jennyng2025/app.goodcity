@@ -17,6 +17,17 @@
   p b {
     color: $white;
   }
+
+  .question_list {
+    margin-left: 0.5rem;
+
+    li {
+      list-style: none;
+      a {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .faq_nav_bar {
@@ -36,7 +47,7 @@
 
   section.middle {
     margin-top: 0.7rem;
-    position: fixed;
+    position: absolute;
     @media #{$small-only} {
       margin-top: 1rem;
     }

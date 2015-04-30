@@ -25,6 +25,11 @@
               {{#link-to "offers.new" class="button expand"}}{{t "offers.index.new_donation"}}{{/link-to}}
             </div>
           </div>
+        {{else if model.isReceived}}
+          <div class='wait_transport'>
+             {{t "offer.transport_details.goods_received"}} {{display-date model.receivedAt}}. {{t "offer.transport_details.thank"}}
+            <i class="fa fa-info-circle fa-4x info-icon"></i>
+          </div>
 
         {{else}}
           {{#if model.isScheduled}}

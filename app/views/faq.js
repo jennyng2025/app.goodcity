@@ -2,6 +2,14 @@ import Ember from 'ember';
 
 export default Ember.View.reopen({
   didInsertElement: function() {
+    this._super();
+
+    Ember.run.scheduleOnce('afterRender', this, function(){
+      var controller = this.get('controller');
+      if(controller && controller.questionAnchor) {
+        controller.send('displayQuestion');
+      }
+    });
 
     Ember.$(document).foundation();
 
