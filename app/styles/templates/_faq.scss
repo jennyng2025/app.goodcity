@@ -3,11 +3,6 @@
 }
 
 .faq_list {
-  margin-top: 4rem;
-
-  @media #{$small-only} {
-    margin-top: 3rem;
-  }
 
   p, li {
     @media #{$small-only} {
