@@ -39,6 +39,7 @@ module.exports = function(environment) {
     },
 
     cordova: {
+      enabled: process.env.EMBER_CLI_CORDOVA !== '0',
       rebuildOnChange: false,
       emulate: false
     },

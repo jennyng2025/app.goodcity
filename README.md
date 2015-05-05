@@ -90,6 +90,13 @@ IOS
 * `npm install -g ios-deploy`
 * `ember cordova platform add ios`
 
+Add Plugins
+* `ember cordova plugin add https://github.com/phonegap-build/PushPlugin.git`
+* `ember cordova plugin add org.apache.cordova.device`
+* `ember cordova plugin add org.apache.cordova.dialogs`
+* `ember cordova plugin add org.apache.cordova.file`
+* `ember cordova plugin add org.apache.cordova.media`
+
 ### Run
 To start app in emulator
 
