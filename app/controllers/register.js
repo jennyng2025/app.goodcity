@@ -4,6 +4,9 @@ import config from '../config/environment';
 
 export default Ember.Controller.extend({
   alert: Ember.inject.service(),
+  phoneNumberPlaceholder: Ember.I18n.t("register.phone_number"),
+  fNamePlaceholder: Ember.I18n.t("register.john"),
+  lNamePlaceholder: Ember.I18n.t("register.doe"),
 
   actions: {
     registerUser: function() {
