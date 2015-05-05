@@ -8,6 +8,8 @@ I18nTranslationsEn =
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
     Ember.I18n.translation_store.en = Ember.$.extend true, SharedTranslationsEn,
+      "faqs": "FAQs"
+      "personal_information": "Personal Information"
       "ggv_order":
         "message" : "Our Staff will confirm each item listed below when you arrive."
         "delivery_from" : "Delivery from"
@@ -45,6 +47,9 @@ I18nTranslationsEn =
         "login" : "Login"
         "fill_all_fields": "Please fill in all the fields."
         "use_of_personal_info": "How we use your personal information"
+        "phone_number": "Phone Number"
+        "john": "John"
+        "doe": "Doe"
 
       "offers":
         "index":
@@ -72,6 +77,8 @@ I18nTranslationsEn =
           "donations": "Donations"
 
       "offer":
+        "camera": "Camera"
+        "delete": "Delete"
         "messages": "Messages"
         "disable": "Disable"
         "details" : "Offer details"

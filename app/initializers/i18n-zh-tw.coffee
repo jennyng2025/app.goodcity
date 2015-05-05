@@ -8,6 +8,8 @@ I18nTranslationsZhTw =
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
     Ember.I18n.translation_store['zh-tw'] = Ember.$.extend true, SharedTranslationsZhTw,
+      "faqs": "FAQs"
+      "personal_information": "Personal Information"
       "ggv_order":
         "message" : "您到達時，我們的職員會核對並確認下列資料"
         "delivery_from" : "寄出地點"
@@ -45,6 +47,9 @@ I18nTranslationsZhTw =
         "login" : "登入"
         "fill_all_fields": "請填妥所有欄目"
         "use_of_personal_info": "我們如何使用你的個人資料"
+        "phone_number": "Phone Number"
+        "john": "John"
+        "doe": "Doe"
 
       "offers":
         "index":
@@ -72,6 +77,8 @@ I18nTranslationsZhTw =
           "donations": "捐獻"
 
       "offer":
+        "camera": "Camera"
+        "delete": "Delete"
         "messages": "信息"
         "disable": "損壞"
         "details" : "捐獻細節"
