@@ -45,6 +45,9 @@ I18nTranslationsZhTw =
         "login" : "登入"
         "fill_all_fields": "請填妥所有欄目"
         "use_of_personal_info": "我們如何使用你的個人資料"
+        "phone_number": "Phone Number"
+        "john": "John"
+        "doe": "Doe"
 
       "offers":
         "index":
@@ -72,6 +75,8 @@ I18nTranslationsZhTw =
           "donations": "捐獻"
 
       "offer":
+        "camera": "Camera"
+        "delete": "Delete"
         "messages": "信息"
         "disable": "損壞"
         "details" : "捐獻細節"
