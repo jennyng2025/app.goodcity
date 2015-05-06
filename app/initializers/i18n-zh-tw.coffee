@@ -8,8 +8,6 @@ I18nTranslationsZhTw =
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
     Ember.I18n.translation_store['zh-tw'] = Ember.$.extend true, SharedTranslationsZhTw,
-      "faqs": "FAQs"
-      "personal_information": "Personal Information"
       "ggv_order":
         "message" : "您到達時，我們的職員會核對並確認下列資料"
         "delivery_from" : "寄出地點"
