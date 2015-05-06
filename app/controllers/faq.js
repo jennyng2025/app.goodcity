@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   questionAnchor: null,
 
+  isChinese: function() {
+    return this.get('session.language') === 'zh-tw';
+  }.property('currentLanguage'),
+
   actions: {
     displayQuestion: function() {
       var question = this.get("questionAnchor");
