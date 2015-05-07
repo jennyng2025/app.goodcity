@@ -28,7 +28,7 @@ module('Display Transport Details', {
     offer5 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery1});
     item5  = FactoryGuy.make("item", {state:"accepted", offer: offer5});
 
-    ggv_order2 = FactoryGuy.make("gogovan_active_order");
+    ggv_order2 = FactoryGuy.make("gogovan_active_order", {driverMobile: "12345678"});
     delivery2 = FactoryGuy.make("delivery", { deliveryType: "Gogovan", gogovanOrder: ggv_order2 });
     offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery2});
     item6  = FactoryGuy.make("item", {state:"accepted", offer: offer6});
@@ -107,7 +107,7 @@ test("for scheduled offer with active GGV order state", function() {
     equal((($.trim($(".transport-content .row:eq(2)").text())).indexOf(ggv_order2.get('driverName')) > 0), true);
 
     // driver mobile
-    equal((($.trim($(".transport-content .row:eq(3)").text())).indexOf(ggv_order2.get('driverMobile')) > 0), true);
+    equal((($.trim($(".transport-content .row:eq(3)").text())).indexOf("1234 5678") > 0), true);
 
     // driver License
     equal((($.trim($(".transport-content .row:eq(4)").text())).indexOf(ggv_order2.get('driverLicense')) > 0), true);
