@@ -6,4 +6,6 @@
   <icon src="www/assets/images/goodcity-icon-128.png" />
   <content src="index.html" />
   <access origin="*" />
+  <!-- android settings -->
+  <preference name="LoadUrlTimeoutValue" value="120000"/>
 </widget>
