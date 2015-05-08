@@ -1,8 +1,9 @@
 import Ember from 'ember';
 import '../../computed/local-storage';
 import recordsUtil from '../../utils/records';
+import OfferBaseController from "shared.goodcity/controllers/offer_base";
 
-export default Ember.Controller.extend({
+export default OfferBaseController.extend({
   items: Ember.computed.alias('model.items'),
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
@@ -35,11 +36,6 @@ export default Ember.Controller.extend({
         .then(() => { recordsUtil.unloadRecordTree(offer); this.transitionToRoute('offers.index'); })
         .catch(error => { offer.rollback(); throw error; })
         .finally(() => loadingView.destroy());
-    },
-
-    addItem: function() {
-      var draftItemId = this.get("items").filterBy("state", "draft").get("firstObject.id") || "new";
-      this.transitionToRoute('item.edit_images', draftItemId);
     },
 
     cancelOffer: function(offer, alreadyConfirmed){
