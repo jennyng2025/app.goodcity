@@ -41,7 +41,8 @@ module.exports = function(environment) {
     cordova: {
       enabled: process.env.EMBER_CLI_CORDOVA !== '0',
       rebuildOnChange: false,
-      emulate: false
+      emulate: false,
+      GcmSenderId: '161361907015'
     },
     coffeeOptions: {
       blueprints: false
@@ -94,6 +95,8 @@ module.exports = function(environment) {
       ENV.APP.API_HOST_URL = 'https://api-staging.goodcity.hk';
       ENV.APP.SOCKETIO_WEBSERVICE_URL = 'https://socket-staging.goodcity.hk:81/goodcity';
       ENV.contentSecurityPolicy["connect-src"] = 'https://app-staging.goodcity.hk https://api-staging.goodcity.hk https://socket-staging.goodcity.hk:81 ws://socket-staging.goodcity.hk:81 https://api.cloudinary.com';
+    } else {
+      ENV.cordova.GcmSenderId = '919797298115';
     }
   }
 

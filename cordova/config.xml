@@ -5,7 +5,13 @@
   <author href="https://www.crossroads.org.hk">Crossroads</author>
   <icon src="www/assets/images/goodcity-icon-128.png" />
   <content src="index.html" />
+  <platform name="android">
+    <preference name="LoadUrlTimeoutValue" value="120000" />
+  </platform>
+  <engine name="ios" spec="^3.8.0" />
+  <engine name="android" spec="^4.0.0" />
+  <engine name="windows" spec="^3.8.1" />
+  <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/phonegap-build/PushPlugin.git" />
+  <plugin name="cordova-plugin-device" spec="^1.0.0" />
   <access origin="*" />
-  <!-- android settings -->
-  <preference name="LoadUrlTimeoutValue" value="120000"/>
 </widget>

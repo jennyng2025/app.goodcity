@@ -66,8 +66,8 @@ ember install
 ### Setup
 * `npm install -g cordova`
 * `ember cordova:prepare`
-* `ln -s ../dist cordova/www` (linux/mac)
-* `mklink /d cordova\www ..\dist` (windows)
+* `cd cordova`
+* `cordova prepare`
 
 Android
 * Install SDK tools - https://developer.android.com/sdk/installing/index.html
@@ -77,34 +77,38 @@ Android
   - install sdk build tools
 * `sudo apt-get install ant`
 * start android avd manager `android avd` to create an android VM
-* `ember cordova platform add android`
 
 Windows Phone
 * Install VS 2013 - http://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
-  - select "Windows Phone 8.0 SDK" for wp8
-* `ember cordova platform add wp8` (for wp8)
-* `ember cordova platform add windows` (for wp8.1/windows8.1)
 
 IOS
 * Install Xcode - https://developer.apple.com/xcode/downloads/
 * `npm install -g ios-deploy`
-* `ember cordova platform add ios`
-
-Add Plugins
-* `ember cordova plugin add https://github.com/phonegap-build/PushPlugin.git`
-* `ember cordova plugin add org.apache.cordova.device`
-* `ember cordova plugin add org.apache.cordova.dialogs`
-* `ember cordova plugin add org.apache.cordova.file`
-* `ember cordova plugin add org.apache.cordova.media`
 
 ### Run
 To start app in emulator
 
-`ember cordova run`
+`ember cordova emulate android`
 
 To start app in browser (use [ripple-emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en) to emulate hardware)
 
 `npm run cordova`
+
+To deploy to connected device
+
+`ember cordova run windows --device --phone` (WP8.1)<br/>
+`ember cordova run android`
+
+---
+
+To deploy to Android you need to have USB debugging enabled, to do so:
+
+* enable `settings > developer options > android debugging`
+
+If developer options is missing:
+
+* go to `settings > about phone`
+* tap `build number` seven times
 
 ### Build
 Release Build
