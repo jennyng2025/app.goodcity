@@ -11,7 +11,8 @@
   <engine name="ios" spec="^3.8.0" />
   <engine name="android" spec="^4.0.0" />
   <engine name="windows" spec="^3.8.1" />
-  <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/phonegap-build/PushPlugin.git" />
+  <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/Telerik-Verified-Plugins/PushNotification.git" />
   <plugin name="cordova-plugin-device" spec="^1.0.0" />
   <access origin="*" />
+  <plugin name="cordova-plugin-whitelist" spec="^1.0.0" />
 </widget>
