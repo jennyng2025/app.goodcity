@@ -1,11 +1,11 @@
-<div class="contain-to-grid fixed sticky faq_nav_bar">
+<div class="contain-to-grid sticky faq_nav_bar">
   <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     <section class="left-small">
       {{#link-to 'tour' classNames='back'}}{{t "back"}}{{/link-to}}
     </section>
 
     <section class="middle tab-bar-section">
-      <h1 class="title">FAQs</h1>
+      <h1 class="title">{{t "faqs.title"}}</h1>
     </section>
   </nav>
 </div>
@@ -13,84 +13,83 @@
 <section class="main-section faq_list">
   <div class="row">
     <div class="small-12 columns">
-
-      <p>GoodCity.HK is the world's most efficient city-wide service for charitable goods donations.</p>
+      <p>{{t "faqs.description"}}</p>
 
       <ul class="question_list">
-        <li><a href="faq#question1">What kinds of items can be donated?</a></li>
-        <li><a href="faq#question2">How do reviewers decide what to accept?</a></li>
-        <li><a href="faq#question3">What transport options are available?</a></li>
-        <li><a href="faq#question4">How are requests for goods made?</a></li>
-        <li><a href="faq#question5">Who is helped by these goods?</a></li>
-        <li><a href="faq#question6">Can I donate goods from outside Hong Kong?</a></li>
-        <li><a href="faq#question7">Why Hong Kong?</a></li>
+        <li><a href="faq#question1">{{t "faqs.questions.question1"}}</a></li>
+        <li><a href="faq#question2">{{t "faqs.questions.question2"}}</a></li>
+        <li><a href="faq#question3">{{t "faqs.questions.question3"}}</a></li>
+        <li><a href="faq#question4">{{t "faqs.questions.question4"}}</a></li>
+        <li><a href="faq#question5">{{t "faqs.questions.question5"}}</a></li>
+        <li><a href="faq#question6">{{t "faqs.questions.question6"}}</a></li>
+        <li><a href="faq#question7">{{t "faqs.questions.question7"}}</a></li>
       </ul>
 
 
-      <p id="question1"><b>What kinds of items can be donated?</b></p>
+      <p id="question1"><b>{{t "faqs.questions.question1"}}</b></p>
 
-      <p>Items in good condition that could be a respectful gift to a charity or disadvantaged recipient.</p>
+      <p>{{t "faqs.answers.answer1.good_condition"}}</p>
 
-      <p>With GoodCity.HK you can find out if your item(s) are helpful just by taking a photo and waiting a few moments for review. Typical donations are of furniture, household goods, computers, electrical items and much more.</p>
+      <p>{{t "faqs.answers.answer1.useful"}}</p>
 
-      <p id="question2"><b>How do reviewers decide what to accept?</b></p>
+      <p id="question2"><b>{{t "faqs.questions.question2"}}</b></p>
 
-      <p>Our reviewers see real-time supply and demand scores for every type of item. They combine this with considerations that vary for different kinds of items: quality requirements, size constraints, hazardous items, logistically difficult items, voltage, compatibility, parts and so on.</p>
+      <p>{{t "faqs.answers.answer2.review"}}</p>
 
-      <p>Reviewers can ask you questions via the app's messaging features. This means we can avoid asking you to fill in complicated forms. For most items, your photos and brief notes will be enough.</p>
+      <p>{{t "faqs.answers.answer2.messaging"}}</p>
 
-      <p>Reviewers also have live access to expert supervisors. Our supervisors have typically been facilitating donated goods in Hong Kong for at least five years. They know how to evaluate unusual offers: like a commercial pizza oven, 100,000 new business suits, boxes of fake flowers and all manner of wierd and wonderful things.</p>
+      <p>{{t "faqs.answers.answer2.supervisors"}}</p>
 
-      <p id="question3"><b>What transport options are available?</b></p>
+      <p id="question3"><b>{{t "faqs.questions.question3"}}</b></p>
 
       <ul>
-        <li><b>Fast commercial van hire:</b> from within our app you can book a truck. This is the fastest method and you pay the driver directly.</li>
-        <li><b>Subsidised collection service:</b> Crossroads operates a collection truck. For this service we only charge a fuel/tolls levy based on the size of your offer. However, due to high demand, you will typically need to wait a few weeks.</li>
-        <li><b>Deliver yourself:</b> through the app you can book a time to drop the items at our Tuen Mun facility yourself.</li>
+        <li>{{t "faqs.answers.answer3.gogovan"}}</li>
+        <li>{{t "faqs.answers.answer3.crossroad"}}</li>
+        <li>{{t "faqs.answers.answer3.drop_off"}}</li>
       </ul>
 
-      <p id="question4"><b>How are requests for goods made?</b></p>
+      <p id="question4"><b>{{t "faqs.questions.question4"}}</b></p>
 
-      <p>Social workers and charity staff have access to a specialised website and mobile app. Currently this is by invitation only but it will ultimately be expanded to all registered social workers and charitable organisations in Hong Kong.</p>
+      <p>{{t "faqs.answers.answer4"}}</p>
 
-      <p id="question5"><b>Who is helped by these goods?</b></p>
+      <p id="question5"><b>{{t "faqs.questions.question5"}}</b></p>
 
-      We serve a range of need:
+      {{t "faqs.answers.answer5.title"}}
 
       <ul>
-        <li>Community/cultural groups</li>
-        <li>Drug rehabilitation</li>
-        <li>Educational institutions</li>
-        <li>Elderly persons</li>
-        <li>Environmental care</li>
-        <li>Families in need</li>
-        <li>Medical clinics & hospitals</li>
-        <li>Orphanages</li>
-        <li>People with special needs</li>
-        <li>People at risk</li>
-        <li>Rehabilitation services</li>
-        <li>Service organisations</li>
-        <li>Social enterprise</li>
-        <li>Sports programmes for the disadvantaged</li>
-        <li>Suicide prevention services</li>
-        <li>Support for domestic workers</li>
-        <li>Support for new arrivals</li>
-        <li>Support for women</li>
-        <li>Vocational training programmes</li>
-        <li>Welfare of animals</li>
+        <li>{{t "faqs.answers.answer5.community"}}</li>
+        <li>{{t "faqs.answers.answer5.drug"}}</li>
+        <li>{{t "faqs.answers.answer5.education"}}</li>
+        <li>{{t "faqs.answers.answer5.elderly"}}</li>
+        <li>{{t "faqs.answers.answer5.environmental"}}</li>
+        <li>{{t "faqs.answers.answer5.families"}}</li>
+        <li>{{t "faqs.answers.answer5.medical_n_hospitals"}}</li>
+        <li>{{t "faqs.answers.answer5.orphanages"}}</li>
+        <li>{{t "faqs.answers.answer5.special_needs"}}</li>
+        <li>{{t "faqs.answers.answer5.risk"}}</li>
+        <li>{{t "faqs.answers.answer5.rehabilitation"}}</li>
+        <li>{{t "faqs.answers.answer5.service_orgs"}}</li>
+        <li>{{t "faqs.answers.answer5.social_enterprise"}}</li>
+        <li>{{t "faqs.answers.answer5.sports"}}</li>
+        <li>{{t "faqs.answers.answer5.suicide_prevention"}}</li>
+        <li>{{t "faqs.answers.answer5.domestic_workers"}}</li>
+        <li>{{t "faqs.answers.answer5.new_arrivals"}}</li>
+        <li>{{t "faqs.answers.answer5.women"}}</li>
+        <li>{{t "faqs.answers.answer5.vocational_training"}}</li>
+        <li>{{t "faqs.answers.answer5.animals_welfare"}}</li>
       </ul>
 
-      <p id="question6"><b>Can I donate goods from outside Hong Kong?</b></p>
+      <p id="question6"><b>{{t "faqs.questions.question6"}}</b></p>
 
-      <p>No. But if you are a company offering a volume of goods outside Hong Kong you can use another service we developed called <a href="http://www.globalhand.org/">Global Hand.</a></p>
+      <p>{{t "faqs.answers.answer6"}} <a href="http://www.globalhand.org/">{{t "faqs.answers.global_hand"}}</a></p>
 
-      <p id="question7"><b>Why Hong Kong?</b></p>
+      <p id="question7"><b>{{t "faqs.questions.question7"}}</b></p>
 
-      <p>Hong Kong is uniquely positioned to have the world’s most efficient system for charitable goods donation: high population density, small distances, penetration of smart-phones, relative wealth, well organised charitable sector and a climate of growing social awareness.</p>
+      <p>{{t "faqs.answers.answer7.hk"}}</p>
 
-      <p>The Crossroads Foundation has been facilitating donated goods in Hong Kong since 1995 and has developed numerous complex online services (e.g. business.un.org) making it an organisation uniquely placed to realise this opportunity.</p>
+      <p>{{t "faqs.answers.answer7.crossroads"}}</p>
 
     </div>
   </div>
-  <a href="#" class="back-to-top">Go to Top</a>
+  {{view "go-to-top-button"}}
 </section>

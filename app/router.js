@@ -9,6 +9,7 @@ Router.map(function() {
   this.resource('tour');
   this.route('register');
   this.route('faq');
+  this.route('pics');
   this.route('ggv_orders', { path: '/ggv_orders/:ggv_id' });
 
   this.resource('offers', function () {

@@ -1,9 +1,8 @@
-.faq_list {
-  margin-top: 4rem;
+.contain-to-grid.faq_nav_bar{
+  display: block !important;
+}
 
-  @media #{$small-only} {
-    margin-top: 3rem;
-  }
+.faq_list {
 
   p, li {
     @media #{$small-only} {
@@ -52,17 +51,4 @@
       margin-top: 1rem;
     }
   }
-}
-
-.back-to-top {
-  position: fixed;
-  bottom: 1rem;
-  right: 0px;
-  text-decoration: none;
-  color: $white;
-  background-color: $button-bg-color;
-  font-size: 0.65rem;
-  padding: 0.5rem;
-  font-weight: bold;
-  display: none;
 }
