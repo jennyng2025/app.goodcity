@@ -6,7 +6,12 @@ FactoryGuy.define('crossroads_transport', {
       return types[Math.floor(Math.random()*(types.length))];
     }),
     cost: 200,
-  }
+    isVanAllowed: true,
+  },
+  crossroads_transport_disabled: {
+    name: "Disable",
+    isVanAllowed: false
+  },
 });
 
 export default {};
