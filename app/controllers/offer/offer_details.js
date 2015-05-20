@@ -1,9 +1,9 @@
 import Ember from 'ember';
 import '../../computed/local-storage';
 import recordsUtil from '../../utils/records';
-import OfferBaseController from "shared.goodcity/controllers/offer_base";
+import ItemBaseController from "../item/edit_images";
 
-export default OfferBaseController.extend({
+export default ItemBaseController.extend({
   items: Ember.computed.alias('model.items'),
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
@@ -29,6 +29,15 @@ export default OfferBaseController.extend({
   }.property('offers.@each.state'),
 
   actions: {
+    addItem: function() {
+      var draftItemId = this.get("model.items").filterBy("state", "draft").get("firstObject.id");
+      if(draftItemId) {
+        this.transitionToRoute('item.edit', draftItemId);
+      } else {
+        this.send("triggerUpload");
+      }
+    },
+
     deleteOffer: function(offer) {
       var loadingView = this.container.lookup('view:loading').append();
       offer.deleteRecord();
