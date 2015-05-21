@@ -17,7 +17,7 @@ import '../fixtures/crossroads_transport';
 import '../fixtures/message';
 
 export default function(testHelper) {
-  config.APP.PRELOAD_TYPES.concat(config.APP.PRELOAD_AUTHORIZED_TYPES).forEach(function(type) {
+  config.APP.PRELOAD_TYPES.concat(config.APP.PRELOAD_AUTHORIZED_TYPES).concat("offer").forEach(function(type) {
     testHelper.handleFindAll(type, 0);
   });
 
