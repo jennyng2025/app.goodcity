@@ -143,7 +143,7 @@ I18nTranslationsZhTw =
           "condition": "物資狀態如何？"
           "edit_image" : "修改圖片"
           "save" : "儲存資料"
-          "description_placeholder" : "請在此填上物資的資料、數量、大小"
+          "description_placeholder" : "Item description, size, quantity etc. To add or edit photos of this item, click the thumbnail."
 
       "item":
         "item_details" : "物資細節"

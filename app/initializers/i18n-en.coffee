@@ -143,7 +143,7 @@ I18nTranslationsEn =
           "condition": "Condition?"
           "edit_image" : "Edit photos"
           "save" : "Save Details"
-          "description_placeholder" : "What is it? How many items? What's the size?"
+          "description_placeholder" : "Item description, size, quantity etc. To add or edit photos of this item, click the thumbnail."
 
       "item":
         "item_details" : "Item details"
