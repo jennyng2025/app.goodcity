@@ -4,7 +4,7 @@ import startApp from '../helpers/start-app';
 var App, testHelper, offer, offer1, offer2, item, item1, item2, item3, offerUrl,
   offer1Url, offer2Url, offer3, offer4, item3, item4, offer3Url, offer4Url, del,
   del1, del2, offer5, item5, offer5Url, del3, offer6, item6, offer6Url,
-  ggvOrder, ggvOrder1,
+  ggvOrder, ggvOrder1, ggvOrder2, del4, offer7, item7, offer7Url,
   TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 
 module('Offer Index View', {
@@ -41,6 +41,11 @@ module('Offer Index View', {
     offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: del3, createdBy:currentUserId});
     item6 = FactoryGuy.make("item", {state:"accepted", offer: offer6});
 
+    ggvOrder2 = FactoryGuy.make("gogovan_completed_order");
+    del4 = FactoryGuy.make("delivery", {deliveryType:"Gogovan", gogovanOrder: ggvOrder2});
+    offer7 = FactoryGuy.make("offer", {state:"scheduled", delivery: del4, createdBy:currentUserId});
+    item7 = FactoryGuy.make("item", {state:"accepted", offer: offer7});
+
   },
   teardown: function() {
     Em.run(function() { testHelper.teardown(); });
@@ -73,6 +78,9 @@ test('Offers list & link to add items', function() {
 
     offer6Url = "/offers/"+offer6.id+"/offer_details";
     equal(Ember.$("a[href='"+offer6Url+"'] h3").text().indexOf("Van confirmed") > -1, true);
+
+    offer7Url = "/offers/"+offer7.id+"/offer_details";
+    equal(Ember.$("a[href='"+offer7Url+"'] h3").text().indexOf("Picked up") > -1, true);
 
     // test: link to complete offers
     equal(find("a:contains('Make a New Donation')").length > 0, true);
