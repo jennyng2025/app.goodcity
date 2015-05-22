@@ -7,6 +7,7 @@ export default {
   unloadRecordTree: function(record) {
     var taxonomyTypes = config.APP.PRELOAD_TYPES
       .concat(config.APP.PRELOAD_AUTHORIZED_TYPES)
+      .concat("offer")
       .filter(t => t !== "offer")
       .concat("user")
       .map(t => t.replace(/_(.)/, (m,g) => g.toUpperCase())); //to camelcase

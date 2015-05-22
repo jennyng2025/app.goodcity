@@ -13,7 +13,7 @@ export default Ember.Route.extend({
   },
 
   afterModel: function(offer) {
-    var validOffer = offer.get("isScheduled");
+    var validOffer = offer.get("isScheduled") && offer.get("delivery.gogovanOrder.isActive");
     if(!validOffer) {
       throw { status: 404 };
     }
