@@ -31,7 +31,11 @@
                     {{#unless offer.isDraft}}
                       {{#if offer.isScheduled }}
                         {{#if offer.delivery.isGogovan}}
-                          {{display-date offer.delivery.schedule.scheduledAt}}
+                          {{#if offer.delivery.gogovanOrder.isCompleted}}
+                            {{display-date offer.delivery.gogovanOrder.completedAt}}
+                          {{else}}
+                            {{display-date offer.delivery.schedule.scheduledAt}}
+                          {{/if}}
                           <br/>
                           {{#if offer.delivery.gogovanOrder.isPending}}
                             {{t "offers.index.awaiting_driver"}}<br/>
