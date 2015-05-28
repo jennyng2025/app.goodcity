@@ -1,10 +1,11 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  formData: function() {
+  formData: function(key, value) {
+    var item = (arguments.length > 1) ? value : this.get('model');
     return {
-      donorConditionId: this.get("model.donorConditionId"),
-      donorDescription: this.get("model.donorDescription")
+      donorConditionId: item.get("donorConditionId"),
+      donorDescription: item.get("donorDescription")
     };
   }.property("model"),
 
@@ -31,6 +32,23 @@ export default Ember.Controller.extend({
           throw error;
         })
         .finally(() => loadingView.destroy());
+    },
+
+    discardChanges: function(item)  {
+      var controller = this;
+      var offer = item.get('offer');
+      if (item.get("state") === "draft") {
+        var loadingView = controller.container.lookup('view:loading').append();
+        item.destroyRecord().then(function(){
+          var route = offer.get('itemCount') === 0 ? "offer" : "offer.offer_details";
+          controller.transitionToRoute(route);
+        })
+        .finally(() => loadingView.destroy());
+      }
+      else {
+        controller.set("formData", item);
+        controller.transitionToRoute("offer.offer_details");
+      }
     }
   }
 });
