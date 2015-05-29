@@ -140,13 +140,6 @@ I18nTranslationsEn =
           "confirm_ggv_cancel": "Once GoGoVan confirms the order is cancelled you will be able to proceed to cancel your offer."
           "cancel_offer": "Cancel Offer"
 
-      "items":
-        "add_item":
-          "condition": "Condition?"
-          "edit_image" : "Edit photos"
-          "save" : "Save Details"
-          "description_placeholder" : "Item description, size, quantity etc. To add or edit photos of this item, click the thumbnail."
-
       "item":
         "item_details" : "Item details"
         "donor_description": "Description: {{donorDescription}}"
