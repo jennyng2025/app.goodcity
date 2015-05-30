@@ -70,13 +70,21 @@ ember install
 * `cordova prepare`
 
 Android
-* Install SDK tools - https://developer.android.com/sdk/installing/index.html
-* start SDK manager `android`
-  - install API v19
-  - install system image (performs better if matches host CPU, can be higher API version)
-  - install sdk build tools
+* Install stand alone SDK tools - https://developer.android.com/sdk/installing/index.html
+* set environment variables<br/>
+  `export ANDROID_HOME=/<installation location>/android-sdk`<br/>
+  `export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools`
+* start SDK manager from terminal `android`
+  - install "Android 5.1.1 (API 22)/SDK Platform"
+  - install "Tools/Android SDK Build-tools" (latest version)
+  - install "Tools/Android SDK Platform-tools" (latest version)
 * `sudo apt-get install ant`
-* start android avd manager `android avd` to create an android VM
+
+Android Emulator setup (not needed if using a real phone)
+* start SDK manager from terminal `android`
+  - install "Android 5.1.1 (API 22)/Google APIs Intel x86 Atom System Image"
+* open from menu "Tools > Manage AVDs > Create"
+* fill out create new AVD and click ok
 
 Windows Phone
 * Install VS 2013 - http://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
@@ -89,10 +97,6 @@ IOS
 To start app in emulator
 
 `ember cordova emulate android`
-
-To start app in browser (use [ripple-emulator](https://chrome.google.com/webstore/detail/ripple-emulator-beta/geelfhphabnejjhdalkjhgipohgpdnoc?hl=en) to emulate hardware)
-
-`npm run cordova`
 
 To deploy to connected device
 
@@ -117,8 +121,8 @@ Release Build
 
 Debug Build
 ```sh
-ember build --environment=production
 cd cordova
+ember build --environment=production
 cordova build android --debug
 ```
 
