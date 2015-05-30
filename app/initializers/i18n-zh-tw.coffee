@@ -45,7 +45,7 @@ I18nTranslationsZhTw =
         "login" : "登入"
         "fill_all_fields": "請填妥所有欄目"
         "use_of_personal_info": "我們如何使用你的個人資料"
-        "phone_number": "Phone Number"
+        "phone_number": "電話號碼"
         "john": "John"
         "doe": "Doe"
 
@@ -64,6 +64,7 @@ I18nTranslationsZhTw =
           "received" : "已收到"
           "van_booked" : "已預約貨車"
           "van_confirmed": "已確認貨車安排"
+          "picked_up": "已經提取"
           "drop_off" : "親身送到十字路會"
           "alternate" : "已預約到十字路會收集站"
           "awaiting_driver" : "正在等候司機的資料"
@@ -75,8 +76,8 @@ I18nTranslationsZhTw =
           "donations": "捐獻"
 
       "offer":
-        "camera": "Camera"
-        "delete": "Delete"
+        "camera": "照相機"
+        "delete": "刪除"
         "messages": "信息"
         "disable": "損壞"
         "details" : "捐獻細節"
@@ -108,6 +109,7 @@ I18nTranslationsZhTw =
           "is_collection": "收集站"
           "is_drop_off": "接收地點"
           "is_gogovan_order": "已預約貨車"
+          "driver_completed": "Driver completed"
           "is_gogovan_confirm": "已確認貨車安排"
           "reviewed_message": "審查已完成！"
           "please": "請"
@@ -137,13 +139,6 @@ I18nTranslationsZhTw =
           "title": "取消捐獻"
           "confirm_ggv_cancel": "GoGoVan確認預約取消後，您可以取消是此捐獻"
           "cancel_offer": "取消捐獻"
-
-      "items":
-        "add_item":
-          "condition": "物資狀態如何？"
-          "edit_image" : "修改圖片"
-          "save" : "儲存資料"
-          "description_placeholder" : "Item description, size, quantity etc. To add or edit photos of this item, click the thumbnail."
 
       "item":
         "item_details" : "物資細節"

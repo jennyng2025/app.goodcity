@@ -41,7 +41,8 @@ test("does not unload taxonomy record", function(assert) {
   andThen(() => assert.ok(store.all("gogovan_transport").get("length") > 0));
 });
 
-test("does not load an async relationship (belongsTo) not yet loaded", function(assert) {
+// package.item is no longer async don't have another async relationship to try
+testSkip("does not load an async relationship (belongsTo) not yet loaded", function(assert) {
   assert.expect(1);
   $.mockjax({url:"/api/v1/items/*",response:() => {
     Ember.run(() => assert.equal("async call was made", "no async call"));

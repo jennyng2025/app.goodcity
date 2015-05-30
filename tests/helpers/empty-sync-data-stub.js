@@ -5,7 +5,7 @@ import '../fixtures/schedule';
 import '../fixtures/delivery';
 import '../fixtures/gogovan_order';
 import '../fixtures/offer';
-import '../fixtures/item_type';
+import '../fixtures/package_type';
 import '../fixtures/package';
 import '../fixtures/donor_condition';
 import '../fixtures/rejection_reason';
@@ -17,7 +17,7 @@ import '../fixtures/crossroads_transport';
 import '../fixtures/message';
 
 export default function(testHelper) {
-  config.APP.PRELOAD_TYPES.concat(config.APP.PRELOAD_AUTHORIZED_TYPES).forEach(function(type) {
+  config.APP.PRELOAD_TYPES.concat(config.APP.PRELOAD_AUTHORIZED_TYPES).concat("offer").forEach(function(type) {
     testHelper.handleFindAll(type, 0);
   });
 

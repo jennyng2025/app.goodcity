@@ -30,6 +30,14 @@ FactoryGuy.define('gogovan_order', {
     driverMobile:  FactoryGuy.generate(mobile.hongKong),
     driverLicense: 'VH1002',
     status:        'active'
+  },
+
+  gogovan_completed_order: {
+    price:         120.0,
+    driverName:    FactoryGuy.generate('driverName'),
+    driverMobile:  FactoryGuy.generate(mobile.hongKong),
+    driverLicense: 'VH1002',
+    status:        'completed'
   }
 });
 

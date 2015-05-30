@@ -64,6 +64,7 @@ I18nTranslationsEn =
           "received" : "Received"
           "van_booked" : "Van booked"
           "van_confirmed": "Van confirmed"
+          "picked_up": "Picked up"
           "drop_off" : "You will deliver to Crossroads"
           "alternate" : "Crossroads collection booked"
           "awaiting_driver" : "Awaiting driver details."
@@ -109,6 +110,7 @@ I18nTranslationsEn =
           "is_drop_off": "Drop-off"
           "is_gogovan_order": "Van ordered"
           "is_gogovan_confirm": "Van confirmed"
+          "driver_completed": "Driver completed"
           "reviewed_message": "Review complete!"
           "please": "Please"
           "transport": "arrange transport"
@@ -137,13 +139,6 @@ I18nTranslationsEn =
           "title": "Cancel Offer"
           "confirm_ggv_cancel": "Once GoGoVan confirms the order is cancelled you will be able to proceed to cancel your offer."
           "cancel_offer": "Cancel Offer"
-
-      "items":
-        "add_item":
-          "condition": "Condition?"
-          "edit_image" : "Edit photos"
-          "save" : "Save Details"
-          "description_placeholder" : "Item description, size, quantity etc. To add or edit photos of this item, click the thumbnail."
 
       "item":
         "item_details" : "Item details"
