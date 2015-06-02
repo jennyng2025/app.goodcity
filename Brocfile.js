@@ -28,14 +28,15 @@ app.import('bower_components/blueimp-file-upload/js/jquery.fileupload-validate.j
 app.import('bower_components/cloudinary/js/jquery.cloudinary.js');
 
 app.import('bower_components/moment/moment.js');
+app.import('bower_components/moment/locale/zh-tw.js');
 app.import('bower_components/airbrake-js/airbrake.js');
 app.import('bower_components/pickadate/lib/picker.js');
 app.import('bower_components/pickadate/lib/picker.date.js');
 app.import('bower_components/pickadate/lib/picker.time.js');
 
-app.import("bower_components/pickadate/lib/themes/classic.css");
-app.import("bower_components/pickadate/lib/themes/classic.date.css");
-app.import("bower_components/pickadate/lib/themes/classic.time.css");
+app.import("bower_components/pickadate/lib/themes/default.css");
+app.import("bower_components/pickadate/lib/themes/default.date.css");
+app.import("bower_components/pickadate/lib/themes/default.time.css");
 
 // please include individual foundation js as needed
 // tabs js if included throws error on keypress when tab has focus

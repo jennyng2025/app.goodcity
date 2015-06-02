@@ -14,11 +14,16 @@ module('Authorization', {
 
 test("Rediect to login if not logged-in", function() {
   App = startApp();
-  expect(1);
+  expect(2);
 
   lookup('service:session').set('authToken', null);
 
   visit("/offers");
+
+  andThen(function() {
+    equal(Ember.$("#errorMessage").text(), Ember.I18n.t("must_login"));
+    click(Ember.$(".ok"));
+  });
 
   andThen(function() {
     equal(currentURL(), '/login');

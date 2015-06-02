@@ -4,8 +4,8 @@ import syncDataStub from '../helpers/empty-sync-data-stub';
 
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 var App, testHelper, offer1, item1, offer2, item2, offer3, item3, offer4,
-  item4, delivery1, ggv_order1, offer5, item5, delivery2, ggv_order2,
-  offer6, item6, offer7;
+  item4, delivery1, ggv_order1, offer5, item5, item7, delivery2, ggv_order2,
+  offer6, item6, offer7, offer8, ggv_order3, delivery3;
 
 module('Display Transport Details', {
   setup: function() {
@@ -28,10 +28,15 @@ module('Display Transport Details', {
     offer5 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery1});
     item5  = FactoryGuy.make("item", {state:"accepted", offer: offer5});
 
-    ggv_order2 = FactoryGuy.make("gogovan_active_order");
+    ggv_order2 = FactoryGuy.make("gogovan_active_order", {driverMobile: "12345678"});
     delivery2 = FactoryGuy.make("delivery", { deliveryType: "Gogovan", gogovanOrder: ggv_order2 });
     offer6 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery2});
     item6  = FactoryGuy.make("item", {state:"accepted", offer: offer6});
+
+    ggv_order3 = FactoryGuy.make("gogovan_completed_order", {driverMobile: "12345678"});
+    delivery3 = FactoryGuy.make("delivery", { deliveryType: "Gogovan", gogovanOrder: ggv_order3 });
+    offer8 = FactoryGuy.make("offer", {state:"scheduled", delivery: delivery3});
+    item7  = FactoryGuy.make("item", {state:"accepted", offer: offer8});
 
     offer7 = FactoryGuy.make("offer_with_items", {state:"received"});
   },
@@ -107,7 +112,7 @@ test("for scheduled offer with active GGV order state", function() {
     equal((($.trim($(".transport-content .row:eq(2)").text())).indexOf(ggv_order2.get('driverName')) > 0), true);
 
     // driver mobile
-    equal((($.trim($(".transport-content .row:eq(3)").text())).indexOf(ggv_order2.get('driverMobile')) > 0), true);
+    equal((($.trim($(".transport-content .row:eq(3)").text())).indexOf("1234 5678") > 0), true);
 
     // driver License
     equal((($.trim($(".transport-content .row:eq(4)").text())).indexOf(ggv_order2.get('driverLicense')) > 0), true);
@@ -119,6 +124,28 @@ test("for scheduled offer with active GGV order state", function() {
     equal($('.transport-buttons a').length, 2);
   });
 });
+
+test("for scheduled offer with completed GGV order state", function() {
+  visit('/offers/' + offer8.id + "/transport_details");
+  andThen(function() {
+    equal(currentURL(), "/offers/" + offer8.id + "/transport_details");
+
+    equal(($.trim($(".transport-content .row:eq(0)").text()).indexOf('Picked up') >= 0), true);
+
+    // driver name
+    equal((($.trim($(".transport-content .row:eq(2)").text())).indexOf(ggv_order3.get('driverName')) > 0), true);
+
+    // driver mobile
+    equal((($.trim($(".transport-content .row:eq(3)").text())).indexOf("1234 5678") > 0), true);
+
+    // driver License
+    equal((($.trim($(".transport-content .row:eq(4)").text())).indexOf(ggv_order3.get('driverLicense')) > 0), true);
+
+    equal($.trim($('.transport-content .row:eq(6)').text()), "Items picked up by GGV Driver");
+    equal($('.transport-buttons a').length, 0);
+  });
+});
+
 
 test("cancel booking of scheduled offer with active GGV order state", function() {
   visit('/offers/' + offer6.id + "/transport_details");

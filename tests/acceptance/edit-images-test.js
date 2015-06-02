@@ -43,16 +43,19 @@ test("Add Image: display previously added images", function() {
     click("a:contains('Add item')");
 
     andThen(function() {
-      equal(currentURL(), edit_images_url);
+      equal(currentURL(), ("/offers/" + offer.id + "/items/" + item.id + "/edit"));
 
-      // preview-image
-      equal(find('#main-image > div').css('background-image'), "url(" + img1.get("imageUrl") + ")");
+      click("a:contains('Edit photos (2)')");
+      andThen(function() {
+        // preview-image
+        equal(find('#main-image > div').css('background-image'), "url(" + img1.get("imageUrl") + ")");
 
-      // thumbnail-image-list
-      equal(find("#photo-list img").length, 2);
+        // thumbnail-image-list
+        equal(find("#photo-list img").length, 2);
 
-      // favourite-image
-      equal(find("#photo-list .fa-star:not(.hidden)").prev().attr("src"), img1.get("thumbImageUrl"));
+        // favourite-image
+        equal(find("#photo-list .fa-star:not(.hidden)").prev().attr("src"), img1.get("thumbImageUrl"));
+      });
     });
   });
 });
@@ -110,7 +113,7 @@ test("Can't proceed if no images", function() {
   andThen(function() {
     equal(currentURL(), edit_images_url);
 
-    equal(find("button:contains('Next')").prop("disabled"), true);
+    equal(find("button:contains('Done')").prop("disabled"), true);
   });
 });
 

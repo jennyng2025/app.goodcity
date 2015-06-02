@@ -23,7 +23,11 @@ module.exports = function(app) {
       { "id": "1", "first_name": "Kendrick", "last_name": "Kiehn", "permission_id": null, "mobile": "+85251111111" },
 
     "delivery": [
-      { "id" : "1", "deliveryType" : "Gogovan", "offer_id" : "11"}
+      { "id" : "1", "deliveryType" : "Gogovan", "offer_id" : "11", "gogovan_order_id": "1"}
+    ],
+
+    "gogovan_order": [
+      { "id" : "1", "status" : "active"}
     ]
   };
 

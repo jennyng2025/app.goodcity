@@ -33,7 +33,7 @@ module.exports = function(environment) {
       CONTACT_EMAIL: 'info@goodcity.hk',
 
       PRELOAD_TYPES: ["territory"],
-      PRELOAD_AUTHORIZED_TYPES: ["offer","donor_condition","permission", "timeslot", "gogovan_transport", "crossroads_transport"],
+      PRELOAD_AUTHORIZED_TYPES: ["donor_condition","permission", "timeslot", "gogovan_transport", "crossroads_transport"],
       SHA: process.env.APP_SHA || "00000000",
       VERSION: "1.0.0"
     },
@@ -89,12 +89,17 @@ module.exports = function(environment) {
     ENV.APP.AIRBRAKE_PROJECT_KEY = "010f0d73f56efb6150cb2744e814e46b";
 
     ENV.contentSecurityPolicy["connect-src"] = 'https://app.goodcity.hk https://api.goodcity.hk https://socket.goodcity.hk:81 ws://socket.goodcity.hk:81 https://api.cloudinary.com';
+    //google analytics
+    ENV.googleAnalytics = {
+      webPropertyId: 'UA-62978462-1'
+    };
 
     if (process.env.staging === 'true') {
       ENV.staging = true;
       ENV.APP.API_HOST_URL = 'https://api-staging.goodcity.hk';
       ENV.APP.SOCKETIO_WEBSERVICE_URL = 'https://socket-staging.goodcity.hk:81/goodcity';
       ENV.contentSecurityPolicy["connect-src"] = 'https://app-staging.goodcity.hk https://api-staging.goodcity.hk https://socket-staging.goodcity.hk:81 ws://socket-staging.goodcity.hk:81 https://api.cloudinary.com';
+      ENV.googleAnalytics = {webPropertyId: 'UA-62978462-4'};
     } else {
       ENV.cordova.GcmSenderId = '919797298115';
     }

@@ -23,7 +23,7 @@ module('Donor Plan Transport:', {
     offer1 = FactoryGuy.make("offer", { state: 'reviewed', gogovanTransport: gogovan_transport1, crossroadsTransport: crossroads_transport1 });
 
     gogovan_transport2 = FactoryGuy.make('gogovan_transport', { name: 'Van' });
-    crossroads_transport2 = FactoryGuy.make('crossroads_transport', { name: 'Disable' });
+    crossroads_transport2 = FactoryGuy.make('crossroads_transport_disabled');
     offer2 = FactoryGuy.make("offer", { state: 'reviewed', gogovanTransport: gogovan_transport2, crossroadsTransport: crossroads_transport2 });
   },
 

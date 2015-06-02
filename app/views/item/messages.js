@@ -1,7 +1,9 @@
+import ScrollBottom from './../scroll_to_bottom';
 import Ember from 'ember';
 
-export default Ember.View.extend({
-  initiatePreview: function(){
+export default ScrollBottom.extend({
+  didInsertElement: function() {
+    this._super();
     Ember.$().ready(function(){
       Ember.$("#lightGallery").lightGallery({
         thumbnail: false,
@@ -12,5 +14,5 @@ export default Ember.View.extend({
         enableTouch : true,
       });
     });
-  }.on('didInsertElement')
+  }
 });

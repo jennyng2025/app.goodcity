@@ -14,7 +14,11 @@ export default Ember.Controller.extend({
         this.set("model.state_event", "submit");
       }
 
-      this.get("model").setProperties(this.get("formData"));
+      var data = this.get("formData");
+      this.get("model").setProperties({
+        donorDescription: data.donorDescription,
+        donorCondition: this.get("store").getById('donorCondition', data.donorConditionId)
+      });
       var loadingView = this.container.lookup('view:loading').append();
 
       this.get("model").save()
