@@ -42,7 +42,10 @@ export default ItemBaseController.extend({
       var loadingView = this.container.lookup('view:loading').append();
       offer.deleteRecord();
       offer.save()
-        .then(() => { recordsUtil.unloadRecordTree(offer); this.transitionToRoute('offers.index'); })
+        .then(() => {
+          recordsUtil.unloadRecordTree(offer);
+          this.transitionToRoute('offers.index');
+        })
         .catch(error => { offer.rollback(); throw error; })
         .finally(() => loadingView.destroy());
     },
