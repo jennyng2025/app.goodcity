@@ -30,6 +30,23 @@ export default ItemBaseController.extend({
 
   actions: {
     addItem: function() {
+      var message;
+      if(this.get('model.isScheduled')) {
+        if(this.get('model.hasCrossroadsTransport')) {
+          message = Ember.I18n.t("offer.offer_details.crossroads_booking_alert");
+        } else {
+          message = Ember.I18n.t("offer.offer_details.ggv_booking_alert");
+        }
+
+        this.get("confirm").show(message, () => {
+          this.send("allowAddItem");
+        });
+      } else {
+        this.send('allowAddItem');
+      }
+    },
+
+    allowAddItem: function(){
       var draftItemId = this.get("model.items").filterBy("state", "draft").get("firstObject.id");
       if(draftItemId) {
         this.transitionToRoute('item.edit', draftItemId);

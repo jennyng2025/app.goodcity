@@ -119,6 +119,8 @@ I18nTranslationsZhTw =
           "not_needed": "不需要"
           "closed_offer_message": "此項捐獻已結束。不再需要更多物資，請見諒。"
           "offer_received": "已收到捐獻"
+          "crossroads_booking_alert" : "We review extra items as quickly as possible. Our collection team can generally only take items that have been reviewed and accepted first.<br><br>If large additional items are accepted it may require us to cancel and re-book your collection."
+          "ggv_booking_alert": "We review extra items as quickly as possible. Please don't send items unless we have accepted them.<br><br>If you need to modify your transport booking to accommodate additional items, use the transport tab."
 
         "transport_details" :
           "heading": "運送詳情"
