@@ -116,11 +116,11 @@ test("hide header Icons", function() {
 });
 
 //if offer is scheduled
-test("disable camera icon", function() {
+test("display camera icon", function() {
   visit('/offers/' + offer3.id + "/offer_details");
   andThen(function() {
     andThen(function() {
-      equal($("#camera_icon").hasClass("disabled"), true);
+      equal($('#camera_delete_bar').length, 1);
     });
   });
 });
