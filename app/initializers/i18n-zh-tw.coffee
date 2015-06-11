@@ -23,17 +23,17 @@ I18nTranslationsZhTw =
         "my_offers" : "我的捐獻"
 
       "tour":
-        "step1.title" : "1. 上傳圖片及說明"
+        "step1.title" : "1. 圖片上傳及說明"
         "quality_items" : "物資狀況"
         "we_receive" : "我們收到的物資"
-        "step2.title" : "2. 提交審查"
-        "chat" : "我們會再詳談"
-        "questions": "假如我們有任何疑問"
-        "step3.title" : "3. 安排運輸"
-        "accepted_items" : "已接受的物資"
+        "step2.title" : "2. 即時審查"
+        "chat" : "假如我們有任何疑問"
+        "questions": "我們可以再詳談"
+        "step3.title" : "3. 運輸安排"
+        "accepted_items" : "已接受的物資："
         "quick_easy" : "簡易又快捷"
         "step4.title" : "4. 幫助到有需要的人"
-        "make_goodcity" : "怎樣這個城市變得更美好？"
+        "make_goodcity" : "這個城市怎樣會變得更美好？"
         "faq" : "常見問題"
 
       "register":
