@@ -119,7 +119,7 @@ I18nTranslationsZhTw =
           "not_needed": "不需要"
           "closed_offer_message": "此項捐獻已結束。不再需要此類物資，請見諒。"
           "offer_received": "已收到捐獻"
-          "crossroads_booking_alert" : "我們會根據物資需求優先審查部份物品，並會盡快處理其他物品。We review extra items as quickly as possible. Our collection team can generally only take items that have been reviewed and accepted first.<br><br>If large additional items are accepted it may require us to cancel and re-book your collection."
+          "crossroads_booking_alert" : "我們會盡快處理新增的物品。我們的收集團隊通常只會接收已被審查及接受的物資。<br><br>如我們接受了大型物件，我們可能會取消及重新安排運輸。"
           "ggv_booking_alert": "我們會盡快處理新的物品，請不要送出未被接受的物資。<br><br>如果你需要更改運輸安排以容納更多的物品，請按運送詳情。"
 
         "transport_details" :
