@@ -24,7 +24,7 @@ I18nTranslationsZhTw =
 
       "tour":
         "step1.title" : "1. 上傳圖片及說明"
-        "quality_items" : "優質物資"
+        "quality_items" : "物資狀況"
         "we_receive" : "我們收到的物資"
         "step2.title" : "2. 提交審查"
         "chat" : "我們會再詳談"
@@ -66,7 +66,7 @@ I18nTranslationsZhTw =
           "van_confirmed": "已確認貨車安排"
           "picked_up": "已經提取"
           "drop_off" : "親身送到十字路會"
-          "alternate" : "已預約到十字路會收集站"
+          "alternate" : "已預約十字路會收集站"
           "awaiting_driver" : "正在等候司機的資料"
           "driver_name" : "司機姓名"
           "phone" : "電話"
@@ -84,19 +84,19 @@ I18nTranslationsZhTw =
         "no_items" : "此類別還沒有任何捐獻。快作出您第一次的捐獻吧！",
         "confirm":
           "heading" : "確認"
-          "notice": "由於我們每天所需都不一樣，而 <br> 儲存空間亦有限，因此我們無法接收部分物品，非常抱歉！ <br>"
+          "notice": "由於儲存空間有限，社區的需要亦經常改變，<br> 我們可能無法接收部分物資，非常抱歉！ <br>"
           "review": "我們專業的義工團隊 <br> 會馬上審查您捐獻的物資"
           "thank": "非常感謝！"
-          "next" : "已確認！下一項"
+          "next" : "確認！下一步"
         "submit":
-          "heading": "出售物資"
+          "heading": "物資出售"
           "message": "有時候，要幫助窮困人士， <br> 最好的方法就是出售捐出的物品。 <br> 您是否同意出售物品？ <br> "
 
         "index":
           "item_count" : "捐出物品 ({{itemCount}}) 件"
           "add_item" : "加入物品"
           "add_items" : "捐出另一件物品"
-          "confirm" : "已經完成，下一步"
+          "confirm" : "完成，下一步"
           "review" : "審查狀況"
           "cancel" : "取消捐獻"
           "description" : "說明"
@@ -109,7 +109,7 @@ I18nTranslationsZhTw =
           "is_collection": "收集站"
           "is_drop_off": "接收地點"
           "is_gogovan_order": "已預約貨車"
-          "driver_completed": "Driver completed"
+          "driver_completed": "司機已確認預約"
           "is_gogovan_confirm": "已確認貨車安排"
           "reviewed_message": "審查已完成！"
           "please": "請"
@@ -117,14 +117,14 @@ I18nTranslationsZhTw =
           "offer_messages": "一般信息"
           "accepted": "已接納"
           "not_needed": "不需要"
-          "closed_offer_message": "此項捐獻已結束。不再需要更多物資，請見諒。"
+          "closed_offer_message": "此項捐獻已結束。不再需要此類物資，請見諒。"
           "offer_received": "已收到捐獻"
-          "crossroads_booking_alert" : "We review extra items as quickly as possible. Our collection team can generally only take items that have been reviewed and accepted first.<br><br>If large additional items are accepted it may require us to cancel and re-book your collection."
-          "ggv_booking_alert": "We review extra items as quickly as possible. Please don't send items unless we have accepted them.<br><br>If you need to modify your transport booking to accommodate additional items, use the transport tab."
+          "crossroads_booking_alert" : "我們會根據物資需求優先審查部份物品，並會盡快處理其他物品。We review extra items as quickly as possible. Our collection team can generally only take items that have been reviewed and accepted first.<br><br>If large additional items are accepted it may require us to cancel and re-book your collection."
+          "ggv_booking_alert": "我們會盡快處理新的物品，請不要送出未被接受的物資。<br><br>如果你需要更改運輸安排以容納更多的物品，請按運送詳情。"
 
         "transport_details" :
           "heading": "運送詳情"
-          "no_items": "此項捐獻 <br> 並無需要運送的物資"
+          "no_items": "此項捐獻 <br> 並沒有需要運送的物資"
           "arrange_transport": "安排運輸"
           "wait_for_transport": "審查完成後， <br> 隨即可以安排運送物資"
           "accepted_items_count": "目前已接納的物資數目為 ({{acceptedCount}})"
@@ -139,7 +139,7 @@ I18nTranslationsZhTw =
 
         "cancel":
           "title": "取消捐獻"
-          "confirm_ggv_cancel": "GoGoVan確認預約取消後，您可以取消是此捐獻"
+          "confirm_ggv_cancel": "GoGoVan確認預約取消後，您可以取消是次捐獻"
           "cancel_offer": "取消捐獻"
 
       "item":
@@ -152,15 +152,15 @@ I18nTranslationsZhTw =
         "in_review_status": "此項物品的審查已經完成"
         "accepted_status": "此項物品已被接納"
         "rejected_status": "此項物品不被接納"
-        "cancel_last_item_confirm": "取消最後一項物品即會取消此向捐獻，您是否確定？"
+        "cancel_last_item_confirm": "取消最後一項物品即會取消此項捐獻，您是否確定？"
 
         "messages":
-          "info_text1": "審查物品時，如果有任何問題，我們會在下面的空格中與您討論"
-          "info_text2": "如您希望加添任何對捐獻物品的描述，請在此分享"
+          "info_text1": "審查物品時，如果有任何問題，我們會在下面的空格向您查詢"
+          "info_text2": "如您希望加添任何對捐獻物品的描述，請在此留言"
 
       # Components
       "upload-images":
-        "angles" : "圖片包含物資的所有角度了嗎？"
+        "angles" : "圖片包含物資的所有角度嗎？"
         "favourite" : "我的最愛"
         "add_another" : "加入另一張圖片"
       "upload-image":
@@ -172,8 +172,8 @@ I18nTranslationsZhTw =
         "questions":
           "question1": "你們會接收甚麼類型的物資？"
           "question2": "審查員根據甚麼標準決定接收哪樣物資？"
-          "question3": "有甚麼運輸方法可選擇呢？"
-          "question4": "怎樣要求物資？"
+          "question3": "我可選擇甚麼運輸方法呢？"
+          "question4": "我可以邀請別人使用好人好市應用程式嗎？"
           "question5": "甚麼人受惠於這些物資呢？"
           "question6": "我住在海外也可以捐贈物資嗎？"
           "question7": "為甚麼將基地設在香港呢？"
@@ -185,16 +185,16 @@ I18nTranslationsZhTw =
             "useful": "使用好人好市，只需幾分鐘的審查，您就能知道您捐出的物資是否能夠幫助別人。常見的物資有傢俱、家庭用品、電腦、電器等。"
 
           "answer2":
-            "review": "我們的審查員會考慮當時的供求情況，並考慮不同物資可能帶來的限制，例如確保符合品質要求，大小限制，會否帶有危險品，運輸會否有困難，是否符合當地電壓、兼容、設計的要求等。"
+            "review": "我們的審查員會考慮當時的供求情況，並考慮不同物資可能帶來的限制，例如是否符合品質要求、大小限制、安全標準，運輸會否有困難，是否符合當地電壓、兼容、設計的要求等。"
 
-            "messaging": "審查員會以好人好市應用程式裏的通訊功能，查詢有關捐贈物資的資料。這樣，您就不用填寫複雜冗長的表格。大部分的情況中，只要有相片及簡短的描述就足夠了。"
+            "messaging": "審查員會透過好人好市應用程式裏的通訊功能，查詢有關捐贈物資的資料。這樣，您就不用填寫複雜冗長的表格。大部分的情況中，只要有相片及簡短的描述就足夠了。"
 
-            "supervisors": "審查員亦能夠即時知會專業的管理員，他們大多擁有五年或以上在香港處理捐贈物資的經驗。他們處理過不少不常見的物資捐獻，例如是商業用披薩烤箱、十萬件全新西裝、大量假花裝飾等。面對這些古怪又實用的物資，他們非常清楚該如何處理。"
+            "supervisors": "審查員亦能夠即時知會專業的管理員，他們大多擁有五年或以上在香港處理捐贈物資的經驗。他們處理過很多罕見的物資捐獻，例如是商業用披薩烤箱、十萬件全新西裝、大量假花裝飾等。面對這些古怪又實用的物資，他們非常清楚該如何處理。"
 
           "answer3":
             "gogovan": "<b>租用貨車，快捷妥當：</b> 通過我們的應用程式，您能夠預約貨車，這是運送物資的最快方法。您直接付款給司機。"
 
-            "crossroad": "<b>資助收集服務：</b> 十字路會擁有一輛貨車，用以收集物資。使用這一服務的話，我們只會根據物資的大小，收取燃油及隧道費。但由於這項服務需求很大，您通常需要等候幾個星期。"
+            "crossroad": "<b>資助收集服務：</b> 十字路會擁有一輛貨車，用以收集物資。使用這服務的話，我們只會根據物資的大小，收取燃油及隧道費。但由於這項服務需求很大，您通常需要等候幾個星期。"
 
             "drop_off": "<b>親自運送：</b> 通過我們的應用程式，您能夠預約時間，將物資親自送到我們位於屯門的辦公室。"
 
@@ -217,9 +217,9 @@ I18nTranslationsZhTw =
             "social_enterprise": "社會企業"
             "sports": "殘疾人士體育計劃"
             "suicide_prevention": "防止自殺服務"
-            "domestic_workers": "家傭支援工作"
-            "new_arrivals": "新移民支援工"
-            "women": "婦女支援工作"
+            "domestic_workers": "家傭"
+            "new_arrivals": "新移民"
+            "women": "婦女"
             "vocational_training": "職業培訓計劃"
             "animals_welfare": "動物福利"
 
@@ -227,20 +227,20 @@ I18nTranslationsZhTw =
           "global_hand" : "環球援手"
 
           "answer7":
-            "hk": "香港的地理位置非常獨特，非常適合處理慈善物資捐獻，是全世界最有效率的地方，因為：人口密度高，智能電話極普及，相對富裕，慈善工作井然有序，公民意識亦逐漸於成型。"
+            "hk": "香港的地理位置非常獨特，非常適合處理慈善物資捐獻，是全世界最有效率的地方，因為：人口密度高，相對富裕，智能電話極普及，慈善工作井然有序，公民意識亦逐漸成型。"
 
-            "crossroads": "十字路會自1995年始於香港處理各界捐贈的物資，至今發展出各種網上服務（如business.un.org），這讓我們成為一個獨特的機構，處理捐贈物資的供求。"
+            "crossroads": "十字路會自1995年開始於香港處理各界捐贈的物資，至今發展出各種網上服務（如business.un.org）。這讓我們成為一個獨特的機構，擔當着十字路口的角色，聯繫捐贈物資的供求。"
 
       "pics":
         "title": "個人資料"
         "confidentiality": '十字路會全力保護在活動中，包括從好人好市的網站www.goodcity.hk（「我們」、「我們的」、「十字路會」」及「好人好市.HK」）上收集的個人資料，確保不會外洩。'
 
-        "ask_to_access": "本個人資料收集聲明（PICS）列出我們對處理個人資料的政策及使用情況，包括在您註冊以通過好人好市.HK接收物資時，我們要求您提供的個人資料。您可以閱讀我們完整的私隱政策。"
+        "ask_to_access": "本個人資料收集聲明（PICS）列出我們對處理個人資料的政策及使用情況，包括在您註冊以通過「好人好市.HK」接收物資時，我們要求您提供的個人資料。您可以閱讀我們完整的私隱政策。"
         "here": "這裏"
 
-        "change_privacy_policy": "我們保證依照香港個人資料(私隱)條例列明的要求，我們可能因時更改此PICS或我們的私隱政策，並會於此處更新及張貼詳情。繼續使用好人好市.HK即表示您同意這些變更。"
+        "change_privacy_policy": "我們保證依照香港個人資料(私隱)條例列明的要求，我們可能因時更改此PICS或我們的私隱政策，並會於此處更新及張貼詳情。繼續使用「好人好市.HK」即表示您同意這些變更。"
 
-        "child": "假如您為18歲以下青少年，請徵求父母或監護人的同意，方可使用好人好市.HK。"
+        "child": "假如您為18歲以下青少年，請徵求父母或監護人的同意，方可使用「好人好市.HK」。"
 
         "commitement_to_you": "我們的承諾"
 
@@ -253,13 +253,13 @@ I18nTranslationsZhTw =
         "questions": "我們非常重視我們的法律責任，假如您有任何疑問或憂慮，請隨時聯絡我們。"
 
         "personal_data_collected": "個人資料收集"
-        "provide_data_to_use_services": "當你於好人好市.HK註冊時，我們或會要求您提供以下各項個人資料。請注意，部分資料或為必須提供的，我們會於收集時清楚註明。缺少這些資料，我們可能無法向您提供我們的物資或服務："
+        "provide_data_to_use_services": "當你於「好人好市.HK」註冊時，我們或會要求您提供以下各項個人資料。請注意，部分資料或為必須提供的，我們會於收集時清楚註明。缺少這些資料，我們可能無法向您提供我們的物資或服務："
 
         "contact_details": "您的姓名、地址、電郵及傳真號碼；"
-        "gender_and_dob": "您的性別及出生日期"
+        "gender_and_dob": "您的性別及出生日期；"
         "financial_information": "財政資料，例如信用卡資料（假如您向我們付款）及銀行賬戶資料（假如我們向您轉賬金額）；"
 
-        "personal_identifier": "身份證明文件資料，如護照及其他官方文件號碼。除卻特殊情況，否則我們不會收集或保存您的香港身份證號碼；"
+        "personal_identifier": "身份證明文件資料，如護照及其他官方文件號碼。除非有特殊情況，否則我們不會收集或保存您的香港身份證號碼；"
         "responses_to_feedback": "您於問卷上的回答或建議。"
 
         "purpose_and_use": "目的及使用情況"
@@ -278,7 +278,7 @@ I18nTranslationsZhTw =
         "prevent_crime": "預防或檢察出罪案或可能的犯罪活動。"
 
         "third_parties": "第三方"
-        "third_party_organisations": "我們或會保留讓其他組織及個別人士代表我們履行職責，例如協助我們物流安排的合作夥伴GoGoVan。這些第三方或會得到准許取得您的個人資料，以履行其職責，但我們並不會授權他們將這些資料用作其他用途。這些第三方或係位於香港的機構。我們的政策在於選取合乎我們需要，並擁有良好的技術及組織能力，信譽可靠的服務提供者。他們必須擁有保障私隱的良好記錄。"
+        "third_party_organisations": "我們或會保留讓其他組織及個別人士代表我們履行職責，例如協助我們物流安排的合作夥伴GoGoVan。這些第三方或會得到准許取得您的個人資料，以履行其職責，但我們並不會授權他們將這些資料用作其他用途。這些第三方或是位於香港的機構。我們的政策在於選取合乎我們需要，並擁有良好的技術及組織能力，信譽可靠的服務提供者。他們必須擁有保障私隱的良好記錄。"
 
         "social_welfare_dept": "假如你得到其他機構轉介（例如社會福利署或其他機構），我們或須於他們討論，並根據情況於過程中披露或轉移您的個人資料。"
 
