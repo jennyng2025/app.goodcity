@@ -155,7 +155,7 @@ I18nTranslationsZhTw =
         "cancel_last_item_confirm": "取消最後一項物品即會取消此項捐獻，您是否確定？"
 
         "messages":
-          "info_text1": "審查物品時，如果有任何問題，我們會在下面的空格向您查詢"
+          "info_text1": "審查物品時，如果有任何問題，我們會在下面的對話框向您查詢"
           "info_text2": "如您希望加添任何對捐獻物品的描述，請在此留言"
 
       # Components
