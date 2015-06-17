@@ -87,10 +87,15 @@ Android Emulator setup (not needed if using a real phone)
 * fill out create new AVD and click ok
 
 Windows Phone
-* Install VS 2013 - http://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx
+* Install Visual Studio - https://www.visualstudio.com/en-us/features/cordova-vs.aspx
+* During install under optional features tick "Apache Cordova" (or look to install Visual Studio Tools for Apache Cordova)
+* Register your phone by using the "Windows Phone Developer Registration Tool"
 
 IOS
 * Install Xcode - https://developer.apple.com/xcode/downloads/
+* Ask to be signed up as a developer of the Crossroads Apple Developer Team
+* In XCode download the certs via "Settings > Accounts > View Details > Refresh"
+* Register your phone under https://developer.apple.com/account/ios/device/deviceList.action
 * `npm install -g ios-deploy`
 
 ### Run
@@ -101,7 +106,8 @@ To start app in emulator
 To deploy to connected device
 
 `ember cordova run windows --device --phone` (WP8.1)<br/>
-`ember cordova run android`
+`ember cordova run android --device`
+`ember cordova run ios --device`
 
 ---
 
@@ -113,6 +119,11 @@ If developer options is missing:
 
 * go to `settings > about phone`
 * tap `build number` seven times
+
+For Android you can use Chrome for remote debugging of the app on your phone:
+https://developer.chrome.com/devtools/docs/remote-debugging
+
+For iOS you can use Safari and under develop menu to remotely debug app on iPhone. For Windows Phone you can use Visual Studio to deploy app and debug by opening "platforms/windows/CordovaApp.Phone.jsproj"
 
 ### Build
 Release Build
