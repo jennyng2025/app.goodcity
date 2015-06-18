@@ -64,10 +64,10 @@ ember install
 ## Cordova
 
 ### Setup
-* `npm install -g cordova`
-* `ember cordova:prepare`
+* `npm install -g cordova` (note 5.1.1 has problems installing plugins from git url on windows use 5.0.0 instead)
+* `ember cordova:prepare` (mainly needed to create symlink between dist <=> cordova/www)
 * `cd cordova`
-* `cordova prepare`
+* `cordova prepare android` (or ios/windows)
 
 Android
 * Install stand alone SDK tools - https://developer.android.com/sdk/installing/index.html
