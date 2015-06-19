@@ -8,6 +8,9 @@
   <platform name="android">
     <preference name="LoadUrlTimeoutValue" value="120000" />
   </platform>
+  <platform name="windows">
+    <hook type="after_platform_add" src="hooks/windows/include.bat" />
+  </platform>
   <access origin="*" />
   <engine name="ios" spec="^3.8.0" />
   <engine name="android" spec="^4.0.0" />
