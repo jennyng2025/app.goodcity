@@ -39,8 +39,10 @@ module.exports = function(environment) {
     },
 
     cordova: {
+      enabled: process.env.EMBER_CLI_CORDOVA !== '0',
       rebuildOnChange: false,
-      emulate: false
+      emulate: false,
+      GcmSenderId: '161361907015'
     },
     coffeeOptions: {
       blueprints: false
@@ -59,7 +61,14 @@ module.exports = function(environment) {
     ENV.APP.API_HOST_URL = 'http://localhost:3000';
     ENV.APP.SOCKETIO_WEBSERVICE_URL = 'http://localhost:1337/goodcity';
 
-    ENV.contentSecurityPolicy["connect-src"] = 'http://localhost:4200 http://localhost:3000 http://localhost:1337 ws://localhost:1337 https://api.cloudinary.com';
+    ENV.contentSecurityPolicy["connect-src"] = [
+      'http://localhost:4200',
+      'http://localhost:3000',
+      'http://localhost:1337',
+      'ws://localhost:1337',
+      'wss://localhost:1337',
+      'https://api.cloudinary.com'
+    ].join(' ');
   }
 
   if (environment === 'test') {
@@ -86,20 +95,33 @@ module.exports = function(environment) {
     ENV.APP.AIRBRAKE_PROJECT_ID = 0;
     ENV.APP.AIRBRAKE_PROJECT_KEY = "010f0d73f56efb6150cb2744e814e46b";
 
-    ENV.contentSecurityPolicy["connect-src"] = 'https://app.goodcity.hk https://api.goodcity.hk https://socket.goodcity.hk:81 ws://socket.goodcity.hk:81 https://api.cloudinary.com';
-    //google analytics
-    ENV.googleAnalytics = {
-      webPropertyId: 'UA-62978462-1'
-    };
+    ENV.contentSecurityPolicy["connect-src"] = [
+      'https://app.goodcity.hk',
+      'https://api.goodcity.hk',
+      'https://socket.goodcity.hk',
+      'ws://socket.goodcity.hk',
+      'wss://socket.goodcity.hk',
+      'https://api.cloudinary.com',
+      'https://errbit.crossroads.org.hk'
+    ].join(' ');
+    ENV.googleAnalytics = { webPropertyId: 'UA-62978462-1' };
 
     if (process.env.staging === 'true') {
       ENV.staging = true;
       ENV.APP.API_HOST_URL = 'https://api-staging.goodcity.hk';
       ENV.APP.SOCKETIO_WEBSERVICE_URL = 'https://socket-staging.goodcity.hk:81/goodcity';
-      ENV.contentSecurityPolicy["connect-src"] = 'https://app-staging.goodcity.hk https://api-staging.goodcity.hk https://socket-staging.goodcity.hk:81 ws://socket-staging.goodcity.hk:81 https://api.cloudinary.com';
-      ENV.googleAnalytics = {
-        webPropertyId: 'UA-62978462-4'
-      };
+      ENV.contentSecurityPolicy["connect-src"] = [
+        'https://app-staging.goodcity.hk',
+        'https://api-staging.goodcity.hk',
+        'https://socket-staging.goodcity.hk:81',
+        'ws://socket-staging.goodcity.hk:81',
+        'wss://socket-staging.goodcity.hk:81',
+        'https://api.cloudinary.com',
+        'https://errbit.crossroads.org.hk'
+      ].join(' ');
+      ENV.googleAnalytics = { webPropertyId: 'UA-62978462-4' };
+    } else {
+      ENV.cordova.GcmSenderId = '919797298115';
     }
   }
 
