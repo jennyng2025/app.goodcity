@@ -98,9 +98,9 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy["connect-src"] = [
       'https://app.goodcity.hk',
       'https://api.goodcity.hk',
-      'https://socket.goodcity.hk',
-      'ws://socket.goodcity.hk',
-      'wss://socket.goodcity.hk',
+      'https://socket.goodcity.hk:81',
+      'ws://socket.goodcity.hk:81',
+      'wss://socket.goodcity.hk:81',
       'https://api.cloudinary.com',
       'https://errbit.crossroads.org.hk'
     ].join(' ');
