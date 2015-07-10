@@ -5,7 +5,7 @@ import syncDataStub from '../helpers/empty-sync-data-stub';
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 var App, testHelper, offer1, offer2, reviewer, reviewer1, reviewerName,
   offer7, offer3, offer4, delivery1, delivery2, offer5, delivery3, offer6,
-  offer8, reviewer1Name, ggv_order3, delivery3, offer9, offer10;
+  offer8, ggv_order3, delivery3, offer9, offer10;
 
 module('Donor: Display Offer Status', {
   setup: function() {

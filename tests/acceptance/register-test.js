@@ -1,15 +1,10 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
-import userFactory from '../fixtures/user';
-import territoryFactory from '../fixtures/territory';
-import districtFactory from '../fixtures/district';
+import '../fixtures/user';
+import '../fixtures/territory';
+import '../fixtures/district';
 
-var App,
-    testHelper,
-    hk_user,
-    territory,
-    district;
-
+var App, testHelper, hk_user;
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
 
 module('Acceptance: Register', {

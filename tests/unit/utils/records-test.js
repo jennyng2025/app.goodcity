@@ -4,7 +4,7 @@ import startApp from "../../helpers/start-app";
 import testSkip from "../../helpers/test-skip";
 
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var testHelper, store, make, App;
+var testHelper, store, App;
 
 module("Records Util", {
   setup: function() {
