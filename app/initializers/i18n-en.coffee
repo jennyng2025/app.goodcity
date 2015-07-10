@@ -8,6 +8,8 @@ I18nTranslationsEn =
     Ember.I18n.translation_store = Ember.I18n.translation_store || {}
 
     Ember.I18n.translation_store.en = Ember.$.extend true, SharedTranslationsEn,
+      "socket_offline_error": "Attempting to connect to app.goodcity.hk..."
+
       "ggv_order":
         "message" : "Our Staff will confirm each item listed below when you arrive."
         "delivery_from" : "Delivery from"
