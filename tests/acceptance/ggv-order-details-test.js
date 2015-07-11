@@ -3,13 +3,14 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 
 var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper;
+var App, testHelper, t;
 
 module('Driver: GGV Order details', {
   setup: function() {
     App = startApp();
     testHelper = TestHelper.setup(App);
     syncDataStub(testHelper);
+    t = lookup('service:i18n').t;
   },
 
   teardown: function() {
@@ -25,7 +26,7 @@ test("Display address information in English", function() {
     equal(Ember.$(".delivery-from").length, 1);
     equal(Ember.$(".list-items li").length, 2);
     equal(Ember.$(".list-items li").text().indexOf("example") > 0, true);
-    equal(Ember.$(".delivery-to").text().trim().indexOf(Ember.I18n.t("ggv_order.crossroads_address1")) >= 0, true);
+    equal(Ember.$(".delivery-to").text().trim().indexOf(t("ggv_order.crossroads_address1")) >= 0, true);
   });
 });
 

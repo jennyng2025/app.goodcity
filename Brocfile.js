@@ -4,7 +4,6 @@ var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var webRelease = process.env.EMBER_CLI_CORDOVA === '0' && ['production', 'staging'].indexOf(process.env.EMBER_ENV) !== -1;
 
 var app = new EmberApp({
-  vendorFiles: { 'handlebars.js': null },
   sourcemaps: ['js', 'css'],
   fingerprint: {
     extensions: ['js', 'css', 'png', 'jpg', 'gif', 'map'],
@@ -53,16 +52,11 @@ app.import('bower_components/modernizr/modernizr.js');
 app.import('bower_components/jquery-timeago/jquery.timeago.js');
 app.import('bower_components/socket.io-client/socket.io.js');
 
-app.import('bower_components/handlebars/handlebars.runtime.js');
-app.import('bower_components/ember-i18n/lib/i18n.js');
-app.import('bower_components/ember-i18n/lib/i18n-plurals.js');
-
 app.import('bower_components/lightgallery/light-gallery/css/lightGallery.css');
 app.import('bower_components/lightgallery/light-gallery/js/lightGallery.js');
 app.import('bower_components/lightgallery/light-gallery/img/loading.gif', {
   destDir: '/img'
 });
-
 
 app.import({
   development: 'bower_components/ember-data/ember-data.js',

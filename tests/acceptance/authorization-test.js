@@ -1,11 +1,11 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 
-var App;
+var App, t;
 
 module('Authorization', {
   setup: function() {
-
+    t = lookup('service:i18n').t;
   },
   teardown: function() {
     Ember.run(App, 'destroy');
@@ -18,10 +18,11 @@ test("Rediect to login if not logged-in", function() {
 
   lookup('service:session').set('authToken', null);
 
+
   visit("/offers");
 
   andThen(function() {
-    equal(Ember.$("#errorMessage").text(), Ember.I18n.t("must_login"));
+    equal(Ember.$("#errorMessage").text(), t("must_login"));
     click(Ember.$(".ok"));
   });
 
