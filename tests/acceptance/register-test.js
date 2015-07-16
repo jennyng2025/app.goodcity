@@ -1,23 +1,19 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
-import '../fixtures/user';
-import '../fixtures/territory';
-import '../fixtures/district';
+import FactoryGuy from 'ember-data-factory-guy';
+import '../factories/user';
+import '../factories/territory';
+import '../factories/district';
 
-var App, testHelper, hk_user;
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
+var App, hk_user;
 
 module('Acceptance: Register', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
     lookup('service:session').set('authToken', null);
     hk_user = FactoryGuy.build('with_hk_mobile');
   },
   teardown: function() {
-    Ember.run(function () {
-      testHelper.teardown();
-    });
     Ember.run(App, 'destroy');
   }
 });

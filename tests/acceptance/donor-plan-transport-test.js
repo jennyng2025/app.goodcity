@@ -1,18 +1,19 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, store, offer, gogovan_transport, crossroads_transport,
+var App, store, offer, gogovan_transport, crossroads_transport,
   gogovan_transport1, crossroads_transport1, offer1,
   gogovan_transport2, crossroads_transport2, offer2;
 
 module('Donor Plan Transport:', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    store = testHelper.getStore();
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    store = TestHelper.getStore();
+    syncDataStub(TestHelper);
 
     gogovan_transport = FactoryGuy.make('gogovan_transport', { name: 'Van' });
     crossroads_transport = FactoryGuy.make('crossroads_transport', { name: '3/8 Truck' });
@@ -28,7 +29,7 @@ module('Donor Plan Transport:', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });

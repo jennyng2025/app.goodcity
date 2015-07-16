@@ -5,6 +5,7 @@ import { translationMacro as t } from "ember-i18n";
 
 export default Ember.Controller.extend({
   alert: Ember.inject.service(),
+  i18n: Ember.inject.service(),
   phoneNumberPlaceholder: t("register.phone_number"),
   fNamePlaceholder: t("register.john"),
   lNamePlaceholder: t("register.doe"),

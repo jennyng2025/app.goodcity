@@ -5,7 +5,9 @@ var App, t;
 
 module('Authorization', {
   setup: function() {
-    t = lookup('service:i18n').t;
+    App = startApp();
+    var i18n = App.__container__.lookup('service:i18n');
+    t = i18n.t.bind(i18n);
   },
   teardown: function() {
     Ember.run(App, 'destroy');
@@ -13,7 +15,6 @@ module('Authorization', {
 });
 
 test("Rediect to login if not logged-in", function() {
-  App = startApp();
   expect(2);
 
   lookup('service:session').set('authToken', null);
@@ -32,7 +33,6 @@ test("Rediect to login if not logged-in", function() {
 });
 
 test("On login page redirect to home-page if already logged-in", function() {
-  App = startApp();
   expect(1);
 
   visit("/login");
@@ -43,7 +43,6 @@ test("On login page redirect to home-page if already logged-in", function() {
 });
 
 test("On register page redirect to home-page if already logged-in", function() {
-  App = startApp();
   expect(1);
 
   visit("/register");

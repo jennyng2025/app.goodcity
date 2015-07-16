@@ -1,20 +1,21 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, t;
+var App, t;
 
 module('Driver: GGV Order details', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
-    t = lookup('service:i18n').t;
+    TestHelper.setup();
+    syncDataStub(TestHelper);
+    var i18n = App.__container__.lookup('service:i18n');
+    t = i18n.t.bind(i18n);
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });

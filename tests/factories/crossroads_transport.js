@@ -1,3 +1,5 @@
+import FactoryGuy from 'ember-data-factory-guy';
+
 var types = ["1/8 Truck", "2/8 Truck", "8/8 Truck"];
 
 FactoryGuy.define('crossroads_transport', {

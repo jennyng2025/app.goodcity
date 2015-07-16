@@ -1,3 +1,5 @@
+import FactoryGuy from 'ember-data-factory-guy';
+
 var types = ["Van", "5.5t Truck", "Disable"];
 
 FactoryGuy.define('gogovan_transport', {

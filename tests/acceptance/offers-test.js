@@ -1,18 +1,19 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var App, testHelper, offer, offer1, offer2, item, item1, item2, item3, offerUrl,
+var App, offer, offer1, offer2, item, item1, item2, item3, offerUrl,
   offer1Url, offer2Url, offer3, offer4, item3, item4, offer3Url, offer4Url, del,
   del1, del2, offer5, item5, offer5Url, del3, offer6, item6, offer6Url,
-  ggvOrder, ggvOrder1, ggvOrder2, del4, offer7, item7, offer7Url,
-  TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
+  ggvOrder, ggvOrder1, ggvOrder2, del4, offer7, item7, offer7Url;
 
 module('Offer Index View', {
   setup: function() {
     // offers must be created by the logged in user in order to be shown in the index
     var currentUserId = "1";
     App = startApp({}, currentUserId);
-    testHelper = TestHelper.setup(App);
+    TestHelper.setup();
 
     offer = FactoryGuy.make("offer", {state:"under_review", createdBy:currentUserId});
     item = FactoryGuy.make("item", {state:"accepted", offer: offer});
@@ -48,7 +49,7 @@ module('Offer Index View', {
 
   },
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });

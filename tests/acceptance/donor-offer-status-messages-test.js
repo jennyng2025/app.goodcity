@@ -1,17 +1,18 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, offer1, offer2, reviewer, reviewer1, reviewerName,
+var App, offer1, offer2, reviewer, reviewer1, reviewerName,
   offer7, offer3, offer4, delivery1, delivery2, offer5, delivery3, offer6,
   offer8, ggv_order3, delivery3, offer9, offer10;
 
 module('Donor: Display Offer Status', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    syncDataStub(TestHelper);
 
     reviewer = FactoryGuy.make("user");
     reviewer1 = FactoryGuy.make("user_with_image");
@@ -40,7 +41,7 @@ module('Donor: Display Offer Status', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });

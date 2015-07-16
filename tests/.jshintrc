@@ -48,8 +48,6 @@
     "currentURL",
     "currentPath",
     "currentRouteName",
-    "FactoryGuy",
-    "FactoryGuyTestMixin",
     "logoutUser",
     "lookup",
     "skipTest"

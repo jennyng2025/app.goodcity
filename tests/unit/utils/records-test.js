@@ -2,18 +2,19 @@ import recordsUtil from "../../../utils/records";
 import { module, test } from "qunit";
 import startApp from "../../helpers/start-app";
 import testSkip from "../../helpers/test-skip";
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var testHelper, store, App;
+var store, App;
 
 module("Records Util", {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    store = testHelper.getStore();
+    TestHelper.setup();
+    store = TestHelper.getStore();
   },
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
   }
 });
 

@@ -58,31 +58,5 @@ module.exports = function(defaults) {
     destDir: '/img'
   });
 
-  app.import({
-    development: 'bower_components/ember-data/ember-data.js',
-    production:  'bower_components/ember-data/ember-data.prod.js'
-    }, { exports: {
-          'ember-data': ['default']
-        }
-  });
-
-  // app.import({
-  //   test: 'bower_components/ember-data-factory-guy/dist/ember-data-factory-guy.js'
-  //   }, {  destDir: 'assets/',
-  //       exports: {
-  //         'FactoryGuy': ['default']
-  //   }
-  // });
-
-  // app.import({
-  //   test: 'bower_components/ember-data-factory-guy/dist/factory_guy_has_many.js',
-  //   }, {  destDir: 'assets/',
-  //       exports: {
-  //         'FactoryGuyHasMany': ['default']
-  //   }
-  // });
-
-  // app.import({test:'bower_components/jquery-mockjax/jquery.mockjax.js'});
-
   return app.toTree();
 };
