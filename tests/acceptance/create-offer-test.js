@@ -3,12 +3,11 @@ import startApp from '../helpers/start-app';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var App, currentUserId;
+var App;
 
 module('Create New Offer', {
   setup: function() {
-    currentUserId = "1";
-    App = startApp({}, currentUserId);
+    App = startApp();
     TestHelper.setup();
 
     // prevent request to express server which returns 4 offers
@@ -43,8 +42,10 @@ test("should create new offer", function() {
 test("should redirect to previous empty offer", function() {
   expect(4);
 
-  FactoryGuy.make("offer_with_items", {id:1, createdBy:currentUserId}); // check offer with items is not returned
-  FactoryGuy.make("offer",{"id":5, createdBy:currentUserId});
+  var currentUserId = JSON.parse(window.localStorage.currentUserId);
+  var user = FactoryGuy.make("user", {id:currentUserId});
+  FactoryGuy.make("offer_with_items", {id:1, createdBy:user}); // check offer with items is not returned
+  FactoryGuy.make("offer",{"id":5, createdBy:user});
 
   visit("/offers");
 

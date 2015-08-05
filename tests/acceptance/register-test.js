@@ -30,7 +30,7 @@ test("All required registration details are filled", function() {
 
   andThen(function() {
     var districtId = find('.district-selection option:contains("Tung Chung")').val();
-    find('.district-selection select').val(districtId).change();
+    find('.district-selection select').val(districtId);
   });
 
   triggerEvent('#mobile', 'blur');
