@@ -76,10 +76,10 @@ test("send message", function() {
 });
 
 test("display info text if no messages", function() {
-  var info_text = "If we have questions when reviewing this item we will chat with you here.If you want to add a comment to this item for our reviewers, type it below.";
+  var info_text = "Chat about this item with our reviewers";
   visit('/offers/' + offer1.id + "/items/"+ item2.id +"/messages");
 
   andThen(function() {
-    equal($.trim(find('.no-items').text()), info_text);
+    equal($.trim(find('.chat_note').text()), info_text);
   });
 });
