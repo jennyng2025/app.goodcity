@@ -3,12 +3,7 @@ import AuthorizeRoute from './../authorize';
 export default AuthorizeRoute.extend({
 
   model: function() {
-    // In donor app mode, only show offers made by this user
-    //~ return this.store.all('offer');
-    var current_user_id = parseInt(this.session.get('currentUser.id'));
-    return this.store.filter('offer', function(offer) {
-      return parseInt(offer.get('createdBy.id')) === current_user_id;
-    });
+    return this.store.all('offer');
   },
 
   afterModel: function(my_offers) {
