@@ -1,4 +1,6 @@
-import districtFactory from '../fixtures/district';
+import FactoryGuy from 'ember-data-factory-guy';
+import './district';
+
 var territory_list = ["", "New Territories","Hong Kong Island","Kowloon"];
 
 FactoryGuy.define('territory',{

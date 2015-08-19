@@ -1,15 +1,16 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, offer, offer1, item, item1;
+var App, offer, offer1, item, item1;
 
 module('Edit Item', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
+    TestHelper.setup(App);
+    syncDataStub(TestHelper);
 
     offer = FactoryGuy.make("offer", { state: "draft" });
     item = FactoryGuy.make("item",{ offer:offer, state: "draft" });
@@ -21,7 +22,7 @@ module('Edit Item', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });
@@ -43,7 +44,7 @@ test("Create Item with details", function() {
     equal(find("textarea[name=donorDescription]").val(), "this is test item");
   });
 
-  testHelper.handleUpdate("item", item.id);
+  TestHelper.handleUpdate("item", item.id);
   click("button:contains('Save Details')");
   Ember.run(function(){ item.set("state", "submitted"); });
 
@@ -63,7 +64,7 @@ test("Discard Item with details", function() {
 
   fillIn("textarea[name=donorDescription]", "this will be discarded");
 
-  testHelper.handleDelete("item", item.id);
+  TestHelper.handleDelete("item", item.id);
   click(".button:contains('Cancel')");
 
   andThen(function(){

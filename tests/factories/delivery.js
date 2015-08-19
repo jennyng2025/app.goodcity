@@ -1,3 +1,5 @@
+import FactoryGuy from 'ember-data-factory-guy';
+
 var conditions = ["Gogovan", "Drop Off", "Alternate"];
 
 FactoryGuy.define('delivery', {

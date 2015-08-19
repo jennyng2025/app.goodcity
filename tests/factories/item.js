@@ -1,6 +1,7 @@
-import offersFactory from './offer';
-import packageTypesFactory from './package_type';
-import packageFactory from './package';
+import FactoryGuy from 'ember-data-factory-guy';
+import './offer';
+import './package_type';
+import './package';
 
 FactoryGuy.define('item', {
   sequences: {

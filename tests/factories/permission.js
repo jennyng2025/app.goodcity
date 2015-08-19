@@ -1,3 +1,5 @@
+import FactoryGuy from 'ember-data-factory-guy';
+
 var permission_list = ["Reviewer","Supervisor"];
 
 FactoryGuy.define('permission',{

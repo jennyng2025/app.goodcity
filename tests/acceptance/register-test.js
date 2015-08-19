@@ -1,28 +1,19 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
-import userFactory from '../fixtures/user';
-import territoryFactory from '../fixtures/territory';
-import districtFactory from '../fixtures/district';
+import FactoryGuy from 'ember-data-factory-guy';
+import '../factories/user';
+import '../factories/territory';
+import '../factories/district';
 
-var App,
-    testHelper,
-    hk_user,
-    territory,
-    district;
-
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
+var App, hk_user;
 
 module('Acceptance: Register', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
     lookup('service:session').set('authToken', null);
     hk_user = FactoryGuy.build('with_hk_mobile');
   },
   teardown: function() {
-    Ember.run(function () {
-      testHelper.teardown();
-    });
     Ember.run(App, 'destroy');
   }
 });
@@ -39,7 +30,7 @@ test("All required registration details are filled", function() {
 
   andThen(function() {
     var districtId = find('.district-selection option:contains("Tung Chung")').val();
-    find('.district-selection select').val(districtId).change();
+    find('.district-selection select').val(districtId);
   });
 
   triggerEvent('#mobile', 'blur');

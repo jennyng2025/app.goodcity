@@ -1,4 +1,5 @@
 import mobile from './mobile';
+import FactoryGuy from 'ember-data-factory-guy';
 
 FactoryGuy.define('contact',{
   sequences: {

@@ -1,18 +1,18 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
-import '../fixtures/item';
-import '../fixtures/image';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import '../factories/item';
+import '../factories/image';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper;
-var offer, item, img1, img2, edit_images_url;
+var App, offer, item, img1, img2, edit_images_url;
 
 module('Edit Images', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    syncDataStub(TestHelper);
 
     $.mockjax({url:"/api/v1/images/generate_signatur*",responseText:{
       "api_key":   "1111",
@@ -29,7 +29,7 @@ module('Edit Images', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });
@@ -83,7 +83,7 @@ test("Clicking on thumbnail image should change preview-image", function() {
 test("Change favourite image", function() {
   expect(3);
 
-  testHelper.handleUpdate("image", img2.id);
+  TestHelper.handleUpdate("image", img2.id);
   visit(edit_images_url);
 
   andThen(function() {
@@ -120,8 +120,8 @@ test("Can't proceed if no images", function() {
 test("Set another image as favourite if favourite image deleted", function() {
   expect(5);
 
-  testHelper.handleDelete('image', img1.id);
-  testHelper.handleUpdate("image", img2.id);
+  TestHelper.handleDelete('image', img1.id);
+  TestHelper.handleUpdate("image", img2.id);
 
   visit(edit_images_url);
 

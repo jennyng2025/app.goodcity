@@ -1,15 +1,16 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, offer, item, display_item_url, receivedItem, receivedItemUrl;
+var App, offer, item, display_item_url, receivedItem, receivedItemUrl;
 
 module('Display Item', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    syncDataStub(TestHelper);
 
     offer = FactoryGuy.make("offer");
     item = FactoryGuy.make("item",{offer:offer});
@@ -19,7 +20,7 @@ module('Display Item', {
     receivedItemUrl = "/offers/" + offer.id + "/items/" + receivedItem.id + "/messages";
   },
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });
