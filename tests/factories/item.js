@@ -1,6 +1,7 @@
 import FactoryGuy from 'ember-data-factory-guy';
 import './offer';
 import './package_type';
+import './package';
 
 FactoryGuy.define('item', {
   sequences: {
@@ -24,6 +25,11 @@ FactoryGuy.define('item', {
   },
   item_with_type: {
     packageType: FactoryGuy.belongsTo('package_type')
+  },
+  received_item: {
+    offer: FactoryGuy.belongsTo('offer'),
+    packageType: FactoryGuy.belongsTo('package_type'),
+    packages: function(){ return FactoryGuy.buildList('package', 2, { state: "received" }); }
   }
 });
 

@@ -76,7 +76,6 @@ I18nTranslationsEn =
       "camera": "Camera"
       "delete": "Delete"
       "messages": "Messages"
-      "disable": "Disable"
       "details" : "Offer details"
       "no_items" : "You don't have any items in this offer yet. Please add your first item!",
       "confirm":

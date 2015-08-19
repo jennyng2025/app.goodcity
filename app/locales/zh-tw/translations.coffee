@@ -76,7 +76,6 @@ I18nTranslationsZhTw =
       "camera": "照相機"
       "delete": "刪除"
       "messages": "信息"
-      "disable": "損壞"
       "details" : "捐獻細節"
       "no_items" : "此類別還沒有任何捐獻。快作出您第一次的捐獻吧！",
       "confirm":
