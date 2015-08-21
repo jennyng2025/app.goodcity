@@ -35,6 +35,7 @@ module.exports = function(environment) {
       PRELOAD_TYPES: ["territory"],
       PRELOAD_AUTHORIZED_TYPES: ["donor_condition","permission", "timeslot", "gogovan_transport", "crossroads_transport", "version"],
       SHA: process.env.APP_SHA || "00000000",
+      SHARED_SHA:  process.env.APP_SHARED_SHA || "00000000",
       VERSION: "1.0.0",
 
       AIRBRAKE_HOST: "https://errbit.crossroads.org.hk",
