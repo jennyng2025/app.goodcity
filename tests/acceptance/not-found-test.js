@@ -11,6 +11,7 @@ module('Display not found error', {
     offer = FactoryGuy.make("offer");
     var i18n = App.__container__.lookup('service:i18n');
     t = i18n.t.bind(i18n);
+    App.__container__.lookup("service:logger").error = () => {};
   },
   teardown: function() {
     Ember.run(App, 'destroy');
