@@ -46,6 +46,9 @@
     <splash src="res/ios/Default-736h.png" width="1242" height="2208"/>
   </platform>
   <access origin="*" />
+  <allow-intent href="https://maps.google.com/*" />
+  <allow-intent href="https://www.crossroads.org.hk/*" />
+  <allow-intent href="http://www.globalhand.org/*" />
   <engine name="ios" spec="^3.8.0" />
   <engine name="android" spec="^4.0.0" />
   <engine name="windows" spec="^3.8.1" />
