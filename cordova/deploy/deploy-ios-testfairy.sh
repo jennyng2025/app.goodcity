@@ -10,7 +10,7 @@
 
 # Script config
 PROJECT_NAME=app.goodcity # must match the folder name of the project
-APP_NAME="GoodCity (Staging)" # must match <name> in config.xml
+APP_NAME="S. GoodCity" # must match <name> in config.xml
 STAGING=true # true|false - for admin-staging|admin.goodcity production builds
 
 # Then insert this script into the crontab
