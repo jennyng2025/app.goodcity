@@ -56,4 +56,7 @@
   <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
   <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" />
   <plugin name="cordova-plugin-network-information" spec="^1.0.0" />
+  <plugin name="cordova-plugin-actionsheet" spec="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
+  <plugin name="cordova-plugin-camera" spec="1.2.0" />
+
 </widget>
