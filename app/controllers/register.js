@@ -1,12 +1,14 @@
 import Ember from 'ember';
 import AjaxPromise from '../utils/ajax-promise';
 import config from '../config/environment';
+import { translationMacro as t } from "ember-i18n";
 
 export default Ember.Controller.extend({
   alert: Ember.inject.service(),
-  phoneNumberPlaceholder: Ember.I18n.t("register.phone_number"),
-  fNamePlaceholder: Ember.I18n.t("register.john"),
-  lNamePlaceholder: Ember.I18n.t("register.doe"),
+  i18n: Ember.inject.service(),
+  phoneNumberPlaceholder: t("register.phone_number"),
+  fNamePlaceholder: t("register.john"),
+  lNamePlaceholder: t("register.doe"),
 
   actions: {
     registerUser: function() {

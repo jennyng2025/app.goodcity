@@ -1,15 +1,16 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, offer1, reviewer, item1, item2, message1;
+var App, offer1, reviewer, item1, item2, message1;
 
 module('Display Item Details', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    syncDataStub(TestHelper);
 
     reviewer = FactoryGuy.make("user");
     offer1 = FactoryGuy.make("offer", {state:"under_review", reviewedBy: reviewer});
@@ -19,7 +20,7 @@ module('Display Item Details', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });
@@ -76,10 +77,10 @@ test("send message", function() {
 });
 
 test("display info text if no messages", function() {
-  var info_text = "If we have questions when reviewing this item we will chat with you here.If you want to add a comment to this item for our reviewers, type it below.";
+  var info_text = "Chat about this item with our reviewers";
   visit('/offers/' + offer1.id + "/items/"+ item2.id +"/messages");
 
   andThen(function() {
-    equal($.trim(find('.no-items').text()), info_text);
+    equal($.trim(find('.chat_note').text()), info_text);
   });
 });

@@ -1,16 +1,17 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
-var App, testHelper, store, offer1, offer2, item2, item1, item3, item4;
+var App, store, offer1, offer2, item2, item1, item3, item4;
 
 module('Donor: Display Item Status', {
   setup: function() {
     App = startApp();
-    testHelper = TestHelper.setup(App);
-    store = testHelper.getStore();
-    syncDataStub(testHelper);
+    TestHelper.setup();
+    store = TestHelper.getStore();
+    syncDataStub(TestHelper);
 
     offer1 = FactoryGuy.make("offer", {state:"submitted"});
     item1 = FactoryGuy.make("item", {offer: offer1, state:"submitted"});
@@ -22,7 +23,7 @@ module('Donor: Display Item Status', {
   },
 
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });

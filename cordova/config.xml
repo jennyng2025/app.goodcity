@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="hk.goodcity.appstaging" version="0.1.12" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>GoodCity (Staging)</name>
+<widget id="hk.goodcity.appstaging" version="0.2.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>S. GoodCity</name>
   <description>The GoodCity initiative is a new way to donate quality goods in Hong Kong. See www.goodcity.hk for more details.</description>
   <author href="https://www.crossroads.org.hk">Crossroads</author>
   <icon src="www/assets/images/goodcity-icon-128.png" />
@@ -24,8 +24,8 @@
     <icon src="res/ios/icon-76@2x.png" width="152" height="152" />
     <!-- iOS 6.1 -->
     <!-- Spotlight Icon -->
-    <icon src="res/ios/icon-40.png" width="40" height="40" />
-    <icon src="res/ios/icon-40@2x.png" width="80" height="80" />
+    <icon src="res/ios/icon-small-40.png" width="40" height="40" />
+    <icon src="res/ios/icon-small-40@2x.png" width="80" height="80" />
     <!-- iPhone / iPod Touch -->
     <icon src="res/ios/icon.png" width="57" height="57" />
     <icon src="res/ios/icon@2x.png" width="114" height="114" />
@@ -36,20 +36,27 @@
     <icon src="res/ios/icon-small.png" width="29" height="29" />
     <icon src="res/ios/icon-small@2x.png" width="58" height="58" />
     <!-- iPad Spotlight and Settings Icon -->
-    <icon src="res/ios/icon-50.png" width="50" height="50" />
-    <icon src="res/ios/icon-50@2x.png" width="100" height="100" />
-
+    <icon src="res/ios/icon-small-50.png" width="50" height="50" />
+    <icon src="res/ios/icon-small-50@2x.png" width="100" height="100" />
     <!-- currently only providing splash/default screens for portrait iOS phones -->
+    <splash src="res/ios/Default~iphone.png" width="320" height="480"/>
     <splash src="res/ios/Default@2x~iphone.png" width="640" height="960"/>
     <splash src="res/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
     <splash src="res/ios/Default-667h.png" width="750" height="1334"/>
     <splash src="res/ios/Default-736h.png" width="1242" height="2208"/>
   </platform>
   <access origin="*" />
+  <allow-intent href="https://maps.google.com/*" />
+  <allow-intent href="https://www.crossroads.org.hk/*" />
+  <allow-intent href="http://www.globalhand.org/*" />
   <engine name="ios" spec="^3.8.0" />
   <engine name="android" spec="^4.0.0" />
   <engine name="windows" spec="^3.8.1" />
   <plugin name="com.phonegap.plugins.PushPlugin" spec="https://github.com/Telerik-Verified-Plugins/PushNotification.git" />
-  <plugin name="cordova-plugin-whitelist" spec="^1.0.0" />
+  <plugin name="cordova-plugin-whitelist" spec="1.0.0" />
+  <plugin name="cordova-plugin-inappbrowser" spec="1.0.1" />
   <plugin name="cordova-plugin-network-information" spec="^1.0.0" />
+  <plugin name="cordova-plugin-actionsheet" spec="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
+  <plugin name="cordova-plugin-camera" spec="1.2.0" />
+
 </widget>
