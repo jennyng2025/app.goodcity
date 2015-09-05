@@ -2,7 +2,7 @@ import AuthorizeRoute from '../authorize';
 
 export default AuthorizeRoute.extend({
   model: function() {
-    var offer = this.store.all('offer').filterBy('itemCount', 0).filterBy('state', 'draft').get('firstObject');
+    var offer = this.store.peekAll('offer').filterBy('itemCount', 0).filterBy('state', 'draft').get('firstObject');
     if (offer) {
       return this.transitionTo('offer', offer);
     }
