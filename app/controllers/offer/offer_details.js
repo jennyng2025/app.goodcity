@@ -22,7 +22,7 @@ export default ItemBaseController.extend({
   }.property('model', 'items.@each.state'),
 
   offers: function() {
-    return this.store.all("offer");
+    return this.store.peekAll("offer");
   }.property(),
 
   displayHomeLink: function(){
