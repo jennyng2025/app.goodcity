@@ -1,4 +1,6 @@
 .item-details {
+  padding-top: 2.8rem;
+
   .ellipsis {
     margin-bottom: 0;
   }
@@ -22,4 +24,17 @@
   &.tab-bar {
     margin-bottom: 0;
   }
+}
+
+.sticky_title_bar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
+}
+
+.offer_messages_section {
+  padding-top: 4rem;
 }
