@@ -15,6 +15,7 @@
     <icon src="res/android/gc_xhdpi_96.png" width="96" height="96"/>
     <icon src="res/android/gc_xxhdpi_144.png" width="144" height="144"/>
     <icon src="res/android/gc_xxxhdpi_192.png" width="192" height="192"/>
+    <icon src="res/android/notification_16.png" width="16" height="16" />
     <icon src="res/android/notification_22.png" width="22" height="22"/>
     <icon src="res/android/notification_33.png" width="33" height="33"/>
     <icon src="res/android/notification_44.png" width="44" height="44"/>
