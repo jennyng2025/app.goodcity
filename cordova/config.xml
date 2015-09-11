@@ -21,6 +21,16 @@
     <icon src="res/android/notification_66.png" width="66" height="66" />
     <icon src="res/android/notification_88.png" width="88" height="22" />
 
+    <!-- Splash Screens -->
+    <preference name="SplashScreen" value="screen" />
+    <preference name="SplashScreenDelay" value="5000" />
+    <splash src="res/android/splash_ldpi/screen.png" density="port-ldpi" />
+    <splash src="res/android/splash_mdpi/screen.png" density="port-mdpi" />
+    <splash src="res/android/splash_hdpi/screen.png" density="port-hdpi" />
+    <splash src="res/android/splash_xhdpi/screen.png" density="port-xhdpi" />
+    <splash src="res/android/splash_xxhdpi/screen.png" density="port-xxhdpi" />
+    <splash src="res/android/splash_xxxhdpi/screen.png" density="port-xxxhdpi" />
+
   </platform>
   <platform name="windows">
     <hook type="after_platform_add" src="hooks/windows/include.bat" />
@@ -83,5 +93,6 @@
   <plugin name="cordova-plugin-actionsheet" spec="https://github.com/EddyVerbruggen/cordova-plugin-actionsheet.git" />
   <plugin name="cordova-plugin-camera" spec="1.2.0" />
   <plugin name="cordova-plugin-statusbar" spec="1.0.1" />
+  <plugin name="cordova-plugin-splashscreen" spec="2.1.0" />
 
 </widget>
