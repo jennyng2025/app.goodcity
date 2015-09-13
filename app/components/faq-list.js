@@ -1,17 +1,15 @@
 import Ember from 'ember';
 
-export default Ember.View.reopen({
-  didInsertElement: function() {
+export default Ember.Component.reopen({
+  didInsertElement() {
     this._super();
 
     Ember.run.scheduleOnce('afterRender', this, function(){
-      var controller = this.get('controller');
+      var controller = this.get('_controller');
       if(controller && controller.questionAnchor) {
         controller.send('displayQuestion');
       }
     });
-
-    Ember.$(document).foundation();
 
     Ember.$().ready(function(){
 
