@@ -1,13 +1,14 @@
 import Ember from 'ember';
-import '../../computed/local-storage';
+import './../computed/local-storage';
+import initFoundation from './init-foundation';
 
-export default Ember.View.extend({
+export default initFoundation.extend({
   store: Ember.inject.service(),
 
-  didInsertElement: function() {
+  didInsertElement() {
     var offerCount = this.get("store").all("offer").get("length");
     var itemCount = this.get("store").all("item").get("length");
-    var recentlyCreated = new Date() - this.get("controller.model.createdAt") <= 12 * 60 * 60 * 1000; // 12 hrs
+    var recentlyCreated = new Date() - this.get("_controller.model.createdAt") <= 12 * 60 * 60 * 1000; // 12 hrs
     var firstEverItem = offerCount === 1 && itemCount === 1 && recentlyCreated;
 
     if (firstEverItem) {
