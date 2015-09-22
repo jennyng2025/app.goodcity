@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
       var data = this.get("formData");
       this.get("model").setProperties({
         donorDescription: data.donorDescription,
-        donorCondition: this.get("store").getById('donorCondition', data.donorConditionId)
+        donorCondition: this.get("store").peekRecord('donorCondition', data.donorConditionId)
       });
       var loadingView = this.container.lookup('view:loading').append();
 

@@ -8,7 +8,7 @@ export default Ember.Route.extend({
       {id: params.ggv_id})
       .then(function(data) {
         _this.store.pushPayload(data);
-        return _this.store.getById('offer', data.offer.id);
+        return _this.store.peekRecord('offer', data.offer.id);
       });
   },
 
