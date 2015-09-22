@@ -7,7 +7,7 @@
       {{#with model.reviewedBy as reviewer}}
         {{#if reviewer.hasImage}}
           <span>
-            {{view 'custom-img-tag' src=reviewer.displayImageUrl class="no-avatar"}}
+            {{custom-img-tag src=reviewer.displayImageUrl class="no-avatar"}}
           </span>
         {{else}}
           <span class="no-avatar">{{reviewer.nameInitial}}</span>
