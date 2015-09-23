@@ -1,13 +1,22 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  formData: function(key, value) {
-    var item = (arguments.length > 1) ? value : this.get('model');
-    return {
-      donorConditionId: item.get("donorConditionId"),
-      donorDescription: item.get("donorDescription")
-    };
-  }.property("model"),
+
+  formData: Ember.computed("model", {
+    get: function() {
+      var item = this.get('model');
+      return {
+        donorConditionId: item.get("donorConditionId"),
+        donorDescription: item.get("donorDescription")
+      };
+    },
+    set: function(key, value) {
+      return {
+        donorConditionId: value.get("donorConditionId"),
+        donorDescription: value.get("donorDescription")
+      };
+    }
+  }),
 
   actions: {
     submitItem: function() {
