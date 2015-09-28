@@ -12,22 +12,22 @@ export default ItemBaseController.extend({
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
-  offerAndItems: function() {
+  offerAndItems: Ember.computed('model', 'items.@each.state', function(){
     // avoid deleted-items which are not persisted yet.
     var elements = this.get('items').rejectBy('state', 'draft').rejectBy('isDeleted', true).toArray();
 
     // add offer to array for general messages display
     elements.push(this.get("model"));
     return elements;
-  }.property('model', 'items.@each.state'),
+  }),
 
-  offers: function() {
+  offers: Ember.computed(function(){
     return this.store.peekAll("offer");
-  }.property(),
+  }),
 
-  displayHomeLink: function(){
+  displayHomeLink: Ember.computed('offers.@each.state', function(){
     return this.get("offers").rejectBy('state', 'draft').get('length') > 0;
-  }.property('offers.@each.state'),
+  }),
 
   actions: {
     addItem: function() {
