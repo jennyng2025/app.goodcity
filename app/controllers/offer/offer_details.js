@@ -8,6 +8,7 @@ export default ItemBaseController.extend({
   sortProperties: ["latestUpdatedTime:desc"],
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   confirm: Ember.inject.service(),
+  i18n: Ember.inject.service(),
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
@@ -21,7 +22,7 @@ export default ItemBaseController.extend({
   }.property('model', 'items.@each.state'),
 
   offers: function() {
-    return this.store.all("offer");
+    return this.store.peekAll("offer");
   }.property(),
 
   displayHomeLink: function(){
@@ -33,9 +34,9 @@ export default ItemBaseController.extend({
       var message;
       if(this.get('model.isScheduled')) {
         if(this.get('model.hasCrossroadsTransport')) {
-          message = Ember.I18n.t("offer.offer_details.crossroads_booking_alert");
+          message = this.get("i18n").t("offer.offer_details.crossroads_booking_alert");
         } else {
-          message = Ember.I18n.t("offer.offer_details.ggv_booking_alert");
+          message = this.get("i18n").t("offer.offer_details.ggv_booking_alert");
         }
 
         this.get("confirm").show(message, () => {
@@ -73,7 +74,7 @@ export default ItemBaseController.extend({
       } else if(alreadyConfirmed) {
         this.send("deleteOffer", offer);
       } else{
-        this.get("confirm").show(Ember.I18n.t("delete_confirm"), () => {
+        this.get("confirm").show(this.get("i18n").t("delete_confirm"), () => {
           this.send("deleteOffer", offer);
         });
       }

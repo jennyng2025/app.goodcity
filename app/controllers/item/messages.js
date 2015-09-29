@@ -1,14 +1,14 @@
 import Ember from "ember";
-import MessagesBaseController from "shared.goodcity/controllers/messages_base";
+import MessagesBaseController from "shared-goodcity/controllers/messages_base";
 
 export default MessagesBaseController.extend({
-  needs: ["item/index", "item", "offer"],
-  item: Ember.computed.alias("controllers.item.model"),
+  item: null,
+  itemIndexController: Ember.inject.controller("item/index"),
   noMessage: Ember.computed.empty("model"),
 
   actions: {
     removeItem: function(item) {
-      this.get("controllers.item/index").send("removeItem", item);
+      this.get("itemIndexController").send("removeItem", item);
     }
   }
 });

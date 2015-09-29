@@ -1,20 +1,20 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
+import FactoryGuy from 'ember-data-factory-guy';
+import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
-var App, testHelper, currentUserId,
-  TestHelper = Ember.Object.createWithMixins(FactoryGuyTestMixin);
+var App;
 
 module('Create New Offer', {
   setup: function() {
-    currentUserId = "1";
-    App = startApp({}, currentUserId);
-    testHelper = TestHelper.setup(App);
+    App = startApp();
+    TestHelper.setup();
 
     // prevent request to express server which returns 4 offers
-    testHelper.handleFindAll("offer", 0);
+    TestHelper.handleFindAll("offer", 0);
   },
   teardown: function() {
-    Em.run(function() { testHelper.teardown(); });
+    Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }
 });
@@ -23,7 +23,7 @@ test("should create new offer", function() {
   expect(3);
 
   FactoryGuy.make("offer_with_items", {id:1}); // check offer with items is not returned
-  testHelper.handleCreate("offer").andReturn({id:5});
+  TestHelper.handleCreate("offer").andReturn({id:5});
 
   visit("/offers/new");
 
@@ -42,8 +42,10 @@ test("should create new offer", function() {
 test("should redirect to previous empty offer", function() {
   expect(4);
 
-  FactoryGuy.make("offer_with_items", {id:1, createdBy:currentUserId}); // check offer with items is not returned
-  testHelper.make("offer",{"id":5, createdBy:currentUserId});
+  var currentUserId = JSON.parse(window.localStorage.currentUserId);
+  var user = FactoryGuy.make("user", {id:currentUserId});
+  FactoryGuy.make("offer_with_items", {id:1, createdBy:user}); // check offer with items is not returned
+  FactoryGuy.make("offer",{"id":5, createdBy:user});
 
   visit("/offers");
 

@@ -1,11 +1,13 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
 
-var App;
+var App, t;
 
 module('Authorization', {
   setup: function() {
-
+    App = startApp();
+    var i18n = App.__container__.lookup('service:i18n');
+    t = i18n.t.bind(i18n);
   },
   teardown: function() {
     Ember.run(App, 'destroy');
@@ -13,15 +15,15 @@ module('Authorization', {
 });
 
 test("Rediect to login if not logged-in", function() {
-  App = startApp();
   expect(2);
 
   lookup('service:session').set('authToken', null);
 
+
   visit("/offers");
 
   andThen(function() {
-    equal(Ember.$("#errorMessage").text(), Ember.I18n.t("must_login"));
+    equal(Ember.$("#errorMessage").text(), t("must_login"));
     click(Ember.$(".ok"));
   });
 
@@ -31,7 +33,6 @@ test("Rediect to login if not logged-in", function() {
 });
 
 test("On login page redirect to home-page if already logged-in", function() {
-  App = startApp();
   expect(1);
 
   visit("/login");
@@ -42,7 +43,6 @@ test("On login page redirect to home-page if already logged-in", function() {
 });
 
 test("On register page redirect to home-page if already logged-in", function() {
-  App = startApp();
   expect(1);
 
   visit("/register");

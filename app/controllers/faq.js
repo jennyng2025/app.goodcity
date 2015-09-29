@@ -10,7 +10,7 @@ export default Ember.Controller.extend({
         var scrollOffset = Ember.$("#" + question).offset().top;
 
         Ember.$('html, body').animate({
-          scrollTop: scrollOffset - 70
+          scrollTop: scrollOffset - 130
         }, 'fast');
       }
       return false;

@@ -33,8 +33,9 @@ module.exports = function(environment) {
       CONTACT_EMAIL: 'info@goodcity.hk',
 
       PRELOAD_TYPES: ["territory"],
-      PRELOAD_AUTHORIZED_TYPES: ["donor_condition","permission", "timeslot", "gogovan_transport", "crossroads_transport"],
+      PRELOAD_AUTHORIZED_TYPES: ["donor_condition","permission", "timeslot", "gogovan_transport", "crossroads_transport", "version"],
       SHA: process.env.APP_SHA || "00000000",
+      SHARED_SHA:  process.env.APP_SHARED_SHA || "00000000",
       VERSION: "1.0.0",
 
       AIRBRAKE_HOST: "https://errbit.crossroads.org.hk",
@@ -50,6 +51,9 @@ module.exports = function(environment) {
     },
     coffeeOptions: {
       blueprints: false
+    },
+    i18n: {
+      defaultLocale: 'en'
     }
   };
 
@@ -76,6 +80,7 @@ module.exports = function(environment) {
   }
 
   if (environment === 'test') {
+    ENV.cordova.enabled = false;
     // Testem prefers this...
     ENV.baseURL = '/';
     ENV.locationType = 'auto';
