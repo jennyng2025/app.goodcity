@@ -7,7 +7,7 @@ export default MessagesBaseController.extend({
   noMessage: Ember.computed.empty("model"),
 
   actions: {
-    removeItem: function(item) {
+    removeItem(item) {
       this.get("itemIndexController").send("removeItem", item);
     }
   }

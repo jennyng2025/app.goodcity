@@ -4,7 +4,7 @@ export default Ember.Controller.extend({
   questionAnchor: null,
 
   actions: {
-    displayQuestion: function() {
+    displayQuestion() {
       var question = this.get("questionAnchor");
       if(question) {
         var scrollOffset = Ember.$("#" + question).offset().top;

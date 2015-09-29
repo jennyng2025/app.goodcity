@@ -19,7 +19,7 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
-    submitItem: function() {
+    submitItem() {
       if (this.get("model.state") === "draft") {
         this.set("model.state_event", "submit");
       }
@@ -43,7 +43,7 @@ export default Ember.Controller.extend({
         .finally(() => loadingView.destroy());
     },
 
-    discardChanges: function(item)  {
+    discardChanges(item)  {
       var controller = this;
       var offer = item.get('offer');
       if (item.get("state") === "draft") {

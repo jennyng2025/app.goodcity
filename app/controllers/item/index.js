@@ -6,7 +6,7 @@ export default Ember.Controller.extend({
   i18n: Ember.inject.service(),
 
   actions: {
-    removeItem: function(item) {
+    removeItem(item) {
       var controller = this;
       var offer = item.get('offer');
 
