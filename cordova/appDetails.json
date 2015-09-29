@@ -1,0 +1,10 @@
+{
+	"staging": {
+		"name": "S. GoodCity",
+		"url": "hk.goodcity.appstaging"
+	},
+	"production": {
+		"name": "GoodCity",
+		"url": "hk.goodcity.app"
+	}
+}
