@@ -2,7 +2,7 @@ import Ember from 'ember';
 import AjaxPromise from '../utils/ajax-promise';
 
 export default Ember.Route.extend({
-  model: function(params) {
+  model(params) {
     var _this = this;
     return new AjaxPromise("/gogovan_orders/driver_details", "GET", null,
       {id: params.ggv_id})
@@ -12,7 +12,7 @@ export default Ember.Route.extend({
       });
   },
 
-  afterModel: function(offer, transition) {
+  afterModel(offer, transition) {
     if(transition.queryParams['gcadmin'] === "true") {
       return true;
     } else {

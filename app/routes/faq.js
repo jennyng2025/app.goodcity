@@ -6,7 +6,7 @@ export default Ember.Route.extend({
     questionAnchor: null
   },
 
-  setupController: function(controller, context, params){
+  setupController(controller, context, params) {
     controller.set('questionAnchor', params.queryParams.questionAnchor);
   }
 
