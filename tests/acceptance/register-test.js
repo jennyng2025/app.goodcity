@@ -53,11 +53,15 @@ test("cannot register unless mobile number details are entered", function() {
   expect(1);
 
   visit('/register');
-  fillIn("#first_name",  hk_user.firstName );
-  fillIn('#last_name', hk_user.lastName);
-
   andThen(function() {
-    equal(currentURL(), '/register');
+    fillIn("#first_name",  hk_user.firstName );
+    fillIn('#last_name', hk_user.lastName);
+
+    click("#registerUser");
+
+    andThen(function() {
+      equal(currentURL(), '/register');
+    });
   });
 });
 
