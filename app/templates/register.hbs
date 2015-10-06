@@ -1,6 +1,6 @@
 <nav class="tab-bar">
   <section class="left-small">
-    {{#link-to 'index' classNames='back'}}{{t "back"}}{{/link-to}}
+    {{link-to (t "back") 'index' classNames='back'}}
   </section>
 
   <section class="middle tab-bar-section">
@@ -17,37 +17,37 @@
     <div class="row">
       <div class="small-12 columns">
 
-          <div class="mobile">
-            <div class="row">
-              <div class="small-12 columns ui">
-                <label>{{t "register.hk_only"}}</label>
-              </div>
-            </div>
-
-            <div class="row collapse">
-              <div class="small-3 columns ui">
-                <label>+852</label>
-              </div>
-              <div class="small-9 columns ui">
-                {{view 'numeric-input' value=mobilePhone name="mobilePhone" id="mobile" maxlength="8" placeholder=phoneNumberPlaceholder required='true' pattern=".{8,}" }}
-              </div>
-            </div>
-          </div>
-
+        <div class="mobile">
           <div class="row">
-            <div class="small-6 columns ui">
-              <label>{{t "register.given_name"}}
-                {{input type="text" value=firstName name="firstName" id='first_name' placeholder=fNamePlaceholder required='true' pattern="^[\S ]*[\S][\S ]*$"}}
-              </label>
-            </div>
-            <div class="small-6 columns ui">
-              <label>{{t "register.family_name"}}
-                {{input type="text" value=lastName name="lastName" id='last_name' placeholder=lNamePlaceholder required='true' pattern="^[\S ]*[\S][\S ]*$"}}
-              </label>
+            <div class="small-12 columns ui">
+              <label>{{t "register.hk_only"}}</label>
             </div>
           </div>
 
-          {{districts-territory}}
+          <div class="row collapse">
+            <div class="small-3 columns ui">
+              <label>+852</label>
+            </div>
+            <div class="small-9 columns ui">
+              {{numeric-input value=mobilePhone name="mobilePhone" id="mobile" maxlength="8" placeholder=phoneNumberPlaceholder required='true' pattern=".{8,}" }}
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="small-6 columns ui">
+            <label>{{t "register.given_name"}}
+              {{input type="text" value=firstName name="firstName" id='first_name' placeholder=fNamePlaceholder required='true' pattern="^[\S ]*[\S][\S ]*$"}}
+            </label>
+          </div>
+          <div class="small-6 columns ui">
+            <label>{{t "register.family_name"}}
+              {{input type="text" value=lastName name="lastName" id='last_name' placeholder=lNamePlaceholder required='true' pattern="^[\S ]*[\S][\S ]*$"}}
+            </label>
+          </div>
+        </div>
+
+        {{districts-territory}}
 
         <p class="form-note">{{t "register.fill_all_fields"}} {{#link-to 'pics'}}{{t "register.use_of_personal_info"}}{{/link-to}}</p>
 

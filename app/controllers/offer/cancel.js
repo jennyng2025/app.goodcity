@@ -9,7 +9,7 @@ export default Ember.Controller.extend({
   gogovanContact: config.APP.GOGOVAN_CONTACT,
 
   actions: {
-    cancelOffer: function() {
+    cancelOffer() {
       if(this.get('canCancel')){
         this.get('offerController').send('cancelOffer', this.get('model'));
       }

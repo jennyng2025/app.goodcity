@@ -2,11 +2,11 @@ import AuthorizeRoute from './../authorize';
 
 export default AuthorizeRoute.extend({
 
-  model: function() {
+  model() {
     return this.store.peekAll('offer');
   },
 
-  afterModel: function(my_offers) {
+  afterModel(my_offers) {
     var route = this;
     switch(my_offers.get('length')) {
       case 0 : route.transitionTo('offers.new'); break;
@@ -22,7 +22,7 @@ export default AuthorizeRoute.extend({
     }
   },
 
-  renderTemplate: function() {
+  renderTemplate() {
     this.render(); // default template
     this.render('appMenuList', {
       into: 'offers/index',

@@ -12,25 +12,25 @@ export default ItemBaseController.extend({
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
-  offerAndItems: function() {
+  offerAndItems: Ember.computed('model', 'items.@each.state', function(){
     // avoid deleted-items which are not persisted yet.
     var elements = this.get('items').rejectBy('state', 'draft').rejectBy('isDeleted', true).toArray();
 
     // add offer to array for general messages display
     elements.push(this.get("model"));
     return elements;
-  }.property('model', 'items.@each.state'),
+  }),
 
-  offers: function() {
+  offers: Ember.computed(function(){
     return this.store.peekAll("offer");
-  }.property(),
+  }),
 
-  displayHomeLink: function(){
+  displayHomeLink: Ember.computed('offers.@each.state', function(){
     return this.get("offers").rejectBy('state', 'draft').get('length') > 0;
-  }.property('offers.@each.state'),
+  }),
 
   actions: {
-    addItem: function() {
+    addItem() {
       var message;
       if(this.get('model.isScheduled')) {
         if(this.get('model.hasCrossroadsTransport')) {
@@ -47,7 +47,7 @@ export default ItemBaseController.extend({
       }
     },
 
-    allowAddItem: function(){
+    allowAddItem() {
       var draftItemId = this.get("model.items").filterBy("state", "draft").get("firstObject.id");
       if(draftItemId) {
         this.transitionToRoute('item.edit', draftItemId);
@@ -56,7 +56,7 @@ export default ItemBaseController.extend({
       }
     },
 
-    deleteOffer: function(offer) {
+    deleteOffer(offer) {
       var loadingView = this.container.lookup('view:loading').append();
       offer.deleteRecord();
       offer.save()
@@ -68,7 +68,7 @@ export default ItemBaseController.extend({
         .finally(() => loadingView.destroy());
     },
 
-    cancelOffer: function(offer, alreadyConfirmed){
+    cancelOffer(offer, alreadyConfirmed) {
       if(this.get('hasActiveGGVOrder')) {
         this.transitionToRoute('offer.cancel', offer);
       } else if(alreadyConfirmed) {
@@ -80,11 +80,11 @@ export default ItemBaseController.extend({
       }
     },
 
-    addMoreItem: function() {
+    addMoreItem() {
       if(!this.get("model.preventNewItem")){ this.send("addItem"); }
     },
 
-    handleBrokenImage: function() {
+    handleBrokenImage() {
       this.get("model.reviewedBy").set("hasImage", null);
     },
   }

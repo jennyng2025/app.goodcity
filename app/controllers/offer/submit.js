@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    submitOffer: function(saleable) {
+    submitOffer(saleable) {
       var loadingView = this.container.lookup('view:loading').append();
       var offer = this.store.push('offer', {
         id: this.get('model.id'),

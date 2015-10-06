@@ -6,16 +6,16 @@ export default Ember.Controller.extend({
   contact: Ember.computed.alias('model.delivery.contact'),
   districtName: Ember.computed.alias('contact.address.district.name'),
 
-  gmapUrl: function(){
+  gmapUrl: Ember.computed(function(){
     return config.APP.GMAP_URL;
-  }.property(),
+  }),
 
-  userName: function(){
+  userName: Ember.computed('contact.name', 'user', function(){
     return this.get('contact.name') || this.get("user.fullName");
-  }.property('contact.name', 'user'),
+  }),
 
-  userMobile: function(){
+  userMobile: Ember.computed('contact.mobile', 'user', function(){
     var mobile = this.get('contact.mobile') || this.get("user.mobile");
     return mobile ? mobile.split("+852")[1] : "";
-  }.property('contact.mobile', 'user'),
+  }),
 });

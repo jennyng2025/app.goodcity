@@ -1,16 +1,25 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
-  formData: function(key, value) {
-    var item = (arguments.length > 1) ? value : this.get('model');
-    return {
-      donorConditionId: item.get("donorConditionId"),
-      donorDescription: item.get("donorDescription")
-    };
-  }.property("model"),
+
+  formData: Ember.computed("model", {
+    get: function() {
+      var item = this.get('model');
+      return {
+        donorConditionId: item.get("donorConditionId"),
+        donorDescription: item.get("donorDescription")
+      };
+    },
+    set: function(key, value) {
+      return {
+        donorConditionId: value.get("donorConditionId"),
+        donorDescription: value.get("donorDescription")
+      };
+    }
+  }),
 
   actions: {
-    submitItem: function() {
+    submitItem() {
       if (this.get("model.state") === "draft") {
         this.set("model.state_event", "submit");
       }
@@ -18,7 +27,7 @@ export default Ember.Controller.extend({
       var data = this.get("formData");
       this.get("model").setProperties({
         donorDescription: data.donorDescription,
-        donorCondition: this.get("store").getById('donorCondition', data.donorConditionId)
+        donorCondition: this.get("store").peekRecord('donorCondition', data.donorConditionId)
       });
       var loadingView = this.container.lookup('view:loading').append();
 
@@ -34,7 +43,7 @@ export default Ember.Controller.extend({
         .finally(() => loadingView.destroy());
     },
 
-    discardChanges: function(item)  {
+    discardChanges(item)  {
       var controller = this;
       var offer = item.get('offer');
       if (item.get("state") === "draft") {

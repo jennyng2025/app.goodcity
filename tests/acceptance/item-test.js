@@ -3,6 +3,7 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import testSkip from '../helpers/test-skip';
 
 var App, offer, item, display_item_url, receivedItem, receivedItemUrl;
 
@@ -25,7 +26,7 @@ module('Display Item', {
   }
 });
 
-test("Display Item Details", function() {
+testSkip("Display Item Details", function() {
   visit(display_item_url);
 
   andThen(function(){
@@ -36,7 +37,7 @@ test("Display Item Details", function() {
   });
 });
 
-test("Do not allow Donor to edit/update item", function() {
+testSkip("Do not allow Donor to edit/update item", function() {
   visit(receivedItemUrl);
 
   andThen(function(){
@@ -45,7 +46,7 @@ test("Do not allow Donor to edit/update item", function() {
   });
 });
 
-test("Back button redirects to its offer details", function() {
+testSkip("Back button redirects to its offer details", function() {
   expect(1);
 
   visit(display_item_url);

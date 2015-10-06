@@ -11,7 +11,7 @@ export default Ember.Controller.extend({
   lNamePlaceholder: t("register.doe"),
 
   actions: {
-    registerUser: function() {
+    registerUser() {
       var loadingView = this.container.lookup('view:loading').append();
       var mobilePhone = config.APP.HK_COUNTRY_CODE + this.get('mobilePhone');
       var firstName = this.get('firstName');

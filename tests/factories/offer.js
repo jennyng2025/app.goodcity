@@ -20,8 +20,9 @@ FactoryGuy.define('offer', {
     createdBy: FactoryGuy.belongsTo("user"),
     reviewedBy: FactoryGuy.belongsTo("user"),
     delivery: FactoryGuy.belongsTo("delivery"),
-    createdAt: new Date(2015, 0, 20, 13,10),
-    updatedAt: new Date(2015, 0, 20, 13,11)
+    createdAt: new Date(2015, 0, 20, 13, 10),
+    updatedAt: new Date(2015, 0, 20, 13, 11),
+    receivedAt: '12/01/2015',
   },
 
   offer_with_items: {

@@ -7,7 +7,7 @@
       {{#with model.reviewedBy as reviewer}}
         {{#if reviewer.hasImage}}
           <span>
-            {{view 'custom-img-tag' src=reviewer.displayImageUrl class="no-avatar"}}
+            {{custom-img-tag src=reviewer.displayImageUrl class="no-avatar"}}
           </span>
         {{else}}
           <span class="no-avatar">{{reviewer.nameInitial}}</span>
@@ -51,7 +51,7 @@
         </b>
       {{/with}}
     {{else if model.isReceived}}
-      {{t "offer.offer_details.offer_received"}} {{view "time-ago" timeValue=model.receivedAt}}
+      {{t "offer.offer_details.offer_received"}} {{time-ago timeValue=model.receivedAt}}
 
     {{/if}}
   </div>
