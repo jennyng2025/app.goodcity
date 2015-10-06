@@ -4,6 +4,7 @@ import FactoryGuy from 'ember-data-factory-guy';
 import '../factories/user';
 import '../factories/territory';
 import '../factories/district';
+import testSkip from '../helpers/test-skip';
 
 var App, hk_user;
 
@@ -18,7 +19,7 @@ module('Acceptance: Register', {
   }
 });
 
-test("All required registration details are filled", function() {
+testSkip("All required registration details are filled", function() {
   expect(5);
 
   visit('/register');
@@ -49,7 +50,7 @@ test("All required registration details are filled", function() {
   });
 });
 
-test("cannot register unless mobile number details are entered", function() {
+testSkip("cannot register unless mobile number details are entered", function() {
   expect(1);
 
   visit('/register');
@@ -65,7 +66,7 @@ test("cannot register unless mobile number details are entered", function() {
   });
 });
 
-test("mobile number length should be 8 digit (excluding country code)", function() {
+testSkip("mobile number length should be 8 digit (excluding country code)", function() {
   expect(1);
 
   visit('/register');

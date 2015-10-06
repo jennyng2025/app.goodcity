@@ -3,6 +3,7 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import testSkip from '../helpers/test-skip';
 
 var App, offer1, offer2, reviewer, reviewer1, reviewerName,
   offer7, offer3, offer4, delivery1, delivery2, offer5, delivery3, offer6,
@@ -132,7 +133,7 @@ test("Display offer status for closed offer", function() {
   });
 });
 
-test("Display offer status for received offer", function() {
+testSkip("Display offer status for received offer", function() {
   visit('/offers/' + offer10.id + "/offer_details");
 
   andThen(function() {

@@ -3,6 +3,7 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import testSkip from '../helpers/test-skip';
 
 var App, offer1, item1, offer2, item2, offer3, item3, offer4,
   item4, delivery1, ggv_order1, offer5, item5, item7, delivery2, ggv_order2,
@@ -175,7 +176,7 @@ test("cancel booking of scheduled offer with pending GGV order state", function(
 
 });
 
-test("for received offer", function() {
+testSkip("for received offer", function() {
   visit('/offers/' + offer7.id + "/transport_details");
   andThen(function() {
     equal(currentURL(), "/offers/" + offer7.id + "/transport_details");
