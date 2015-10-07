@@ -52,6 +52,8 @@
       {{/with}}
     {{else if model.isReceived}}
       {{t "offer.offer_details.offer_received"}} {{time-ago timeValue=model.receivedAt}}
+    {{else if model.isReceiving}}
+      {{t "offer.offer_details.offer_start_receiving" firstName=model.receivedBy.firstName lastName=model.receivedBy.lastName}} {{time-ago timeValue=model.startReceivingAt}}
 
     {{/if}}
   </div>
