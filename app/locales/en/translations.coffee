@@ -59,6 +59,7 @@ I18nTranslationsEn =
         "arrange_transport" : "Please arrange transport"
         "closed" : "Closed"
         "received" : "Received"
+        "receiving": "Receiving"
         "van_booked" : "Van booked"
         "van_confirmed": "Van confirmed"
         "picked_up": "Picked up"
@@ -115,6 +116,7 @@ I18nTranslationsEn =
         "not_needed": "Not needed"
         "closed_offer_message": "Offer closed. No items needed, Sorry."
         "offer_received": "Offer received"
+        "offer_start_receiving": "{{firstName}} {{lastName}} began receiving items"
         "crossroads_booking_alert" : "We review extra items as quickly as possible. Our collection team can generally only take items that have been reviewed and accepted first.<br><br>If large additional items are accepted it may require us to cancel and re-book your collection."
         "ggv_booking_alert": "We review extra items as quickly as possible. Please don't send items unless we have accepted them.<br><br>If you need to modify your transport booking to accommodate additional items, use the transport tab."
 
