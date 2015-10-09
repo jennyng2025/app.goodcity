@@ -57,7 +57,7 @@ export default ItemBaseController.extend({
     },
 
     deleteOffer(offer) {
-      var loadingView = this.container.lookup('view:loading').append();
+      var loadingView = this.container.lookup('component:loading').append();
       offer.deleteRecord();
       offer.save()
         .then(() => {
