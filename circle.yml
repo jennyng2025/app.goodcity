@@ -21,9 +21,13 @@ test:
     - ./node_modules/ember-cli/bin/ember test
 
 deployment:
+  capistrano:
+    branch: capistrano
+    commands:
+      - bundle exec cap staging deploy
   staging:
     branch: master
     commands:
-      - npm run deploy-staging
+      - bundle exec cap staging deploy
       - bash ./cordova/deploy/deploy-android-testfairy.sh
       - bash ./cordova/deploy/notify-ios-build-service.sh app.goodcity
