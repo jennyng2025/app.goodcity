@@ -36,11 +36,11 @@ ember install
 
 Staging site
 
-`npm run deploy-staging`
+`cap staging deploy`
 
 Live site
 
-`npm run deploy-live`
+`cap production deploy`
 
 Note you will need to have your SSH key installed on the destination servers before deployment will work.
 
