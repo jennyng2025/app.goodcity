@@ -22,7 +22,6 @@ deployment:
   rake:
     branch: rake
     commands:
-      - bundle exec cap staging deploy
       - bundle exec rake staging cordova:bump_version
       - bundle exec rake staging android app:release
       - bundle exec rake staging ios_build_server:notify
