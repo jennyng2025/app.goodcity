@@ -3,7 +3,6 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
-import testSkip from '../helpers/test-skip';
 
 var App, store, offer, item1, item2, image;
 
@@ -49,7 +48,7 @@ test("Display offer details", function() {
   });
 });
 
-testSkip("Confirm and Submit Offer", function(){
+test("Confirm and Submit Offer", function(){
   visit("/offers/" + offer.id + "/offer_details");
   click("a[href='/offers/"+ offer.id +"/confirm']");
 

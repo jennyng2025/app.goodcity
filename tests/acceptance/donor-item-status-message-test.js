@@ -3,7 +3,6 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
-import testSkip from '../helpers/test-skip';
 
 var App, store, offer1, offer2, item2, item1, item3, item4;
 
@@ -29,7 +28,7 @@ module('Donor: Display Item Status', {
   }
 });
 
-testSkip("Display item status for submitted item", function() {
+test("Display item status for submitted item", function() {
   visit('/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
 
   andThen(function() {
@@ -38,7 +37,7 @@ testSkip("Display item status for submitted item", function() {
   });
 });
 
-testSkip("Display item status for under review item", function() {
+test("Display item status for under review item", function() {
   visit('/offers/' + offer2.id + "/items/"+ item2.id +"/messages");
 
   andThen(function() {
@@ -47,7 +46,7 @@ testSkip("Display item status for under review item", function() {
   });
 });
 
-testSkip("Display item status for accepted item", function() {
+test("Display item status for accepted item", function() {
   visit('/offers/' + offer2.id + "/items/"+ item3.id +"/messages");
 
   andThen(function() {
@@ -56,7 +55,7 @@ testSkip("Display item status for accepted item", function() {
   });
 });
 
-testSkip("Display offer status for reviewed offer", function() {
+test("Display offer status for reviewed offer", function() {
   visit('/offers/' + offer2.id + "/items/"+ item4.id +"/messages");
 
   andThen(function() {

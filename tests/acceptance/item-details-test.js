@@ -3,7 +3,6 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
-import testSkip from '../helpers/test-skip';
 
 var App, offer1, reviewer, item1, item2, message1;
 
@@ -26,7 +25,7 @@ module('Display Item Details', {
   }
 });
 
-testSkip("item details", function() {
+test("item details", function() {
   visit('/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
   andThen(function() {
     equal(currentURL(), '/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
@@ -47,7 +46,7 @@ testSkip("item details", function() {
   });
 });
 
-testSkip("message details", function() {
+test("message details", function() {
   visit('/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
   andThen(function() {
     equal(currentURL(), '/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
@@ -60,7 +59,7 @@ testSkip("message details", function() {
   });
 });
 
-testSkip("send message", function() {
+test("send message", function() {
   visit('/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
   andThen(function() {
     equal(currentURL(), '/offers/' + offer1.id + "/items/"+ item1.id +"/messages");
@@ -77,7 +76,7 @@ testSkip("send message", function() {
   });
 });
 
-testSkip("display info text if no messages", function() {
+test("display info text if no messages", function() {
   var info_text = "Chat about this item with our reviewers";
   visit('/offers/' + offer1.id + "/items/"+ item2.id +"/messages");
 
