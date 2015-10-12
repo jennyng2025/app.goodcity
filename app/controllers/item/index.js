@@ -18,7 +18,7 @@ export default Ember.Controller.extend({
       }
 
       this.get("confirm").show(this.get("i18n").t("delete_confirm"), () => {
-        var loadingView = controller.container.lookup('view:loading').append();
+        var loadingView = controller.container.lookup('component:loading').append();
 
         offer.get('items').removeObject(item);
 

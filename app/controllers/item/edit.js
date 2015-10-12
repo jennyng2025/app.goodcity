@@ -29,7 +29,7 @@ export default Ember.Controller.extend({
         donorDescription: data.donorDescription,
         donorCondition: this.get("store").peekRecord('donorCondition', data.donorConditionId)
       });
-      var loadingView = this.container.lookup('view:loading').append();
+      var loadingView = this.container.lookup('component:loading').append();
 
       this.get("model").save()
         .then(() => {
@@ -47,7 +47,7 @@ export default Ember.Controller.extend({
       var controller = this;
       var offer = item.get('offer');
       if (item.get("state") === "draft") {
-        var loadingView = controller.container.lookup('view:loading').append();
+        var loadingView = controller.container.lookup('component:loading').append();
         item.destroyRecord().then(function(){
           var route = offer.get('itemCount') === 0 ? "offer" : "offer.offer_details";
           controller.transitionToRoute(route);
