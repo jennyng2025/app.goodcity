@@ -3,7 +3,6 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
-import testSkip from '../helpers/test-skip';
 
 var App, offer, offer2, offer3, reviewer, item1, item2, item3,
   message1, message2, msg1_time;
@@ -74,7 +73,7 @@ test("ordering of message threads", function() {
   });
 });
 
-testSkip("visit items message threads", function() {
+test("visit items message threads", function() {
   visit('/offers/' + offer.id + "/offer_details");
   andThen(function() {
     // latest item message thread
@@ -85,7 +84,7 @@ testSkip("visit items message threads", function() {
   });
 });
 
-testSkip("visit offer message threads", function() {
+test("visit offer message threads", function() {
   visit('/offers/' + offer.id + "/offer_details");
   andThen(function() {
     //offer message thread

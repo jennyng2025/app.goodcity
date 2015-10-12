@@ -3,7 +3,6 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
-import testSkip from '../helpers/test-skip';
 
 var App, offer, offer1, item, item1;
 
@@ -28,7 +27,7 @@ module('Edit Item', {
   }
 });
 
-testSkip("Create Item with details", function() {
+test("Create Item with details", function() {
   expect(4);
 
   var edit_item_url = "/offers/" + offer.id + "/items/" + item.id + "/edit";
@@ -55,7 +54,7 @@ testSkip("Create Item with details", function() {
   });
 });
 
-testSkip("Discard Item with details", function() {
+test("Discard Item with details", function() {
   var edit_item_url = "/offers/" + offer.id + "/items/" + item.id + "/edit";
   visit(edit_item_url);
 
@@ -74,7 +73,7 @@ testSkip("Discard Item with details", function() {
   });
 });
 
-testSkip("Discard changes for existing Item", function() {
+test("Discard changes for existing Item", function() {
   var edit_item_url = "/offers/" + offer1.id + "/items/" + item1.id + "/edit";
   visit(edit_item_url);
 
