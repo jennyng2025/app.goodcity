@@ -9,8 +9,6 @@ dependencies:
     - node circle-branch.js
   post:
     - ./node_modules/ember-cli/node_modules/bower/bin/bower install
-  #cache_directories:
-  #  - bower_components    # relative to the build directory
 
 test:
   pre:
@@ -21,13 +19,21 @@ test:
     - ./node_modules/ember-cli/bin/ember test
 
 deployment:
-  capistrano:
-    branch: capistrano
+  rake:
+    branch: rake
     commands:
-      - bundle exec cap staging deploy
+      - bundle exec rake staging cordova:bump_version
+      - bundle exec rake staging android app:release
+      - bundle exec rake staging ios_build_server:notify
   staging:
     branch: master
     commands:
       - bundle exec cap staging deploy
       - bash ./cordova/deploy/deploy-android-testfairy.sh
       - bash ./cordova/deploy/notify-ios-build-service.sh app.goodcity
+  production:
+    branch: live
+    commands:
+      - bundle exec rake production cordova:bump_version
+      - bundle exec rake production android app:release
+      - bundle exec rake production ios_build_server:notify
