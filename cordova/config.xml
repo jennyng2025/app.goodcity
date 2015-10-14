@@ -73,4 +73,8 @@
   <plugin name="cordova-plugin-camera" spec="1.2.0"/>
   <plugin name="cordova-plugin-statusbar" spec="1.0.1"/>
   <plugin name="cordova-plugin-splashscreen" spec="2.1.0"/>
+<<<<<<< HEAD
 </widget>
+=======
+</widget>
+>>>>>>> 66d518137866c8543dc4594bad7dc9cd18a7d8c5
