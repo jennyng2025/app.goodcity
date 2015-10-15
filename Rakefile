@@ -90,7 +90,8 @@ namespace :cordova do
   task :prepare do
     FileUtils.mkdir_p "#{ROOT_PATH}/dist"
     sh %{ ln -s "#{ROOT_PATH}/dist" "#{CORDOVA_PATH}/www" } unless File.exists?("#{CORDOVA_PATH}/www")
-    puts "Preparing app\nAPP NAME: #{app_name}\nENV: #{environment}\nPLATFORM: #{platform}\nAPP VERSION: #{app_version}"
+    puts "Preparing app..."
+    build_details.map{|key, value| puts "#{key.upcase}: #{value}"}
     system({"ENVIRONMENT" => environment}, "cd #{CORDOVA_PATH}; cordova prepare #{platform}")
     if platform == "ios"
       sh %{ cd #{CORDOVA_PATH}; cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
@@ -136,6 +137,8 @@ namespace :testfairy do
     else
       sh %{ #{testfairy_upload_script} "#{app}" }
     end
+    puts "Uploaded app..."
+    build_details.map{|key, value| puts "#{key.upcase}: #{value}"}
   end
 end
 
@@ -253,4 +256,8 @@ end
 
 def is_staging
   (environment == "staging").to_s
+end
+
+def build_details
+  {app_name: app_name, env: environment, platform: platform, app_version: app_version}
 end
