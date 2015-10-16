@@ -156,14 +156,6 @@ I18nTranslationsZhTw =
         "info_text1": "審查物品時，如果有任何問題，我們會在下面的對話框向您查詢"
         "info_text2": "如您希望加添任何對捐獻物品的描述，請在此留言"
 
-    # Components
-    "upload-images":
-      "angles" : "圖片包含物資的所有角度嗎？"
-      "favourite" : "我的最愛"
-      "add_another" : "加入另一張圖片"
-    "upload-image":
-      "upload_error" : "圖片上傳時出錯，請稍後再試一次。"
-
     "faqs":
       "title": "常見問題"
       "description" : "好人好市服務全港，處理捐獻物資，效率冠絕全球"

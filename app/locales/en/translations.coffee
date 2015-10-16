@@ -156,14 +156,6 @@ I18nTranslationsEn =
         "info_text1": "If we have questions when reviewing this item we will chat with you here."
         "info_text2": "If you want to add a comment to this item for our reviewers, type it below."
 
-    # Components
-    "upload-images":
-      "angles" : "Got all the angles of this item?"
-      "favourite" : "Favourite"
-      "add_another" : "Add another image"
-    "upload-image":
-      "upload_error" : "There is an error with your image upload. Please try again after some time."
-
     "faqs":
       "title": "FAQs"
       "description" : "GoodCity.HK is the world's most efficient city-wide service for charitable goods donations."
