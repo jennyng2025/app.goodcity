@@ -39,7 +39,7 @@ test("All required registration details are filled", function() {
     equal(find('#mobile').val(), hk_user.mobile);
     equal(find('#first_name').val(), hk_user.firstName);
     equal(find('#last_name').val(), hk_user.lastName);
-    equal(find('.district-selection :selected').text(), "Tung Chung");
+    equal(find('.district-selection :selected').text().trim(), "Tung Chung");
   });
 
   click("#registerUser");
