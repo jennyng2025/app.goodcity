@@ -8,7 +8,9 @@ export default AuthorizeRoute.extend({
   },
 
   afterModel(my_offer) {
-    if(my_offer.get('itemCount') === 0) {
+    if(!my_offer) {
+      this.transitionTo('offers');
+    } else if(my_offer && my_offer.get('itemCount') === 0) {
       this.transitionTo('offer', my_offer);
     }
   }
