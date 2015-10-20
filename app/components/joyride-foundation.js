@@ -1,7 +1,6 @@
 import Ember from 'ember';
 import './../computed/local-storage';
-// import initFoundation from './init-foundation';
-// export default initFoundation.extend({
+
 export default Ember.Component.extend({
   store: Ember.inject.service(),
 
@@ -21,9 +20,29 @@ export default Ember.Component.extend({
             nub_position: 'top',
             tip_animation: 'pop',
             tip_location: 'bottom',
-            cookie_monster: true
-          }
+            cookie_monster: true,
+
+            pre_ride_callback: function (){
+              showJoyrideOverlay();
+            },
+
+            post_ride_callback: function(){
+              hideJoyrideOverlay();
+            }
+          },
         }).foundation('joyride', 'start');
+
+        Ember.$(".joyride-close-tip").click(function(){
+          hideJoyrideOverlay();
+        });
+
+        function hideJoyrideOverlay(){
+          Ember.$(".joyride-view-background").hide();
+        }
+
+        function showJoyrideOverlay(){
+          Ember.$(".joyride-view-background").show();
+        }
       });
     }
   },
