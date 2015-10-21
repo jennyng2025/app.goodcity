@@ -4,15 +4,26 @@ import './../computed/local-storage';
 export default Ember.Component.extend({
   store: Ember.inject.service(),
 
+  currentUserId: Ember.computed(function() {
+    return this.get("session.currentUser.id");
+  }).volatile(),
+
+  isTourSeen: Ember.computed(function() {
+    var seenUsers = this.get("session.seenTour") || "";
+    var userIds = seenUsers.split(",");
+    return userIds.indexOf(this.get("currentUserId")) > -1;
+  }).volatile(),
+
   didInsertElement() {
     this._super();
+    var _this = this;
 
     var offerCount = this.get("store").peekAll("offer").get("length");
     var itemCount = this.get("store").peekAll("item").get("length");
     var recentlyCreated = new Date() - this.get("_controller.model.createdAt") <= 12 * 60 * 60 * 1000; // 12 hrs
     var firstEverItem = offerCount === 1 && itemCount === 1 && recentlyCreated;
 
-    if (firstEverItem) {
+    if (firstEverItem && !this.get("isTourSeen")) {
       Ember.$().ready(function(){
         Ember.$(document).foundation({
           joyride: {
@@ -20,7 +31,6 @@ export default Ember.Component.extend({
             nub_position: 'top',
             tip_animation: 'pop',
             tip_location: 'bottom',
-            cookie_monster: true,
 
             pre_ride_callback: function (){
               showJoyrideOverlay();
@@ -28,6 +38,7 @@ export default Ember.Component.extend({
 
             post_ride_callback: function(){
               hideJoyrideOverlay();
+              setSeenTour();
             }
           },
         }).foundation('joyride', 'start');
@@ -42,6 +53,10 @@ export default Ember.Component.extend({
 
         function showJoyrideOverlay(){
           Ember.$(".joyride-view-background").show();
+        }
+
+        function setSeenTour(){
+          _this.set("session.seenTour", _this.get("session.seenTour") + "," + _this.get("currentUserId"));
         }
       });
     }
