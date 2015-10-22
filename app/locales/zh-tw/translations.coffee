@@ -3,7 +3,7 @@
 
 I18nTranslationsZhTw =
   Ember.$.extend true, SharedTranslationsZhTw,
-    "socket_offline_error": "正在嘗試連接至 app.goodcity.hk..."
+    "socket_offline_error": "正在嘗試連線…"
 
     "ggv_order":
       "message" : "您到達時，我們的職員會核對並確認下列資料"
