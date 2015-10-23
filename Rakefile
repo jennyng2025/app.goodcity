@@ -22,10 +22,19 @@
 #     > rake cordova:prepare
 #     > rake cordova:build
 #     > rake testfairy:upload
+#
+# iOS Build Server
 #     > rake ios_build_server:notify (tells the iOS server to start a build)
+#     > rake ios_build_server:check (checks and starts a build)
+#
+#     Cronjob entry
+# * * * * * source /Users/developer/.bash_profile; /Users/developer/Workspace/app.goodcity/cordova/deploy/deploy-ios-testfairy.sh  >> /tmp/goodcity_app_ios_build.log 2>&1
+
+
 
 require "json"
 require "fileutils"
+require "iron_mq"
 require "rake/clean"
 ROOT_PATH = File.dirname(__FILE__)
 CORDOVA_PATH = "#{ROOT_PATH}/cordova"
@@ -40,6 +49,8 @@ TESTFAIRY_PLATFORMS=%w(android ios)
 SHARED_REPO = "https://github.com/crossroads/shared.goodcity.git"
 TESTFAIRY_PLUGIN_URL = "https://github.com/testfairy/testfairy-cordova-plugin"
 TESTFAIRY_PLUGIN_NAME = "com.testfairy.cordova-plugin"
+LOCK_FILE="#{CORDOVA_PATH}/.ios_build.lock"
+LOCK_FILE_MAX_AGE = 1000 # number of seconds before we remove lock file if failing build
 
 # Default task
 task default: %w(app:build)
@@ -90,8 +101,8 @@ namespace :cordova do
   task :prepare do
     FileUtils.mkdir_p "#{ROOT_PATH}/dist"
     sh %{ ln -s "#{ROOT_PATH}/dist" "#{CORDOVA_PATH}/www" } unless File.exists?("#{CORDOVA_PATH}/www")
-    puts "Preparing app..."
-    build_details.map{|key, value| puts "#{key.upcase}: #{value}"}
+    log("Preparing app...")
+    build_details.map{|key, value| log("#{key.upcase}: #{value}")}
     system({"ENVIRONMENT" => environment}, "cd #{CORDOVA_PATH}; cordova prepare #{platform}")
     if platform == "ios"
       sh %{ cd #{CORDOVA_PATH}; cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
@@ -137,35 +148,42 @@ namespace :testfairy do
     else
       sh %{ #{testfairy_upload_script} "#{app}" }
     end
-    puts "Uploaded app..."
-    build_details.map{|key, value| puts "#{key.upcase}: #{value}"}
+    log("Uploaded app...")
+    build_details.map{|key, value| log("#{key.upcase}: #{value}")}
   end
 end
 
 namespace :ios_build_server do
   desc "Sends a message to the iOS build server to begin building an app"
-  task :notify do
+  task notify: :check_env do
+    iron_queue.post("build")
+  end
+
+  desc "Checks to see if we should begin a build"
+  task build: :check_env do
+    log("Checking for build messages on #{iron_queue.name}...")
+    msg = iron_queue.get
+    if msg
+      if !lock_expired?
+        log("Build starting...")
+        sh %{ git fetch origin; git reset --hard HEAD; git pull }
+        create_lock!
+        msg.delete
+        Rake::Task["app:release"].invoke
+        delete_lock!
+      else
+        log("Build currently in progress")
+      end
+    else
+      log("No build requested")
+    end
+  end
+
+  task :check_env do
     %w(GOODCITY_IRON_MQ_OAUTH_KEY GOODCITY_IRON_MQ_PROJECT_KEY
       GOODCITY_IRON_MQ_QUEUE_NAME TESTFAIRY_API_KEY).each do |env|
         raise "#{env} not set." unless env?(env)
     end
-    auth_header = "Authorization: OAuth #{ENV['GOODCITY_IRON_MQ_OAUTH_KEY']}"
-    content_type_header = "Content-Type: application/json"
-    build_message = {messages: [ { body: "build #{app_url}" } ]}.to_json
-    url = "https://mq-aws-us-east-1.iron.io/1/projects/#{ENV['GOODCITY_IRON_MQ_PROJECT_KEY']}/queues/#{ENV['GOODCITY_IRON_MQ_QUEUE_NAME']}/messages"
-    sh %{ curl -H '#{content_type_header}' -H '#{auth_header}' -d '#{build_message}' #{url} }
-    puts
-  end
-
-  desc "Checks to see if we should begin a build"
-  task :check do
-    # body: message: "build hk.goodcity.adminstaging"
-    # body: message: "build hk.goodcity.admin"
-    # body: message: "build hk.goodcity.appstaging"
-    # body: message: "build hk.goodcity.app"
-  end
-  task :build do
-
   end
 end
 
@@ -260,4 +278,36 @@ end
 
 def build_details
   {app_name: app_name, env: environment, platform: platform, app_version: app_version}
+end
+
+def iron_mq
+  @ironmq ||= IronMQ::Client.new(token: iron_token, project_id: iron_project_id)
+end
+
+def iron_queue
+  iron_mq.queue(app_url)
+end
+
+def iron_token
+  ENV['GOODCITY_IRON_MQ_OAUTH_KEY']
+end
+
+def iron_project_id
+  ENV['GOODCITY_IRON_MQ_PROJECT_KEY']
+end
+
+def lock_expired?
+  File.exists?(LOCK_FILE) && (Time.now - File.mtime(LOCK_FILE)).to_i > LOCK_FILE_MAX_AGE
+end
+
+def create_lock!
+  FileUtils.touch(LOCK_FILE)
+end
+
+def delete_lock!
+  FileUtils.rm(LOCK_FILE)
+end
+
+def log(msg="")
+  puts(Time.now.to_s << " " << msg)
 end
