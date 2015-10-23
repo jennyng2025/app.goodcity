@@ -78,8 +78,13 @@ PLATFORMS.each do |platform|
 end
 
 namespace :ember do
+  multitask install_parallel: %w(bower_install npm_install)
   desc "Ember install dependencies"
-  multitask install: %w(bower_install npm_install)
+  task :install do
+    Dir.chdir(ROOT_PATH) do
+      Rake::MultiTask["ember:install_parallel"].invoke
+    end
+  end
   task :bower_install do
     sh %{ bower install }
   end
@@ -88,7 +93,9 @@ namespace :ember do
   end
   desc "Ember build with Cordova enabled"
   task :build do
-    system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} build --environment=production")
+    Dir.chdir(ROOT_PATH) do
+      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} build --environment=production")
+    end
   end
 end
 
@@ -103,18 +110,26 @@ namespace :cordova do
     sh %{ ln -s "#{ROOT_PATH}/dist" "#{CORDOVA_PATH}/www" } unless File.exists?("#{CORDOVA_PATH}/www")
     log("Preparing app...")
     build_details.map{|key, value| log("#{key.upcase}: #{value}")}
-    system({"ENVIRONMENT" => environment}, "cd #{CORDOVA_PATH}; cordova prepare #{platform}")
+    Dir.chdir(CORDOVA_PATH) do
+      system({"ENVIRONMENT" => environment}, "cordova prepare #{platform}")
+    end
     if platform == "ios"
-      sh %{ cd #{CORDOVA_PATH}; cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
-      sh %{ cd #{CORDOVA_PATH}; cordova plugin remove #{TESTFAIRY_PLUGIN_NAME}; true } if environment == "production"
+      Dir.chdir(CORDOVA_PATH) do
+        sh %{ cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
+        sh %{ cordova plugin remove #{TESTFAIRY_PLUGIN_NAME}; true } if environment == "production"
+      end
     end
   end
   desc "Cordova build {platform}"
   task build: :prepare do
-    system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} cordova:build --platform #{platform} --environment=production")
+    Dir.chdir(ROOT_PATH) do
+      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} cordova:build --platform #{platform} --environment=production")
+    end
     if platform == "ios"
-      sh %{ cd #{CORDOVA_PATH}; cordova build ios --device }
-      sh %{ xcrun -sdk iphoneos PackageApplication '#{app_file}' -o '#{ipa_file}' }
+      Dir.chdir(CORDOVA_PATH) do
+        sh %{ cordova build ios --device }
+        sh %{ xcrun -sdk iphoneos PackageApplication '#{app_file}' -o '#{ipa_file}' }
+      end
     end
     # Copy build artifacts
     if ENV["CI"]
@@ -125,14 +140,16 @@ namespace :cordova do
   task :bump_version do
     increment_app_version!
     if ENV["CI"]
-      sh %{ git config --global user.email "none@none" }
-      sh %{ git config --global user.name "CircleCi" }
-      sh %{ git config --global push.default current }
-      sh %{ git add #{APP_DETAILS_PATH} }
-      sh %{ git commit -m "Update build version [ci skip]" }
-      sh %{ git stash }
-      sh %{ git push; true } # try but don't care if this fails
-      sh %{ git stash pop }
+      Dir.chdir(ROOT_PATH) do
+        sh %{ git config --global user.email "none@none" }
+        sh %{ git config --global user.name "CircleCi" }
+        sh %{ git config --global push.default current }
+        sh %{ git add #{APP_DETAILS_PATH} }
+        sh %{ git commit -m "Update build version [ci skip]" }
+        sh %{ git stash }
+        sh %{ git push; true } # try but don't care if this fails
+        sh %{ git stash pop }
+      end
     end
   end
 end
@@ -166,7 +183,9 @@ namespace :ios_build_server do
     if msg
       if !lock_expired?
         log("Build starting...")
-        sh %{ git fetch origin; git reset --hard HEAD; git pull }
+        Dir.chdir(ROOT_PATH) do
+          sh %{ git fetch origin; git reset --hard HEAD; git pull }
+        end
         create_lock!
         msg.delete
         Rake::Task["app:release"].invoke
@@ -188,12 +207,17 @@ namespace :ios_build_server do
 end
 
 def app_sha
-  `git rev-parse --short HEAD`.chomp
+  Dir.chdir(ROOT_PATH) do
+    `git rev-parse --short HEAD`.chomp
+  end
 end
 
 def app_shared_sha
   @app_shared_sha ||= begin
-    branch = `git rev-parse --abbrev-ref HEAD`.strip
+    branch = nil
+    Dir.chdir(ROOT_PATH) do
+      branch = `git rev-parse --abbrev-ref HEAD`.strip
+    end
     sha = `git ls-remote --heads #{SHARED_REPO} #{branch}`.strip
     sha = `git ls-remote --heads #{SHARED_REPO} master`.strip if sha.empty?
     sha[0..6]
