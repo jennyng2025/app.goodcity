@@ -25,12 +25,10 @@
 #
 # iOS Build Server
 #     > rake ios_build_server:notify (tells the iOS server to start a build)
-#     > rake ios_build_server:check (checks and starts a build)
+#     > rake ios_build_server:build (checks and starts a build)
 #
 #     Cronjob entry
-# * * * * * source /Users/developer/.bash_profile; /Users/developer/Workspace/app.goodcity/cordova/deploy/deploy-ios-testfairy.sh  >> /tmp/goodcity_app_ios_build.log 2>&1
-
-
+# * * * * * source /Users/developer/.bash_profile; rake -f /Users/developer/Workspace/app.goodcity/Rakefile app:release  >> /tmp/goodcity_app_ios_build.log 2>&1
 
 require "json"
 require "fileutils"
