@@ -23,7 +23,7 @@
               <li>
                 {{#link-to 'offer.offer_details' offer}}
                   <span class="list-image">
-                    <img src={{offer.displayImageUrl}} class="thumb" />
+                    {{cloudinary-image-tag src=offer.displayImageUrl}}
                   </span>
                   <span class="info">
                     <h3>{{offer.statusText}}</h3>

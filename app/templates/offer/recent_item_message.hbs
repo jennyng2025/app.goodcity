@@ -1,5 +1,5 @@
 <span class="item-image">
-  <img src={{item.displayImageUrl}} class="thumb" />
+  {{cloudinary-image-tag src=item.displayImageUrl}}
   {{#if item.isAccepted}}
     <div class='accept_badge'>{{t 'offer.offer_details.accepted'}}</div>
   {{/if}}
