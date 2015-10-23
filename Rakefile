@@ -329,7 +329,7 @@ def create_lock!
 end
 
 def delete_lock!
-  FileUtils.rm(LOCK_FILE)
+  FileUtils.rm(LOCK_FILE) if File.exists?(LOCK_FILE)
 end
 
 def log(msg="")
