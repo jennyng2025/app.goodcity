@@ -1,15 +1,18 @@
 {{#scroll-to-bottom}}
-  <nav class="tab-bar sticky_title_bar">
-    <section class="left-small">
-      {{link-to (t "back") 'offer.offer_details' offer classNames="back"}}
-    </section>
 
-    <section class="middle tab-bar-section">
-      <h1 class="title">{{t "offer.messages"}}</h1>
-    </section>
-  </nav>
+  <div class="contain-to-grid sticky message_nav_bar">
+    <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
+      <section class="left-small">
+        {{link-to (t "back") 'offer.offer_details' offer classNames="back"}}
+      </section>
 
-  <div class="offer_messages_section">
+      <section class="middle tab-bar-section">
+        <h1 class="title">{{t "offer.messages"}}</h1>
+      </section>
+    </nav>
+  </div>
+
+  <div class="offer_messages_section message-list">
     {{partial 'message_template'}}
   </div>
 {{/scroll-to-bottom}}
