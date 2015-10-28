@@ -2,7 +2,7 @@
   "staging": {
     "name": "S. GoodCity",
     "url": "hk.goodcity.appstaging",
-    "version": "0.3.52"
+    "version": "0.3.53"
   },
   "production": {
     "name": "GoodCity",
