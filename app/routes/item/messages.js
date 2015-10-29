@@ -3,7 +3,7 @@ import ReadMessagesRoute from './../read_messages';
 export default ReadMessagesRoute.extend({
   item: null,
 
-  model: function() {
+  model() {
     var itemId = this.modelFor('item').get('id');
     var item = this.store.peekRecord('item', itemId);
     this.set('item', item);
@@ -14,7 +14,7 @@ export default ReadMessagesRoute.extend({
     });
   },
 
-  setupController: function(controller, model){
+  setupController(controller, model) {
     controller.set('model', model);
     controller.set('item', this.get('item'));
   },

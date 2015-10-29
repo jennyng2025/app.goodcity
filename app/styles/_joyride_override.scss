@@ -5,6 +5,7 @@
   @media #{$small-only} {
     max-width: 93%;
   }
+
   .joyride-nub {
     border-color: $white !important;
     border-top-color: rgba(0, 0, 0, 0) !important;
@@ -19,18 +20,50 @@
   }
   &.overridejoy-start {
     top: 0.5rem !important;
-    margin-left: 1.5rem;
+
+    p {
+      font-size: 0.8rem;
+      line-height: 0rem;
+    }
+
     @media #{$small-only} {
       top: 3rem !important;
+      left: 21%;
+
       .joyride-nub.top {
         margin-left: 80%;
       }
     }
+
+    @media only screen and (max-width: 20em) {
+      top: 3rem !important;
+      left: 12%;
+    }
   }
+
   &.overridejoy-next {
     .joyride-nub.top {
       border-top-style: solid !important;
       top: -1.1rem;
+      left: 13rem;
     }
   }
+
+  .joyride-content-wrapper {
+    padding: 1rem 1.2rem 1rem 1rem;
+  }
+
+  .joyride-close-tip {
+    top: 10px;
+    right: 10px;
+  }
+
+  .button {
+    padding: 0.6rem 1.5rem;
+  }
+}
+
+.joyride-view-background{
+  display: none;
+  background-color: rgba(0, 0, 0, 0.35);
 }

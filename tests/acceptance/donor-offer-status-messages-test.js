@@ -137,6 +137,6 @@ test("Display offer status for received offer", function() {
 
   andThen(function() {
     equal(currentURL(), "/offers/" + offer10.id + "/offer_details");
-    equal($(".status-message").text().trim().indexOf("Offer received") >= 0, true);
+    equal($.trim(find('.status-message').text()).indexOf("Offer received") >= 0, true);
   });
 });

@@ -1,45 +1,53 @@
-<nav class="tab-bar offer_details_title {{unless model.isDraft 'non-draft'}}">
-  <section class="left-small">
-    {{#if displayHomeLink}}
-      {{#link-to 'offers.index' classNames="back"}}{{t "back"}}{{/link-to}}
-    {{/if}}
-  </section>
+{{#joyride-foundation}}
 
-  <section class="middle tab-bar-section">
-    <h1 class="title">{{t 'offer.offer_details.heading'}}</h1>
-  </section>
-  {{partial 'offer/header_icons'}}
-</nav>
-<section class="main-section offer_details">
-  <div class="row">
-    <div class="small-12 columns">
-      {{partial 'offer/offer_top_section'}}
-      {{partial 'offer/message_section'}}
+  <nav class="tab-bar offer_details_title {{unless model.isDraft 'non-draft'}}">
+    <section class="left-small">
+      {{#if displayHomeLink}}
+        {{#link-to 'offers.index' classNames="back"}}{{t "back"}}{{/link-to}}
+      {{/if}}
+    </section>
+
+    <section class="middle tab-bar-section">
+      <h1 class="title">{{t 'offer.offer_details.heading'}}</h1>
+    </section>
+    {{partial 'offer/header_icons'}}
+  </nav>
+  <section class="main-section offer_details">
+    <div class="row">
+      <div class="small-12 columns">
+        {{partial 'offer/offer_top_section'}}
+        {{partial 'offer/message_section'}}
+      </div>
     </div>
+  </section>
+
+  {{!-- JOYRIDE Start --}}
+  <ol class="joyride-list" data-joyride>
+    <li data-id="camera_delete_bar" data-text="{{t 'next'}}" data-options="tip_location: left; prev_button: false; nub_position: right;" class="overridejoy-start">
+      <p>
+        {{t "offer.display_joyride.camera"}}
+      </p>
+      <p>
+        {{t "offer.display_joyride.delete"}}
+      </p>
+    </li>
+    <li data-id="all_done" data-button="{{t 'next'}}" data-prev-text="{{t 'prev'}}" class="overridejoy-next">
+      <p>{{t "offer.display_joyride.all_done_next"}}</p>
+    </li>
+    <li data-id="joyride-end" data-button="{{t 'end'}}" data-prev-text="{{t 'prev'}}">
+      <p>{{t "offer.display_joyride.first_item"}}</p>
+    </li>
+  </ol>
+
+  <div class="joyride-view-background"></div>
+  {{!-- JOYRIDE End --}}
+
+  {{!-- Hidden File Upload Input --}}
+  <div id="photo-list">
+    {{cloudinary-upload ready="uploadReady" progress="uploadProgress"
+      always="uploadComplete" done="uploadSuccess" submit="uploadStart"
+      abort="cancelUpload" offerId=offer.id}}
   </div>
-</section>
+  {{partial "loading_image"}}
 
-<ol class="joyride-list" data-joyride>
-  <li data-id="camera_delete_bar" data-text="{{t 'next'}}" data-options="tip_location: left; prev_button: false; nub_position: right;" class="overridejoy-start">
-    <p>
-      {{t "offer.display_joyride.camera"}}
-    </p>
-    <p>
-      {{t "offer.display_joyride.delete"}}
-    </p>
-  </li>
-  <li data-id="all_done" data-button="{{t 'next'}}" data-prev-text="{{t 'prev'}}" class="overridejoy-next">
-    <p>{{t "offer.display_joyride.all_done_next"}}</p>
-  </li>
-  <li data-id="joyride-end" data-button="{{t 'end'}}" data-prev-text="{{t 'prev'}}">
-    <p>{{t "offer.display_joyride.first_item"}}</p>
-  </li>
-</ol>
-
-{{!-- Hidden File Upload Input --}}
-<div id="photo-list">
-  {{cloudinary-upload ready="uploadReady" progress="uploadProgress"
-    always="uploadComplete" done="uploadSuccess" submit="uploadStart"
-    abort="cancelUpload" offerId=offer.id}}
-</div>
-{{partial "loading_image"}}
+{{/joyride-foundation}}

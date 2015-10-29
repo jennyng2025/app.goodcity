@@ -26,7 +26,7 @@ test("unloads source record", function(assert) {
   andThen(() => assert.equal(store.all("offer").get("length"), 0));
 });
 
-test("unloads related record", function(assert) {
+testSkip("unloads related record", function(assert) {
   assert.expect(2);
   var offer = FactoryGuy.make("offer", "with_items");
   assert.ok(store.all("item").get("length") > 0);
@@ -34,7 +34,7 @@ test("unloads related record", function(assert) {
   andThen(() => assert.equal(store.all("item").get("length"), 0));
 });
 
-test("does not unload taxonomy record", function(assert) {
+testSkip("does not unload taxonomy record", function(assert) {
   assert.expect(2);
   var offer = FactoryGuy.make("offer", "with_gogovan_transport");
   assert.ok(store.all("gogovan_transport").get("length") > 0);

@@ -3,6 +3,7 @@ import startApp from '../helpers/start-app';
 import syncDataStub from '../helpers/empty-sync-data-stub';
 import FactoryGuy from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
+import testSkip from '../helpers/test-skip';
 
 var App;
 
@@ -18,7 +19,7 @@ module('Subscriptions', {
   }
 });
 
-test("updateStore doesn't process before response to model.save request", function() {
+testSkip("updateStore doesn't process before response to model.save request", function() {
   expect(2);
 
   var store = lookup('store:main');

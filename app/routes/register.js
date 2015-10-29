@@ -1,7 +1,7 @@
 import SessionRoute from './session';
 
 export default SessionRoute.extend({
-  model: function() {
+  model() {
     return this.store.peekAll('territory');
   }
 });

@@ -1,7 +1,9 @@
-<aside class="left-off-canvas-menu">
-  <ul class="off-canvas-list">
-    <li><label>{{t "application.app_menu"}}</label></li>
-    <li>{{#link-to 'offers'}}{{t "application.my_offers"}}{{/link-to}}</li>
-    <li><a href="#" {{action 'logMeOut'}}>{{t "application.logout"}}</a></li>
-  </ul>
-</aside>
+{{#init-foundation}}
+  <aside class="left-off-canvas-menu">
+    <ul class="off-canvas-list">
+      <li><label>{{t "application.app_menu"}}</label></li>
+      <li>{{#link-to 'offers'}}{{t "application.my_offers"}}{{/link-to}}</li>
+      <li><a href="#" {{action 'logMeOut'}}>{{t "application.logout"}}</a></li>
+    </ul>
+  </aside>
+{{/init-foundation}}

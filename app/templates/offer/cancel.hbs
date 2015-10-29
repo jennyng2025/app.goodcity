@@ -1,6 +1,6 @@
 <nav class="tab-bar">
   <section class="left-small">
-    {{#link-to 'offer.offer_details' model classNames='back'}}{{t 'back'}}{{/link-to}}
+    {{link-to (t "back") 'offer.offer_details' model classNames='back'}}
   </section>
 
   <section class="middle tab-bar-section">
@@ -19,9 +19,9 @@
 
       <ul class='call_ggv'>
         {{#if driverContact}}
-          <li>{{t 'delivery.cancel.call_driver'}} {{view "phone" number=driverContact}} or</li>
+          <li>{{t 'delivery.cancel.call_driver'}} {{phone-number number=driverContact}} or</li>
         {{/if}}
-        <li>{{t 'delivery.cancel.call_ggv'}} {{view "phone" number=gogovanContact}}</li>
+        <li>{{t 'delivery.cancel.call_ggv'}} {{phone-number number=gogovanContact}}</li>
       </ul>
 
       <div>{{t 'offer.cancel.confirm_ggv_cancel'}}</div>

@@ -3,7 +3,7 @@
 
 I18nTranslationsZhTw =
   Ember.$.extend true, SharedTranslationsZhTw,
-    "socket_offline_error": "正在嘗試連接至 app.goodcity.hk..."
+    "socket_offline_error": "正在嘗試連線…"
 
     "ggv_order":
       "message" : "您到達時，我們的職員會核對並確認下列資料"
@@ -59,6 +59,7 @@ I18nTranslationsZhTw =
         "arrange_transport" : "請安排運輸"
         "closed" : "已完成"
         "received" : "已收到"
+        "receiving": "Receiving"
         "van_booked" : "已預約貨車"
         "van_confirmed": "已確認貨車安排"
         "picked_up": "已經提取"
@@ -115,6 +116,7 @@ I18nTranslationsZhTw =
         "not_needed": "不需要"
         "closed_offer_message": "此項捐獻已結束。不再需要此類物資，請見諒。"
         "offer_received": "已收到捐獻"
+        "offer_start_receiving": "{{firstName}} {{lastName}} began receiving items"
         "crossroads_booking_alert" : "我們會盡快處理新增的物品。我們的收集團隊通常只會接收已被審查及接受的物資。<br><br>如我們接受了大型物件，我們可能會取消及重新安排運輸。"
         "ggv_booking_alert": "我們會盡快處理新的物品，請不要送出未被接受的物資。<br><br>如果你需要更改運輸安排以容納更多的物品，請按運送詳情。"
 
@@ -153,14 +155,6 @@ I18nTranslationsZhTw =
       "messages":
         "info_text1": "審查物品時，如果有任何問題，我們會在下面的對話框向您查詢"
         "info_text2": "如您希望加添任何對捐獻物品的描述，請在此留言"
-
-    # Components
-    "upload-images":
-      "angles" : "圖片包含物資的所有角度嗎？"
-      "favourite" : "我的最愛"
-      "add_another" : "加入另一張圖片"
-    "upload-image":
-      "upload_error" : "圖片上傳時出錯，請稍後再試一次。"
 
     "faqs":
       "title": "常見問題"
