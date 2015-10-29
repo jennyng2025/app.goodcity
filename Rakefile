@@ -49,6 +49,8 @@ TESTFAIRY_PLUGIN_URL = "https://github.com/testfairy/testfairy-cordova-plugin"
 TESTFAIRY_PLUGIN_NAME = "com.testfairy.cordova-plugin"
 LOCK_FILE="#{CORDOVA_PATH}/.ios_build.lock"
 LOCK_FILE_MAX_AGE = 1000 # number of seconds before we remove lock file if failing build
+SIGNING_DETAILS= "iPhone Distribution: Crossroads Foundation Limited (6B8FS8W94M)"
+PROVISONING_PROFILE ="#{ROOT_PATH}/GoodCityStore.mobileprovision"
 
 # Default task
 task default: %w(app:build)
@@ -122,14 +124,15 @@ namespace :cordova do
     end
   end
   desc "Cordova build {platform}"
-  task build: :prepare do
-    Dir.chdir(ROOT_PATH) do
-      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} cordova:build --platform #{platform} --environment=production")
-    end
+  task :build do
     if platform == "ios"
       Dir.chdir(CORDOVA_PATH) do
-        sh %{ cordova build ios --device }
-        sh %{ xcrun -sdk iphoneos PackageApplication '#{app_file}' -o '#{ipa_file}' }
+        system({"ENVIRONMENT" => environment}, "cordova compile #{platform} --release --device")
+        sh %{ xcrun -sdk iphoneos PackageApplication -v '#{app_file}' -o '#{ipa_file}' --sign "#{app_signing_identity}" --embed "#{app_provision_profile}"}
+      end
+    else
+      Dir.chdir(ROOT_PATH) do
+        system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} cordova:compile --platform #{platform} --environment=#{environment}")
       end
     end
     # Copy build artifacts
@@ -279,6 +282,14 @@ def app_version
   app_details[environment]["version"]
 end
 
+def app_signing_identity
+  app_details[environment]["signing_detail"]
+end
+
+def app_provision_profile
+  "#{ROOT_PATH}/#{app_details[environment]["provision_profile"]}"
+end
+
 def app_details
   @app_details ||= JSON.parse(File.read(APP_DETAILS_PATH))
 end
@@ -298,7 +309,11 @@ def is_staging
 end
 
 def build_details
-  {app_name: app_name, env: environment, platform: platform, app_version: app_version}
+  {
+    app_name: app_name, env: environment, platform: platform,
+    app_version: app_version, app_signing_identity: app_signing_identity,
+    app_provision_profile: app_provision_profile
+  }
 end
 
 def iron_mq
