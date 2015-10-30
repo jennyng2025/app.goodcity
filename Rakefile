@@ -49,7 +49,6 @@ TESTFAIRY_PLUGIN_URL = "https://github.com/testfairy/testfairy-cordova-plugin"
 TESTFAIRY_PLUGIN_NAME = "com.testfairy.cordova-plugin"
 LOCK_FILE="#{CORDOVA_PATH}/.ios_build.lock"
 LOCK_FILE_MAX_AGE = 1000 # number of seconds before we remove lock file if failing build
-
 # Default task
 task default: %w(app:build)
 
@@ -91,6 +90,8 @@ namespace :ember do
   end
   desc "Ember build with Cordova enabled"
   task :build do
+    # Before starting Ember build clean up folders
+    Rake::Task["clobber"].invoke
     Dir.chdir(ROOT_PATH) do
       system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} build --environment=production")
     end
@@ -107,29 +108,29 @@ namespace :cordova do
   end
   desc "Cordova prepare {platform}"
   task :prepare do
-    FileUtils.mkdir_p "#{ROOT_PATH}/dist"
+    # Before cordova prepare build ember app that will auto update the dist folder too
+    Rake::Task["ember:build"].invoke
     sh %{ ln -s "#{ROOT_PATH}/dist" "#{CORDOVA_PATH}/www" } unless File.exists?("#{CORDOVA_PATH}/www")
-    log("Preparing app...")
     build_details.map{|key, value| log("#{key.upcase}: #{value}")}
+
+    log("Preparing app for...#{platform}")
     Dir.chdir(CORDOVA_PATH) do
       system({"ENVIRONMENT" => environment}, "cordova prepare #{platform}")
-    end
-    if platform == "ios"
-      Dir.chdir(CORDOVA_PATH) do
+
+      if platform == "ios"
         sh %{ cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
         sh %{ cordova plugin remove #{TESTFAIRY_PLUGIN_NAME}; true } if environment == "production"
       end
     end
   end
+
   desc "Cordova build {platform}"
   task build: :prepare do
-    Dir.chdir(ROOT_PATH) do
-      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "#{EMBER} cordova:build --platform #{platform} --environment=production")
-    end
-    if platform == "ios"
-      Dir.chdir(CORDOVA_PATH) do
-        sh %{ cordova build ios --device }
-        sh %{ xcrun -sdk iphoneos PackageApplication '#{app_file}' -o '#{ipa_file}' }
+    Dir.chdir(CORDOVA_PATH) do
+      log("environment is #{environment}")
+      system({"ENVIRONMENT" => environment}, "cordova compile #{platform} --release --device")
+      if platform == "ios"
+        sh %{ xcrun -sdk iphoneos PackageApplication -v '#{app_file}' -o '#{ipa_file}' --sign "#{app_signing_identity}"}
       end
     end
     # Copy build artifacts
@@ -279,6 +280,10 @@ def app_version
   app_details[environment]["version"]
 end
 
+def app_signing_identity
+  app_details[environment]["signing_detail"]
+end
+
 def app_details
   @app_details ||= JSON.parse(File.read(APP_DETAILS_PATH))
 end
@@ -298,7 +303,10 @@ def is_staging
 end
 
 def build_details
-  {app_name: app_name, env: environment, platform: platform, app_version: app_version}
+  {
+    app_name: app_name, env: environment, platform: platform,
+    app_version: app_version, app_signing_identity: app_signing_identity
+  }
 end
 
 def iron_mq
