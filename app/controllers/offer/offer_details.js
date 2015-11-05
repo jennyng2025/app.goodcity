@@ -9,6 +9,19 @@ export default ItemBaseController.extend({
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   confirm: Ember.inject.service(),
   i18n: Ember.inject.service(),
+  alert: Ember.inject.service(),
+
+  isOfferVanished: Ember.computed.or('model.isDeleted', 'model.isDeleting'),
+
+  showDeleteError: Ember.observer('model', 'isOfferVanished', function(){
+    var currentPath = window.location.pathname;
+
+    if(this.get("isOfferVanished")) {
+      if(currentPath.indexOf(`offers/${this.get("model.id")}`) >= 0) {
+        this.get("alert").show(this.get("i18n").t("404_error"), () => this.transitionTo("offers"));
+      }
+    }
+  }),
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
