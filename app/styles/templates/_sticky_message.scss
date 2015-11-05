@@ -1,53 +1,16 @@
-.contain-to-grid.message_nav_bar{
-  display: block !important;
+.item-messages {
+  padding-top: 2.8rem;
 }
 
-.message-list {
-
-  p, li {
-    @media #{$small-only} {
-      font-size: 0.8rem;
-      line-height: 1.4rem;
-      margin-bottom: 0.7rem;
-      margin-top: 0.7rem;
-    }
-  }
-
-  p b {
-    color: $white;
-  }
-
-  .question_list {
-    margin-left: 0.5rem;
-
-    li {
-      list-style: none;
-      a {
-        text-decoration: underline;
-      }
-    }
-  }
+.sticky_title_bar {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  border-top: 0;
 }
 
-.message_nav_bar {
-  background: $dark-blue;
-
-  .top-bar {
-    background: $dark-blue;
-    border-bottom: 1px solid $medium-blue;
-    max-width: 100%;
-    margin: auto;
-  }
-
-  section {
-    position: initial;
-  }
-
-  section.middle {
-    margin-top: 0.7rem;
-    position: absolute;
-    @media #{$small-only} {
-      margin-top: 1rem;
-    }
-  }
+.offer_messages_section {
+  padding-top: 4rem;
 }
