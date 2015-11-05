@@ -9,6 +9,28 @@ export default ItemBaseController.extend({
   sortedItems: Ember.computed.sort("offerAndItems", "sortProperties"),
   confirm: Ember.inject.service(),
   i18n: Ember.inject.service(),
+  alert: Ember.inject.service(),
+
+  cancelByDonor: Ember.computed('model', {
+    get() {
+      return false;
+    },
+    set(key, value) {
+      return value;
+    }
+  }),
+
+  isOfferVanished: Ember.computed.or('model.isDeleted', 'model.isDeleting'),
+
+  showDeleteError: Ember.observer('model', 'isOfferVanished', function(){
+    var currentPath = window.location.pathname;
+
+    if(this.get("isOfferVanished") && !this.get("cancelByDonor")) {
+      if(currentPath.indexOf(`offers/${this.get("model.id")}`) >= 0) {
+        this.get("alert").show(this.get("i18n").t("404_error"), () => this.transitionTo("offers"));
+      }
+    }
+  }),
 
   hasActiveGGVOrder: Ember.computed.alias('model.delivery.gogovanOrder.isActive'),
 
@@ -57,6 +79,7 @@ export default ItemBaseController.extend({
     },
 
     deleteOffer(offer) {
+      this.set("cancelByDonor", true);
       var loadingView = this.container.lookup('component:loading').append();
       offer.deleteRecord();
       offer.save()
@@ -65,7 +88,7 @@ export default ItemBaseController.extend({
           this.transitionToRoute('offers.index');
         })
         .catch(error => { offer.rollback(); throw error; })
-        .finally(() => loadingView.destroy());
+        .finally(() => {loadingView.destroy(); this.set("cancelByDonor", false);});
     },
 
     cancelOffer(offer, alreadyConfirmed) {
