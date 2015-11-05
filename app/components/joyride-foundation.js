@@ -9,9 +9,7 @@ export default Ember.Component.extend({
   }).volatile(),
 
   isTourSeen: Ember.computed(function() {
-    var seenUsers = this.get("session.seenTour") || "";
-    var userIds = seenUsers.split(",");
-    return userIds.indexOf(this.get("currentUserId")) > -1;
+    return this.get("session.seenTour") === this.get("currentUserId");
   }).volatile(),
 
   didInsertElement() {
@@ -57,7 +55,7 @@ export default Ember.Component.extend({
         }
 
         function setSeenTour(){
-          _this.set("session.seenTour", _this.get("session.seenTour") + "," + _this.get("currentUserId"));
+          _this.set("session.seenTour", _this.get("currentUserId"));
         }
       });
     }
