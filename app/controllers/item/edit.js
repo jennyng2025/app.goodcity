@@ -2,6 +2,11 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
 
+  i18n: Ember.inject.service(),
+  itemDescriptionPlaceholder: Ember.computed(function(){
+    return this.get("i18n").t("items.add_item.description_placeholder").string;
+  }),
+
   formData: Ember.computed("model", {
     get: function() {
       var item = this.get('model');
