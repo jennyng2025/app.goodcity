@@ -21,7 +21,6 @@
 #     > rake cordova:install
 #     > rake cordova:prepare
 #     > rake cordova:build
-#     > rake testfairy:upload
 #
 # iOS Build Server
 #     > rake ios_build_server:notify (tells the iOS server to start a build)
@@ -29,6 +28,11 @@
 #
 #     Cronjob entry
 # * * * * * source /Users/developer/.bash_profile; rake -f /Users/developer/Workspace/app.goodcity/Rakefile app:release  >> /tmp/goodcity_app_ios_build.log 2>&1
+#
+# Signing Android releases
+#   Gradle can sign the releases during the build process.
+#   Set environment varibles: GOODCITY_KEYSTORE_PASSWORD and GOODCITY_KEYSTORE_ALIAS
+#   You must also ensure the signing key exists at CORDOVA/goodcity.keystore
 
 require "json"
 require "fileutils"
@@ -48,6 +52,9 @@ TESTFAIRY_PLUGIN_URL = "https://github.com/testfairy/testfairy-cordova-plugin"
 TESTFAIRY_PLUGIN_NAME = "com.testfairy.cordova-plugin"
 LOCK_FILE="#{CORDOVA_PATH}/.ios_build.lock"
 LOCK_FILE_MAX_AGE = 1000 # number of seconds before we remove lock file if failing build
+KEYSTORE_FILE = "#{CORDOVA_PATH}/goodcity.keystore"
+BUILD_JSON_FILE = "#{CORDOVA_PATH}/build.json"
+
 # Default task
 task default: %w(app:build)
 
@@ -90,7 +97,7 @@ namespace :ember do
   desc "Ember build with Cordova enabled"
   task :build do
     # Before starting Ember build clean up folders
-    Rake::Task["clobber"].invoke
+    # Rake::Task["clobber"].invoke
     Dir.chdir(ROOT_PATH) do
       system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging}, "ember build --environment=production")
     end
@@ -109,25 +116,26 @@ namespace :cordova do
   task :prepare do
     # Before cordova prepare build ember app that will auto update the dist folder too
     Rake::Task["ember:build"].invoke
+    create_build_json_file
     sh %{ ln -s "#{ROOT_PATH}/dist" "#{CORDOVA_PATH}/www" } unless File.exists?("#{CORDOVA_PATH}/www")
     build_details.map{|key, value| log("#{key.upcase}: #{value}")}
 
-    log("Preparing app for...#{platform}")
+    log("Preparing app for #{platform}")
     Dir.chdir(CORDOVA_PATH) do
       system({"ENVIRONMENT" => environment}, "cordova prepare #{platform}")
-
-      if platform == "ios"
+    end
+    if platform == "ios"
+      Dir.chdir(CORDOVA_PATH) do
         sh %{ cordova plugin add #{TESTFAIRY_PLUGIN_URL} } if environment == "staging"
         sh %{ cordova plugin remove #{TESTFAIRY_PLUGIN_NAME}; true } if environment == "production"
       end
     end
   end
-
   desc "Cordova build {platform}"
   task build: :prepare do
     Dir.chdir(CORDOVA_PATH) do
-      log("environment is #{environment}")
-      system({"ENVIRONMENT" => environment}, "cordova compile #{platform} --release --device")
+      build = (environment == "production") ? "release" : "debug"
+      system({"ENVIRONMENT" => environment}, "cordova compile #{platform} --#{build} --device")
       if platform == "ios"
         sh %{ xcrun -sdk iphoneos PackageApplication -v '#{app_file}' -o '#{ipa_file}' --sign "#{app_signing_identity}"}
       end
@@ -159,8 +167,8 @@ namespace :testfairy do
   task :upload do
     return unless TESTFAIRY_PLATFORMS.include?(platform)
     app = (platform == "ios") ? ipa_file : app_file
-    raise "#{app} does not exist!" unless File.exists?(app)
-    raise "TESTFAIRY_API_KEY not set." unless env?("TESTFAIRY_API_KEY")
+    raise(BuildError, "#{app} does not exist!") unless File.exists?(app)
+    raise(BuildError, "TESTFAIRY_API_KEY not set.") unless env?("TESTFAIRY_API_KEY")
     if ENV["CI"]
       sh %{ export PATH="$ANDROID_HOME/build-tools/22.0.1:$PATH"; #{testfairy_upload_script} "#{app}" }
     else
@@ -176,7 +184,6 @@ namespace :ios_build_server do
   task notify: :check_env do
     iron_queue.post("build")
   end
-
   desc "Checks to see if we should begin a build"
   task build: :check_env do
     log("Checking for build messages on #{iron_queue.name}...")
@@ -198,11 +205,10 @@ namespace :ios_build_server do
       log("No build requested")
     end
   end
-
   task :check_env do
     %w(GOODCITY_IRON_MQ_OAUTH_KEY GOODCITY_IRON_MQ_PROJECT_KEY
       GOODCITY_IRON_MQ_QUEUE_NAME TESTFAIRY_API_KEY).each do |env|
-        raise "#{env} not set." unless env?(env)
+        raise(BuildError, "#{env} not set.") unless env?(env)
     end
   end
 end
@@ -227,13 +233,13 @@ end
 
 def environment
   environment = ENV["ENV"]
-  raise "Unsupported environment: #{environment}" if (environment || "").length > 0 and !ENVIRONMENTS.include?(environment)
+  raise(BuildError, "Unsupported environment: #{environment}") if (environment || "").length > 0 and !ENVIRONMENTS.include?(environment)
   ENV["ENV"] || "staging"
 end
 
 def platform
   env_platform = ENV["PLATFORM"]
-  raise "Unsupported platform: #{env_platform}" if (env_platform || "").length > 0 and !PLATFORMS.include?(env_platform)
+  raise(BuildError, "Unsupported platform: #{env_platform}") if (env_platform || "").length > 0 and !PLATFORMS.include?(env_platform)
   env_platform || begin
     case Gem::Platform.local.os
     when /mswin|windows|mingw32/i
@@ -243,7 +249,7 @@ def platform
     when /darwin/i
       "ios"
     else
-      raise "Unsupported build os: #{env_platform}"
+      raise(BuildError, "Unsupported build os: #{env_platform}")
     end
   end
 end
@@ -257,9 +263,10 @@ def app_file
   when /ios/
     "#{CORDOVA_PATH}/platforms/ios/build/device/#{app_name}.app"
   when /android/
-    "#{CORDOVA_PATH}/platforms/android/build/outputs/apk/android-release-unsigned.apk"
+    build = (environment == "production") ? "release" : "debug"
+    "#{CORDOVA_PATH}/platforms/android/build/outputs/apk/android-#{build}.apk"
   when /windows/
-    raise "TODO: Need to get Windows app path"
+    raise(BuildError, "TODO: Need to get Windows app path")
   end
 end
 
@@ -302,10 +309,9 @@ def is_staging
 end
 
 def build_details
-  {
-    app_name: app_name, env: environment, platform: platform,
-    app_version: app_version, app_signing_identity: app_signing_identity
-  }
+  _build_details = {app_name: app_name, env: environment, platform: platform, app_version: app_version}
+  _build_details[:app_signing_identity] = app_signing_identity if platform == "ios"
+  _build_details
 end
 
 def iron_mq
@@ -339,3 +345,28 @@ end
 def log(msg="")
   puts(Time.now.to_s << " " << msg)
 end
+
+# Cordova uses build.json to create gradle release-signing.properties file
+# Expects CORDOVA_PATH/goodcity.keystore to exist
+# Requires ENV vars: GOODCITY_KEYSTORE_PASSWORD and GOODCITY_KEYSTORE_ALIAS
+def create_build_json_file
+  FileUtils.rm(BUILD_JSON_FILE) if File.exists?(BUILD_JSON_FILE)
+  return unless (environment == "production" and platform == "android")
+  raise(BuildError, "Keystore file not found: #{KEYSTORE_FILE}") unless File.exists?("#{KEYSTORE_FILE}")
+  %w(GOODCITY_KEYSTORE_PASSWORD GOODCITY_KEYSTORE_ALIAS).each do |key|
+    raise(BuildError, "#{key} environment variable not set.") unless env?(key)
+  end
+  build_json_hash = {
+    android: {
+      release: {
+        keystore: "#{KEYSTORE_FILE}",
+        storePassword: ENV["GOODCITY_KEYSTORE_PASSWORD"],
+        alias: ENV["GOODCITY_KEYSTORE_ALIAS"],
+        password: ENV["GOODCITY_KEYSTORE_PASSWORD"]
+      }
+    }
+  }
+  File.open(BUILD_JSON_FILE, "w"){|f| f.puts JSON.pretty_generate(build_json_hash)}
+end
+
+class BuildError < StandardError; end
