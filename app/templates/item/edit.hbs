@@ -12,9 +12,7 @@
 
   <section class="main-section">
     {{partial 'item/item_edit_form'}}
-  </section>
 
-  <div class="btm">
     <div class="row">
       <div class="small-6 columns">
         <a href="#" class="button secondary expand" {{action 'discardChanges' model}}>{{t "items.add_item.cancel"}}</a>
@@ -24,5 +22,6 @@
         {{#view "online-button" classNames="add_item_link button expand"}}{{t "items.add_item.save"}}{{/view}}
       </div>
     </div>
-  </div>
+  </section>
+
 {{/validatable-form}}
