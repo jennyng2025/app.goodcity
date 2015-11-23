@@ -30,6 +30,11 @@
              {{t "offer.transport_details.goods_received"}} {{display-date model.receivedAt}}. {{t "offer.transport_details.thank"}}
             <i class="fa fa-info-circle fa-4x info-icon"></i>
           </div>
+        {{else if model.isReceiving}}
+          <div class='wait_transport'>
+            {{t "offer.transport_details.receiving"}}
+            <i class="fa fa-info-circle fa-4x info-icon"></i>
+          </div>
 
         {{else}}
           {{#if model.isScheduled}}

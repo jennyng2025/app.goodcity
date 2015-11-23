@@ -128,6 +128,7 @@ I18nTranslationsEn =
         "accepted_items_count": "Items accepted so far ({{acceptedCount}})"
         "goods_received" : "Goods received on"
         "thank": "Thank You!"
+        "receiving": "Your offer is currently being received."
 
       "display_joyride" :
         "camera": "Tap <i class='fa fa-camera'></i> to add more items"
