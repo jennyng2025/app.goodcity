@@ -6,7 +6,8 @@ FactoryGuy.define('gogovan_transport', {
   default: {
     name: FactoryGuy.generate(function() {
       return types[Math.floor(Math.random()*(types.length))];
-    })
+    }),
+    disabled: false,
   }
 });
 
