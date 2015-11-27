@@ -1,18 +1,17 @@
 {{#scroll-to-bottom}}
-  {{#custom-navbar}}
 
-    <nav class="tab-bar custom_nav">
-      <section class="left-small">
-        {{link-to (t "back") 'offer.offer_details' offer classNames="back"}}
-      </section>
+  <nav class="tab-bar sticky_title_bar">
+    <section class="left-small">
+      {{link-to (t "back") 'offer.offer_details' offer classNames="back"}}
+    </section>
 
-      <section class="middle tab-bar-section">
-        <h1 class="title">{{t "offer.messages"}}</h1>
-      </section>
-    </nav>
+    <section class="middle tab-bar-section">
+      <h1 class="title">{{t "offer.messages"}}</h1>
+    </section>
+  </nav>
 
-    <div class="custom-section offer_messages_section">
-      {{partial 'message_template'}}
-    </div>
-  {{/custom-navbar}}
+  <div class="offer_messages_section">
+    {{partial 'message_template'}}
+  </div>
+
 {{/scroll-to-bottom}}
