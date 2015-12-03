@@ -5,7 +5,8 @@
     "-Promise": true,
     "moment" : true,
     "airbrakeJs": true,
-    "io": true
+    "io": true,
+    "device": true
   },
   "browser" : true,
   "boss" : true,
