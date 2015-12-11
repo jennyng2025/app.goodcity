@@ -23,10 +23,10 @@ export default ItemBaseController.extend({
   isOfferVanished: Ember.computed.or('model.isDeleted', 'model.isDeleting'),
 
   showDeleteError: Ember.observer('model', 'isOfferVanished', function(){
-    var currentPath = window.location.pathname;
+    var currentPath = window.location.href;
 
     if(this.get("isOfferVanished") && !this.get("cancelByDonor")) {
-      if(currentPath.indexOf(`offers/${this.get("model.id")}`) >= 0) {
+      if(currentPath.indexOf(`offers/${this.get("model.id")}`) >= 0 && currentPath.indexOf("items") < 0) {
         this.get("alert").show(this.get("i18n").t("404_error"), () => this.transitionTo("offers"));
       }
     }

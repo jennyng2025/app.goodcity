@@ -128,6 +128,7 @@ I18nTranslationsZhTw =
         "accepted_items_count": "目前已接納的物資數目為 ({{acceptedCount}})"
         "goods_received" : "收到物資的日期"
         "thank": "非常感謝"
+        "receiving": "Your offer is currently being received."
 
       "display_joyride" :
         "camera": "點選 <i class='fa fa-camera'></i> 加入更多項目"

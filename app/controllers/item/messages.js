@@ -22,7 +22,7 @@ export default MessagesBaseController.extend({
   isItemVanished: Ember.computed.or('item.isDeleted', 'item.isDeleting'),
 
   showDeleteError: Ember.observer('item', 'isItemVanished', function(){
-    var currentPath = window.location.pathname;
+    var currentPath = window.location.href;
 
     if(this.get("isItemVanished") && !this.get("cancelByDonor")) {
       if(currentPath.indexOf(`items/${this.get("item.id")}`) >= 0) {
