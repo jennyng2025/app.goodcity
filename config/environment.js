@@ -48,7 +48,9 @@ module.exports = function(environment) {
       enabled: process.env.EMBER_CLI_CORDOVA !== '0',
       rebuildOnChange: false,
       emulate: false,
-      GcmSenderId: '161361907015'
+      GcmSenderId: '161361907015',
+      SplunkMintApiKeyAndroid: undefined,
+      SplunkMintApiKIosid: undefined
     },
     coffeeOptions: {
       blueprints: false
@@ -110,8 +112,11 @@ module.exports = function(environment) {
       'https://api.cloudinary.com',
       'https://errbit.crossroads.org.hk'
     ].join(' ');
+
     ENV.googleAnalytics = { webPropertyId: 'UA-62978462-1' };
     ENV.cordova.GcmSenderId = '919797298115';
+    ENV.cordova.SplunkMintApiKeyAndroid = "388c4865";
+    ENV.cordova.SplunkMintApiKeyIos = "d62f0cf8";
   }
 
   if (process.env.staging === 'true') {
@@ -127,8 +132,11 @@ module.exports = function(environment) {
       'https://api.cloudinary.com',
       'https://errbit.crossroads.org.hk'
     ].join(' ');
+
     ENV.googleAnalytics = { webPropertyId: 'UA-62978462-4' };
     ENV.cordova.GcmSenderId = '161361907015';
+    ENV.cordova.SplunkMintApiKeyAndroid = "af213c0d";
+    ENV.cordova.SplunkMintApiKeyIos = "63846f75";
   } else {
     ENV.staging = false;
   }
