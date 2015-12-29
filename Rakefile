@@ -46,6 +46,7 @@ CLOBBER.include("cordova/platforms", "cordova/plugins")
 PLATFORMS = %w(android ios windows).freeze
 ENVIRONMENTS = %w(staging production).freeze
 APP_DETAILS_PATH = "#{CORDOVA_PATH}/appDetails.json"
+APP_SECRET_KEYS_PATH = "#{CORDOVA_PATH}/.secret_keys"
 TESTFAIRY_PLATFORMS=%w(android ios)
 SHARED_REPO = "https://github.com/crossroads/shared.goodcity.git"
 TESTFAIRY_PLUGIN_URL = "https://github.com/testfairy/testfairy-cordova-plugin"
@@ -99,7 +100,7 @@ namespace :ember do
     # Before starting Ember build clean up folders
     Rake::Task["clobber"].invoke
     Dir.chdir(ROOT_PATH) do
-      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging, "VERSION" => app_version }, "ember build --environment=production")
+      system({"EMBER_CLI_CORDOVA" => "1", "APP_SHA" => app_sha, "APP_SHARED_SHA" => app_shared_sha, "staging" => is_staging, "VERSION" => app_version, "SPLUNK_MINT_KEY" => splunk_mint_key }, "ember build --environment=production")
     end
   end
   task :select_branch do
@@ -211,6 +212,14 @@ namespace :ios_build_server do
         raise(BuildError, "#{env} not set.") unless env?(env)
     end
   end
+end
+
+def splunk_mint_key
+  secret_keys[environment][platform]["splunk_mint_key"]
+end
+
+def secret_keys
+  @secret_keys ||= JSON.parse(File.read(APP_SECRET_KEYS_PATH))
 end
 
 def app_sha

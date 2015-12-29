@@ -49,8 +49,7 @@ module.exports = function(environment) {
       rebuildOnChange: false,
       emulate: false,
       GcmSenderId: '161361907015',
-      SplunkMintApiKeyAndroid: undefined,
-      SplunkMintApiKIosid: undefined
+      SplunkMintApiKey: process.env.SPLUNK_MINT_KEY,
     },
     coffeeOptions: {
       blueprints: false
