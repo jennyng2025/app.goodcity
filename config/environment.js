@@ -48,8 +48,7 @@ module.exports = function(environment) {
       enabled: process.env.EMBER_CLI_CORDOVA !== '0',
       rebuildOnChange: false,
       emulate: false,
-      GcmSenderId: '161361907015',
-      SplunkMintApiKey: process.env.SPLUNK_MINT_KEY,
+      GcmSenderId: '161361907015'
     },
     coffeeOptions: {
       blueprints: false
