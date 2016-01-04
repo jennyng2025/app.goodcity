@@ -32,9 +32,9 @@
                       {{#if offer.isScheduled }}
                         {{#if offer.delivery.isGogovan}}
                           {{#if offer.delivery.gogovanOrder.isCompleted}}
-                            {{display-date offer.delivery.gogovanOrder.completedAt}}
+                            {{display-datetime offer.delivery.gogovanOrder.completedAt format='dddd, MMMM Do'}}
                           {{else}}
-                            {{display-date offer.delivery.schedule.scheduledAt}}
+                            {{display-datetime offer.delivery.schedule.scheduledAt format='dddd, MMMM Do'}}
                           {{/if}}
                           <br/>
                           {{#if offer.delivery.gogovanOrder.isPending}}
@@ -45,7 +45,7 @@
                             {{t "offers.index.vehicle"}}: {{offer.delivery.gogovanOrder.driverLicense}}
                           {{/if}}
                         {{else}}
-                          {{display-date offer.delivery.schedule.scheduledAt}}
+                          {{display-datetime offer.delivery.schedule.scheduledAt format='dddd, MMMM Do'}}
                           <br/>{{offer.delivery.schedule.slotName}}<br/>
                         {{/if}}
                       {{else}}

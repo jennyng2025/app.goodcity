@@ -43,7 +43,7 @@
             {{delivery.schedule.slotName}},
           {{/if}}
 
-          {{schedule-time-status delivery.schedule.scheduledAt}}
+          {{display-datetime delivery.schedule.scheduledAt format='ddd Do MMM'}}
 
           {{#if delivery.noGogovan}}
             {{delivery.schedule.dayTime}}
