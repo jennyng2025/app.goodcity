@@ -161,7 +161,7 @@ namespace :cordova do
         sh %{ git commit -m "Update build version [ci skip]" }
         sh %{ git stash }
         sh %{ git push; true } # try but don't care if this fails
-        sh %{ git stash pop }
+        sh %{ git stash pop; true }
       end
     end
   end
