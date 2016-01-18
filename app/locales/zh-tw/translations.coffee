@@ -5,16 +5,6 @@ I18nTranslationsZhTw =
   Ember.$.extend true, SharedTranslationsZhTw,
     "socket_offline_error": "正在嘗試連線…"
 
-    "ggv_order":
-      "message" : "您到達時，我們的職員會核對並確認下列資料"
-      "delivery_from" : "寄出地點"
-      "delivery_to" : "運送至：屯門"
-      "crossroads_foundation" : "十字路會"
-      "crossroads_address1" : "屯門青山公路2號"
-      "crossroads_address2" : "黃金海岸1期對面，並於40號大樓落貨"
-      "map" : "地圖"
-      "goodcity_job_summary" : "好人好市工作摘要"
-
     "application":
       "app_menu" : "目錄"
       "my_offers" : "我的捐獻"

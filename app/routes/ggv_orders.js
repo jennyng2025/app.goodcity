@@ -12,12 +12,8 @@ export default Ember.Route.extend({
       });
   },
 
-  afterModel(offer, transition) {
-    if(transition.queryParams['gcadmin'] === "true") {
-      return true;
-    } else {
-      var validOffer = offer.get("isScheduled") && offer.get("delivery.gogovanOrder.nonCompleted");
-      if(!validOffer) { throw { status: 404 }; }
-    }
+  afterModel(offer) {
+    var validOffer = offer.get("isScheduled") && offer.get("delivery.gogovanOrder.nonCompleted");
+    if(!validOffer) { throw { status: 404 }; }
   }
 });
