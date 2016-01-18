@@ -72,6 +72,7 @@ I18nTranslationsZhTw =
         "approved" :"已接受的物品"
         "rejected" :"不接受的物品"
         "donations": "捐獻"
+        "inactive": "Inactive: you can re-submit this offer."
 
     "offer":
       "camera": "照相機"

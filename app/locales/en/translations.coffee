@@ -72,6 +72,7 @@ I18nTranslationsEn =
         "approved" :"Approved Items"
         "rejected" :"Rejected Items"
         "donations": "Donations"
+        "inactive": "Inactive: you can re-submit this offer."
 
     "offer":
       "camera": "Camera"
