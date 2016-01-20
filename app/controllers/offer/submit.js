@@ -1,6 +1,9 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+
+  cordova: Ember.inject.service(),
+
   actions: {
     submitOffer(saleable) {
       var loadingView = this.container.lookup('component:loading').append();
@@ -13,6 +16,24 @@ export default Ember.Controller.extend({
       offer.save()
         .then(() => this.transitionToRoute('offer.offer_details'))
         .finally(() => loadingView.destroy());
+    },
+
+    backLink() {
+      if(this.get("cordova").isIOS()) {
+
+        var onEnabled = function() {
+          this.transitionToRoute('offer.confirm');
+        }.bind(this);
+
+        var onDisabled = function() {
+          this.transitionToRoute('offer.ios_notification');
+        }.bind(this);
+
+        this.get("cordova").verifyIosNotificationSetting(onEnabled, onDisabled);
+
+      } else {
+        this.transitionToRoute('offer.confirm');
+      }
     }
   }
 });

@@ -19,6 +19,7 @@ Router.map(function() {
     this.resource('offer', { path: '/:offer_id'}, function() {
       this.route('index', { path: '/'});
       this.route('confirm');
+      this.route('ios_notification');
       this.route('submit');
       this.route('plan_delivery');
       this.route('collection_charges');
