@@ -79,6 +79,12 @@ I18nTranslationsEn =
       "submit":
         "heading": "Sale of goods"
         "message": "Occasionally, the best way <br> for a donated item to help the poor <br> is for a charity to sell it. Is sale <br> of item(s) okay?"
+      "notifications":
+        "title": "Notifications"
+        "alert_updates": "Would you like to be alerted when we have questions or status updates for your offer?"
+        "no": "No Thanks"
+        "notify": "Notify Me"
+
 
       "index":
         "item_count" : "Offer items ({{itemCount}})"

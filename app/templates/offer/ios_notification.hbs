@@ -4,7 +4,7 @@
   </section>
 
   <section class="middle tab-bar-section">
-    <h1 class="title">Notifications</h1>
+    <h1 class="title">{{t "offer.notifications.title"}}</h1>
   </section>
 </nav>
 
@@ -14,7 +14,7 @@
 
       <p><span class="icon-no-items"></span></p>
 
-      <p>Would you like to be alerted when we have questions or status updates for your offer?</p>
+      <p>{{t "offer.notifications.alert_updates"}}</p>
 
     </div>
   </div>
@@ -23,10 +23,10 @@
 <div class="btm">
   <div class="row">
     <div class="small-6 columns">
-      {{#link-to "offer.submit" classNames="button expand secondary"}}No Thanks{{/link-to}}
+      {{#link-to "offer.submit" classNames="button expand secondary"}}{{t "offer.notifications.no"}}{{/link-to}}
     </div>
     <div class="small-6 columns">
-      {{#online-button action="sendPushNotification" classNames="button expand"}}Notify Me{{/online-button}}
+      {{#online-button action="sendPushNotification" classNames="button expand"}}{{t "offer.notifications.notify"}}{{/online-button}}
     </div>
   </div>
 </div>
