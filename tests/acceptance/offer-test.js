@@ -57,9 +57,9 @@ test("Confirm and Submit Offer", function(){
     equal(currentURL(), "/offers/" + offer.id + "/confirm");
 
     // confirm offer page has submit link
-    equal(find("a[href='/offers/" + offer.id + "/submit']").length, 1);
+    equal(find("a:contains('Next')").length, 1);
 
-    click("a[href='/offers/" + offer.id + "/submit']");
+    click("a:contains('Next')");
 
     andThen(function() {
       equal($('h1.title').text().toLowerCase(), "sale of goods");

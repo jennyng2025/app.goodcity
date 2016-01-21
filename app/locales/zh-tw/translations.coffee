@@ -79,6 +79,11 @@ I18nTranslationsZhTw =
       "submit":
         "heading": "物資出售"
         "message": "有時候，要幫助窮困人士， <br> 最好的方法就是出售捐出的物品。 <br> 您是否同意出售物品？ <br> "
+      "notifications":
+        "title": "Notifications"
+        "alert_updates": "Would you like to be alerted when we have questions or status updates for your offer?"
+        "no": "No Thanks"
+        "notify": "Notify Me"
 
       "index":
         "item_count" : "捐出物品 ({{itemCount}}) 件"

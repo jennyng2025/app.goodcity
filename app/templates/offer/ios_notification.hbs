@@ -1,10 +1,10 @@
 <nav class="tab-bar">
   <section class="left-small">
-    <a {{action "backLink"}} class="back">{{t "back"}}</a>
+    {{link-to (t "back") 'offer.confirm' model classNames="back"}}
   </section>
 
   <section class="middle tab-bar-section">
-    <h1 class="title">{{t "offer.submit.heading"}}</h1>
+    <h1 class="title">{{t "offer.notifications.title"}}</h1>
   </section>
 </nav>
 
@@ -14,7 +14,7 @@
 
       <p><span class="icon-no-items"></span></p>
 
-      <p>{{t "offer.submit.message" }}</p>
+      <p>{{t "offer.notifications.alert_updates"}}</p>
 
     </div>
   </div>
@@ -23,10 +23,10 @@
 <div class="btm">
   <div class="row">
     <div class="small-6 columns">
-      {{#online-button action="submitOffer" actionArgs=true classNames="button expand"}}{{t "yes"}}{{/online-button}}
+      {{#link-to "offer.submit" classNames="button expand secondary"}}{{t "offer.notifications.no"}}{{/link-to}}
     </div>
     <div class="small-6 columns">
-      {{#online-button action="submitOffer" actionArgs=false classNames="button expand secondary"}}{{t "no"}}{{/online-button}}
+      {{#online-button action="sendPushNotification" classNames="button expand"}}{{t "offer.notifications.notify"}}{{/online-button}}
     </div>
   </div>
 </div>
