@@ -15,7 +15,12 @@
     <div class="small-12 columns">
       <p>{{t "pics.confidentiality"}}</p>
 
-      <p>{{t "pics.ask_to_access"}} <a href="https://www.crossroads.org.hk/home/contact/privacy/">{{t "pics.here"}}</a></p>
+      <p>
+        {{t "pics.ask_to_access"}}
+        {{#external-link linkUrl="https://www.crossroads.org.hk/home/contact/privacy/"}}
+          {{t "pics.here"}}
+        {{/external-link}}
+      </p>
 
       <p>{{t "pics.change_privacy_policy"}}</p>
 

@@ -11,6 +11,7 @@ Router.map(function() {
   this.route('register');
   this.route('faq');
   this.route('pics');
+  this.route('terms_and_conditions');
 
   this.resource('offers', function () {
     this.route('index', { path: '/'});
