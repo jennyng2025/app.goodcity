@@ -21,7 +21,7 @@ module('Display Offer Details', {
     item2 = FactoryGuy.make("item", {state:"rejected", offer: offer});
     item3 = FactoryGuy.make("item", {state:"submitted", offer: offer});
     message2 = FactoryGuy.make("message", {sender: reviewer, offer: offer, item: item3});
-    offer2 = FactoryGuy.make("offer_with_items", {state:"cancelled"});
+    offer2 = FactoryGuy.make("offer_with_items", {state:"closed"});
     offer3 = FactoryGuy.make("offer_with_items", {state:"scheduled"});
   },
 
