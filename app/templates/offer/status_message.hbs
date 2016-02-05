@@ -4,7 +4,7 @@
       {{t 'offer.offer_details.submitted_status'}}
 
     {{else if model.isUnderReview}}
-      {{#with model.reviewedBy as reviewer}}
+      {{#with model.reviewedBy as |reviewer|}}
         {{#if reviewer.hasImage}}
           <span>
             {{custom-img-tag src=reviewer.displayImageUrl class="no-avatar"}}
@@ -22,7 +22,7 @@
       {{t 'offer.offer_details.closed_offer_message'}}
 
     {{else if model.isScheduled}}
-      {{#with model.delivery as delivery}}
+      {{#with model.delivery as |delivery|}}
         {{#if delivery.isAlternate}}
           {{t 'offer.offer_details.is_collection'}}
         {{else if delivery.isDropOff}}
@@ -43,7 +43,7 @@
             {{delivery.schedule.slotName}},
           {{/if}}
 
-          {{schedule-time-status delivery.schedule.scheduledAt}}
+          {{display-datetime delivery.schedule.scheduledAt format='ddd Do MMM'}}
 
           {{#if delivery.noGogovan}}
             {{delivery.schedule.dayTime}}

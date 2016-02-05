@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('register');
   this.route('faq');
   this.route('pics');
-  this.route('ggv_orders', { path: '/ggv_orders/:ggv_id' });
+  this.route('terms_and_conditions');
 
   this.resource('offers', function () {
     this.route('index', { path: '/'});
@@ -20,6 +20,7 @@ Router.map(function() {
     this.resource('offer', { path: '/:offer_id'}, function() {
       this.route('index', { path: '/'});
       this.route('confirm');
+      this.route('ios_notification');
       this.route('submit');
       this.route('plan_delivery');
       this.route('collection_charges');

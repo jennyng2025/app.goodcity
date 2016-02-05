@@ -110,6 +110,7 @@ module.exports = function(environment) {
       'https://api.cloudinary.com',
       'https://errbit.crossroads.org.hk'
     ].join(' ');
+
     ENV.googleAnalytics = { webPropertyId: 'UA-62978462-1' };
     ENV.cordova.GcmSenderId = '919797298115';
   }
@@ -127,6 +128,7 @@ module.exports = function(environment) {
       'https://api.cloudinary.com',
       'https://errbit.crossroads.org.hk'
     ].join(' ');
+
     ENV.googleAnalytics = { webPropertyId: 'UA-62978462-4' };
     ENV.cordova.GcmSenderId = '161361907015';
   } else {

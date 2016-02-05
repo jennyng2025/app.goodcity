@@ -27,7 +27,7 @@
           </div>
         {{else if model.isReceived}}
           <div class='wait_transport'>
-             {{t "offer.transport_details.goods_received"}} {{display-date model.receivedAt}}. {{t "offer.transport_details.thank"}}
+             {{t "offer.transport_details.goods_received"}} {{display-datetime model.receivedAt format='dddd, MMMM Do'}}. {{t "offer.transport_details.thank"}}
             <i class="fa fa-info-circle fa-4x info-icon"></i>
           </div>
         {{else if model.isReceiving}}
