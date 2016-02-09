@@ -65,6 +65,9 @@ I18nTranslationsEn =
         "rejected" :"Rejected Items"
         "donations": "Donations"
         "inactive": "Inactive: you can re-submit this offer."
+        "add_item": "Add Item"
+        "new_offer": "New Offer"
+        "new_offer_message": "You have an offer still in progress. Are you starting a new offer which will be transported separately or should we add this item to your existing offer?"
 
     "offer":
       "camera": "Camera"
