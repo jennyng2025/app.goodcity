@@ -1,7 +1,11 @@
 <div class="contain-to-grid sticky faq_nav_bar">
   <nav class="top-bar" data-topbar role="navigation" data-options="is_hover: false">
     <section class="left-small">
-      {{link-to (t "back") 'register' classNames='back'}}
+      {{#if session.isLoggedIn}}
+        {{link-to (t "back") 'offers' classNames='back'}}
+      {{else}}
+        {{link-to (t "back") 'register' classNames='back'}}
+      {{/if}}
     </section>
 
     <section class="middle tab-bar-section">
