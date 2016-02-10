@@ -5,6 +5,15 @@ I18nTranslationsEn =
   Ember.$.extend true, SharedTranslationsEn,
     "socket_offline_error": "Attempting to connect..."
 
+    "menu":
+      "support_gc": "Support GoodCity!"
+      "faq": "Frequently Asked Questions"
+      "feedback": "Feedback & Support"
+      "rate": "Rate on iTunes"
+      "terms": "Terms of Use"
+      "policy": "Privacy Policy"
+      "version_short": "ver."
+
     "application":
       "app_menu" : "App Menu"
       "my_offers" : "My Offers"
