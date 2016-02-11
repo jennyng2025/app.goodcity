@@ -20,7 +20,7 @@ export default initFoundation.extend({
         var scrollOffset = Ember.$(anchor.attr('href').split('faq')[1]).offset().top;
 
         Ember.$('html, body').animate({
-          scrollTop: scrollOffset - 130
+          scrollTop: scrollOffset - 70
         }, 'fast');
 
         return false;
