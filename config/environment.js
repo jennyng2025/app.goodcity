@@ -16,7 +16,8 @@ module.exports = function(environment) {
       "img-src": "'self' data: https://res.cloudinary.com",
       "style-src": "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com",
       "font-src": "'self' data: https://maxcdn.bootstrapcdn.com",
-      "script-src": "'self' 'unsafe-eval'"
+      "script-src": "'self' 'unsafe-eval' http://widget.uservoice.com https://by2.uservoice.com",
+      "frame-src": "'self' 'unsafe-eval' https://widget.uservoice.com"
     },
 
     APP: {
