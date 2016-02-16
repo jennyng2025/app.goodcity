@@ -1,0 +1,19 @@
+<nav class="tab-bar sticky_title_bar">
+  <section class="left-small">
+    {{link-to (t "back") 'offers' classNames='back'}}
+  </section>
+
+  <section class="middle tab-bar-section">
+    <h1 class="title">{{t "menu.support_gc"}}</h1>
+  </section>
+</nav>
+
+<section class="main-section faq_list offer_messages_section">
+  <div class="row">
+    <div class="small-12 columns">
+
+      {{braintree-form}}
+
+    </div>
+  </div>
+</section>

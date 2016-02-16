@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('pics');
   this.route('feedback');
   this.route('terms_and_conditions');
+  this.route('support');
 
   this.resource('offers', function () {
     this.route('index', { path: '/'});

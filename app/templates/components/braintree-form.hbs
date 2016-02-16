@@ -1,0 +1,23 @@
+
+<div id="braintree-dropin-container"></div>
+
+<form id="braintree-checkout-form">
+    <div class="row">
+      <div class="small-6 columns">
+        {{input name="amount" placeholder="Amount" value=amount}}
+      </div>
+      <div class="small-6 columns">
+        <button type="submit" class="button expand">Proceed</button>
+      </div>
+    </div>
+</form>
+
+{{!--
+<div id="braintree-dropin-container"></div>
+<form id="braintree-checkout-form">
+  <input data-braintree-name="number" name="credit_card_number" placeholder="Credit Card Number" value={{creditCardNumber}} />
+  <input data-braintree-name="expiration_date" name="expiration_date" placeholder="Expiration Date" value={{cardExpiryDate}} />
+  {{input name="amount" placeholder="Amount" value=amount}}
+  <button type="submit" class="button expand">Proceed</button>
+</form>
+--}}
