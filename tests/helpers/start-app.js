@@ -19,9 +19,9 @@ export default function startApp(attrs, permissionId) {
     window.localStorage.currentUserId = '"1"';
   }
 
-  var App;
+  let App;
 
-  var attributes = Ember.merge({}, config.APP);
+  let attributes = Ember.merge({}, config.APP);
   attributes = Ember.merge(attributes, attrs); // use defaults, but you can override;
 
   Router.reopen({
