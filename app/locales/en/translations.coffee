@@ -18,6 +18,10 @@ I18nTranslationsEn =
       "app_menu" : "App Menu"
       "my_offers" : "My Offers"
 
+    "support":
+      "thanks": "Thanks for the donation."
+      "error": "There is some error with payment service. Please try again after some time."
+
     "tour":
       "step1.title" : "1. Photograph & describe"
       "quality_items" : "quality items."
