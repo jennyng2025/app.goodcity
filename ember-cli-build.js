@@ -51,6 +51,7 @@ module.exports = function(defaults) {
   app.import('bower_components/modernizr/modernizr.js');
   app.import('bower_components/jquery-timeago/jquery.timeago.js');
   app.import('bower_components/socket.io-client/socket.io.js');
+  app.import('bower_components/braintree-web/dist/braintree.js');
 
   app.import('bower_components/lightgallery/light-gallery/css/lightGallery.css');
   app.import('bower_components/lightgallery/light-gallery/js/lightGallery.js');

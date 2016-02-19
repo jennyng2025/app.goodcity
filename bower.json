@@ -38,5 +38,8 @@
     "ember-qunit": "0.4.9",
     "ember-load-initializers": "0.1.5",
     "ember-cli-test-loader": "0.2.0"
+  },
+  "devDependencies": {
+    "braintree-web": "~2.20.0"
   }
 }

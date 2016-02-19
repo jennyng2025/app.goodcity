@@ -18,6 +18,10 @@ I18nTranslationsZhTw =
       "app_menu" : "目錄"
       "my_offers" : "我的捐獻"
 
+    "support":
+      "thanks": "Thanks for the donation."
+      "error": "There is some error with payment service. Please try again after some time."
+
     "tour":
       "step1.title" : "1. 圖片上傳及說明"
       "quality_items" : "物資狀況"
