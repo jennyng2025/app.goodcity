@@ -2,11 +2,11 @@ machine:
   pre:
     - curl https://raw.githubusercontent.com/creationix/nvm/v0.23.3/install.sh | bash
   node:
-    version: 0.12
+    version: 4.3
 
 dependencies:
   pre:
-    - npm install -g bower 
+    - npm install -g bower
     - node circle-branch.js
   post:
     - bower install
