@@ -4,7 +4,7 @@
     "jquery": "~2.1.4",
     "ember": "1.13.13",
     "ember-data": "1.13.15",
-    "loader.js": "https://github.com/ember-cli/loader.js.git~3.6.1",
+    "loader.js": "https://github.com/ember-cli/loader.js.git#3.4.0",
     "ember-cli-shims": "https://github.com/ember-cli/ember-cli-shims.git#0.0.6",
     "ember-cli-test-loader": "0.2.1",
     "ember-load-initializers": "0.1.7",
