@@ -36,7 +36,9 @@
     "ember-cli-test-loader": "0.2.1",
     "ember-load-initializers": "0.1.7",
     "ember-cli-shims": "0.0.6",
-    "loader.js": "3.4.0"
+    "loader.js": "3.4.0",
+    "ember-qunit-notifications": "0.1.0",
+    "qunit-notifications": "~0.1.0"
   },
   "devDependencies": {
     "braintree-web": "~2.20.0"
