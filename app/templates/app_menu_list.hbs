@@ -7,11 +7,14 @@
       <li>{{#link-to 'support'}}{{t "menu.support_gc"}}{{/link-to}}</li>
       <li>{{#link-to 'faq'}}{{t "menu.faq"}}{{/link-to}}</li>
       <li>{{#link-to 'feedback'}}{{t "menu.feedback"}}{{/link-to}}</li>
-      <li>
-        <a>
-          {{t "menu.rate"}} <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-        </a>
-      </li>
+
+      {{#if cordova.iOSDevice}}
+        <li>
+          <a>
+            {{t "menu.rate"}} <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+          </a>
+        </li>
+      {{/if}}
 
       <li><a href="#" {{action 'logMeOut'}}>{{t "application.logout"}}</a></li>
     </ul>
