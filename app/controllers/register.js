@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
         })
         .catch(xhr => {
           if (xhr.status === 422) {
-            this.get("alert").show(xhr.responseJSON.errors);
+            this.send("openAlertModal", xhr.responseJSON.errors);
           } else {
             throw xhr;
           }
