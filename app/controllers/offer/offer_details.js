@@ -51,6 +51,8 @@ export default ItemBaseController.extend({
     return this.get("offers").rejectBy('state', 'draft').get('length') > 0;
   }),
 
+  addItemMessage: null,
+
   actions: {
     addItem() {
       var message;
@@ -61,15 +63,16 @@ export default ItemBaseController.extend({
           message = this.get("i18n").t("offer.offer_details.ggv_booking_alert");
         }
 
-        this.get("confirm").show(message, () => {
-          this.send("allowAddItem");
-        });
+        this.set("addItemMessage", message);
+        this.send('openModal', 'offer/confirm_add_item', 'offer/offer_details');
       } else {
         this.send('allowAddItem');
       }
     },
 
     allowAddItem() {
+      this.send("closeOverlay");
+
       var draftItemId = this.get("model.items").filterBy("state", "draft").get("firstObject.id");
       if(draftItemId) {
         this.transitionToRoute('item.edit', draftItemId);
@@ -97,9 +100,7 @@ export default ItemBaseController.extend({
       } else if(alreadyConfirmed) {
         this.send("deleteOffer", offer);
       } else{
-        this.get("confirm").show(this.get("i18n").t("delete_confirm"), () => {
-          this.send("deleteOffer", offer);
-        });
+        this.send('openModal', 'offer/confirm_delete_message', 'offer/offer_details');
       }
     },
 
@@ -110,5 +111,9 @@ export default ItemBaseController.extend({
     handleBrokenImage() {
       this.get("model.reviewedBy").set("hasImage", null);
     },
+
+    closeOverlay() {
+      return this.send('closeModal');
+    }
   }
 });

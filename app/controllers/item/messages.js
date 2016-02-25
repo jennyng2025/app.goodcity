@@ -3,6 +3,7 @@ import MessagesBaseController from "shared-goodcity/controllers/messages_base";
 
 export default MessagesBaseController.extend({
   item: null,
+  offer: null,
   noMessage: Ember.computed.empty("model"),
   offerDetailsController: Ember.inject.controller("offer/offer_details"),
 
@@ -35,30 +36,46 @@ export default MessagesBaseController.extend({
     removeItem(item) {
       var controller = this;
       var offer = item.get('offer');
+      controller.set("offer", offer);
+      controller.set("item", item);
 
       if (offer.get("state") !== "draft" && offer.get("items.length") <= 1) {
-        this.get("confirm").show(this.get("i18n").t("item.cancel_last_item_confirm"), () => {
-          this.get("offerDetailsController").send("cancelOffer", offer, true);
-        });
+        this.send('openModal', 'item/confirm_last_item_deletion', 'item/messages');
         return;
       }
 
-      this.get("confirm").show(this.get("i18n").t("delete_confirm"), () => {
-        this.set("cancelByDonor", true);
-        var loadingView = controller.container.lookup('component:loading').append();
+      this.send('openModal', 'item/confirm_item_deletion', 'item/messages');
+    },
 
-        offer.get('items').removeObject(item);
+    deleteOffer() {
+      this.get("offerDetailsController").send("cancelOffer", this.get("offer"), true);
+    },
 
-        item.destroyRecord().then(function(){
-          if(offer.get('itemCount') === 0) {
-            controller.transitionToRoute("offer");
-          } else {
-            controller.transitionToRoute("offer.offer_details");
-          }
-        })
-        .finally(() => {loadingView.destroy(); this.set("cancelByDonor", false);});
+    deleteItem() {
+      var controller = this;
+      this.set("cancelByDonor", true);
+      var offer = this.get('offer');
+      var item = this.get("item");
+      var loadingView = controller.container.lookup('component:loading').append();
+
+      offer.get('items').removeObject(item);
+
+      item.destroyRecord().then(function(){
+        if(offer.get('itemCount') === 0) {
+          controller.transitionToRoute("offer");
+        } else {
+          controller.transitionToRoute("offer.offer_details");
+        }
+      })
+      .finally(() => {
+        loadingView.destroy();
+        controller.set("cancelByDonor", false);
       });
-    }
+    },
+
+    closeOverlay() {
+      this.send('closeModal');
+    },
   }
 
 });

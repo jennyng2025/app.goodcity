@@ -1,0 +1,5 @@
+{{#modal-dialog action="closeOverlay"}}
+  <p id="confirmMessage">{{t "delete_confirm"}}</p>
+  <a class="right button cancel" {{action "closeOverlay"}}>{{t "cancel"}}</a>
+  <a class="right button ok" {{action "deleteOffer" model}}>{{t "okay"}}</a>
+{{/modal-dialog}}
