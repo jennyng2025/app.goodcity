@@ -17,8 +17,8 @@ export default Ember.Component.extend({
 
       contact_enabled: true,
       ticket_custom_fields: {
-        'Name': name,
-        'Mobile': mobile
+        'Name/姓名': name,
+        'Phone/電話': mobile
       },
 
       strings: {
