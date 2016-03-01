@@ -173,7 +173,7 @@ I18nTranslationsZhTw =
 
     "faqs":
       "title": "常見問題"
-      "description" : "好人好市服務全港，處理捐獻物資，效率冠絕全球"
+      "description" : "GoodCity.HK aims to be the world's most efficient city-wide service for charitable goods donations."
       "questions":
         "question1": "你們會接收甚麼類型的物資？"
         "question2": "審查員根據甚麼標準決定接收哪樣物資？"
@@ -198,8 +198,6 @@ I18nTranslationsZhTw =
 
         "answer3":
           "gogovan": "<b>租用貨車，快捷妥當：</b> 通過我們的應用程式，您能夠預約貨車，這是運送物資的最快方法。您直接付款給司機。"
-
-          "crossroad": "<b>資助收集服務：</b> 十字路會擁有一輛貨車，用以收集物資。使用這服務的話，我們只會根據物資的大小，收取燃油及隧道費。但由於這項服務需求很大，您通常需要等候幾個星期。"
 
           "drop_off": "<b>親自運送：</b> 通過我們的應用程式，您能夠預約時間，將物資親自送到我們位於屯門的辦公室。"
 
