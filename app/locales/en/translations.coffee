@@ -174,7 +174,7 @@ I18nTranslationsEn =
 
     "faqs":
       "title": "FAQs"
-      "description" : "GoodCity.HK is the world's most efficient city-wide service for charitable goods donations."
+      "description" : "GoodCity.HK aims to be the world's most efficient city-wide service for charitable goods donations."
       "questions":
         "question1": "What kinds of items can be donated?"
         "question2": "How do reviewers decide what to accept?"
@@ -199,8 +199,6 @@ I18nTranslationsEn =
 
         "answer3":
           "gogovan": "<b>Fast commercial van hire:</b> from within our app you can book a truck. This is the fastest method and you pay the driver directly."
-
-          "crossroad": "<b>Subsidised collection service:</b> Crossroads operates a collection truck. For this service we only charge a fuel/tolls levy based on the size of your offer. However, due to high demand, you will typically need to wait a few weeks."
 
           "drop_off": "<b>Deliver yourself:</b> through the app you can book a time to drop the items at our Tuen Mun facility yourself."
 
