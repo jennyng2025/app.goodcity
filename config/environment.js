@@ -19,7 +19,6 @@ module.exports = function(environment) {
       "script-src": "'self' 'unsafe-eval' https://widget.uservoice.com https://by2.uservoice.com https://api.sandbox.braintreegateway.com https://client-analytics.sandbox.braintreegateway.com",
       "frame-src": "'self' 'unsafe-eval' https://widget.uservoice.com https://assets.braintreegateway.com"
     },
-
     APP: {
       // Cloudinary Keys
       NAME: 'app.goodcity',
@@ -78,6 +77,12 @@ module.exports = function(environment) {
       'ws://localhost:1337',
       'wss://localhost:1337',
       'https://api.cloudinary.com'
+    ].join(' ');
+    //Only added for development env. to fix issue related to BLOB: object
+    ENV.contentSecurityPolicy["img-src"] = [
+      'http://localhost:4200',
+      'data: https://res.cloudinary.com',
+      'blob: filesystem/g'
     ].join(' ');
   }
 
