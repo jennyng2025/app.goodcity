@@ -19,13 +19,15 @@
       <li>{{#link-to 'faq'}}{{t "menu.faq"}}{{/link-to}}</li>
       <li>{{#link-to 'feedback'}}{{t "menu.feedback"}}{{/link-to}}</li>
 
-      {{#if cordova.iOSDevice}}
-        <li>
-          <a>
-            {{t "menu.rate"}} <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
-          </a>
-        </li>
-      {{/if}}
+      {{#unless (is-equal config.environment 'production')}}
+        {{#if cordova.iOSDevice}}
+          <li>
+            <a>
+              {{t "menu.rate"}} <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i>
+            </a>
+          </li>
+        {{/if}}
+      {{/unless}}
 
       <li><a href="#" {{action 'logMeOut'}}>{{t "application.logout"}}</a></li>
     </ul>
