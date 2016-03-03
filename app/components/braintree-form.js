@@ -29,11 +29,11 @@ export default Ember.Component.extend({
           container: "braintree-dropin-container",
           form: "braintree-checkout-form",
 
-          onReady: function (integration) {
+          onReady() {
             initialLoading.destroy();
           },
 
-          onPaymentMethodReceived: function (object) {
+          onPaymentMethodReceived(object) {
             _this.set("invalidAmount", false);
 
             var amount = _this.get("amount");
