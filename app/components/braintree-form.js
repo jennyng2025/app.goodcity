@@ -24,11 +24,14 @@ export default Ember.Component.extend({
     new AjaxPromise(token_url, "GET", authToken)
       .then(data => {
         var token = data.braintree_token;
-        initialLoading.destroy();
 
         braintree.setup(token, "dropin", {
           container: "braintree-dropin-container",
           form: "braintree-checkout-form",
+
+          onReady: function (integration) {
+            initialLoading.destroy();
+          },
 
           onPaymentMethodReceived: function (object) {
             _this.set("invalidAmount", false);
