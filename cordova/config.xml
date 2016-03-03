@@ -66,6 +66,9 @@
   <allow-intent href="https://maps.google.com/*"/>
   <allow-intent href="https://www.crossroads.org.hk/*"/>
   <allow-intent href="http://www.globalhand.org/*"/>
+  <allow-intent href="http://crossroads.uservoice.com/*"/>
+  <allow-intent href="https://crossroads.uservoice.com/*"/>
+  <allow-intent href="https://checkout.paypal.com/*"/>
   <engine name="ios" spec="3.9.1"/>
   <engine name="android" spec="^4.0.0"/>
   <engine name="windows" spec="^3.8.1"/>
