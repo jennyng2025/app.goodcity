@@ -120,6 +120,11 @@ test("Can't proceed if no images", function() {
 test("Set another image as favourite if favourite image deleted", function() {
   expect(5);
 
+  // todo: remove workaround for message box button actions not firing only under test environment
+  lookup("service:messageBox").custom = (message, btn1Text, btn1Callback, btn2Text, btn2Callback) => {
+    btn2Callback();
+  };
+
   TestHelper.handleDelete('image', img1.id);
   TestHelper.handleUpdate("image", img2.id);
 
@@ -134,10 +139,7 @@ test("Set another image as favourite if favourite image deleted", function() {
   });
 
   click("#main-image-controls .fa-trash");
-
-  andThen(function() {
-    Ember.$("#confirmModal .ok").click();
-  });
+  // confirm prompt invoked, ok automatically called with above workaround
 
   andThen(function() {
     equal(find("#photo-list img").length, 1);
