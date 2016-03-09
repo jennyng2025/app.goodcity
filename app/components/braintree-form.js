@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   disabled: false,
   invalidAmount: false,
 
-  alert: Ember.inject.service(),
+  messageBox: Ember.inject.service(),
   i18n: Ember.inject.service(),
 
   didInsertElement() {
@@ -48,7 +48,7 @@ export default Ember.Component.extend({
               .then((response) => {
                 loadingView.destroy();
                 message = response ? _this.get("i18n").t("support.thanks") : _this.get("i18n").t("support.error");
-                _this.get("alert").show(message, () => router.transitionTo("offers"));
+                _this.get("messageBox").alert(message, () => router.transitionTo("offers"));
               });
           }
         });

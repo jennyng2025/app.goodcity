@@ -4,7 +4,7 @@ import config from '../config/environment';
 import { translationMacro as t } from "ember-i18n";
 
 export default Ember.Controller.extend({
-  alert: Ember.inject.service(),
+  messageBox: Ember.inject.service(),
   i18n: Ember.inject.service(),
   phoneNumberPlaceholder: t("register.phone_number"),
   fNamePlaceholder: t("register.john"),
@@ -28,7 +28,7 @@ export default Ember.Controller.extend({
         })
         .catch(xhr => {
           if (xhr.status === 422) {
-            this.get("alert").show(xhr.responseJSON.errors);
+            this.get("messageBox").alert(xhr.responseJSON.errors);
           } else {
             throw xhr;
           }
