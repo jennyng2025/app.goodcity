@@ -1,5 +1,6 @@
 import { test, moduleForModel } from 'ember-qunit';
 import testSkip from '../../helpers/test-skip';
+import FactoryGuy from 'ember-data-factory-guy';
 
 moduleForModel('item', 'Item Model', {
   needs: ['model:item', 'model:image', 'model:package', 'model:message',
@@ -11,7 +12,7 @@ moduleForModel('item', 'Item Model', {
 test('Item is a valid ember-data Model', function () {
   expect(1);
 
-  var store  = this.store();
+  var store  = FactoryGuy.store;
   var record = null;
 
   Ember.run(function() {
@@ -25,7 +26,7 @@ test('Item is a valid ember-data Model', function () {
 testSkip('Default image for item', function () {
   expect(1);
 
-  var store = this.store();
+  var store = FactoryGuy.store;
   var defaultImageURL = null;
 
   Ember.run(function() {
@@ -45,7 +46,7 @@ testSkip('Default image for item', function () {
 testSkip('Default image for item when no favourite is selected', function () {
   expect(1);
 
-  var store = this.store();
+  var store = FactoryGuy.store;
   var defaultImageURL = null;
 
   Ember.run(function() {

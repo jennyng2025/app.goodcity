@@ -11,7 +11,7 @@ module('Create New Offer', {
     TestHelper.setup();
 
     // prevent request to express server which returns 4 offers
-    TestHelper.handleFindAll("offer", 0);
+    TestHelper.mockFindAll("offer", 0);
   },
   teardown: function() {
     Em.run(function() { TestHelper.teardown(); });
