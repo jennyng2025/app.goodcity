@@ -11,7 +11,7 @@ module("Records Util", {
   setup: function() {
     App = startApp();
     TestHelper.setup();
-    store = TestHelper.getStore();
+    store = FactoryGuy.store;
   },
   teardown: function() {
     Em.run(function() { TestHelper.teardown(); });

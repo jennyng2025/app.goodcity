@@ -10,7 +10,7 @@ module('Display Offer', {
   setup: function() {
     App = startApp();
     TestHelper.setup();
-    store = TestHelper.getStore();
+    store = FactoryGuy.store;
     syncDataStub(TestHelper);
 
     offer = FactoryGuy.make("offer");

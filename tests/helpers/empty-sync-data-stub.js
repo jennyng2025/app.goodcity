@@ -20,7 +20,7 @@ import '../factories/version';
 
 export default function(testHelper) {
   config.APP.PRELOAD_TYPES.concat(config.APP.PRELOAD_AUTHORIZED_TYPES).concat("offer").forEach(function(type) {
-    testHelper.handleFindAll(type, 0);
+    testHelper.mockFindAll(type, 0);
   });
 
   $.mockjax({url:"/api/v1/auth/current_user_profil*",

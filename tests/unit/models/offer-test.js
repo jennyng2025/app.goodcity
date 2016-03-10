@@ -14,7 +14,7 @@ moduleForModel('offer', 'Offer Model', {
 test('offer is a valid ember-data Model', function () {
   expect(1);
 
-  var store  = this.store();
+  var store  = FactoryGuy.store;
   var record = null;
 
   Ember.run(function() {
@@ -28,7 +28,7 @@ test('offer is a valid ember-data Model', function () {
 testSkip('Count of items within an offer', function () {
   expect(1);
 
-  var store  = this.store();
+  var store  = FactoryGuy.store;
 
   Ember.run(function() {
     var item1 = FactoryGuy.make('item', { state: 'draft' });

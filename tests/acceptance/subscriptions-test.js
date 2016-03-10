@@ -22,7 +22,7 @@ module('Subscriptions', {
 testSkip("updateStore doesn't process before response to model.save request", function() {
   expect(2);
 
-  var store = lookup('store:main');
+  var store = FactoryGuy.store;
   var subscriptions = lookup('controller:subscriptions');
   var user = FactoryGuy.make('user');
   FactoryGuy.make('user_profile', {id:user.id});

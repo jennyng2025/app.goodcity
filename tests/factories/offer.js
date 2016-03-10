@@ -26,12 +26,12 @@ FactoryGuy.define('offer', {
   },
 
   offer_with_items: {
-    items: function(){ return FactoryGuy.buildList('item', 2); }
+    items: FactoryGuy.hasMany('item', 2)
   },
 
   traits: {
     with_gogovan_transport: { gogovanTransport: () => FactoryGuy.build('gogovan_transport') },
-    with_items: { items: () => FactoryGuy.buildList('item', 2) }
+    with_items: { items: () => FactoryGuy.hasMany('item', 2) }
   }
 });
 
