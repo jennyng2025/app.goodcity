@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import startApp from '../helpers/start-app';
-import FactoryGuy from 'ember-data-factory-guy';
+import { make } from 'ember-data-factory-guy';
 import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 
 var App;
@@ -22,14 +22,13 @@ module('Create New Offer', {
 test("should create new offer", function() {
   expect(3);
 
-  FactoryGuy.make("offer_with_items", {id:1}); // check offer with items is not returned
-  TestHelper.handleCreate("offer").andReturn({id:5});
+  make("offer_with_items", { id: 1 }); //check offer with items is not returned
 
   visit("/offers/new");
 
   andThen(function() {
     // test: created new offer and redirected to its show page.
-    equal(currentURL(), '/offers/5');
+    equal(currentURL(), '/offers/3');
 
     //test: item count zero
     equal($.trim(find('.tab-bar-section .title').text()), "Offer items (0)");
@@ -43,9 +42,9 @@ test("should redirect to previous empty offer", function() {
   expect(4);
 
   var currentUserId = JSON.parse(window.localStorage.currentUserId);
-  var user = FactoryGuy.make("user", {id:currentUserId});
-  FactoryGuy.make("offer_with_items", {id:1, createdBy:user}); // check offer with items is not returned
-  FactoryGuy.make("offer",{"id":5, createdBy:user});
+  var user = make("user", {id:currentUserId});
+  make("offer_with_items", {id:1, createdBy:user}); // check offer with items is not returned
+  make("offer",{"id":5, createdBy:user});
 
   visit("/offers");
 

@@ -11,8 +11,8 @@ module('Acceptance: Login', {
     App = startApp();
     TestHelper.setup();
 
-    hk_user = FactoryGuy.build('with_hk_mobile');
-    non_hk_user = FactoryGuy.build('with_non_hk_mobile');
+    hk_user = FactoryGuy.make('with_hk_mobile');
+    non_hk_user = FactoryGuy.make('with_non_hk_mobile');
 
     lookup("controller:subscriptions").pusher = {
       get: function() { return {}; },
@@ -29,7 +29,7 @@ test("User able to enter mobile number and get the sms code", function() {
   expect(1);
 
   logoutUser('/login');
-  fillIn('#mobile', hk_user.mobile);
+  fillIn('#mobile', hk_user.get("mobile"));
   triggerEvent('#mobile', 'blur');
   click("#getsmscode");
 
