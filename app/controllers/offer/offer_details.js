@@ -2,6 +2,7 @@ import Ember from 'ember';
 import '../../computed/local-storage';
 import recordsUtil from '../../utils/records';
 import ItemBaseController from "../item/edit_images";
+const { getOwner } = Ember;
 
 export default ItemBaseController.extend({
   items: Ember.computed.alias('model.items'),
@@ -79,7 +80,7 @@ export default ItemBaseController.extend({
 
     deleteOffer(offer) {
       this.set("cancelByDonor", true);
-      var loadingView = this.container.lookup('component:loading').append();
+      var loadingView = getOwner(this).lookup('component:loading').append();
       offer.deleteRecord();
       offer.save()
         .then(() => {

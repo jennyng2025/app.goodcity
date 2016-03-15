@@ -2,6 +2,7 @@ import Ember from 'ember';
 import AjaxPromise from '../utils/ajax-promise';
 import config from '../config/environment';
 import { translationMacro as t } from "ember-i18n";
+const { getOwner } = Ember;
 
 export default Ember.Controller.extend({
   messageBox: Ember.inject.service(),
@@ -12,7 +13,7 @@ export default Ember.Controller.extend({
 
   actions: {
     registerUser() {
-      var loadingView = this.container.lookup('component:loading').append();
+      var loadingView = getOwner(this).lookup('component:loading').append();
       var mobilePhone = config.APP.HK_COUNTRY_CODE + this.get('mobilePhone');
       var firstName = this.get('firstName');
       var lastName = this.get('lastName');

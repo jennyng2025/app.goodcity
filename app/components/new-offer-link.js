@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { getOwner } = Ember;
 
 export default Ember.Component.extend({
 
@@ -21,7 +22,7 @@ export default Ember.Component.extend({
 
     addNewItem(){
       var store = this.get('targetObject.store');
-      var loadingView = this.container.lookup('component:loading').append();
+      var loadingView = getOwner(this).lookup('component:loading').append();
       var offer = this.get("existingOffer");
       var defaultDonorCondition = store.peekAll("donorCondition").sortBy("id").get("firstObject");
 

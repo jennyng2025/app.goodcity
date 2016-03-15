@@ -1,4 +1,5 @@
 import Ember from 'ember';
+const { getOwner } = Ember;
 
 export default Ember.Controller.extend({
 
@@ -34,7 +35,7 @@ export default Ember.Controller.extend({
         donorDescription: data.donorDescription,
         donorCondition: this.get("store").peekRecord('donorCondition', data.donorConditionId)
       });
-      var loadingView = this.container.lookup('component:loading').append();
+      var loadingView = getOwner(this).lookup('component:loading').append();
 
       this.get("model").save()
         .then(() => {
