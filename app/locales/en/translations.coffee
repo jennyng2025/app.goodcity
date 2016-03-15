@@ -16,7 +16,7 @@ I18nTranslationsEn =
       "my_offers" : "My Offers"
 
     "support":
-      "thanks": "Thanks for the donation."
+      "thanks": "Thank you for your donation."
       "error": "There is an error with payment service. Please try again later."
 
     "tour":
