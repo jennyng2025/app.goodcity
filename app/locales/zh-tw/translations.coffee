@@ -16,8 +16,8 @@ I18nTranslationsZhTw =
       "my_offers" : "我的捐獻"
 
     "support":
-      "thanks": "Thanks for the donation."
-      "error": "There is some error with payment service. Please try again after some time."
+      "thanks": "Thank you for your donation."
+      "error": "There is an error with payment service. Please try again later."
 
     "tour":
       "step1.title" : "1. 圖片上傳及說明"
