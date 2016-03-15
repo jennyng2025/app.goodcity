@@ -7,7 +7,7 @@ export default initFoundation.extend({
     this._super();
 
     Ember.run.scheduleOnce('afterRender', this, function(){
-      var controller = this.get('_controller');
+      var controller = this.get('currentController');
       if(controller && controller.questionAnchor) {
         controller.send('displayQuestion');
       }

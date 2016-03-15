@@ -16,7 +16,7 @@
         </li>
       {{/unless}}
 
-      <li>{{#link-to 'faq'}}{{t "menu.faq"}}{{/link-to}}</li>
+      <li>{{#link-to 'faq' (query-params questionAnchor=null)}}{{t "menu.faq"}}{{/link-to}}</li>
       <li>{{#link-to 'feedback'}}{{t "menu.feedback"}}{{/link-to}}</li>
 
       {{#unless (is-equal config.environment 'production')}}
