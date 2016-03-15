@@ -17,7 +17,7 @@ I18nTranslationsEn =
 
     "support":
       "thanks": "Thanks for the donation."
-      "error": "There is some error with payment service. Please try again after some time."
+      "error": "There is an error with payment service. Please try again later."
 
     "tour":
       "step1.title" : "1. Photograph & describe"
