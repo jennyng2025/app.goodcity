@@ -13,7 +13,7 @@ module.exports = function(environment) {
       }
     },
     contentSecurityPolicy: {
-      "img-src": "'self' data: https://res.cloudinary.com",
+      "img-src": "'self' data: https://res.cloudinary.com filesystem: *",
       "style-src": "'self' 'unsafe-inline' https://maxcdn.bootstrapcdn.com",
       "font-src": "'self' data: https://maxcdn.bootstrapcdn.com",
       "script-src": "'self' 'unsafe-eval' https://widget.uservoice.com https://by2.uservoice.com https://api.sandbox.braintreegateway.com https://client-analytics.sandbox.braintreegateway.com",
@@ -82,7 +82,8 @@ module.exports = function(environment) {
     ENV.contentSecurityPolicy["img-src"] = [
       'http://localhost:4200',
       'data: https://res.cloudinary.com',
-      'blob: filesystem/g'
+      'blob: filesystem/g',
+      'filesystem: *'
     ].join(' ');
   }
 
