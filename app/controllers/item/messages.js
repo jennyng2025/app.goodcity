@@ -1,5 +1,6 @@
 import Ember from "ember";
 import MessagesBaseController from "shared-goodcity/controllers/messages_base";
+const { getOwner } = Ember;
 
 export default MessagesBaseController.extend({
   item: null,
@@ -44,7 +45,7 @@ export default MessagesBaseController.extend({
 
       this.get("messageBox").confirm(this.get("i18n").t("delete_confirm"), () => {
         this.set("cancelByDonor", true);
-        var loadingView = controller.container.lookup('component:loading').append();
+        var loadingView = getOwner(controller).lookup('component:loading').append();
 
         offer.get('items').removeObject(item);
 
