@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import AjaxPromise from 'goodcity/utils/ajax-promise';
+const { getOwner } = Ember;
 
 export default Ember.Component.extend({
 
@@ -18,7 +19,7 @@ export default Ember.Component.extend({
     var authToken = this.get('session.authToken');
     var _this = this;
     var router = this.get("router");
-    var initialLoading = this.container.lookup('component:loading').append();
+    var initialLoading = getOwner(this).lookup('component:loading').append();
     var message;
 
     new AjaxPromise(token_url, "GET", authToken)
@@ -42,7 +43,7 @@ export default Ember.Component.extend({
               return false;
             }
 
-            var loadingView = _this.container.lookup('component:loading').append();
+            var loadingView = getOwner(_this).lookup('component:loading').append();
             _this.set("disabled", true);
             new AjaxPromise(add_customer_url, "POST", authToken, { payment_method_nonce: object.nonce, amount: amount })
               .then((response) => {

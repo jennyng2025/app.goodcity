@@ -7,7 +7,11 @@ export default Ember.Route.extend({
   },
 
   setupController(controller, context, params) {
-    controller.set('questionAnchor', params.queryParams.questionAnchor);
+    if (params.queryParams.questionAnchor && params.queryParams.questionAnchor !== "undefined") {
+      controller.set('questionAnchor', params.queryParams.questionAnchor);
+    } else {
+      params.queryParams.questionAnchor = null;
+    }
   }
 
 });

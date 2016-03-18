@@ -12,7 +12,7 @@ module('Donor Plan Transport:', {
   setup: function() {
     App = startApp();
     TestHelper.setup();
-    store = TestHelper.getStore();
+    store = FactoryGuy.store;
     syncDataStub(TestHelper);
 
     gogovan_transport = FactoryGuy.make('gogovan_transport', { name: 'Van' });
