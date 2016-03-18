@@ -6,14 +6,14 @@ import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 var App;
 
 module('Create New Offer', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
 
     // prevent request to express server which returns 4 offers
     TestHelper.mockFindAll("offer", 0);
   },
-  teardown: function() {
+  afterEach: function() {
     Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }

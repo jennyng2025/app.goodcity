@@ -9,7 +9,7 @@ var App, offer1, item1, offer2, item2, offer3, item3, offer4,
   offer6, item6, offer7, offer8, ggv_order3, delivery3;
 
 module('Display Transport Details', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
     syncDataStub(TestHelper);
@@ -42,7 +42,7 @@ module('Display Transport Details', {
     offer7 = FactoryGuy.make("offer_with_items", {state:"received"});
   },
 
-  teardown: function() {
+  afterEach: function() {
     Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }

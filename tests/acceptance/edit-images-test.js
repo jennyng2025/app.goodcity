@@ -10,7 +10,7 @@ import '../factories/image';
 var App, offer, item, img1, img2, edit_images_url;
 
 module('Edit Images', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
     syncDataStub(TestHelper);
@@ -29,7 +29,7 @@ module('Edit Images', {
     edit_images_url = "/offers/" + offer.id + "/items/" + item.id + "/edit_images";
   },
 
-  teardown: function() {
+  afterEach: function() {
     Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }

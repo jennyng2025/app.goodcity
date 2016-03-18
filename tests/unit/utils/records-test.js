@@ -8,12 +8,12 @@ import TestHelper from 'ember-data-factory-guy/factory-guy-test-helper';
 var store, App;
 
 module("Records Util", {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
     store = FactoryGuy.store;
   },
-  teardown: function() {
+  afterEach: function() {
     Em.run(function() { TestHelper.teardown(); });
   }
 });

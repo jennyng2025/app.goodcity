@@ -8,7 +8,7 @@ var App, offer, offer2, offer3, reviewer, item1, item2, item3,
   message1, message2, msg1_time;
 
 module('Display Offer Details', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
     syncDataStub(TestHelper);
@@ -25,7 +25,7 @@ module('Display Offer Details', {
     offer3 = FactoryGuy.make("offer_with_items", {state:"scheduled"});
   },
 
-  teardown: function() {
+  afterEach: function() {
     Em.run(function() { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }

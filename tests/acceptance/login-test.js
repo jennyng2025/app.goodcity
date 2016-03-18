@@ -7,7 +7,7 @@ import '../factories/user_profile';
 var App, hk_user, non_hk_user;
 
 module('Acceptance: Login', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     TestHelper.setup();
 
@@ -19,7 +19,7 @@ module('Acceptance: Login', {
       wire: function() {}
     };
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(function () { TestHelper.teardown(); });
     Ember.run(App, 'destroy');
   }

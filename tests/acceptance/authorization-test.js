@@ -4,12 +4,12 @@ import startApp from '../helpers/start-app';
 var App, t;
 
 module('Authorization', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     var i18n = App.__container__.lookup('service:i18n');
     t = i18n.t.bind(i18n);
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(App, 'destroy');
   }
 });

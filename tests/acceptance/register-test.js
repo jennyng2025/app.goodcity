@@ -8,12 +8,12 @@ import '../factories/district';
 var App, hk_user;
 
 module('Acceptance: Register', {
-  setup: function() {
+  beforeEach: function() {
     App = startApp();
     lookup('service:session').set('authToken', null);
     hk_user = FactoryGuy.make('with_hk_mobile');
   },
-  teardown: function() {
+  afterEach: function() {
     Ember.run(App, 'destroy');
   }
 });
