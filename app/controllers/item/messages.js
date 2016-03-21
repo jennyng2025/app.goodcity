@@ -4,7 +4,7 @@ const { getOwner } = Ember;
 
 export default MessagesBaseController.extend({
   item: null,
-  noMessage: Ember.computed.empty("model"),
+  noMessage: Ember.computed.empty("messages"),
   offerDetailsController: Ember.inject.controller("offer/offer_details"),
 
   messageBox: Ember.inject.service(),
