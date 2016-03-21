@@ -1,19 +1,26 @@
-<nav class="tab-bar sticky_title_bar">
-  <section class="left-small">
-    {{link-to (t "back") 'offers' classNames='back'}}
-  </section>
+<div class="off-canvas-wrap" data-offcanvas>
+  <div class="inner-wrap">
+    {{outlet "appMenuList"}}
 
-  <section class="middle tab-bar-section">
-    <h1 class="title">{{t "menu.support_gc"}}</h1>
-  </section>
-</nav>
+    <nav class="tab-bar">
+      <section class="left-small">
+        <a class="left-off-canvas-toggle menu-icon" href="#"><span></span></a>
+      </section>
 
-<section class="main-section faq_list offer_messages_section">
-  <div class="row">
-    <div class="small-12 columns">
+      <section class="middle tab-bar-section">
+        <h1 class="title">{{t "menu.support_gc"}}</h1>
+      </section>
+    </nav>
 
-      {{braintree-form}}
+    <section class="main-section faq_list">
+      <div class="row">
+        <div class="small-12 columns">
 
-    </div>
+          {{braintree-form}}
+
+        </div>
+      </div>
+    </section>
+
   </div>
-</section>
+</div>
