@@ -26,7 +26,7 @@ export default MessagesBaseController.extend({
 
     if(this.get("isItemVanished") && !this.get("cancelByDonor")) {
       if(currentPath.indexOf(`items/${this.get("item.id")}`) >= 0) {
-        this.get("messageBox").alert(this.get("i18n").t("404_error"), () => this.transitionTo("offers"));
+        this.get("messageBox").alert(this.get("i18n").t("404_error"), () => this.transitionToRoute("offers"));
       }
     }
   }),

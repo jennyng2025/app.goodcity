@@ -27,7 +27,7 @@ export default ItemBaseController.extend({
 
     if(this.get("isOfferVanished") && !this.get("cancelByDonor")) {
       if(currentPath.indexOf(`offers/${this.get("model.id")}`) >= 0 && currentPath.indexOf("items") < 0) {
-        this.get("messageBox").alert(this.get("i18n").t("404_error"), () => this.transitionTo("offers"));
+        this.get("messageBox").alert(this.get("i18n").t("404_error"), () => this.transitionToRoute("offers"));
       }
     }
   }),
