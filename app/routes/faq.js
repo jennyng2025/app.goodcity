@@ -12,6 +12,18 @@ export default Ember.Route.extend({
     } else {
       params.queryParams.questionAnchor = null;
     }
+  },
+
+  renderTemplate() {
+    this.render(); // default template
+
+    if(this.get('session.isLoggedIn')) {
+      this.render('appMenuList', {
+        into: 'faq',
+        outlet: 'appMenuList',
+        controller: 'application'
+      });
+    }
   }
 
 });
