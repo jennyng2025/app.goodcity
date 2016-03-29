@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="hk.goodcity.app" version="0.6.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>GoodCity</name>
+<widget id="hk.goodcity.appdev" version="0.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>D. GoodCity</name>
   <description>The GoodCity initiative is a new way to donate quality goods in Hong Kong. See www.goodcity.hk for more details.</description>
   <author href="https://www.crossroads.org.hk">Crossroads</author>
   <icon src="www/assets/images/goodcity-icon-128.png"/>
   <content src="index.html"/>
   <platform name="android">
-    <hook type="before_prepare" src="scripts/prepareConfigXml.js"/>
     <hook type="after_prepare" src="scripts/copyAndroidAssets.js"/>
     <preference name="LoadUrlTimeoutValue" value="120000"/>
     <preference name="SplashScreen" value="screen"/>
