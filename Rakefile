@@ -292,18 +292,6 @@ def build_details
   _build_details
 end
 
-def lock_expired?
-  File.exists?(LOCK_FILE) && (Time.now - File.mtime(LOCK_FILE)).to_i > LOCK_FILE_MAX_AGE
-end
-
-def create_lock!
-  FileUtils.touch(LOCK_FILE)
-end
-
-def delete_lock!
-  FileUtils.rm(LOCK_FILE) if File.exists?(LOCK_FILE)
-end
-
 def log(msg="")
   puts(Time.now.to_s << " " << msg)
 end
