@@ -138,6 +138,12 @@ module.exports = function(environment) {
 
     ENV.googleAnalytics = { webPropertyId: 'UA-62978462-4' };
     ENV.cordova.GcmSenderId = '161361907015';
+
+    // VSO build
+    if (process.env.BUILD_BUILDNUMBER) {
+      ENV.APP.VERSION = process.env.VERSION + "." + process.env.BUILD_BUILDNUMBER;
+      ENV.APP.APP_SHA = process.env.BUILD_SOURCEVERSION;
+    }
   } else {
     ENV.staging = false;
   }
