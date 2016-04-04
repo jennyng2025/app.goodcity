@@ -16,6 +16,8 @@ I18nTranslationsZhTw =
       "my_offers" : "我的捐獻"
 
     "support":
+      "amount": "Amount"
+      "proceed": "Proceed"
       "thanks": "Thank you for your donation."
       "error": "There is an error with payment service. Please try again later."
 
